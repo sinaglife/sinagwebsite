@@ -9,17 +9,13 @@ import Mosaic from "../../components/Mosaic/Mosaic";
 import CenterImage from "./CenterImage/CenterImage";
 
 const Body = (props) => {
-  console.log("Connected to netlify");
+  console.log("Are we Connected to netlify?", true);
 
   return (
     <div className={classes.Home}>
       <Slider />
-      {/* <Spinner animation="border" variant="warning" /> */}
       <CenterImage />
       <img alt={"Taller"} src={Taller} className={classes.ImgSec3} />
-      {/* <div className={classes.Sec2Text}>
-      <p>La vida te da sorpresas, sorpresas te da la vida... R.B.</p>
-    </div> */}
 
       <Mosaic
         clickMosaic={props.clickMosaic}
