@@ -10,6 +10,7 @@ import CenterImage from "./CenterImage/CenterImage";
 
 const Body = (props) => {
   console.log("Are we Connected to netlify?", true);
+  console.log("Are we Connected to github?", true);
 
   return (
     <div className={classes.Home}>
