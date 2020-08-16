@@ -1,0 +1,98 @@
+@import "../../../styles/utils/variables";
+
+.PostContainer {
+  width: 90%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.PostTitle {
+}
+
+.PostSecondaryTitle {
+}
+
+.PostParagraph {
+  margin: 10px;
+  text-align: justify;
+  vertical-align: middle;
+}
+
+.rowImg {
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.PostRow {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.RowImgComplete {
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.Pfix {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .rowImg {
+    width: 75%;
+    margin: 20px auto;
+  }
+
+  .RowImgComplete {
+    width: 75%;
+    margin: 20px auto;
+  }
+
+  .PostParagraph {
+    margin: 20px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .PostRow {
+    flex-direction: row;
+  }
+
+  .rowImg {
+    max-width: 50%;
+    border-radius: 10px;
+  }
+
+  .RowImgComplete {
+    width: 60%;
+    margin: 20px auto;
+    border-radius: 10px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .rowImg {
+    max-width: 35%;
+    border-radius: 15px;
+  }
+  .RowImgComplete {
+    border-radius: 15px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .rowImg {
+    max-width: 25%;
+  }
+}

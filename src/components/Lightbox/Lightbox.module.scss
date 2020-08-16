@@ -1,0 +1,81 @@
+@import "../../styles/utils/variables";
+
+.ImgShow {
+    z-index: 700;
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.ImgShow img {
+    width: 100%;
+    height: auto;
+}
+
+.Buttons {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    transition: 0.5s;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .GoLeft {
+    @extend .Buttons;
+    left: 0;
+  }
+  
+  .GoRight {
+    @extend .Buttons;
+    right: 0;
+  }
+  
+  .Arrow {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border: solid $colorTwo;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    color: white;
+    box-sizing: border-box;
+  }
+  
+  .ArrowLeft {
+    @extend .Arrow;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .ArrowRight {
+    @extend .Arrow;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  @media (min-width: 575.99px) and (max-width: 767.98px) {
+    .ImgShow {width: 70%;}
+  }
+  
+  @media (min-width: 767.99px) and (max-width: 991.98px) {
+    .ImgShow {width: 50%;}
+  }
+  @media screen and (min-width: 991.99px) {
+    .ImgShow {width: 33.33%;}
+    .Arrow {
+      height: 16px;
+      width: 16px;
+      border-width: 0 3px 3px 0;
+    }
+  }

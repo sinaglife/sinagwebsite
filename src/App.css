@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+.contentBox {
+  padding-top: 90px;
+}
+
+@media (min-width: 450px) and (max-width: 575.98px) {
+  .contentBox {
+    padding-top: 120px;
+  }
+}
+@media (min-width: 575.99px) and (max-width: 767.98px) {
+  .contentBox {
+    padding-top: 145px;
+  }
+}
+@media (min-width: 767.99px) and (max-width: 991.98px) {
+  .contentBox {
+    padding-top: 170px;
+  }
+}
+@media (min-width: 991.99px) {
+  .contentBox {
+    padding-top: 190px;
+  }
+}

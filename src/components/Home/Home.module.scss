@@ -1,0 +1,18 @@
+@import "../../styles/utils/variables";
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.ImgSec3 {
+  object-fit: cover;
+  width: 100%;
+}
+
+.ImgDiv {
+  display: flex;
+  flex-flow: column;
+}

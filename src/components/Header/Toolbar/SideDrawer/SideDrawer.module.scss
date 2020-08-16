@@ -1,0 +1,59 @@
+@import "../../../../styles/utils/variables";
+
+.SideDrawer {
+  background-color: $colorThree;
+  box-shadow: 1px, 0px, 7px, rgba(0, 0, 0, 0.5);
+  position: fixed;
+  max-width: 400px;
+  top: 0;
+  left: 0;
+  z-index: 700;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  border: 1px solid $colorFour;
+}
+
+.SideDrawer.open {
+  transform: translateX(0);
+}
+
+.SideDrawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.SideDrawer li {
+  cursor: pointer;
+  padding: 2.5rem 2.5rem 2.5rem 0.5rem;
+  &:hover,
+  &:active {
+    background-color: $colorFive;
+  }
+  border-top: 1px solid #a1895480;
+}
+
+.TextBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+}
+
+.item:hover .itemText {
+  color: $colorOne;
+}
+
+.SideDrawer a {
+  color: $colorOne;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
