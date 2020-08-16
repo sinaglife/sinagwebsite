@@ -4,7 +4,7 @@ import Auxi from "../../../hoc/Auxi";
 
 import { useParams } from "@reach/router";
 
-import classes from "./WordpressPost.module.scss";
+import classes from "./BlogPost.module.scss";
 
 const WordpressPost = (props) => {
   const [postData, setPostData] = useState(null);

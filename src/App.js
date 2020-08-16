@@ -4,18 +4,16 @@ import { Router } from "@reach/router";
 
 import "./App.css";
 import Aux from "./hoc/Auxi";
-import Header from "./components/Header/Header";
-import WordpressMosaic from "./components/WordpressMosaic/WordpressMosaic";
-import WordpressSlider from "./components/WordpressSlider/WordpressSlider";
-import WordpressBlog from "./components/WordpressBlog/WordpressBlog";
-import WordpressPost from "./components/WordpressBlog/WordpressPost/WordpressPost";
-import Footer from "./components/Footer/Footer";
-import Home from "./components/Home/Home";
+import Header from "./Layout/Header/Header";
+import WordpressMosaic from "./components/Mosaic/Mosaic";
+import BlogPost from "./Pages/Blog/BlogPost/BlogPost";
+import Footer from "./Layout/Footer/Footer";
+import Home from "./Pages/Home/Home";
 import Tienda from "./Pages/Tienda/Tienda";
 import Japamalas from "./Pages/Japamalas/Japamalas";
 import Kokedamas from "./Pages/Kokedamas/Kokedamas";
 import Blog from "./Pages/Blog/Blog";
-import SideDrawer from "./components/Header/Toolbar/SideDrawer/SideDrawer";
+import SideDrawer from "./Layout/SideDrawer/SideDrawer"
 import Backdrop from "./components/Backdrop/Backdrop";
 
 class App extends Component {
@@ -74,9 +72,7 @@ class App extends Component {
               <Kokedamas path="/Kokedamas" />
               <Blog path="/Blog" />
               <WordpressMosaic path="/wordpressmosaic" />
-              <WordpressSlider path="/wordpressslider" />
-              <WordpressBlog path="/wordpressblog" />
-              <WordpressPost path="/blog/:slug" />
+              <BlogPost path="/blog/:slug" />
             </Router>
           </div>
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import classes from "./WordpressMosaic.module.scss";
+import classes from "./Mosaic.module.scss";
 
 import Lightbox from "../Lightbox/Lightbox";
 import Auxi from "../../hoc/Auxi";
 
-const WordpressMosaic = () => {
+const Mosaic = () => {
   const [productData, setProductData] = useState(null);
 
   const [lightImgsArr, setLightImgsArr] = useState([]);
@@ -74,4 +74,4 @@ const WordpressMosaic = () => {
   );
 };
 
-export default WordpressMosaic;
+export default Mosaic;

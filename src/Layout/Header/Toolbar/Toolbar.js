@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 
 import classes from "./Toolbar.module.scss";
 import Logo from "./logosinagvectoriced.png";
-import Button from "../../UI/button/index";
+import Button from "../../../components/UI/button/index";
 
 const toolbar = (props) => (
   <div className={classes.Toolbar}>

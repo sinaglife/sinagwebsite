@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "@reach/router";
 
 import classes from "./SideDrawer.module.scss";
-import Button from "../../../UI/button/index";
+import Button from "../../components/UI/button/index";
 
-const sideDrawer = (props) => {
+const SideDrawer = (props) => {
   return (
     <nav className={`${classes.SideDrawer} ${props.show ? classes.open : ""}`}>
       <ul>
@@ -45,4 +45,4 @@ const sideDrawer = (props) => {
   );
 };
 
-export default sideDrawer;
+export default SideDrawer;

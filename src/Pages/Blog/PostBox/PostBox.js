@@ -1,12 +1,10 @@
 import React from "react";
-import axios from "axios";
 import { Link } from "@reach/router";
 
 import classes from "./PostBox.module.scss";
 
-import WordpressPost from "../PostBox/PostBox";
 
-const WordpressBlog = ({ postData }) => {
+const BlogPost = ({ postData }) => {
   console.log(postData);
   return (
     <div className={classes.PostBoxContainer}>
@@ -18,4 +16,4 @@ const WordpressBlog = ({ postData }) => {
   );
 };
 
-export default WordpressBlog;
+export default BlogPost;
