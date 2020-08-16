@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
 
+import Button from "../../components/UI/button/index";
 import classes from "./Footer.module.scss";
-import Button from "../UI/button/index";
 
 const bottom = () => (
   <footer className={classes.Bottom}>

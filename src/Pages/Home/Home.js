@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 // import Spinner from 'react-bootstrap/Spinner'+
 
-import axios from "axios";
-
 import Slider from "./Slider/Slider";
 import classes from "./Home.module.scss";
 import Piedras from "./Piedras.jpeg";
 import Taller from "./Taller.jpeg";
-import Mosaic from "./Mosaic/Mosaic";
+import Mosaic from "../../components/Mosaic/Mosaic";
 import CenterImage from "./CenterImage/CenterImage";
 
 const Body = (props) => {
