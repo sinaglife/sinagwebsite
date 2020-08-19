@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Link } from "@reach/router";
+
 import "./CenterImage.css";
 
 class CenterImage extends Component {
@@ -9,7 +11,9 @@ class CenterImage extends Component {
         <div className="center2">
           <p className="paragraph1">Inspirados en crear desde el alma...</p>
           <div className="buttonToBlog">
+          <Link to='Blog'>
             <button>Blog</button>
+          </Link>
           </div>
           <div className="btnToBlog"></div>
         </div>

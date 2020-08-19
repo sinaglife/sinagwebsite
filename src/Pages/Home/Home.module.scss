@@ -16,3 +16,20 @@
   display: flex;
   flex-flow: column;
 }
+
+.tallerButton {
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  padding: 1% 2%;
+  transform: translate(-50%,-50%);
+  border-radius: 7%;
+  font-family: 'Great Vibes', cursive;
+  font-size: x-large;
+  width: 20%;
+}
+
+.ParaImg {
+  object-fit: contain;
+}

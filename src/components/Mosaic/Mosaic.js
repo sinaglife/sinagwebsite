@@ -21,8 +21,7 @@ const Mosaic = () => {
           (page) => page.parent === 5 && page.acf.product_showInMosaic
         );
         productArray = productArray.concat(productArray);
-        productArray = productArray.concat(productArray);
-        productArray = productArray.concat(productArray);
+        productArray = productArray.concat(productArray).concat(productArray);
         setProductData(productArray);
       });
   }, []);

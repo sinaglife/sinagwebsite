@@ -22,7 +22,6 @@
     background: none;
     border: none;
     cursor: pointer;
-    background: none;
     outline: none;
     transition: 0.5s;
     &:hover {
@@ -30,6 +29,8 @@
     }
   }
   
+  
+
   .GoLeft {
     @extend .Buttons;
     left: 0;
