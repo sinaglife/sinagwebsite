@@ -7,7 +7,7 @@ import Toolbar from "./Toolbar/Toolbar";
 const Header = (props) => (
   <header className={classes.Header}>
     <Top />
-    <Toolbar click={props.clickDrawerButton}/>
+    <Toolbar click={props.clickDrawerButton} />
   </header>
 );
 

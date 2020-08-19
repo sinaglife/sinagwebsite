@@ -3,8 +3,7 @@ import { Link } from "@reach/router";
 
 import classes from "./PostBox.module.scss";
 
-
-const BlogPost = ({ postData }) => {
+const PostBox = ({ postData }) => {
   console.log(postData);
   return (
     <div className={classes.PostBoxContainer}>
@@ -16,4 +15,4 @@ const BlogPost = ({ postData }) => {
   );
 };
 
-export default BlogPost;
+export default PostBox;
