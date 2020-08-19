@@ -1,7 +1,4 @@
 
-
-
-
 .center {
    width: 100%;
     
@@ -10,29 +7,25 @@
 
 .center2 {
     text-align: center;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%);
     letter-spacing: 10px;
     position: relative;
-    background-color: white;
+    background-color: rgb(252, 228, 207);
     width: 50%;
-    bottom: 80px;
     font-size: 1.4rem;
-    height: 160px;
+    height: 150px;
+    z-index: 100;
     font-family: 'Great Vibes', cursive;
 }
 
-.center2 .texth2 {
-   
-    
-    
-}
 .paragraph1 {
     
     margin: 0%;
     font-style: italic;
     padding: 5%;
     font-family: 'Dancing Script', cursive;
-    font-size: 30px;
+    font-size: large;
 }
 
 .buttonToBlog button {
@@ -45,6 +38,8 @@
     font-size: 18px;
     margin: 6px 0;
     cursor: pointer;
+    border-radius: 7%;
+  font-size: x-large;
 }
 
 .btnToBlog {

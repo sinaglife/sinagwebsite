@@ -11,27 +11,32 @@ h6 {
   text-align: center;
 }
 
+button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
 .contentBox {
-  padding-top: 90px;
+  padding-top: 60px;
 }
 
 @media (min-width: 450px) and (max-width: 575.98px) {
   .contentBox {
-    padding-top: 120px;
+    padding-top: 85px;
   }
 }
 @media (min-width: 575.99px) and (max-width: 767.98px) {
   .contentBox {
-    padding-top: 145px;
+    padding-top: 105px;
   }
 }
 @media (min-width: 767.99px) and (max-width: 991.98px) {
   .contentBox {
-    padding-top: 170px;
+    padding-top: 130px;
   }
 }
 @media (min-width: 991.99px) {
   .contentBox {
-    padding-top: 190px;
+    padding-top: 150px;
   }
 }
