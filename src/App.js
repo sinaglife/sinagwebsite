@@ -13,7 +13,7 @@ import Tienda from "./Pages/Tienda/Tienda";
 import Japamalas from "./Pages/Japamalas/Japamalas";
 import Kokedamas from "./Pages/Kokedamas/Kokedamas";
 import Blog from "./Pages/Blog/Blog";
-import SideDrawer from "./Layout/SideDrawer/SideDrawer"
+import SideDrawer from "./Layout/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
 
 class App extends Component {

@@ -13,6 +13,12 @@ code {
     monospace;
 }
 
+p,
+a {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 a {
   text-decoration: none !important;
   color: black !important;
