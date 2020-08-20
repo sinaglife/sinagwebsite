@@ -22,7 +22,7 @@ const WordpressPost = (props) => {
         });
         setPostData(postsArray[0]);
       });
-  }, [props]);
+  }, [props, params.slug]);
 
   useEffect(() => {
     if (postData) {
@@ -109,7 +109,7 @@ const WordpressPost = (props) => {
       });
       setPostRows(rows);
     }
-  }, [maxRows]);
+  }, [maxRows, postData.acf]);
 
   return postData ? (
     <div className={classes.PostContainer}>

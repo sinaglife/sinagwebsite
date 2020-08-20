@@ -3,7 +3,7 @@ import axios from "axios";
 
 import classes from "./Blog.module.scss";
 
-import PostBox2 from "./PostBox2/PostBox2";
+import PostBox from "./PostBox/PostBox";
 
 const Blog = (props) => {
   const [blogData, setBlogData] = useState(null);
@@ -12,6 +12,7 @@ const Blog = (props) => {
     axios
       .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts`)
       .then((resp) => {
+        console.log(resp)
         let postsArray = resp.data;
         postsArray = postsArray.concat(postsArray);
         postsArray = postsArray.concat(postsArray);
@@ -24,11 +25,11 @@ const Blog = (props) => {
     <div className={classes.Blog}>
       <h2 className={classes.BlogTitle}>Blog</h2>
       <p className={classes.BlogDescription}>
-        Los mejores artículos sobre el cudiado de tu ser:
+        Los mejores artículos sobre el cuidado de tu ser:
       </p>
       <div className={classes.PostFlexContainer}>
         {blogData.map((post) => {
-          return <PostBox2 key={post.acf.post_title} postData={post} />;
+          return <PostBox key={post.acf.post_title} postData={post} />;
         })}
       </div>
     </div>
