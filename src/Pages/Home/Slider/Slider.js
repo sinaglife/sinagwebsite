@@ -11,7 +11,7 @@ function Slider() {
     axios
       .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/pages`)
       .then((resp) => {
-        const dataArray = resp.data.filter((page) => page.parent === 31);
+        const dataArray = resp.data.filter((page) => page.parent === 134);
         setSliderData(dataArray);
       });
   }, []);
@@ -22,7 +22,6 @@ function Slider() {
 
   useEffect(() => {
     if (sliderData) {
-      console.log(sliderData);
 
       let sortedData = sliderData.sort(function (a, b) {
         return (

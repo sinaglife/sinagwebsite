@@ -6,18 +6,20 @@ import { useParams } from "@reach/router";
 
 import classes from "./BlogPost.module.scss";
 
-const WordpressPost = (props) => {
-  const [postData, setPostData] = useState(null);
+const BlogPost = (props) => {
+  const [postData, setPostData] = useState();
   const [postRows, setPostRows] = useState(null);
   const [maxRows, setMaxRows] = useState(0);
   const params = useParams();
 
   useEffect(() => {
     axios
-      .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts`)
+      .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
       .then((resp) => {
+        console.log(resp)
         let postsArray = resp.data;
         postsArray = resp.data.filter((post) => {
+          console.log(post.slug === params.slug);
           return post.slug === params.slug;
         });
         setPostData(postsArray[0]);
@@ -109,7 +111,7 @@ const WordpressPost = (props) => {
       });
       setPostRows(rows);
     }
-  }, [maxRows, postData.acf]);
+  }, [maxRows]);
 
   return postData ? (
     <div className={classes.PostContainer}>
@@ -122,4 +124,4 @@ const WordpressPost = (props) => {
   ) : null;
 };
 
-export default WordpressPost;
+export default BlogPost;

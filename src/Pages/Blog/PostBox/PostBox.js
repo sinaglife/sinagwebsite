@@ -1,18 +1,20 @@
 import React from "react";
 
 import classes from "./PostBox.module.scss";
+import { Link } from "@reach/router";
 
 // guía de tarjeta -> https://codepen.io/carlita712/pen/mNLzye
 
-const PostBox3 = ({ postData }) => {
-  console.log(postData);
+const PostBox = ({ postData }) => {
+  console.log(postData.slug)
   return (
 
+    <Link to= {"blog/"+postData.slug}>
     <div className={classes.card}>
       <div className={classes.imgAvatar}>
         {/* imagen del circulito */}
       </div>
-        <div className={classes.cardText}>
+        <div className={classes.cardText} href=''>
           <div className={classes.portada} style={{backgroundImage: `url(${postData.acf.post_lobbyImage.url})`}}>
           </div>
           <div className={classes.titleTotal}>   
@@ -27,7 +29,7 @@ const PostBox3 = ({ postData }) => {
           </div> 
         </div>
     </div>
-
+    </Link>
 
 
 
@@ -54,4 +56,4 @@ const PostBox3 = ({ postData }) => {
 
 };
 
-export default PostBox3;
+export default PostBox;

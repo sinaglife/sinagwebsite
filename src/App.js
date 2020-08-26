@@ -70,7 +70,7 @@ class App extends Component {
               <Tienda path="/Tienda" />
               <Japamalas path="/Japamalas" />
               <Kokedamas path="/Kokedamas" />
-              <Blog path="/Blog" />
+              <Blog path="/blog" />
               <WordpressMosaic path="/wordpressmosaic" />
               <BlogPost path="/blog/:slug" />
             </Router>

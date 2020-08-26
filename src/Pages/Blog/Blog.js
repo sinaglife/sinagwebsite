@@ -14,9 +14,6 @@ const Blog = (props) => {
       .then((resp) => {
         console.log(resp)
         let postsArray = resp.data;
-        postsArray = postsArray.concat(postsArray);
-        postsArray = postsArray.concat(postsArray);
-        postsArray = postsArray.concat(postsArray);
         setBlogData(postsArray);
       });
   }, [props]);
