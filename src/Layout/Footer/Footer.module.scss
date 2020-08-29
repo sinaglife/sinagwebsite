@@ -1,11 +1,10 @@
-
-
 .Bottom {
   background-color: #f5ba8c;
   text-align: center;
   display: flex;
   justify-content: space-evenly;
   padding: 25px 10px;
+  
 
   .FooterSection {
     display: flex;
@@ -34,12 +33,6 @@
     display: flex;
     align-items: center;
   }
-  
-  .Text {
-    text-decoration: none;
-    color: black;
-  }
-  
 
  @media (min-width: 575.99px) and (max-width: 767.98px) {
     .Bottom { padding: 30px;}

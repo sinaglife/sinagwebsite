@@ -4,17 +4,19 @@ import { Link } from "@reach/router";
 import classes from "./Toolbar.module.scss";
 import Logo from "./logosinagvectoriced.png";
 import Button from "../../../components/UI/button/index";
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
+
 
 const toolbar = (props) => (
   <div className={classes.Toolbar}>
     <div className={classes.primaryButtonMenu}>
-      <Button
-        icon="menuBars"
-        color="black"
-        size="medium"
+      <IconButton
         onClick={props.click}
-        padding="noPadding"
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     </div>
     <Link to="/" className={classes.Toolbar_Logo}>
       <img alt="SinagVibes&Designs" src={Logo} />

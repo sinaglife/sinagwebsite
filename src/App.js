@@ -5,7 +5,6 @@ import { Router } from "@reach/router";
 import "./App.css";
 import Aux from "./hoc/Auxi";
 import Header from "./Layout/Header/Header";
-import WordpressMosaic from "./components/Mosaic/Mosaic";
 import BlogPost from "./Pages/Blog/BlogPost/BlogPost";
 import Footer from "./Layout/Footer/Footer";
 import Home from "./Pages/Home/Home";
@@ -14,7 +13,9 @@ import Japamalas from "./Pages/Japamalas/Japamalas";
 import Kokedamas from "./Pages/Kokedamas/Kokedamas";
 import Blog from "./Pages/Blog/Blog";
 import SideDrawer from "./Layout/SideDrawer/SideDrawer";
+// import SideDrawer2 from "./Layout/SideDrawer/SideDrawer2";
 import Backdrop from "./components/Backdrop/Backdrop";
+// import Sd from "./Layout/SideDrawer/sd"
 
 class App extends Component {
   state = {
@@ -70,9 +71,8 @@ class App extends Component {
               <Tienda path="/Tienda" />
               <Japamalas path="/Japamalas" />
               <Kokedamas path="/Kokedamas" />
-              <Blog path="/blog" />
-              <WordpressMosaic path="/wordpressmosaic" />
-              <BlogPost path="/blog/:slug" />
+              <Blog path="/Blog" />
+              <BlogPost path="blog/:slug" />
             </Router>
           </div>
 

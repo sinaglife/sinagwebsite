@@ -9,26 +9,26 @@ const PostBox = ({ postData }) => {
   console.log(postData.slug)
   return (
 
-    <Link to= {"blog/"+postData.slug}>
-    <div className={classes.card}>
-      <div className={classes.imgAvatar}>
-        {/* imagen del circulito */}
-      </div>
-        <div className={classes.cardText} href=''>
-          <div className={classes.portada} style={{backgroundImage: `url(${postData.acf.post_lobbyImage.url})`}}>
-          </div>
-          <div className={classes.titleTotal}>   
-            <div className={classes.title}>Ant Collector</div>
-            <h2>{postData.acf.post_title}</h2>
-            <div className={classes.desc}>Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
-              {/* <div className={classes.actions}>
-                <button><i className={classes.far fa-heart}></i></button>
-                <button><i className={classes.far fa-envelope}></i></button>
-                <button><i className={classes.fas fa-user-friends}></i></button>
-                </div> */}
-          </div> 
+    <Link to= {"/blog/"+postData.slug}>
+      <div className={classes.card}>
+        <div className={classes.imgAvatar}>
+          {/* imagen del circulito */}
         </div>
-    </div>
+          <div className={classes.cardText} href=''>
+            <div className={classes.portada} style={{backgroundImage: `url(${postData.acf.post_lobbyImage.url})`}}>
+            </div>
+            <div className={classes.titleTotal}>   
+              <div className={classes.title}>Ant Collector</div>
+              <h2>{postData.acf.post_title}</h2>
+              <div className={classes.desc}>Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+                {/* <div className={classes.actions}>
+                  <button><i className={classes.far fa-heart}></i></button>
+                  <button><i className={classes.far fa-envelope}></i></button>
+                  <button><i className={classes.fas fa-user-friends}></i></button>
+                  </div> */}
+            </div> 
+          </div>
+      </div>
     </Link>
 
 

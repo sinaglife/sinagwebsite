@@ -9,8 +9,9 @@ function Slider() {
 
   useEffect(() => {
     axios
-      .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/pages`)
+      .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100`)
       .then((resp) => {
+        console.log(resp)
         const dataArray = resp.data.filter((page) => page.parent === 134);
         setSliderData(dataArray);
       });

@@ -10,9 +10,8 @@ const Blog = (props) => {
 
   useEffect(() => {
     axios
-      .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts`)
+      .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
       .then((resp) => {
-        console.log(resp)
         let postsArray = resp.data;
         setBlogData(postsArray);
       });

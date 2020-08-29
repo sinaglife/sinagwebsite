@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 // import { Router } from '@reach/router'
@@ -8,9 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   // <Router>
-  <React.StrictMode>
     <App />
-  </React.StrictMode>,
+,
   // </Router>
   document.getElementById("root")
 );
