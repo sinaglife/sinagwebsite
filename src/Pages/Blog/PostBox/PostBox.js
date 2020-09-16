@@ -6,7 +6,7 @@ import { Link } from "@reach/router";
 // guía de tarjeta -> https://codepen.io/carlita712/pen/mNLzye
 
 const PostBox = ({ postData }) => {
-  console.log(postData.slug)
+  console.log(postData)
   return (
 
     <Link to= {"/blog/"+postData.slug}>
@@ -18,9 +18,9 @@ const PostBox = ({ postData }) => {
             <div className={classes.portada} style={{backgroundImage: `url(${postData.acf.post_lobbyImage.url})`}}>
             </div>
             <div className={classes.titleTotal}>   
-              <div className={classes.title}>Ant Collector</div>
+              <div className={classes.title}>{postData.acf.post_upper_title}</div>
               <h2>{postData.acf.post_title}</h2>
-              <div className={classes.desc}>Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+              <div className={classes.desc}>{postData.acf.post_summary}</div>
                 {/* <div className={classes.actions}>
                   <button><i className={classes.far fa-heart}></i></button>
                   <button><i className={classes.far fa-envelope}></i></button>
