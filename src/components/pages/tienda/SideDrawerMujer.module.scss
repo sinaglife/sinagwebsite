@@ -1,0 +1,37 @@
+@import "../../ui/Variable";
+
+.sidedrawer__nav{
+    width: 15rem;
+    height: 30rem;
+    background-color: #b3a690;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    z-index: 710;
+    border: 0.5px solid $colorFour;
+    ul{
+        margin-top: 5%;
+    }
+}
+
+.sidedrawer__list{
+    margin: 5%;
+    list-style: none;
+    border-top: 1px solid #a1895480;
+}
+
+.sidedrawer__title{
+    margin: 20% 20% 20% 0%;
+    font-size: 25px;
+    color: white;
+    padding: 3%;
+}
+
+.sidedrawer__list:hover p{
+    color:black;
+   
+}
+.sidedrawer__nav.show{
+    transform: translateX(0);
+}

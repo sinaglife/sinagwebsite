@@ -1,0 +1,16 @@
+
+.sliderText{
+    color:white;
+    font-family: 'Parisienne', cursive;
+    font-family: 'Playfair Display', serif;
+    
+}
+
+.sliderTitle{
+    @extend.sliderText;
+    
+}
+
+.sliderSubTitle{
+    @extend.sliderText;
+}
