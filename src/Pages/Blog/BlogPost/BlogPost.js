@@ -16,18 +16,19 @@ const BlogPost = (props) => {
     axios
       .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
       .then((resp) => {
-        console.log('hola')
         let postsArray = resp.data;
         postsArray = resp.data.filter((post) => {
-          console.log(post.slug === params.slug);
           return post.slug === params.slug;
         });
+        console.log(postsArray);
         setPostData(postsArray[0]);
       });
   }, [props, params.slug]);
 
   useEffect(() => {
     if (postData) {
+      console.log(postData)
+
       let maxI = 0;
       for (let key in postData.acf) {
         if (key[key.length - 1] > 0) {
@@ -53,7 +54,9 @@ const BlogPost = (props) => {
 
   useEffect(() => {
     if (maxRows) {
+      console.log(maxRows)
       const countArray = new Array(maxRows).fill(1);
+      console.log(countArray)
 
       const rows = countArray.map((_, i) => {
         i++;
