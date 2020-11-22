@@ -1,86 +1,105 @@
-import React, { Component } from "react";
-// import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import React, {Fragment, useState } from 'react';
+import './App.css';
 import { Router } from "@reach/router";
+import Header from "./components/header/Header";
+import SideDrawer from './components/layout/SideDrawer';
+import Backdrop from "./components/layout/Backdrop";
+import Footer from "./components/footer/Footer";
+import Home from "./components/pages/home/Home";
+import Blog from "./components/pages/blog/Blog";
+import BlogPost from "./components/pages/blog/BlogPost";
+import Niño from "./components/pages/niño/Niño";
+import SideDrawerTienda from "./components/pages/tienda/SideDrawerTienda";
+import Kokedama from "./components/pages/kokedama/Kokedama";
+import Mala from "./components/pages/mala/Mala";
+import Hombre from "./components/pages/hombre/Hombre";
+import Pulseras from "./components/pages/mujer/Pulseras";
+import SideDrawerMujer from "./components/pages/tienda/SideDrawerMujer";
+import Bolso from "./components/pages/mujer/Bolso";
+import Colgantes from "./components/pages/mujer/Colgantes";
+import Pendientes from "./components/pages/mujer/Pendientes";
+import Conocenos from "./components/pages/footer_choices/Conocenos";
 
-import "./App.css";
-import Aux from "./hoc/Auxi";
-import Header from "./Layout/Header/Header";
-import BlogPost from "./Pages/Blog/BlogPost/BlogPost";
-import Footer from "./Layout/Footer/Footer";
-import Home from "./Pages/Home/Home";
-import Tienda from "./Pages/Tienda/Tienda";
-import Japamalas from "./Pages/Japamalas/Japamalas";
-import Kokedamas from "./Pages/Kokedamas/Kokedamas";
-import Blog from "./Pages/Blog/Blog";
-import SideDrawer from "./Layout/SideDrawer/SideDrawer";
-// import SideDrawer2 from "./Layout/SideDrawer/SideDrawer2";
-import Backdrop from "./components/Backdrop/Backdrop";
-// import Sd from "./Layout/SideDrawer/sd"
+const App = ()=> {
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+  const [showBackdrop, setShowBackdrop] = useState(false);
+  const [sideDrawerTiendaOpen, setSideDrawerTiendaOpen] = useState(false);
+  const [sideDrawerMujerOpen, setSideDrawerMujerOpen] = useState(false);
 
-class App extends Component {
-  state = {
-    sideDrawerOpen: false,
-    imgMosaicOpen: false,
+
+  const sideDrawerOpenHandler = () =>{
+    setSideDrawerOpen(true)
+    setShowBackdrop(true)
   };
 
-  drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
+  const sideDrawerCloseHandler = () =>{
+    setSideDrawerOpen(false)
+    setShowBackdrop(false)
+    setSideDrawerTiendaOpen(false)
+    setSideDrawerMujerOpen(false)
   };
 
-  mosaicImgDisplayClickHandler = () => {
-    this.setState((prevState) => {
-      return { imgMosaicOpen: !prevState.imgMosaicOpen };
-    });
+  const sideDrawerTiedaHandler = () =>{
+    setSideDrawerTiendaOpen(true);
+    setSideDrawerOpen(false);
   };
 
-  backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false });
-    this.setState({ imgMosaicOpen: false });
+  const sideDrawerMujerHandler = ()=>{
+    setSideDrawerTiendaOpen(false);
+    setSideDrawerMujerOpen(true);
+  }
+
+
+  let sideDrawer;
+  let backdrop;
+  let sideDrawerTienda;
+  let sideDrawerMujer;
+
+  if(sideDrawerOpen){
+    sideDrawer = <SideDrawer open={sideDrawerOpen} cerrar={sideDrawerTiedaHandler} close={sideDrawerCloseHandler} />
+    backdrop = <Backdrop show={showBackdrop} close={sideDrawerCloseHandler}/>
   };
 
-  render() {
-    let backdrop;
+  if(sideDrawerTiendaOpen){
+    sideDrawerTienda =  <SideDrawerTienda show={sideDrawerTiendaOpen} close={sideDrawerCloseHandler} showHandler={sideDrawerMujerHandler}/>
+    backdrop = <Backdrop show={showBackdrop} close={sideDrawerCloseHandler}/>
+  }
 
-    if (this.state.sideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />;
-    }
+  if(sideDrawerMujerOpen){
+    backdrop = <Backdrop show={showBackdrop} close={sideDrawerCloseHandler}/>
+    sideDrawerMujer = <SideDrawerMujer show={sideDrawerMujerOpen} close={sideDrawerCloseHandler}/>
+  }
 
-    if (this.state.imgMosaicOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />;
-    }
-
-    return (
-      <Aux>
-        <div>
-          <Header clickDrawerButton={this.drawerToggleClickHandler} />
-          <SideDrawer
-            show={this.state.sideDrawerOpen}
-            closeSideDrawer={this.backdropClickHandler}
+  return (
+    <Fragment>
+      <div className="app">
+          <Header 
+          open={sideDrawerOpenHandler}
           />
+          {sideDrawer}
           {backdrop}
-
-          <div className="contentBox">
+          {sideDrawerTienda}
+          {sideDrawerMujer}
+          <div className="app__body">
             <Router>
-              <Home
-                path="/"
-                showingBackdrop={!this.state.imgMosaicOpen}
-                clickMosaic={this.mosaicImgDisplayClickHandler}
-              />
-              <Tienda path="/Tienda" />
-              <Japamalas path="/Japamalas" />
-              <Kokedamas path="/Kokedamas" />
+              <Home path="/"/>
+              <Niño path="/Nino"/>
               <Blog path="/Blog" />
               <BlogPost path="blog/:slug" />
+              <Kokedama path="/Kokedamas"/>
+              <Mala path="/Mala"/>
+              <Hombre path="/Hombre"/>
+              <Pulseras path="/Pulseras"/>
+              <Bolso path="/Bolsos"/>
+              <Colgantes path="/Colgantes"/>
+              <Pendientes path="/Pendientes"/>
+              <Conocenos path="/Conocenos"/>
             </Router>
           </div>
-
-          <Footer />
-        </div>
-      </Aux>
-    );
-  }
+        <Footer/>
+      </div>
+    </Fragment> 
+  );
 }
 
 export default App;
