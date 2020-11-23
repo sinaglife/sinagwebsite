@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import classes from "./Button.module.scss";
-import Icon from "../icon/Index";
+import classes from "./button.module.scss";
+import Icon from "../icon/index";
 
 function Button({
     icon,
