@@ -17,8 +17,8 @@ const Toolbar = (props) => (
       <img src={Logo} alt="SinagVibes&Designs" />
     </Link>
     <div className={classes.toolbar__rightContainer}>
-      <Button icon="search" color="black" size="medium" padding="noPadding" />
-      <Button icon="heart" color="black" size="medium" padding="noPadding" />
+      {/* <Button icon="search" color="black" size="medium" padding="noPadding" /> */}
+      {/* <Button icon="heart" color="black" size="medium" padding="noPadding" /> */}
     </div>
   </div>
 );
