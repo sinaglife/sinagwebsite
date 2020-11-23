@@ -294,6 +294,14 @@ function twentynineteen_colors_css_wrap() {
 }
 add_action( 'wp_head', 'twentynineteen_colors_css_wrap' );
 
+add_filter( 'rest_post_collection_params', 'big_json_change_post_per_page', 10, 1 );
+function big_json_change_post_per_page( $params ) {
+    if ( isset( $params['per_page'] ) ) {
+        $params['per_page']['maximum'] = 200;
+    }
+    return $params;
+}
+
 /**
  * SVG Icons class.
  */
