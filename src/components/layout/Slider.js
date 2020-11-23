@@ -9,17 +9,49 @@ const Slider = () => {
   const [carousel, setCarousel] = useState(null);
 
   useEffect(() => {
+    let api1 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1`;
+    let api2 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=2`;
+    let api3 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=3`;
+
+    const promise1 = axios
+      .get(api1)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => []);
+    const promise2 = axios
+      .get(api2)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => []);
+    const promise3 = axios
+      .get(api3)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => []);
+
+    Promise.all([promise1, promise2, promise3]).then((results) => {
+      const data = results[0].concat(results[1]);
+      data.concat(results[2]);
+      setSliderData(data.filter((page) => page.parent === 134));
+    });
+  }, []);
+
+  const wordpressRequest = (pageNumber, data) => {
     axios
       .get(
-        `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100`
+        `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=${pageNumber}`
       )
       .then((res) => {
-        console.log(res);
-        const dataArray = res.data.filter((page) => page.parent === 134);
-        setSliderData(dataArray);
-        console.log(dataArray);
+        console.log(res.data.concat(wordpressRequest(pageNumber + 1)));
+        return res.data.concat(wordpressRequest(pageNumber + 1));
+      })
+      .catch((error) => {
+        return false;
       });
-  }, []);
+  };
 
   const handleSelectImage = (selectedIndex, e) => {
     setCurrentImage(selectedIndex);
