@@ -1,4 +1,4 @@
-@import "../../../styles/utils/variables";
+@import "../Variable";
 
 .base {
   cursor: pointer;
@@ -19,7 +19,7 @@
 
 .medium {
   @media (max-width: 575.98px) {
-    width: 12px;
+    width: 18px;
   }
   @media (min-width: 575.99px) and (max-width: 767.98px) {
     width: 15px;

@@ -1,0 +1,98 @@
+.postContainer{
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
+    h2{
+      font-family: 'Parisienne', cursive;
+      font-family: 'Playfair Display', serif;
+    }
+    H4{
+      font-family: 'Parisienne', cursive;
+      font-family: 'Playfair Display', serif;
+    }
+}
+
+.postParagraph{
+    margin: 10px;
+    text-align: justify;
+    vertical-align: middle;
+}
+
+.rowImg {
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .postRow{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  .rowImgComplete{
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .postFix{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 576px) {
+    .rowImg {
+      width: 75%;
+      margin: 20px auto;
+    }
+  
+    .rowImgComplete {
+      width: 75%;
+      margin: 20px auto;
+    }
+  
+    .postParagraph {
+      margin: 20px;
+    }
+  }
+  
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    .postRow {
+      flex-direction: row;
+    }
+  
+    .rowImg {
+      max-width: 50%;
+      border-radius: 10px;
+    }
+  
+    .rowImgComplete {
+      width: 60%;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+  }
+  
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    .rowImg {
+      max-width: 35%;
+      border-radius: 15px;
+    }
+    .rowImgComplete {
+      border-radius: 15px;
+    }
+  }
+  
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    .rowImg {
+      max-width: 25%;
+    }
+  }
+  

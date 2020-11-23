@@ -1,0 +1,81 @@
+.conocenos{
+    width: 100%;
+    p{
+        text-align: justify;
+        font-size: 1.5rem;
+    }
+}
+
+.title__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:1rem 5rem 2rem 5rem;
+    
+}
+
+.text__container{
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+}
+
+.conocenos img {
+    width: 20rem;
+    height: 20rem;
+    margin: 2rem;
+}
+
+@media (max-width: 400px) {
+    .conocenos{
+
+        h1{
+            font-size: 2rem;
+        }
+        
+        p{
+            text-align: justify;
+            font-size: 0.5rem;
+        }
+    }
+    .text__container{
+        display: flex;
+        flex-direction: row;
+        margin: 2rem;
+    }
+    
+    .conocenos img {
+        width: 10rem;
+        height: 10rem;
+        margin: 1rem;
+    }
+}
+
+@media  (min-width: 401px)  and (max-width: 770px){
+    .conocenos{
+
+        h1{
+            font-size: 2.5rem;
+        }
+        
+        p{
+            text-align: justify;
+            font-size: 1rem;
+        }
+    }
+    .text__container{
+        display: flex;
+        flex-direction: row;
+        margin: 2.5rem;
+    }
+    
+    .conocenos img {
+        width: 10rem;
+        height: 10rem;
+        margin: 1.5rem;
+    }
+}
+
+@media  (min-width: 772px)  and (max-width: 1100px){
+
+}
