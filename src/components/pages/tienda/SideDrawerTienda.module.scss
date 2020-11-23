@@ -1,0 +1,53 @@
+@import "../../ui/Variable";
+
+.sideDrawerTienda{
+    width: 15rem;
+    height: 30rem;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 700;
+    border: 1px solid $colorFour;
+    box-shadow: 1px, 0px, 7px, rgba(0, 0, 0, 0.5); 
+    transform: translateX(-100%);
+    transition: 0.3s;
+    align-items: center;
+    background-color:  #b3a690;
+}
+
+.sideDrawerTienda ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto auto;
+    padding: 0px;
+}
+
+.sideDrawerTienda li{
+    cursor: pointer;
+    margin: 0.4rem;
+    border-top: 1px solid #a1895480;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 2rem;
+}
+
+.sideDrawerTienda p{
+    margin: 0px 5px;
+    font-size: 25px;
+    color: white;
+}
+
+.sideDrawerTiendaItem:hover p{
+    color:black;
+    
+}
+
+.sideDrawerTienda.show{
+    transform: translateX(0);
+}
