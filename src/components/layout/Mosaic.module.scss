@@ -46,6 +46,17 @@
   }
 }
 
+@media  (min-width: 401px)  and (max-width: 767px){
+  .image img {
+    height: 100%;
+  }
+  .image {
+    width: 23%;
+    margin: 1%;
+    max-height: 7rem;
+  }
+}
+
 @media (min-width: 767.99px) and (max-width: 991.98px) {
   .image img {
     height: 100%;

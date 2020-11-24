@@ -4,7 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "@reach/router";
 import Logo from "./logosinagvectoriced.png";
-import Button from "../UI/button/Button";
+import Button from "../ui/button/Button";
 
 const Toolbar = (props) => (
   <div className={classes.toolbar}>
