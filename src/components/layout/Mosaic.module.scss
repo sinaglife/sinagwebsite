@@ -9,7 +9,6 @@
 }
 
 .image {
-  object-fit: cover;
   width: 20%;
   max-height: 20rem;
   margin: 2%;
@@ -68,9 +67,10 @@
   }
 }
 
-@media (min-width: 991.99px) {
+@media (min-width: 1023px) and (max-width: 1300){
   .image img {
     height: 100%;
+    object-fit: cover;
   }
   .image {
     width: 23%;
@@ -79,8 +79,4 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .image img {
-    height: 20rem;
-  }
-}
+
