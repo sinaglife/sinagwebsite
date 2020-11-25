@@ -5,7 +5,7 @@ import Product from "../tienda/Product";
 import LightBox from "../../layout/LightBox";
 
 const Kokedama = () => {
-  const [kokeData, setKokeData] = useState();
+  const [productData, setProductData] = useState();
   const [showLightbox, setShowLightBox] = useState(false);
   const [lightImgsArr, setLightImgsArr] = useState([]);
   const [showBackdrop, setShowBackdrop] = useState(false);
@@ -37,7 +37,7 @@ const Kokedama = () => {
     Promise.all([promise1, promise2, promise3]).then((results) => {
       const data = results[0].concat(results[1]);
       data.concat(results[2]);
-      setKokeData(
+      setProductData(
         data.filter(
           (page) => page.parent === 5 && page.acf.product_showInkokedama
         )
@@ -46,13 +46,13 @@ const Kokedama = () => {
   }, []);
 
   const selectedImg = (i) => {
-    const koke_productAcf = kokeData[i].acf;
+    const productData_Acf = productData[i].acf;
 
     let lightBoxImgsArr = [];
 
-    for (let key in koke_productAcf) {
-      if (key.includes("product_image")) {
-        lightBoxImgsArr.push(koke_productAcf[key].url); //&& koke_productAcf[key]
+    for (let key in productData_Acf) {
+      if (key.includes("product_image") && productData_Acf[key]) {
+        lightBoxImgsArr.push(productData_Acf[key].url); 
       }
     }
     setLightImgsArr(lightBoxImgsArr);
@@ -69,8 +69,8 @@ const Kokedama = () => {
     <Fragment>
       <h1 className={classes.main__title}>KOKEDAMA</h1>
       <div className={classes.kokedama}>
-        {kokeData
-          ? kokeData.map((product, i) => {
+        {productData
+          ? productData.map((product, i) => {
               return (
                 <div className={classes.kokedamaProduct}>
                   <Product

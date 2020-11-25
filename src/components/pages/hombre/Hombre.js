@@ -70,8 +70,8 @@ const Hombre = () => {
     let lightBoxImgsArr = [];
 
     for (let key in productData_Acf) {
-      if (key.includes("product_image")) {
-        lightBoxImgsArr.push(productData_Acf[key].url); //&& koke_productAcf[key]
+      if (key.includes("product_image") && productData_Acf[key]) {
+        lightBoxImgsArr.push(productData_Acf[key].url); 
       }
     }
     setLightImgsArr(lightBoxImgsArr);
