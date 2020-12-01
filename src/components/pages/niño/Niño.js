@@ -51,7 +51,7 @@ const Niño = () => {
     let lightBoxImgsArr = [];
 
     for (let key in productData_Acf) {
-      if (key.includes("product_image")) {
+      if (key.includes("product_image") && productData_Acf[key]) {
         lightBoxImgsArr.push(productData_Acf[key].url); //&& koke_productAcf[key]
       }
     }

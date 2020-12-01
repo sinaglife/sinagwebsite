@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Footer.module.scss";
 import { Link } from "@reach/router";
-import Button from "../UI/button/Button";
+import Button from "../ui/button/Button";
 
 const Footer = () => {
   return (
@@ -50,7 +50,7 @@ const Footer = () => {
               size="medium"
               padding="noPadding"
             />
-            +34 690484893
+            +34 645681265
           </nav>
         </a>
         <a href="mailto:sinaglife@gmail.com?Subject=Interesado%20en%20sus%20artes">

@@ -7,10 +7,9 @@
 .pendientesProduct{
     margin:25px;
 }
-
 @media (max-width: 400px){
     .main__title{
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-top: 0;
     }
     .pendientes{
@@ -18,24 +17,42 @@
         grid-template-columns:50% 50%;
     }
     .pendientesProduct{
-        margin:2rem 1rem 2rem 1rem;
+        margin: 1rem;
     }
 }
 
-@media (min-width: 575.99px) and (max-width: 770.98px){
+@media  (min-width: 401px)  and (max-width: 767px){
     .main__title{
-        font-size: 2.2rem;
+        font-size: 1.8rem;
+        margin-top: 1%;
+    }
+    .pendientes{
+        display:grid;
+        grid-template-columns:50% 50%;
+    }
+    .pendientesProduct{
+        margin: 2rem 1rem 2rem 1rem;
+    }
+}
+
+@media  (min-width: 768px)  and (max-width: 1023px){
+    .pendientes{
+        display:grid;
+        grid-template-columns:50% 50%;
+    }
+    .main__title{
+        font-size: 2.5rem;
         margin-top: 2rem;
     }
     
     .pendientesProduct{
-        margin:2rem 1rem 2rem 1rem;
+        margin:2rem 1rem 2rem 3rem;
     }
 }
 
-@media (min-width: 780px) and (max-width: 1200px){
+@media (min-width: 1024px) and (max-width: 1300px){
     .main__title{
-        font-size: 2.2rem;
+        font-size: 3.2rem;
         margin-top: 2rem;
     }
     
