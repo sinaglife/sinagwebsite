@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Footer.module.scss";
 import { Link } from "@reach/router";
-import Button from "../ui/button/Button";
+import Button from "../UI/button/Button";
 
 const Footer = () => {
   return (

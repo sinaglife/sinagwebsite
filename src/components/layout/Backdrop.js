@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Backdrop.module.scss";
-import Button from "../ui/button/Button";
+import Button from "../UI/button/Button";
 
 const Backdrop = (props) =>
   props.show ? (

@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./SideDrawer.module.scss";
 import { Link } from "@reach/router";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "../ui/button/Button";
+import Button from "../UI/button/Button";
 
 const SideDrawer = (props) => {
   return (
