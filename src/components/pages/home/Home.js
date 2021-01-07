@@ -2,6 +2,7 @@ import React  from 'react';
 import classes from "./Home.module.scss";
 import Slider from "../../layout/Slider";
 import sand from "./manchones.jpg";
+import banner from "./sinagBanner.jpg";
 import {Parallax} from "react-parallax";
 import Mosaic from "../../layout/Mosaic";
 
@@ -19,7 +20,9 @@ const Home = (props)=> {
                 clickMosaic={props.clickMosaic}
                 />
             </Parallax>   
-
+            <div className={classes.home__banner}>
+                <img src={banner} alt=""/>
+            </div>
         </div>
     )
 }
