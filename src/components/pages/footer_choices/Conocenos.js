@@ -9,7 +9,7 @@ const Conocenos = () => {
     return (
         <div className={classes.conocenos}>
             <div className={classes.title__container}>
-                <h1>Conocenos</h1>
+                <h1>Conòcenos</h1>
                 <img  src={daniyjhose}/>
                 <p>SINAG,  del tagalo “Rayo de luz” representa la conexión, espiritualidad y el sentir.
                     Porque basta con un rayo de luz, para despejar cualquier oscuridad. 
@@ -18,7 +18,7 @@ const Conocenos = () => {
             </div>
             <div className={classes.text__container}>
                 <img src={jhose}/>
-                <p>Representamos una marca que ofrece a cada cliente un producto especial de alta calidad e innovador,
+                <p>Representamos una marca que ofrece a cada cliente un producto especial de alta calidad e innovador, 
                     donde se sientan identificados con su estilo,
                     respetando la naturaleza y reutilizando lo que ella nos proporciona, inspirándonos en crear piezas exclusivas.
                 </p>

@@ -9,36 +9,54 @@
 }
 @media (max-width: 400px){
     .main__title{
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-top: 0;
     }
     .bolsos{
         display:grid;
         grid-template-columns:50% 50%;
     }
-    .bolsoProduct{
-        margin:2rem 1rem 2rem 1rem;
+    .bolsosProduct{
+        margin: 1rem;
     }
 }
 
-@media (min-width: 575.99px) and (max-width: 770.98px){
+@media  (min-width: 401px)  and (max-width: 767px){
     .main__title{
-        font-size: 2.2rem;
-        margin-top: 2rem;
+        font-size: 1.8rem;
+        margin-top: 1%;
     }
-    
-    .bolsoProduct{
-        margin:2rem 1rem 2rem 1rem;
+    .bolsos{
+        display:grid;
+        grid-template-columns:50% 50%;
+    }
+    .bolsosProduct{
+        margin: 2rem 1rem 2rem 1rem;
     }
 }
 
-@media (min-width: 780px) and (max-width: 1200px){
+@media  (min-width: 768px)  and (max-width: 1023px){
+    .bolsos{
+        display:grid;
+        grid-template-columns:50% 50%;
+    }
     .main__title{
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         margin-top: 2rem;
     }
     
-    .bolsoProduct{
+    .bolsosProduct{
+        margin:2rem 1rem 2rem 3rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1300px){
+    .main__title{
+        font-size: 3.2rem;
+        margin-top: 2rem;
+    }
+    
+    .bolsosProduct{
         margin:2rem 1rem 5rem 1rem;
     }
 }
