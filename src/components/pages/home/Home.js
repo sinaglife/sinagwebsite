@@ -3,6 +3,8 @@ import classes from "./Home.module.scss";
 import Slider from "../../layout/Slider";
 import sand from "./manchones.jpg";
 import banner from "./sinagBanner.jpg";
+import taller from "./tallerSinag.jpg";
+import blog from "./homeBlog_img.jpg";
 import {Parallax} from "react-parallax";
 import Mosaic from "../../layout/Mosaic";
 
@@ -22,6 +24,19 @@ const Home = (props)=> {
             </Parallax>   
             <div className={classes.home__banner}>
                 <img src={banner} alt=""/>
+            </div>
+            <div className={classes.home__taller}>
+                <h3>"Tu creatividad y originalidad,<br/> son ideas para realizar piezas personalizadas"</h3>
+                <img src={taller} alt=""/>
+            </div>
+            <div className={classes.home__blog}>
+                <img src={blog} alt="" />
+                <p><strong>LAS PIEDRAS Y SU MAGIA</strong> Cada piedra tiene
+                    un potencial desconocido, es el regalo que
+                    nos da la naturaleza de tan diversas formas y
+                    colores, llegan a nuestras vidas para sanar algún
+                    aspecto de nosotros
+                </p>
             </div>
         </div>
     )
