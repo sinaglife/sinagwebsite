@@ -7,6 +7,7 @@ import taller from "./tallerSinag.jpg";
 import blog from "./homeBlog_img.jpg";
 import {Parallax} from "react-parallax";
 import Mosaic from "../../layout/Mosaic";
+import { Link } from "@reach/router";
 
 const Home = (props)=> {
 
@@ -29,6 +30,7 @@ const Home = (props)=> {
                 <h3>"Tu creatividad y originalidad,<br/> son ideas para realizar piezas personalizadas"</h3>
                 <img src={taller} alt=""/>
             </div>
+            <Link to="Blog" style={{ textDecoration: "none", color: "black" }}>
             <div className={classes.home__blog}>
                 <img src={blog} alt="" />
                 <p><strong>LAS PIEDRAS Y SU MAGIA</strong> Cada piedra tiene
@@ -38,6 +40,7 @@ const Home = (props)=> {
                     aspecto de nosotros
                 </p>
             </div>
+            </Link>
         </div>
     )
 }
