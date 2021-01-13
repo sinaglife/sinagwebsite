@@ -77,7 +77,8 @@
         img{
             width: 60px;
             height: 60px;
-            left: 10px;
+            left: 0;
+            transform: rotate(25deg);
         }
         p{
             padding: 0.6rem 1.38rem ;
@@ -116,15 +117,16 @@
         padding: 0;
     }
     .footer__leftSection{
-        padding: 0.3rem;
+        padding: 0.1rem;
         img{
             width: 70px;
             height: 70px;
             left: 0px;
+            transform: rotate(25deg);
         }
         p{
-            padding: 0.7rem 1.5rem ;
-            margin: 0;
+            padding: 0.95rem 1.7rem ;
+            margin: 0 0 0 0.3rem;
             font-size: 0.8rem;
         }
     }
@@ -162,12 +164,12 @@
    }
 
    .footer__leftSection{
-    padding: 0.3rem;
+    padding: 0.38rem;
         img{
             width: 120px;
             height: 120px;
             left: 0px;
-            margin-right: 0.3rem;
+            transform: rotate(40deg);
         }
         p{
             padding: 2rem 1.5rem ;
@@ -198,17 +200,17 @@
     }
  
     .footer__leftSection{
-        padding: 0.3rem;
-        
+        padding: 0.2rem;
             img{
-                width: 190px;
-                height: 190px;
+                width: 170px;
+                height: 170px;
                 left: 0px;
-                padding-bottom: 1rem; 
+                transform: rotate(25deg);
+                padding-right: 1.3rem;
             }
             p{
-                padding: 1rem 2.2rem ;
-                margin-left: 0.1;
+                padding: 1.8rem 2rem ;
+                margin-left: 2.5rem;
                 font-size: 1.6rem;
             }
         }
