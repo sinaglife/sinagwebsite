@@ -4,6 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "@reach/router";
 import Logo from "./logosinagvectoriced.png";
+import Button from "../UI/button/Button";
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -51,8 +52,18 @@ const Toolbar = (props) => (
     </div>
     <LogoHeader/>
     <div className={classes.toolbar__rightContainer}>
-    <span>CA</span>
-    <span>mu</span>
+    <Button
+      icon="kart"
+      color="black"
+      size="medium"
+      padding="noPadding"
+    />
+    <Button
+      icon="account"
+      color="black"
+      size="medium"
+      padding="noPadding"
+    />
     </div>
   </div>
 );
