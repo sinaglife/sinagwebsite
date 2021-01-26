@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import classes from "./Mosaic.module.scss";
 import axios from "axios";
 import LightBox from "./LightBox";
+import ProductCard from "../product/ProductCard";
 
 const Mosaic = (props) => {
   const [mosaicData, setMosaicData] = useState(null);
@@ -39,6 +40,7 @@ const Mosaic = (props) => {
     Promise.all([promise1, promise2, promise3]).then((results) => {
       const data = results[0].concat(results[1]);
       data.concat(results[2]);
+      console.log(data)
       setMosaicData(
         data.filter(
           (page) => page.parent === 5 && page.acf.product_showInMosaic
@@ -73,13 +75,16 @@ const Mosaic = (props) => {
         {mosaicData
           ? mosaicData.map((product, i) => {
               return (
-                <div key={i} className={classes.image}>
-                  <img
-                    src={product.acf.product_image1.url}
-                    onClick={() => selectedImg(i)}
-                    alt={product.acf.product_image1.alt}
-                  />
-                </div>
+           
+              <>
+                <ProductCard
+                 key={i}
+                 src={product.acf.product_image1.url}
+                 alt={product.acf.product_image1.alt}
+                 title={product.acf.product_title}
+                 price={product.acf.product_price}
+                 />
+              </>
               );
             })
           : null}
@@ -97,3 +102,14 @@ const Mosaic = (props) => {
 };
 
 export default Mosaic;
+
+
+
+     {/*<div key={i} className={classes.image}>
+                  <img
+                    src={product.acf.product_image1.url}
+                    onClick={() => selectedImg(i)}
+                    alt={product.acf.product_image1.alt}
+                  />
+                </div>
+              */}

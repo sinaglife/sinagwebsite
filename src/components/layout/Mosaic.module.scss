@@ -4,8 +4,9 @@
   display: flex;
   flex-flow: wrap;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 1% 0;
+  margin: 1rem 0;
 }
 
 .image {

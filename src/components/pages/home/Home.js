@@ -1,7 +1,6 @@
 import React  from 'react';
 import classes from "./Home.module.scss";
 import Slider from "../../layout/Slider";
-import sand from "./manchones.jpg";
 import banner from "./sinagBanner.jpg";
 import taller from "./tallerSinag.jpg";
 import blog from "./homeBlog_img.jpg";
@@ -18,7 +17,7 @@ const Home = (props)=> {
                 <h2>"Inspirados En Crear Desde El Alma."</h2>
                 
             </div>
-            <Parallax  bgImage={sand} strength={10}  bgClassName={classes.ParaImg} blur={0}>
+            <Parallax  bgImage={blog} strength={400}  bgClassName={classes.ParaImg} blur={0}>
                 <Mosaic
                 clickMosaic={props.clickMosaic}
                 />
