@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classes from "./button.module.scss";
-import Icon from "../icon/index";
+import Icon from "../icon";
 
 function Button({
   icon,

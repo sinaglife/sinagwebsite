@@ -8,17 +8,22 @@
   background-color: $colorTwo;
   box-sizing: border-box;
   padding: 0 10px;
+  .shrunk {
+    max-width: 60px;
+    transition: 0.5s;
+  }
 }
 
 .toolbar__logo {
-  justify-content: center;
+  justify-content: left;
   overflow: hidden;
   width: 35%;
-
+  
   img {
     width: 100%;
     padding: 15px 0;
     height: auto;
+    transition: 0.5s;
     max-width: 175px;
   }
 }
@@ -49,16 +54,6 @@
   }
 }
 @media  (min-width: 1024px)  and (max-width: 1300px){
-  .toolbar{
-    height: 10rem;
-    padding: 0;
-    img {
-      width: 100%;
-      padding: 15px 0;
-      height: auto;
-      max-width: 200px;
-    }
-  }
   .toolbar__Logo {
     width: 40%; 
   }
