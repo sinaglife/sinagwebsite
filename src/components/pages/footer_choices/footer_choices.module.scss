@@ -1,0 +1,44 @@
+
+.footer_choices{
+    text-align: justify;
+    margin: 0 1.5rem;
+    h2{
+        text-align: center;
+        font-size: 2rem;
+        margin: 1.5rem 0;
+    }
+    p{
+        font-size: 1.2rem;
+        text-align: justify;
+    }
+    ol{
+        font-size: 1.2rem;
+    }
+}
+
+
+.subtitle{
+    font-size: 1.5rem;
+}
+
+@media (max-width: 420px){
+    .footer_choices{
+        margin: 0 0.9rem;
+        h3{
+            font-size: 0.9rem;
+        }
+        h2{
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 0.9rem 0;
+        }
+        p{
+            font-size: 0.7rem;
+        }
+        ol{
+            font-size: 0.7rem;
+        }
+    }
+}
+
+

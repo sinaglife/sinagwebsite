@@ -17,7 +17,7 @@ const ProductCard = ({src, alt, title, price}) => {
                     <div className={classes.productCard__info}>
                         <p className={classes.productCard__price}>{price}$</p>
                         <button className={classes.shoppingButton}>
-                           Add to car
+                           agregar al carrito
                         </button>
                     </div>
                 </div>

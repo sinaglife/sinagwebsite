@@ -12,32 +12,32 @@ const Footer = () => {
         <p>
           En Sinag estamos comprometidos en
           cuidar el planeta tierra, el embalaje
-          que acompañan nuestras piezas, es
+          que acompañan nuestras piezas es
           100% reciclado, respetando el medio
           ambiente.
         </p>
       </div>
       <div className={classes.footer__rightSection}>
         <div className={classes.footer__rightInfo}>
-          <p className={classes.footer__title}>Informacion</p>
+          <p className={classes.footer__title}>Informaciòn</p>
           <Link to="Conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
-          <Link to="" style={{ textDecoration: "none" }}>
+          <Link to="TramitacionEnvios" style={{ textDecoration: "none" }}>
             <nav>Tramitación de Envíos</nav>
           </Link>
-          <Link to="" style={{ textDecoration: "none" }}>
+          <Link to="PoliticasPrivacidad" style={{ textDecoration: "none" }}>
             <nav>Política de Privacidad</nav>
           </Link>
-          <Link to="" style={{ textDecoration: "none" }}>
+          <Link to="PreguntasFrecuentes" style={{ textDecoration: "none" }}>
             <nav>Preguntas Frecuentes</nav>
           </Link>
-          <Link to="" style={{ textDecoration: "none" }}>
-            <nav>Tramitación de envíos</nav>
-          </Link>
-          <Link to="" style={{ textDecoration: "none" }}>
+          <Link to="politicaDeDevoluciones" style={{ textDecoration: "none" }}>
             <nav>Políticas de devoluciones</nav>
           </Link>  
+          <Link to="PoliticaCookies" style={{ textDecoration: "none" }}>
+            <nav>Política de cookies</nav>
+          </Link>
         </div>
         
         <div className={classes.footer__rightInfo}>

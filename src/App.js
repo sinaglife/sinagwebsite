@@ -19,6 +19,12 @@ import Bolso from "./components/pages/mujer/Bolso";
 import Colgantes from "./components/pages/mujer/Colgantes";
 import Pendientes from "./components/pages/mujer/Pendientes";
 import Conocenos from "./components/pages/footer_choices/Conocenos";
+import TramitacionEnvios from "./components/pages/footer_choices/TramitacionEnvios";
+import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
+import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrecuentes';
+import PoliticasPrivacidad from './components/pages/footer_choices/PoliticasPrivacidad';
+import PoliticasDevoluciones from './components/pages/footer_choices/PoliticasDevoluciones';
+
 
 const App = ()=> {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -94,6 +100,11 @@ const App = ()=> {
               <Colgantes path="/Colgantes"/>
               <Pendientes path="/Pendientes"/>
               <Conocenos path="/Conocenos"/>
+              <TramitacionEnvios path="/TramitacionEnvios"/>
+              <PoliticaCookies  path="/PoliticaCookies"/>
+              <PoliticasDevoluciones  path="/politicaDeDevoluciones"/>
+              <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
+              <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
             </Router>
           </div>
         <Footer/>
