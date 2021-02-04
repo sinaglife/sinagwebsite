@@ -15,7 +15,7 @@ const BlogPost = (props)=> {
         .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
         .then((res)=>{
             let dataArray = res.data.filter((post)=>{
-                console.log(post.slug === params.slug);
+                
                 return post.slug === params.slug;
             });
             setPostData(dataArray[0]);
@@ -120,7 +120,7 @@ const BlogPost = (props)=> {
             {postData.acf.post_title2 && postData.acf.post_title2}
             </h4>
             {postRows}
-      </div>
+        </div>
     ) : null;
 };
 

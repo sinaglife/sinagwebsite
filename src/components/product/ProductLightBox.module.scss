@@ -1,0 +1,341 @@
+.lightBox{
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    background-color: white;
+    margin: 2rem auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    height: 370px;
+    z-index: 700;
+    border-radius: 5px;
+}
+
+.lightBox__left{
+    position: relative;
+    flex: 0.50;
+    padding:1.3rem 0.8rem;
+    img{
+        height: 85%;
+        width: 80%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+    
+}
+
+.lightBox__right{
+    flex: 0.50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem;
+    h3{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    p{
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+    strong{
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+
+    button{
+        background-color:  #efecdf;
+        padding: 0.2rem;
+    }
+      
+}
+
+.lightBox__left__share{
+    display: flex; 
+    justify-content: space-evenly;
+    padding:1rem 0.5rem;
+}
+
+.share__icons{
+    display: flex;
+}
+
+.lightBox__size__choice{
+    display: flex;
+}
+
+.lightBox__right__buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+
+.arrow {
+    position: absolute;
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    box-sizing: border-box;
+    background: transparent;
+    transition: 0.3s;
+    
+}
+  
+  .arrowLeft {
+    @extend .arrow;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .arrowRight {
+    @extend .arrow;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .buttons {
+    position: absolute;
+    width: 10%;
+    height: 20%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+  }
+  
+  .goLeft {
+    @extend .buttons;
+    left: 10%;
+    top: 30%;
+  }
+  
+  .goRight {
+    @extend .buttons;
+    right:13%;
+    top: 29%;
+  }
+
+.nonVisible {
+ 
+    i{
+        display: none;
+        background-color: violet;
+    }
+    .buttons{
+        display: none;
+    }
+}
+  
+@media (max-width: 415px){
+    .lightBox{
+        position: fixed;
+        top: 35%;
+        left: 5%;
+        margin: 0;
+        width: 90%;
+        height:250px;
+    }
+
+    .lightBox__left{
+       
+        img{
+            height: 85%;
+            width: 80%;
+            object-fit: contain;
+        }
+        
+    }
+    
+    .lightBox__right{
+        
+        h3{
+            font-size: 0.8rem;
+        }
+        p{
+            font-size: 0.7rem;
+        }
+        strong{
+            font-size: 0.7rem;
+        }
+
+        button{
+            padding: 0;
+        }
+    }
+     
+    .lightBox__left__share{
+        padding: 0.5rem ;
+        p{
+            font-size: 0.85rem;
+            padding: 0.2rem;
+        }
+    }
+    .lightBox__size__choice{
+        display: flex;
+        padding: 0.3rem;
+        
+    }
+    
+    .lightBox__right__buttons{
+        font-size: 0.5rem;
+        justify-content: space-around;
+    }
+
+    .buttons {
+        width: 5%;
+        height: 20%;
+      }
+    
+      .goLeft {
+        left: 5%;
+        top: 28%;
+      }
+      .goRight {
+        right:11%;
+        top: 27%;
+      }
+    
+}
+
+@media  (min-width: 768px) and (max-width: 1023px){
+    .lightBox{
+        top: 35%;
+        left: 5%;
+        margin: 0;
+        width: 90%;
+        height:350px;
+    }
+
+    .lightBox__left{
+       
+        img{
+            height: 85%;
+            width: 80%;
+            object-fit: contain;
+        }
+        
+    }
+    
+    .lightBox__right{
+        
+        h3{
+            font-size: 1.2rem;
+        }
+        p{
+            font-size: 1.2rem;
+        }
+        strong{
+            font-size: 1rem;
+        }
+
+        button{
+            padding: 0.3;
+        }
+    }
+     
+    .lightBox__left__share{
+        padding: 0.5rem ;
+        justify-content: space-evenly;
+        p{
+            font-size: 1.2rem;
+            padding: 0.2rem;
+        }
+    }
+    .lightBox__size__choice{
+        padding: 0.3rem;
+        
+    }
+    
+    .lightBox__right__buttons{
+        font-size: 0.7rem;
+        justify-content: space-evenly;
+    }
+
+    .buttons {
+        width: 5%;
+        height: 20%;
+      }
+    
+      .goLeft {
+        left: 5%;
+        top: 28%;
+      }
+      .goRight {
+        right:11%;
+        top: 27%;
+      }
+}
+
+
+@media  (min-width: 1024px) and (max-width: 1300px){
+    .lightBox{
+        top: 35%;
+        left: 5%;
+        width: 90%;
+        height:420px;
+    }
+
+    .lightBox__right{
+        
+        h3{
+            font-size: 1.5rem;
+        }
+        p{
+            font-size: 1.38rem;
+        }
+        strong{
+            font-size: 1.3rem;
+        }
+
+        button{
+            padding: 0.5;
+        }
+    }
+     
+    .lightBox__left__share{
+        padding: 0.5rem ;
+        
+        p{
+            font-size: 1.4rem;
+            padding: 0.2rem;
+        }
+    }
+    .lightBox__size__choice{
+        padding: 0.5rem;
+        align-items: center;
+        
+    }
+    
+    .lightBox__right__buttons{
+        font-size: 1rem;
+        justify-content: space-evenly;
+    }
+
+    .buttons {
+        width: 5%;
+        height: 20%;
+      }
+    
+      .goLeft {
+        left: 5%;
+        top: 28%;
+      }
+      .goRight {
+        right:11%;
+        top: 27%;
+      }
+
+      .arrow{
+        height: 20px;
+        width: 20px;
+      }
+}

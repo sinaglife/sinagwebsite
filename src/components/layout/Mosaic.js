@@ -3,6 +3,7 @@ import classes from "./Mosaic.module.scss";
 import axios from "axios";
 import LightBox from "./LightBox";
 import ProductCard from "../product/ProductCard";
+import ProductLigthBox from "../product/ProductLigthBox";
 
 const Mosaic = (props) => {
   const [mosaicData, setMosaicData] = useState(null);
@@ -12,6 +13,13 @@ const Mosaic = (props) => {
   const [showLightbox, setShowLightBox] = useState(false);
 
   const [showBackdrop, setShowBackdrop] = useState(false);
+  
+  const [productData, setProductData] = useState({
+    title:"",
+    price:0,
+    alt:"",
+    description:"",
+  })
 
   useEffect(() => {
     let api1 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1`;
@@ -47,24 +55,35 @@ const Mosaic = (props) => {
         )
       );
     });
+    
   }, []);
 
   const selectedImg = (i) => {
-    const productAcf = mosaicData[i].acf;
-
+    const productAcf = mosaicData[i]?.acf;
+    console.log(productAcf)
     let lightBoxUrls = [];
+    let title = productAcf["product_title"]
 
-    for (let key in productAcf) {
-      if (key.includes("product_image") && productAcf[key]) {
+    setProductData({
+      title: productAcf["product_title"],
+      price:  productAcf["product_price"],
+      description:  productAcf["product_description"],
+      alt:  productAcf["product_title"]
+    })
+
+    for(let key in productAcf){
+      if(key.includes("product_image") && productAcf[key]){
         lightBoxUrls.push(productAcf[key].url);
       }
+    
     }
     setLightImgsArr(lightBoxUrls);
     setShowLightBox(true);
     setShowBackdrop(true);
-  };
+  }
 
   const closeLightBox = () => {
+   
     setShowLightBox(false);
     setShowBackdrop(false);
   };
@@ -78,11 +97,12 @@ const Mosaic = (props) => {
            
               <>
                 <ProductCard
-                 key={i}
-                 src={product.acf.product_image1.url}
-                 alt={product.acf.product_image1.alt}
-                 title={product.acf.product_title}
-                 price={product.acf.product_price}
+                  key={i}
+                  src={product.acf.product_image1.url}
+                  alt={product.acf.product_image1.alt}
+                  title={product.acf.product_title}
+                  price={product.acf.product_price}
+                  selectedImg={() => selectedImg(i)}
                  />
               </>
               );
@@ -90,11 +110,13 @@ const Mosaic = (props) => {
           : null}
       </div>
       {showLightbox ? (
-        <LightBox
+        <ProductLigthBox
           lightImgsArr={lightImgsArr}
-          showLightbox={showLightbox}
-          closeLightbox={() => closeLightBox()}
+          title={productData.title}
+          description={productData.description}
+          price={productData.price}
           show={showBackdrop}
+          close={closeLightBox}
         />
       ) : null}
     </Fragment>
@@ -102,14 +124,3 @@ const Mosaic = (props) => {
 };
 
 export default Mosaic;
-
-
-
-     {/*<div key={i} className={classes.image}>
-                  <img
-                    src={product.acf.product_image1.url}
-                    onClick={() => selectedImg(i)}
-                    alt={product.acf.product_image1.alt}
-                  />
-                </div>
-              */}

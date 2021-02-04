@@ -1,10 +1,9 @@
 import React from 'react'
-import Button from "../UI/button/Button";
 import classes from "./ProductCard.module.scss";
 
-const ProductCard = ({src, alt, title, price}) => {
+const ProductCard = ({src, alt, title, price, selectedImg}) => {
     return (
-        <div className={classes.productCard}>
+        <div className={classes.productCard} onClick={selectedImg}>
             <div className={classes.productCard__container}>
                 <div className={classes.productCard__header}>
                     <img 
@@ -27,13 +26,3 @@ const ProductCard = ({src, alt, title, price}) => {
 }
 
 export default ProductCard
-
-
-{/*
-    <Button
-    icon="shoppingCar"
-    color="black"
-    size="medium"
-    padding="noPadding"   
-/>*/
-}

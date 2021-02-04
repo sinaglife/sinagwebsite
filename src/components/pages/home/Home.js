@@ -32,7 +32,7 @@ const Home = (props)=> {
             </div>
             <Link to="Blog" style={{ textDecoration: "none", color: "black" }}>
             <div className={classes.home__blog}>
-                <img src={blog} alt="" />
+                <img src={blog} alt="blog" />
                 <p><strong>LAS PIEDRAS Y SU MAGIA:</strong> Cada piedra tiene
                     un potencial desconocido, es el regalo que
                     nos da la naturaleza de tan diversas formas y

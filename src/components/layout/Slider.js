@@ -39,19 +39,19 @@ const Slider = () => {
     });
   }, []);
 
-  const wordpressRequest = (pageNumber, data) => {
-    axios
-      .get(
-        `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=${pageNumber}`
-      )
-      .then((res) => {
-        console.log(res.data.concat(wordpressRequest(pageNumber + 1)));
-        return res.data.concat(wordpressRequest(pageNumber + 1));
-      })
-      .catch((error) => {
-        return false;
-      });
-  };
+  //const wordpressRequest = (pageNumber, data) => {
+  //  axios
+  //    .get(
+  //      `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=${pageNumber}`
+  //    )
+  //    .then((res) => {
+  //      console.log(res.data.concat(wordpressRequest(pageNumber + 1)));
+  //      return res.data.concat(wordpressRequest(pageNumber + 1));
+  //    })
+  //    .catch((error) => {
+  //      return false;
+  //    });
+  //};
 
   const handleSelectImage = (selectedIndex, e) => {
     setCurrentImage(selectedIndex);
