@@ -42,7 +42,7 @@ const Footer = () => {
         
         <div className={classes.footer__rightInfo}>
           <p className={classes.footer__title}>Contáctanos</p>
-          <a
+          <a style={{ textDecoration: "none" }}
             href="https://api.whatsapp.com/send?phone=34625572710&text=Hola!!"
             target="blank"
           >
@@ -57,7 +57,9 @@ const Footer = () => {
               +34 625 57 27 10
             </nav>
           </a>
-          <a href="mailto:sinaglife@gmail.com?Subject=Interesado%20en%20sus%20artes">
+          <a style={{ textDecoration: "none" }} 
+          href="mailto:sinaglife@gmail.com?Subject=Interesado%20en%20sus%20artes"
+          >
             <nav className={classes.icon}>
               <Button
                 icon="mail"
@@ -68,7 +70,9 @@ const Footer = () => {
               sinaglife@gmail.com
             </nav>
           </a>
-            <a href="https://www.facebook.com/sinaglife" target="blank">
+            <a style={{ textDecoration: "none" }}
+            href="https://www.facebook.com/sinaglife" target="blank"
+            >
               <nav className={classes.icon}>
                 <Button
                   icon="facebook"
@@ -79,7 +83,7 @@ const Footer = () => {
                 sinaglife@gmail.com
               </nav>
             </a>
-            <a
+            <a style={{ textDecoration: "none" }}
               href="https://instagram.com/sinaglife?igshid=16k76b9ah91xo"
               target="blank"
             >
@@ -93,7 +97,7 @@ const Footer = () => {
                 @sinaglife 
               </nav>
             </a>
-            <a
+            <a style={{ textDecoration: "none" }}
               href="https://www.google.es/maps/place/Sinag+Life/@40.4169335,-3.7083759,16z/data=!3m1!4b1!4m5!3m4!1s0xd4227b3d4b9dbfb:0xd7bb3a32270f36d7!8m2!3d40.4169336!4d-3.7039985?hl=es&authuser=0"
               target="blank"
             >

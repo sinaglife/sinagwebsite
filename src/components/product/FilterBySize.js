@@ -1,17 +1,6 @@
 import React, {useState} from 'react'
+import classes from "./FilterBySize.module.scss"
 
-let screenSize =  window.innerWidth;
-const style = {
-    select: {
-        width: "50px",
-        fontSize: "15px" 
-    },
-    smallScreen:{
-        width: "20px",
-        fontSize: "10px",
-        
-    }  
-}
 function FilterSize({sizeChoice}) {
 
     let ringArray = [6,7,8,9,10];
@@ -20,19 +9,19 @@ function FilterSize({sizeChoice}) {
 
     const ringFilter = ()=> (
         ringArray.map((item, index)=> (
-            <option key={index} value={item}>{item}</option>
+            <option  key={index} value={item}>{item}</option>
         ))
     )
 
     const braceleteFilter = ()=>(
         braceletArray.map((item, index)=> (
-            <option key={index} value={item}>{item}</option>
+            <option  key={index} value={item}>{item}</option>
         ))
     )
 
     const necklaceFilter = ()=>(
         necklaceArray.map((item, index)=> (
-            <option key={index} value={item}>{item}</option>
+            <option  key={index} value={item}>{item}</option>
         ))
     )
     
@@ -44,8 +33,8 @@ function FilterSize({sizeChoice}) {
     : null
 
     return (
-        <div style={ screenSize >=  900 ? style.select : style.smallScreen}>
-            <select style={ screenSize >=  900 ? style.select : style.smallScreen} id="size" name="size">
+        <div>
+            <select id="size" name="size" className={classes.filter__select}>
                 {
                    sizePicker
                 }

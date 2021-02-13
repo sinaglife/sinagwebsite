@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import Button from "../UI/button/Button"
-import FilterSize from "./FilterSize";
-import Backdrop from "../layout/Backdrop"
+import React, {useState, useEffect} from 'react';
+import Button from "../UI/button/Button";
+import FilterBySize from "./FilterBySize";
+import Backdrop from "../layout/Backdrop";
+import FacebookButton from "../UI/social-media-buttons/FacebookButton"
+import WhatsAppButton from "../UI/social-media-buttons/WhatsAppButton"
+
 import classes from "./ProductLightBox.module.scss"
 
 const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...props})=> {
@@ -48,18 +51,18 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
             className={classes.goLeft }
             onClick={goLeft} 
             >
-                <i className={classes.arrowLeft}></i>
+                <i class="fas fa-angle-left" ></i>
             </button>  
                 <img src={lightImgsArr[x]} alt={alt}/>
             <button
             className={classes.goRight}
             onClick={goRight} 
             >
-                <i className={classes.arrowRight}></i>
+                <i class="fas fa-angle-right" ></i>
             </button>  
             </>
         );
-        const navigationButtons =  lightImgArrLength > 7
+        const navigationButtons =  lightImgArrLength > 1
         ? renderButtons()
         : (
             <img src={lightImgsArr[x]} alt={alt}/>
@@ -79,24 +82,14 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
                     <div className={classes.lightBox__left__share}>
                         <p>Compartir</p>
                         <div className={classes.share__icons}>
-                            <Button
-                                icon="facebook"
-                                color="black"
-                                size="medium"
-                                padding="noPadding"
-                            />   
+                        <FacebookButton/>
                             <Button
                                 icon="insta"
                                 color="black"
                                 size="medium"
                                 padding="noPadding"
                             /> 
-                            <Button
-                                icon="whatsapp"
-                                color="black"
-                                size="medium"
-                                padding="noPadding"
-                            />                           
+                            <WhatsAppButton/>       
                         </div>
                     </div>
                 </div>
@@ -110,7 +103,7 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
                        ? 
                        <div className={classes.lightBox__size__choice}>
                             <strong>Tallas:</strong> 
-                            <FilterSize
+                            <FilterBySize
                             sizeChoice={sizeChoice}
                             />
                         </div>

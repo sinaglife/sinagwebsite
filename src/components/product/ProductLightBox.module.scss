@@ -19,8 +19,12 @@
     img{
         height: 85%;
         width: 80%;
-        object-fit: contain;
+        object-fit: cover;
         border-radius: 10px;
+    }
+    img:hover{
+        opacity: 0.9;
+        transform: scale(1.5,1.5);
     }
     
 }
@@ -37,6 +41,8 @@
         font-size: 1.5rem;
         font-weight: bold;
         text-transform: uppercase;
+        font-family: "Parisienne", cursive;
+        font-family: "Playfair Display", serif;
     }
     p{
         font-size: 1.1rem;
@@ -50,6 +56,7 @@
     button{
         background-color:  #efecdf;
         padding: 0.2rem;
+        border-radius: 5px;
     }
       
 }
@@ -62,6 +69,7 @@
 
 .share__icons{
     display: flex;
+    align-items: flex-start;
 }
 
 .lightBox__size__choice{
@@ -72,68 +80,51 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-}
-
-
-.arrow {
-    position: absolute;
-    display: inline-block;
-    height: 12px;
-    width: 12px;
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    padding: 3px;
-    box-sizing: border-box;
-    background: transparent;
-    transition: 0.3s;
     
 }
-  
-  .arrowLeft {
-    @extend .arrow;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-  }
-  
-  .arrowRight {
-    @extend .arrow;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-
-  .buttons {
-    position: absolute;
-    width: 10%;
-    height: 20%;
+.buttons{
+    background-color: transparent;
+    position: relative;
     background: none;
     border: none;
     cursor: pointer;
-    outline: none;
-    transition: 0.5s;
-  }
-  
-  .goLeft {
-    @extend .buttons;
-    left: 10%;
-    top: 30%;
-  }
-  
-  .goRight {
-    @extend .buttons;
-    right:13%;
-    top: 29%;
-  }
-
-.nonVisible {
- 
-    i{
-        display: none;
-        background-color: violet;
-    }
-    .buttons{
-        display: none;
-    }
 }
+
+i:hover{
+    opacity: 0.8;
+    transform: scale(1.8,1.8);
+    color: black;
+}
+
+.goLeft {
+  @extend .buttons;
+  left: 10%;
+  top: 30%;
+  i{
+      color:  #bbbab4;
+      font-size: 4rem;
+      position: absolute;
+      bottom: 60px;
+      right: 40px;
+  }
+}
+
+.goRight {
+  @extend .buttons;
+  right:15%;
+  top: 29%;
+  i{
+    color:  #bbbab4;
+      font-size: 4rem;
+      position: absolute;
+      font-size: 4rem;
+      position: absolute;
+      bottom: 60px;
+      left: 58px;
+  }
+}
+
+
   
 @media (max-width: 415px){
     .lightBox{
@@ -144,7 +135,7 @@
         width: 90%;
         height:250px;
     }
-
+    
     .lightBox__left{
        
         img{
@@ -152,7 +143,7 @@
             width: 80%;
             object-fit: contain;
         }
-        
+     
     }
     
     .lightBox__right{
@@ -168,7 +159,7 @@
         }
 
         button{
-            padding: 0;
+            padding: 0.14rem;
         }
     }
      
@@ -187,23 +178,28 @@
     
     .lightBox__right__buttons{
         font-size: 0.5rem;
-        justify-content: space-around;
+        justify-content: space-between;
     }
-
-    .buttons {
-        width: 5%;
-        height: 20%;
-      }
-    
-      .goLeft {
-        left: 5%;
-        top: 28%;
-      }
-      .goRight {
-        right:11%;
-        top: 27%;
-      }
-    
+    .goLeft {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 3rem;
+            position: absolute;
+            bottom: 40px;
+            right: 20px;
+        }
+    }
+    .goRight {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 3rem;
+            position: absolute;
+            bottom: 40px;
+            left: 24px;
+        }
+    }
 }
 
 @media  (min-width: 768px) and (max-width: 1023px){
@@ -260,19 +256,26 @@
         justify-content: space-evenly;
     }
 
-    .buttons {
-        width: 5%;
-        height: 20%;
-      }
-    
-      .goLeft {
-        left: 5%;
-        top: 28%;
-      }
-      .goRight {
-        right:11%;
-        top: 27%;
-      }
+    .goLeft {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 3.5rem;
+            position: absolute;
+            bottom: 60px;
+            right: 20px;
+        }
+    }
+    .goRight {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 3.5rem;
+            position: absolute;
+            bottom: 60px;
+            left: 24px;
+        }
+    }
 }
 
 
@@ -282,6 +285,9 @@
         left: 5%;
         width: 90%;
         height:420px;
+        img{
+            object-fit: contain;
+        }
     }
 
     .lightBox__right{
@@ -320,22 +326,77 @@
         justify-content: space-evenly;
     }
 
-    .buttons {
-        width: 5%;
-        height: 20%;
-      }
+    .goLeft {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 3.5rem;
+            position: absolute;
+            bottom: 60px;
+            right: 20px;
+        }
+    }
+    .goRight {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 3.5rem;
+            position: absolute;
+            bottom: 60px;
+            left: 24px;
+        }
+    }
     
-      .goLeft {
-        left: 5%;
-        top: 28%;
-      }
-      .goRight {
-        right:11%;
-        top: 27%;
-      }
-
-      .arrow{
-        height: 20px;
-        width: 20px;
-      }
 }
+
+
+/*
+.arrowLeft {
+    @extend .arrow;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .arrowRight {
+    @extend .arrow;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .arrowLeft{
+    i{
+        
+    }
+}
+
+.arrowRight{
+    @extend .arrow;
+}
+  .arrow {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    box-sizing: border-box;
+    background: transparent;
+    transition: 0.3s;
+    z-index: 10;
+}
+.arrow:hover{
+    border-color: #c2c1be;
+    height: 35px;
+    width: 35px;   
+}
+
+.buttons {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+  }
+
+  */
