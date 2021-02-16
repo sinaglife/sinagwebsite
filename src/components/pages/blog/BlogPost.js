@@ -19,11 +19,13 @@ const BlogPost = (props)=> {
                 return post.slug === params.slug;
             });
             setPostData(dataArray[0]);
+           
         });
     }, [props, params.slug]);
     
     useEffect(()=>{
         if(postData){
+            console.log(postData)//revisar lo de los subtitulos.
              let maxI = 0;
 
             for(let key in postData.acf){

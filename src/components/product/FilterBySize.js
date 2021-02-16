@@ -35,8 +35,9 @@ function FilterSize({sizeChoice}) {
     return (
         <div>
             <select id="size" name="size" className={classes.filter__select}>
+                <option disabled selected></option>
                 {
-                   sizePicker
+                    sizePicker
                 }
             </select> 
         </div>

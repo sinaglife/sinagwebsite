@@ -22,9 +22,41 @@
         object-fit: cover;
         border-radius: 10px;
     }
-    img:hover{
-        opacity: 0.9;
-        transform: scale(1.5,1.5);
+  
+    .buttons{
+        background-color: transparent;
+        position: relative;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    
+    .goLeft {
+      @extend .buttons;
+      left: 10%;
+      top: 22%;
+        i{
+            color:  #cececd;
+            font-size: 2.5rem;
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+        }
+    }
+    
+    .goRight {
+      @extend .buttons;
+      right:-15%;
+      top: 22%;
+        i{
+            color:  #cececd;
+            font-size: 2.5rem;
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+        }
+      
     }
     
 }
@@ -82,42 +114,7 @@
     justify-content: space-evenly;
     
 }
-.buttons{
-    background-color: transparent;
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
 
-
-
-.goLeft {
-  @extend .buttons;
-  left: 10%;
-  top: 30%;
-  i{
-      color:  #bbbab4;
-      font-size: 4rem;
-      position: absolute;
-      bottom: 60px;
-      right: 40px;
-  }
-}
-
-.goRight {
-  @extend .buttons;
-  right:15%;
-  top: 29%;
-  i{
-    color:  #bbbab4;
-      position: absolute;
-      font-size: 4rem;
-      position: absolute;
-      bottom: 60px;
-      left: 58px;
-  }
-}
 
 
   
@@ -138,19 +135,39 @@
             width: 80%;
             object-fit: contain;
         }
+        .goLeft {
+  
+            i{
+                color:  #bbbab4;
+                font-size: 1.5rem;
+                position: absolute;
+                bottom: 60px;
+                right: 22px;
+            }
+        }
+        .goRight {
+      
+            i{
+                color:  #bbbab4;
+                font-size: 1.5rem;
+                position: absolute;
+                bottom: 60px;
+                right: 10px;
+            }
+        }
      
     }
     
     .lightBox__right{
         
         h3{
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         p{
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
         strong{
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin-bottom: 0.3rem;
         }
 
@@ -176,26 +193,7 @@
         font-size: 0.5rem;
         justify-content: space-between;
     }
-    .goLeft {
-  
-        i{
-            color:  #bbbab4;
-            font-size: 2rem;
-            position: absolute;
-            bottom: 40px;
-            right: 20px;
-        }
-    }
-    .goRight {
-  
-        i{
-            color:  #bbbab4;
-            font-size: 2rem;
-            position: absolute;
-            bottom: 40px;
-            left: 24px;
-        }
-    }
+    
 }
 
 @media  (min-width: 768px) and (max-width: 1023px){
@@ -213,6 +211,26 @@
             height: 85%;
             width: 80%;
             object-fit: contain;
+        }
+        .goLeft {
+  
+            i{
+                color:  #bbbab4;
+                font-size: 2.2rem;
+                position: absolute;
+                bottom: 60px;
+                right: 18px;
+            }
+        }
+        .goRight {
+      
+            i{
+                color:  #bbbab4;
+                font-size: 2.2rem;
+                position: absolute;
+                bottom: 62px;
+                left: -80px;
+            }
         }
         
     }
@@ -252,30 +270,11 @@
         justify-content: space-evenly;
     }
 
-    .goLeft {
-  
-        i{
-            color:  #bbbab4;
-            font-size: 3.5rem;
-            position: absolute;
-            bottom: 60px;
-            right: 20px;
-        }
-    }
-    .goRight {
-  
-        i{
-            color:  #bbbab4;
-            font-size: 3.5rem;
-            position: absolute;
-            bottom: 60px;
-            left: 24px;
-        }
-    }
+    
 }
 
 
-@media  (min-width: 1024px) and (max-width: 1300px){
+@media  (min-width: 1023.99px) and (max-width: 1300px){
     .lightBox{
         top: 35%;
         left: 5%;
@@ -322,77 +321,6 @@
         justify-content: space-evenly;
     }
 
-    .goLeft {
-  
-        i{
-            color:  #bbbab4;
-            font-size: 3.5rem;
-            position: absolute;
-            bottom: 60px;
-            right: 20px;
-        }
-    }
-    .goRight {
-  
-        i{
-            color:  #bbbab4;
-            font-size: 3.5rem;
-            position: absolute;
-            bottom: 60px;
-            left: 24px;
-        }
-    }
     
 }
 
-
-/*
-.arrowLeft {
-    @extend .arrow;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-  }
-  
-  .arrowRight {
-    @extend .arrow;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-
-  .arrowLeft{
-    i{
-        
-    }
-}
-
-.arrowRight{
-    @extend .arrow;
-}
-  .arrow {
-    position: absolute;
-    height: 12px;
-    width: 12px;
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    padding: 3px;
-    box-sizing: border-box;
-    background: transparent;
-    transition: 0.3s;
-    z-index: 10;
-}
-.arrow:hover{
-    border-color: #c2c1be;
-    height: 35px;
-    width: 35px;   
-}
-
-.buttons {
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: 0.5s;
-  }
-
-  */

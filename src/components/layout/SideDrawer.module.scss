@@ -4,6 +4,7 @@
   background-color: #b3a690;
   position: fixed;
   max-width: 400px;
+  max-height: 670px;
   top: 0;
   left: 0;
   z-index: 700;
@@ -11,37 +12,28 @@
   box-shadow: 1px, 0px, 7px, rgba(0, 0, 0, 0.5);
   transform: translateX(-100%);
   transition: 0.3s;
-  padding: 0.5rem;
+  padding:0 0.5rem;
 }
 
 .sideDrawer ul {
-  height: 100%;
   list-style: none;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   padding:0;
 }
 
 .sideDrawer__list {
   cursor: pointer;
-  margin: 2px;
   border-top: 1px solid #a1895480;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 220px;
-  padding: 1.5rem 1rem;
+  width: 200px;
+  padding: 1rem 0.5rem;
 }
 
 .sideDrawer.open {
   transform: translateX(0);
-}
-
-.sideDrawer a {
-  text-decoration: none;
-  font-size: 1.4rem;
-  margin-left: 0;
 }
 
 .sideDrawer p {

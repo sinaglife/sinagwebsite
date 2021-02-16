@@ -29,7 +29,7 @@ const Icon = React.memo(function Icon({
             onClick={onClick}
             disabled={disabled}
             >
-            <SVG {...props}/>
+                <SVG {...props}/>
             </button>
         );
     }

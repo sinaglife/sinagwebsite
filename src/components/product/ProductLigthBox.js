@@ -7,6 +7,7 @@ import WhatsAppButton from "../UI/social-media-buttons/WhatsAppButton"
 
 import classes from "./ProductLightBox.module.scss"
 
+
 const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...props})=> {
     
         const [x, setX] = useState(0);
@@ -59,14 +60,14 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
             className={classes.goLeft }
             onClick={goLeft} 
             >
-                <i class="fas fa-angle-left" ></i>
+                <i class="fas fa-chevron-left"></i>
             </button>  
                 <img src={lightImgsArr[x]} alt={alt}/>
             <button
             className={classes.goRight}
             onClick={goRight} 
             >
-                <i class="fas fa-angle-right" ></i>
+                <i class="fas fa-chevron-right"></i>
             </button>  
             </>
         );
