@@ -10,7 +10,15 @@ import classes from "./ProductLightBox.module.scss"
 const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...props})=> {
     
         const [x, setX] = useState(0);
-        const [sizeChoice, setSizeChoice] = useState("")
+        const [sizeChoice, setSizeChoice] = useState("");
+
+        const goToBasketHandler = ()=> {
+            console.log("go to the carrito")
+        }
+
+        const buyNowHandler = ()=>{
+            console.log("buy now")
+        }
    
         let lightImgArrLength = lightImgsArr.length;
 
@@ -112,8 +120,8 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
                    }
                     
                     <div className={classes.lightBox__right__buttons}>
-                        <button>Agregar al carrito</button>
-                        <button>Comprar ya</button>
+                        <button onClick={goToBasketHandler} >Agregar al carrito</button>
+                        <button onClick={buyNowHandler} >Comprar ya</button>
                     </div>    
                 </div>
             </div>

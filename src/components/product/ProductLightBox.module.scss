@@ -90,11 +90,7 @@
     cursor: pointer;
 }
 
-i:hover{
-    opacity: 0.8;
-    transform: scale(1.8,1.8);
-    color: black;
-}
+
 
 .goLeft {
   @extend .buttons;
@@ -115,7 +111,6 @@ i:hover{
   top: 29%;
   i{
     color:  #bbbab4;
-      font-size: 4rem;
       position: absolute;
       font-size: 4rem;
       position: absolute;
@@ -129,11 +124,11 @@ i:hover{
 @media (max-width: 415px){
     .lightBox{
         position: fixed;
-        top: 35%;
+        top: 30%;
         left: 5%;
         margin: 0;
         width: 90%;
-        height:250px;
+        height:285px;
     }
     
     .lightBox__left{
@@ -149,13 +144,14 @@ i:hover{
     .lightBox__right{
         
         h3{
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
         p{
-            font-size: 0.7rem;
+            font-size: 0.8rem;
         }
         strong{
-            font-size: 0.7rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
         }
 
         button{
@@ -184,7 +180,7 @@ i:hover{
   
         i{
             color:  #bbbab4;
-            font-size: 3rem;
+            font-size: 2rem;
             position: absolute;
             bottom: 40px;
             right: 20px;
@@ -194,7 +190,7 @@ i:hover{
   
         i{
             color:  #bbbab4;
-            font-size: 3rem;
+            font-size: 2rem;
             position: absolute;
             bottom: 40px;
             left: 24px;

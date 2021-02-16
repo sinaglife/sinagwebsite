@@ -62,6 +62,19 @@ const SideDrawer = (props) => {
             </li>
           </Link>
         </IconButton>
+        <IconButton>
+          <Link
+            to="Conocenos"
+            style={{ textDecoration: "none" }}
+            className={classes.sideDrawer__item}
+            onClick={props.close}
+          >
+            <li className={classes.sideDrawer__list}>
+              <Button icon="hands" color="white" size="big" />
+              <p className={classes.sideDrawer__paragraph}>Conocenos</p>
+            </li>
+          </Link>
+        </IconButton>
       </ul>
     </nav>
   );
