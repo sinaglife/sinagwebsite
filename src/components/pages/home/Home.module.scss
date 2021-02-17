@@ -30,7 +30,6 @@
 
 .home__banner{
     margin: 0.5rem 0 0.5rem 0;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.144);
     img{
         width: 70%;
         height: 180px;
@@ -40,6 +39,7 @@
 
 .home__taller{
     display: flex;
+    align-items: center;
     height: 250px;
     padding: 0.5rem;
     text-align: center;
