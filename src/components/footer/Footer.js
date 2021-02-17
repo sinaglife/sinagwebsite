@@ -67,7 +67,7 @@ const Footer = () => {
                 size="medium"
                 padding="noPadding"
               />
-              info@sinaglife.com
+              sinaglife@gmail.com
             </nav>
           </a>
             <a style={{ textDecoration: "none" }}
