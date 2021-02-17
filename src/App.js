@@ -77,39 +77,41 @@ const App = ()=> {
   }
 
   return (
-    <Fragment>
-      <div className="app">
-          <Header 
-          open={sideDrawerOpenHandler}
-          />
-          {sideDrawer}
-          {backdrop}
-          {sideDrawerTienda}
-          {sideDrawerMujer}
-          <div className="app__body">
-            <Router>
-              <Home path="/"/>
-              <Niño path="/Nino"/>
-              <Blog path="/Blog" />
-              <BlogPost path="blog/:slug" />
-              <Kokedama path="/Kokedamas"/>
-              <Mala path="/Mala"/>
-              <Hombre path="/Hombre"/>
-              <Pulseras path="/Pulseras"/>
-              <Bolso path="/Bolsos"/>
-              <Colgantes path="/Colgantes"/>
-              <Pendientes path="/Pendientes"/>
-              <Conocenos path="/Conocenos"/>
-              <TramitacionEnvios path="/TramitacionEnvios"/>
-              <PoliticaCookies  path="/PoliticaCookies"/>
-              <PoliticasDevoluciones  path="/politicaDeDevoluciones"/>
-              <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
-              <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
-            </Router>
-          </div>
-        <Footer/>
+    <div className="app">
+      <div className="app__header">
+        <Header 
+        open={sideDrawerOpenHandler}
+        />
       </div>
-    </Fragment> 
+        {sideDrawer}
+        {backdrop}
+        {sideDrawerTienda}
+        {sideDrawerMujer}
+        <div className="app__body">
+          <Router>
+            <Home path="/"/>
+            <Niño path="/Nino"/>
+            <Blog path="/Blog" />
+            <BlogPost path="blog/:slug" />
+            <Kokedama path="/Kokedamas"/>
+            <Mala path="/Mala"/>
+            <Hombre path="/Hombre"/>
+            <Pulseras path="/Pulseras"/>
+            <Bolso path="/Bolsos"/>
+            <Colgantes path="/Colgantes"/>
+            <Pendientes path="/Pendientes"/>
+            <Conocenos path="/Conocenos"/>
+            <TramitacionEnvios path="/TramitacionEnvios"/>
+            <PoliticaCookies  path="/PoliticaCookies"/>
+            <PoliticasDevoluciones  path="/politicaDeDevoluciones"/>
+            <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
+            <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
+          </Router>
+        </div>
+      <div className="app__footer">
+      <Footer/>
+      </div>
+    </div>
   );
 }
 

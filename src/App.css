@@ -1,9 +1,25 @@
-.app{
-  text-align: center;
+
+.app__header{
+  z-index: 100;
+  grid-area: header;
+  position: sticky;
+  top: 0;
+}
+.app__body{
+  grid-area: body;
+}
+.app__footer{
+  grid-area: footer;
 }
 
-.app__body{
-  padding-top: 120px;
+.app{
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+  "header"
+  "body"
+  "footer";
 }
 
 
@@ -12,7 +28,7 @@ button:focus, button:active {
   box-shadow: none !important;
 }
 
-@media (min-width: 575.99px) and (max-width: 767.98px) {
+/* @media (min-width: 575.99px) and (max-width: 767.98px) {
   .app__body {
     padding-top: 170px;
   }
@@ -26,4 +42,4 @@ button:focus, button:active {
   .app__body {
     padding-top: 180px;
   }
-}
+} */
