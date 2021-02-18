@@ -40,8 +40,8 @@
 .home__taller{
     display: flex;
     align-items: center;
-    height: 250px;
-    padding: 0.5rem;
+    height: 350px;
+    padding: 0.5rem 0;
     text-align: center;
     background-color: #efecdf;
     h3{
@@ -50,11 +50,12 @@
         padding: 1.2rem;
     }
     img{
-        width: 40%;
+        width: 60%;
         height: 100%;
         margin-left: auto;
-        margin-right: 1rem;
+        
         object-fit: cover;
+        border-radius: 5px;
     }
 }
 
