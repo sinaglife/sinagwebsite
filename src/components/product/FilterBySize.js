@@ -21,7 +21,7 @@ function FilterSize({sizeChoice}) {
 
     const necklaceFilter = ()=>(
         necklaceArray.map((item, index)=> (
-            <option  key={index} value={item}>{item}</option>
+            <option  key={index} value={item}>{item}cm</option>
         ))
     )
     

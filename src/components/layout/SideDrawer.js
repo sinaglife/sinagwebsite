@@ -10,19 +10,6 @@ const SideDrawer = (props) => {
       <ul>
         <IconButton>
           <Link
-            to="Conocenos"
-            style={{ textDecoration: "none" }}
-            className={classes.sideDrawer__item}
-            onClick={props.close}
-          >
-            <li className={classes.sideDrawer__list}>
-              <Button icon="hands" color="white" size="big" />
-              <p className={classes.sideDrawer__paragraph}>Conocenos</p>
-            </li>
-          </Link>
-        </IconButton>
-        <IconButton>
-          <Link
             to="/"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
@@ -59,6 +46,19 @@ const SideDrawer = (props) => {
             <li className={classes.sideDrawer__list}>
               <Button icon="kokedama" color="white" size="big" />
               <p className={classes.sideDrawer__paragraph}>Kokedamas</p>
+            </li>
+          </Link>
+        </IconButton>
+        <IconButton>
+          <Link
+            to="Conocenos"
+            style={{ textDecoration: "none" }}
+            className={classes.sideDrawer__item}
+            onClick={props.close}
+          >
+            <li className={classes.sideDrawer__list}>
+              <Button icon="hands" color="white" size="big" />
+              <p className={classes.sideDrawer__paragraph}>Conòcenos</p>
             </li>
           </Link>
         </IconButton>

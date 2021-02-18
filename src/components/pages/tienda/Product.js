@@ -1,9 +1,6 @@
 import React, { Fragment} from 'react';
 import classes from "./Product.module.scss";
 
-
-
-
 const Product = (props) => {
 
     return (
