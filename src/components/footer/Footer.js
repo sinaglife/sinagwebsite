@@ -19,21 +19,21 @@ const Footer = () => {
       </div>
       <div className={classes.footer__rightSection}>
         <div className={classes.footer__rightInfo}>
-          <p className={classes.footer__title}>Informaciòn</p>
+          <p className={classes.footer__title}>Información</p>
           <Link to="Conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
           <Link to="TramitacionEnvios" style={{ textDecoration: "none" }}>
             <nav>Tramitación de Envíos</nav>
           </Link>
-          <Link to="PoliticasPrivacidad" style={{ textDecoration: "none" }}>
-            <nav>Política de Privacidad</nav>
-          </Link>
           <Link to="PreguntasFrecuentes" style={{ textDecoration: "none" }}>
             <nav>Preguntas Frecuentes</nav>
           </Link>
+          <Link to="PoliticasPrivacidad" style={{ textDecoration: "none" }}>
+            <nav>Política de Privacidad</nav>
+          </Link>
           <Link to="politicaDeDevoluciones" style={{ textDecoration: "none" }}>
-            <nav>Políticas de devoluciones</nav>
+            <nav>Política de devoluciones</nav>
           </Link>  
           <Link to="PoliticaCookies" style={{ textDecoration: "none" }}>
             <nav>Política de cookies</nav>
@@ -43,7 +43,7 @@ const Footer = () => {
         <div className={classes.footer__rightInfo}>
           <p className={classes.footer__title}>Contáctanos</p>
           <a style={{ textDecoration: "none" }}
-            href="https://api.whatsapp.com/send?phone=34625572710&text=Hola!!"
+            href="https://api.whatsapp.com/send?phone=34625572710&text=¡Hola! Quisiera orientación con:"
             target="blank"
           >
             <nav className={classes.icon}>
@@ -80,7 +80,7 @@ const Footer = () => {
                   size="medium"
                   padding="noPadding"
                 />
-                sinaglife@gmail.com
+                @sinaglife
               </nav>
             </a>
             <a style={{ textDecoration: "none" }}
