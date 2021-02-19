@@ -12,7 +12,7 @@ const Footer = () => {
         <p>
           En Sinag estamos comprometidos en
           cuidar el planeta tierra, el embalaje
-          que acompañan nuestras piezas es
+          que acompaña a nuestras piezas es
           100% reciclado, respetando el medio
           ambiente.
         </p>

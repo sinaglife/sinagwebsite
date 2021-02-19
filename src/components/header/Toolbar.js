@@ -3,7 +3,8 @@ import classes from "./Toolbar.module.scss";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "@reach/router";
-import Logo from "./logosinagvectoriced.png";
+import Logo from "../../assets/images/LogoSinagSinV&D.jpeg";
+// import Logo from "./logosinagvectoriced.png";
 import Button from "../UI/button/Button";
 
 const LogoHeader = () => {
