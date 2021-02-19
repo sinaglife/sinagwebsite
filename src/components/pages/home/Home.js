@@ -2,7 +2,7 @@ import React  from 'react';
 import classes from "./Home.module.scss";
 import Slider from "../../layout/Slider";
 import banner from "../../../assets/images/sinagBanner.jpg";
-import taller from "../../../assets/images/taller.jpeg";
+import taller from "../../../assets/images/tallerconclick.jpeg";
 import blog from "../../../assets/images/homeBlog_img.jpg";
 import {Parallax} from "react-parallax";
 import Mosaic from "../../layout/Mosaic";

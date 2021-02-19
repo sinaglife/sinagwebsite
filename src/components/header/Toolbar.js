@@ -15,16 +15,16 @@ const LogoHeader = () => {
       setShrunk((isShrunk) => {
         if (
           !isShrunk &&
-          (document.body.scrollTop > 70 ||
-            document.documentElement.scrollTop > 70)
+          (document.body.scrollTop > 0 ||
+            document.documentElement.scrollTop > 0)
         ) {
           return true;
         }
 
         if (
           isShrunk &&
-          document.body.scrollTop < 70 &&
-          document.documentElement.scrollTop < 70
+          document.body.scrollTop <= 0 &&
+          document.documentElement.scrollTop <= 0
         ) {
           return false;
         }
