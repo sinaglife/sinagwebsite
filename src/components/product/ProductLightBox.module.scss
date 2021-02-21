@@ -182,10 +182,10 @@
     .lightBox__right{
         
         h3{
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
         p{
-            font-size: 0.7rem;
+            font-size: 0.6rem;
         }
         strong{
             font-size: 0.7rem;
@@ -199,9 +199,8 @@
      
     .lightBox__left__share{
         padding: 0;
-        justify-content: center;
         p{
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             padding: 0.35rem 0;
         }
     }
@@ -231,9 +230,10 @@
     .lightBox__left{
        
         img{
-            height: 85%;
-            width: 80%;
+            height: 250px;
+            width: 190px;
             object-fit: contain;
+            padding: 0;
         }
         .goLeft {
   
@@ -242,7 +242,11 @@
                 font-size: 2.2rem;
                 position: absolute;
                 bottom: 60px;
-                right: 18px;
+                right: 35px;
+            }
+            i:hover{
+                color:  #000000;
+                font-size: 2.5rem;
             }
         }
         .goRight {
@@ -252,7 +256,11 @@
                 font-size: 2.2rem;
                 position: absolute;
                 bottom: 62px;
-                left: -80px;
+                left: -40px;
+            }
+            i:hover{
+                color:  #000000;
+                font-size: 2.5rem;
             }
         }
         
@@ -261,7 +269,7 @@
     .lightBox__right{
         
         h3{
-            font-size: 1.2rem;
+            font-size: 1.35rem;
         }
         p{
             font-size: 1.2rem;
@@ -276,20 +284,19 @@
     }
      
     .lightBox__left__share{
-        padding: 0.5rem ;
+        padding: 0.5rem;
         justify-content: space-evenly;
         p{
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             padding: 0.2rem;
         }
     }
     .lightBox__size__choice{
-        padding: 0.3rem;
-        
+        padding: 0.3rem; 
     }
     
     .lightBox__right__buttons{
-        font-size: 0.7rem;
+        font-size: 0.85rem;
         justify-content: space-evenly;
     }
 
@@ -302,19 +309,21 @@
         top: 35%;
         left: 5%;
         width: 90%;
-        height:420px;
+        height:440px;
         img{
             object-fit: contain;
+            height: 300px;
+            width: 270px;
         }
     }
 
     .lightBox__right{
         
         h3{
-            font-size: 1.5rem;
+            font-size: 1.7rem;
         }
         p{
-            font-size: 1.38rem;
+            font-size: 1.45rem;
         }
         strong{
             font-size: 1.3rem;
@@ -324,10 +333,39 @@
             padding: 0.5;
         }
     }
+
+    .goLeft {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 2.2rem;
+            position: absolute;
+            bottom: 60px;
+            right: 70px;
+        }
+        i:hover{
+            color:  #000000;
+            font-size: 1.5rem;
+        }
+    }
+    .goRight {
+  
+        i{
+            color:  #bbbab4;
+            font-size: 2.2rem;
+            position: absolute;
+            bottom: 62px;
+            left: -90px;
+        }
+        i:hover{
+            color:  #000000;
+            font-size: 1.5rem;
+        }
+    }
      
     .lightBox__left__share{
         padding: 0.5rem ;
-        
+        margin-top: 2rem;
         p{
             font-size: 1.4rem;
             padding: 0.2rem;
