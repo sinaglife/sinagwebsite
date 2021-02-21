@@ -58,7 +58,7 @@ const SideDrawer = (props) => {
           >
             <li className={classes.sideDrawer__list}>
               <Button icon="hands" color="white" size="big" />
-              <p className={classes.sideDrawer__paragraph}>Conòcenos</p>
+              <p className={classes.sideDrawer__paragraph}>Conócenos</p>
             </li>
           </Link>
         </IconButton>

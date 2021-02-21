@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from "prop-types";
 import Button from "../UI/button/Button";
 import FilterBySize from "./FilterBySize";
 import Backdrop from "../layout/Backdrop";
@@ -32,7 +33,7 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
             setSizeChoice("pulsera")
             else 
             setSizeChoice("")
-        }, [props])
+        }, [title])
 
 
         const goRight = ()=>{
@@ -91,7 +92,7 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
                     <div className={classes.lightBox__left__share}>
                         <p>Compartir</p>
                         <div className={classes.share__icons}>
-                        <FacebookButton/>
+                            <FacebookButton/>
                             <Button
                                 icon="insta"
                                 color="black"
@@ -128,6 +129,15 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
             </div>
         </>
     )
+}
+
+ProductLigthBox.propTypes = {
+    src: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    alt: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    lightImgsArr: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default ProductLigthBox

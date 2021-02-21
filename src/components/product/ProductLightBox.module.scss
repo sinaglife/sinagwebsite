@@ -3,24 +3,25 @@
     top: 20%;
     left: 20%;
     background-color: white;
-    margin: 2rem auto;
+    margin: auto;
     width: 60%;
     display: flex;
-    justify-content: space-between;
-    height: 370px;
+    height: 380px;
     z-index: 700;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .lightBox__left{
     position: relative;
     flex: 0.50;
-    padding:1.3rem 0.8rem;
+    padding:1.5rem;
+    height: 100%;
     img{
-        height: 85%;
-        width: 80%;
+        height: 280px;
+        width: 250px;
         object-fit: cover;
         border-radius: 10px;
+        padding: 0 0.5rem;
     }
   
     .buttons{
@@ -30,8 +31,8 @@
         border: none;
         cursor: pointer;
     }
-    
-    
+ 
+       
     .goLeft {
       @extend .buttons;
       left: 10%;
@@ -43,6 +44,10 @@
             bottom: 60px;
             right: 40px;
         }
+        i:hover{
+            color:  #000000;
+            font-size: 3rem;
+        }
     }
     
     .goRight {
@@ -50,11 +55,15 @@
       right:-15%;
       top: 22%;
         i{
-            color:  #cececd;
+            color:  #818181;
             font-size: 2.5rem;
             position: absolute;
             bottom: 60px;
             right: 40px;
+        }
+        i:hover{
+            color:  #cececd;
+            font-size: 3rem;
         }
       
     }
@@ -87,8 +96,9 @@
 
     button{
         background-color:  #efecdf;
-        padding: 0.2rem;
+        padding: 0.4rem;
         border-radius: 5px;
+        text-transform: uppercase;
     }
       
 }
@@ -96,7 +106,8 @@
 .lightBox__left__share{
     display: flex; 
     justify-content: space-evenly;
-    padding:1rem 0.5rem;
+    padding:1.4rem 0.5rem 0.5rem;
+   text-transform: uppercase;
 }
 
 .share__icons{
@@ -112,7 +123,6 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    
 }
 
 
@@ -125,34 +135,45 @@
         left: 5%;
         margin: 0;
         width: 90%;
-        height:285px;
+        height:250px;
     }
     
-    .lightBox__left{
-       
+    .lightBox__left{ 
+        padding: 0.2rem 0.5rem;
         img{
-            height: 85%;
-            width: 80%;
+            height: 205px;
+            width: 80px;
             object-fit: contain;
+            padding:0.95rem 0;
+            margin: 0;
+            position: relative;
         }
         .goLeft {
   
             i{
                 color:  #bbbab4;
-                font-size: 1.5rem;
+                font-size: 1rem;
                 position: absolute;
                 bottom: 60px;
                 right: 22px;
+            }
+            i:hover{
+                color:  #000000;
+                font-size: 1rem;
             }
         }
         .goRight {
       
             i{
                 color:  #bbbab4;
-                font-size: 1.5rem;
+                font-size: 1rem;
                 position: absolute;
                 bottom: 60px;
-                right: 10px;
+                right: 20px;
+            }
+            i:hover{
+                color:  #000000;
+                font-size: 1rem;
             }
         }
      
@@ -172,26 +193,28 @@
         }
 
         button{
-            padding: 0.14rem;
+            padding: 0.15rem;
         }
     }
      
     .lightBox__left__share{
-        padding: 0.5rem ;
+        padding: 0;
+        justify-content: center;
         p{
-            font-size: 0.85rem;
-            padding: 0.2rem;
+            font-size: 0.7rem;
+            padding: 0.35rem 0;
         }
     }
     .lightBox__size__choice{
         display: flex;
-        padding: 0.3rem;
-        
+        padding: 0.3rem; 
     }
     
     .lightBox__right__buttons{
         font-size: 0.5rem;
-        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
 }

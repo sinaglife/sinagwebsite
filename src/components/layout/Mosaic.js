@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import classes from "./Mosaic.module.scss";
 import axios from "axios";
-import LightBox from "./LightBox";
 import ProductCard from "../product/ProductCard";
 import ProductLigthBox from "../product/ProductLigthBox";
 
@@ -62,10 +61,10 @@ const Mosaic = (props) => {
     const productAcf = mosaicData[i]?.acf;
     console.log(productAcf)
     let lightBoxUrls = [];
-    let title = productAcf["product_title"]
+    let title = productAcf["product_title"];
 
     setProductData({
-      title: productAcf["product_title"],
+      title: title,
       price:  productAcf["product_price"],
       description:  productAcf["product_description"],
       alt:  productAcf["product_title"]
