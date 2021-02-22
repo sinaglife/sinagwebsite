@@ -7,7 +7,8 @@ const Slider = () => {
   const [sliderData, setSliderData] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
   const [carousel, setCarousel] = useState(null);
-
+  const [visibleControls, setVisibleControls] = useState(true);
+  
   useEffect(() => {
     let api1 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1`;
     let api2 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=2`;
@@ -57,6 +58,13 @@ const Slider = () => {
     setCurrentImage(selectedIndex);
   };
 
+
+  useEffect(()=>{
+      if (window.innerWidth <= 767.98) {
+          setVisibleControls(false)
+      }
+  }, [])
+
   useEffect(() => {
     if (sliderData) {
       let sortedData = sliderData.sort((a, b) => {
@@ -72,6 +80,7 @@ const Slider = () => {
           onSelect={handleSelectImage}
           interval={5000}
           wrap={true}
+          controls={visibleControls}
         >
           {sortedData.map((item, index) => {
             return (
@@ -128,7 +137,7 @@ const Slider = () => {
 
       setCarousel(carousel);
     }
-  }, [currentImage, sliderData]);
+  }, [currentImage, sliderData, visibleControls]);
   return <div>{carousel}</div>;
 };
 

@@ -1,8 +1,8 @@
-import React  from 'react';
+import React from 'react';
 import classes from "./Home.module.scss";
 import Slider from "../../layout/Slider";
 import banner from "../../../assets/images/sinagBanner.jpg";
-import taller from "../../../assets/images/tallerconclick.jpeg";
+import taller from "../../../assets/images/taller.jpeg";
 import blog from "../../../assets/images/homeBlog_img.jpg";
 import {Parallax} from "react-parallax";
 import Mosaic from "../../layout/Mosaic";
@@ -10,7 +10,7 @@ import { Link } from "@reach/router";
 import piedras from "../../../assets/images/piedrasFondo.jpg"
 
 
-const Home = (props)=> {
+const Home = ()=> {
 
     return (
         <div className={classes.home}>
@@ -20,15 +20,14 @@ const Home = (props)=> {
             </div>
             <Parallax   bgImage={piedras} strength={1200}  bgClassName={classes.ParaImg} blur={0}>
                 <Mosaic
-                clickMosaic={props.clickMosaic}
                 />
-            </Parallax>   
+            </Parallax>
             <div className={classes.home__banner}>
                 <img src={banner} alt=""/>
             </div>
             <div className={classes.home__taller}>
-                <h3>"Tu creatividad y originalidad<br/> son ideas para realizar piezas personalizadas"</h3>
                 <img src={taller} alt=""/>
+                <button>Diseña aquí</button>
             </div>
             <Link to="Blog" style={{ textDecoration: "none", color: "black" }}>
             <div className={classes.home__blog}>
