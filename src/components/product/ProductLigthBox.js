@@ -5,11 +5,12 @@ import FilterBySize from "./FilterBySize";
 import Backdrop from "../layout/Backdrop";
 import FacebookButton from "../UI/social-media-buttons/FacebookButton"
 import WhatsAppButton from "../UI/social-media-buttons/WhatsAppButton"
+import { Link } from "@reach/router";
 
 import classes from "./ProductLightBox.module.scss"
 
 
-const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...props})=> {
+const ProductLigthBox = ({productData, src, title, price, alt, description, lightImgsArr, id, ...props})=> {
     
         const [x, setX] = useState(0);
         const [sizeChoice, setSizeChoice] = useState("");
@@ -38,7 +39,7 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
 
         const goRight = ()=>{
             
-            if(x === lightImgsArr.length - 1){
+            if(x === lightImgArrLength - 1){
                 setX(0);
             }else{
                 let newX = x + 1;
@@ -49,7 +50,7 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
         const goLeft = ()=>{
            
             if(x === 0){
-                setX(lightImgsArr.length - 1);
+                setX(lightImgArrLength - 1);
             }else{
                 setX(x - 1);
             }
@@ -123,7 +124,9 @@ const ProductLigthBox = ({src, title, price, alt, description, lightImgsArr, ...
                     
                     <div className={classes.lightBox__right__buttons}>
                         <button onClick={goToBasketHandler} >Agregar al carrito</button>
-                        <button onClick={buyNowHandler} >Comprar ya</button>
+                        <Link to={`productos/${id}`} state={{productData, lightImgsArr}}>
+                            <button onClick={buyNowHandler} >Comprar ya</button>
+                        </Link>
                     </div>    
                 </div>
             </div>

@@ -18,6 +18,7 @@ const Mosaic = (props) => {
     price:0,
     alt:"",
     description:"",
+    id:0,
   })
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const Mosaic = (props) => {
 
   const selectedImg = (i) => {
     const productAcf = mosaicData[i]?.acf;
-    console.log(productAcf)
+   
     let lightBoxUrls = [];
     let title = productAcf["product_title"];
 
@@ -67,7 +68,8 @@ const Mosaic = (props) => {
       title: title,
       price:  productAcf["product_price"],
       description:  productAcf["product_description"],
-      alt:  productAcf["product_title"]
+      alt:  productAcf["product_title"],
+      id: i
     })
 
     for(let key in productAcf){
@@ -79,6 +81,7 @@ const Mosaic = (props) => {
     setLightImgsArr(lightBoxUrls);
     setShowLightBox(true);
     setShowBackdrop(true);
+    
   }
 
   const closeLightBox = () => {
@@ -116,6 +119,8 @@ const Mosaic = (props) => {
           price={productData.price}
           show={showBackdrop}
           close={closeLightBox}
+          id={productData.id}
+          productData={productData}
         />
       ) : null}
     </Fragment>

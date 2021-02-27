@@ -24,7 +24,7 @@ import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
 import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrecuentes';
 import PoliticasPrivacidad from './components/pages/footer_choices/PoliticasPrivacidad';
 import PoliticasDevoluciones from './components/pages/footer_choices/PoliticasDevoluciones';
-
+import Products from "./components/product/Product"
 
 const App = ()=> {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -106,6 +106,7 @@ const App = ()=> {
             <PoliticasDevoluciones  path="/politicaDeDevoluciones"/>
             <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
             <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
+            <Products path="/productos/:id" />
           </Router>
         </div>
       <div className="app__footer">
