@@ -2,12 +2,16 @@ import React, {useState, useEffect} from 'react'
 import Button from "../UI/button/Button"
 import FilterBySize from "./FilterBySize"
 import Quantity from "./Quantity"
+import RatingComponent from "./RatingComponent"
+import star from "../../assets/images/star.svg"
+//import ShareBtn from 'react-share-button';
 import classes from "./Product.module.scss"
 
 const Product = ({location}) => {
   
    const [x , setX] = useState(0);
    const [sizeChoice, setSizeChoice] = useState("")
+   const [average, setAverage] = useState(5)
    const data = location.state.productData;
    const imagesArr = location.state.lightImgsArr;
 
@@ -46,6 +50,18 @@ const goRight = ()=> {
         setX(x +1)
     }  
 }
+
+const renderAverage = ()=>{
+    let x = 0;
+    let avergArray = [];
+    while(x < average){
+        x++
+        avergArray.push(<img src={star} style={{width: "20px", height: "20px"}}/> ) 
+    }
+    return avergArray.map((x)=> (
+        x
+    ));
+}
     return (
         <div className={classes.product__main}>
             <div className={classes.product__left}>
@@ -80,10 +96,13 @@ const goRight = ()=> {
                         <p>{data.price}$</p>
                         <div className={classes.info__buttons}>
                             <Quantity/>
-                            <FilterBySize sizeChoice={sizeChoice}/>
+                            {
+                                sizeChoice &&
+                                <FilterBySize sizeChoice={sizeChoice}/>
+                            }
                         </div>
                     </div>
-                    <button className={classes.addToCar}>Agregar al carrito</button>
+                    <button className={classes.addToCart}>Agregar al carrito</button>
                 </div>
                 <div className={classes.product__right__bottom}>
                     <div className={classes.product__payment}>
@@ -110,7 +129,9 @@ const goRight = ()=> {
                         />
                     </div>
                     <div className={classes.product__share}>
-                        <p>❤ ❤ ❤ ❤</p> 
+                        <div>
+                            <RatingComponent/>
+                        </div>
                         <Button
                             className={classes.shareButton}
                             icon="share"
@@ -118,7 +139,7 @@ const goRight = ()=> {
                             size="medium"
                             padding="noPadding"
                         />
-                        <a href="" >GUIA DE TALLAS</a>
+                        <a href="http://localhost:3000/productos/1"  >GUIA DE TALLAS</a>
                     </div>
                 </div>
             </div>
