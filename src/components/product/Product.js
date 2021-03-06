@@ -3,15 +3,12 @@ import Button from "../UI/button/Button"
 import FilterBySize from "./FilterBySize"
 import Quantity from "./Quantity"
 import RatingComponent from "./RatingComponent"
-import star from "../../assets/images/star.svg"
-//import ShareBtn from 'react-share-button';
 import classes from "./Product.module.scss"
 
 const Product = ({location}) => {
   
    const [x , setX] = useState(0);
    const [sizeChoice, setSizeChoice] = useState("")
-   const [average, setAverage] = useState(5)
    const data = location.state.productData;
    const imagesArr = location.state.lightImgsArr;
 
@@ -51,17 +48,6 @@ const goRight = ()=> {
     }  
 }
 
-const renderAverage = ()=>{
-    let x = 0;
-    let avergArray = [];
-    while(x < average){
-        x++
-        avergArray.push(<img src={star} style={{width: "20px", height: "20px"}}/> ) 
-    }
-    return avergArray.map((x)=> (
-        x
-    ));
-}
     return (
         <div className={classes.product__main}>
             <div className={classes.product__left}>
@@ -69,20 +55,24 @@ const renderAverage = ()=>{
                
                 {
                     imagesArr.length > 2 
-                    &&
-                    renderImages  
+                    ?
+                    renderImages
+                    :
+                    <>
+                        <img src={imagesArr[0]} alt="" onClick={()=>getMainImg(0)}/>
+                        <img src={imagesArr[1]} alt="" onClick={()=>getMainImg(1)}/>
+                        <img src={imagesArr[0]} alt="" onClick={()=>getMainImg(0)}/>
+                    </>
                 }
-                    <img src={imagesArr[0]} alt="" onClick={()=>getMainImg(0)}/>
-                    <img src={imagesArr[1]} alt="" onClick={()=>getMainImg(1)}/>
-                    <img src={imagesArr[0]} alt="" onClick={()=>getMainImg(0)}/>
+                    
                 </div>
                 <div className={classes.product__main__img}>
                     <button onClick={goLeft} className={classes.goLeft}>
-                        <i class="fas fa-chevron-left"></i>
+                        <i className="fas fa-chevron-left"></i>
                     </button>  
                     <img src={imagesArr[x]} alt="#"/>
                     <button onClick={goRight}  className={classes.goRight}>
-                        <i class="fas fa-chevron-right"></i>
+                        <i className="fas fa-chevron-right"></i>
                     </button>  
                 </div>
             </div>
@@ -110,21 +100,21 @@ const renderAverage = ()=>{
                             className={classes.visa}
                             icon="visa"
                             color="black"
-                            size="big"
+                            size="small"
                             padding="noPadding"
                         />
                         <Button
                             className={classes.masterCard}
                             icon="masterCard"
                             color="black"
-                            size="big"
+                            size="small"
                             padding="noPadding"
                         />
                         <Button
                             className={classes.payPal}
                             icon="paypal"
                             color="black"
-                            size="big"
+                            size="small"
                             padding="noPadding"
                         />
                     </div>

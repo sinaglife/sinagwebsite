@@ -57,21 +57,21 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
         };
 
         const renderButtons = () => (
-            <>
-            <button 
-            className={classes.goLeft }
-            onClick={goLeft} 
-            >
-                <i class="fas fa-chevron-left"></i>
-            </button>  
-                <img src={lightImgsArr[x]} alt={alt}/>
-            <button
-            className={classes.goRight}
-            onClick={goRight} 
-            >
-                <i class="fas fa-chevron-right"></i>
-            </button>  
-            </>
+            <div className={classes.lightBox__main__img}>
+                <button 
+                className={classes.goLeft }
+                onClick={goLeft} 
+                >
+                    <i class="fas fa-chevron-left"></i>
+                </button>  
+                    <img src={lightImgsArr[x]} alt={alt}/>
+                <button
+                className={classes.goRight}
+                onClick={goRight} 
+                >
+                    <i class="fas fa-chevron-right"></i>
+                </button>  
+            </div>
         );
         const navigationButtons =  lightImgArrLength > 1
         ? renderButtons()
@@ -85,10 +85,12 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
                 close={props.close}
                 show={props.show}
             />
+           
             <div className={classes.lightBox}>
+            
                 <div className={ classes.lightBox__left}>
                    {
-                        navigationButtons
+                    navigationButtons    
                    }
                     <div className={classes.lightBox__left__share}>
                         <p>Compartir</p>
@@ -107,29 +109,18 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
                 <div className={classes.lightBox__right}>
                     <h3>{title}</h3>
                     <p>{description}</p>
-                    <p className={classes.lightBox__right__price}>{price}$</p>
-                    
-                   {
-                       sizeChoice !== "" 
-                       ? 
-                       <div className={classes.lightBox__size__choice}>
-                            <strong>Tallas:</strong> 
-                            <FilterBySize
-                            sizeChoice={sizeChoice}
-                            />
-                        </div>
-
-                        : null
-                   }
-                    
+                    <p className={classes.lightBox__right__price}>{price}€</p>
+                    <Link to={`productos/${id}`} state={{productData, lightImgsArr}} >
+                        <p className={classes.lightBox__more__info}>Mas info</p>
+                    </Link>
                     <div className={classes.lightBox__right__buttons}>
                         <button onClick={goToBasketHandler} >Agregar al carrito</button>
-                        <Link to={`productos/${id}`} state={{productData, lightImgsArr}}>
-                            <button onClick={buyNowHandler} >Comprar ya</button>
-                        </Link>
+                        <button onClick={buyNowHandler} >Comprar ya</button>
                     </div>    
                 </div>
+                
             </div>
+           
         </>
     )
 }
