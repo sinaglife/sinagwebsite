@@ -19,6 +19,7 @@ import Bolso from "./components/pages/mujer/Bolso";
 import Colgantes from "./components/pages/mujer/Colgantes";
 import Pendientes from "./components/pages/mujer/Pendientes";
 import Conocenos from "./components/pages/footer_choices/Conocenos";
+import Tienda from "./components/pages/tienda";
 import TramitacionEnvios from "./components/pages/footer_choices/TramitacionEnvios";
 import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
 import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrecuentes';
@@ -46,7 +47,7 @@ const App = ()=> {
   };
 
   const sideDrawerTiedaHandler = () =>{
-    setSideDrawerTiendaOpen(true);
+    // setSideDrawerTiendaOpen(true);
     setSideDrawerOpen(false);
   };
 
@@ -89,23 +90,24 @@ const App = ()=> {
         {sideDrawerMujer}
         <div className="app__body">
           <Router>
-            <Home path="/"/>
-            <Niño path="/Nino"/>
             <Blog path="/Blog" />
             <BlogPost path="blog/:slug" />
-            <Kokedama path="/Kokedamas"/>
-            <Mala path="/Mala"/>
-            <Hombre path="/Hombre"/>
-            <Pulseras path="/Pulseras"/>
             <Bolso path="/Bolsos"/>
             <Colgantes path="/Colgantes"/>
-            <Pendientes path="/Pendientes"/>
             <Conocenos path="/Conocenos"/>
-            <TramitacionEnvios path="/TramitacionEnvios"/>
+            <Hombre path="/Hombre"/>
+            <Home path="/"/>
+            <Kokedama path="/Kokedamas"/>
+            <Mala path="/Mala"/>
+            <Niño path="/Nino"/>
+            <Pendientes path="/Pendientes"/>
             <PoliticaCookies  path="/PoliticaCookies"/>
-            <PoliticasDevoluciones  path="/politicaDeDevoluciones"/>
+            <PoliticasDevoluciones  path="/PoliticaDeDevoluciones"/>
             <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
             <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
+            <Pulseras path="/Pulseras"/>
+            <Tienda path="/Tienda"/>
+            <TramitacionEnvios path="/TramitacionEnvios"/>
           </Router>
         </div>
       <div className="app__footer">
