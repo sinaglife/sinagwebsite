@@ -34,6 +34,10 @@ button:focus, button:active {
     padding-top: 170px;
   }
 }
+
+.app__body2{
+  grid-area: body;
+}
 @media (min-width: 767.99px) and (max-width: 991.98px) {
   .app__body {
     padding-top: 130px;

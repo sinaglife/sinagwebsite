@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import classes from "./Mosaic.module.scss";
+import axios from "axios";
 import ProductCard from "../product/ProductCard";
 import ProductLigthBox from "../product/ProductLigthBox";
 
@@ -13,17 +14,21 @@ const Mosaic = (props) => {
     price:0,
     alt:"",
     description:"",
+    id:0,
   })
 
   const selectedImg = (i) => {
-    const productAcf = props.data[i]?.acf;
+    const productAcf = mosaicData[i]?.acf;
+   
     let lightBoxUrls = [];
+    let title = productAcf["product_title"];
 
     setProductData({
-      title: productAcf["product_title"],
+      title: title,
       price:  productAcf["product_price"],
       description:  productAcf["product_description"],
-      alt:  productAcf["product_title"]
+      alt:  productAcf["product_title"],
+      id: i
     })
 
     for(let key in productAcf){
@@ -35,6 +40,7 @@ const Mosaic = (props) => {
     setLightImgsArr(lightBoxUrls);
     setShowLightBox(true);
     setShowBackdrop(true);
+    
   }
 
   const closeLightBox = () => {
@@ -73,6 +79,8 @@ const Mosaic = (props) => {
           price={productData.price}
           show={showBackdrop}
           close={closeLightBox}
+          id={productData.id}
+          productData={productData}
         />
       ) : null}
     </Fragment>

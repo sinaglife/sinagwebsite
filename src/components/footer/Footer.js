@@ -20,7 +20,7 @@ const Footer = () => {
       <div className={classes.footer__rightSection}>
         <div className={classes.footer__rightInfo}>
           <p className={classes.footer__title}>Información</p>
-          <Link to="Conocenos" style={{ textDecoration: "none" }}>
+          <Link className={classes.footer__link} to="Conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
           <Link to="Tallas" style={{ textDecoration: "none" }}>

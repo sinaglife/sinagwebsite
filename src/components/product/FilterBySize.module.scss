@@ -1,29 +1,26 @@
 select{
     border-radius: 5px;
-    overflow: scroll;
+    text-align: center;
 }
 
-option{
-    
-    height:20px;
-    padding: 0;
-    overflow: hidden;
-}
 
 @media (max-width: 415px){
     select{
-        width: 30px;
-        height: 15px;
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        
+        width: 40px;
+        height: 20px;
     }
-    option{
-        width: 10px;
-        padding: 0.5rem;
-        height: 10%;
-        font-size: 0.6rem;
+}
+
+@media  (min-width: 767px)  and (max-width: 1023px){
+    select{
+        width: 60px;
+        height: 30px;
     }
- 
+}
+
+@media  (min-width: 1024px)  and (max-width: 1300px){
+    select{
+        width: 80px;
+        height: 40px;
+    }
 }
