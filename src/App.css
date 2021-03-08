@@ -8,6 +8,9 @@
 .app__body{
   grid-area: body;
 }
+.app__body2{
+  grid-area: body;
+}
 .app__footer{
   grid-area: footer;
 }

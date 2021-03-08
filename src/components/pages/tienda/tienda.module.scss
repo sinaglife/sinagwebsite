@@ -13,6 +13,16 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  :hover {
+    img {
+      -webkit-filter: brightness(40%);
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+  }
 }
 
 .button_image img {
@@ -28,14 +38,11 @@
   color: white;
   font-size: 30px;
   font-weight: 700;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
-  .card {
-    height: 300px;
-    margin: 5% 5%;
-  }
-  
+
   .button_image img {
     height: 300px;
     width: 200px;
@@ -43,7 +50,7 @@
   
   .card p {
     width: 200px;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
   }
 }
@@ -62,7 +69,8 @@
   
   .card p {
     width: 100%;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 700;
+    padding: 10%;
   }
 }

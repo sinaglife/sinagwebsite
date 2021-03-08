@@ -6,6 +6,7 @@ import Cuidado from '../../../assets/images/Tienda/Cuidado.jpg'
 import Complementos from '../../../assets/images/Tienda/Complementos.jpg'
 import Espiritualidad from '../../../assets/images/Tienda/Espiritualidad.jpg'
 import classes from './tienda.module.scss'
+import YellowLeaves from "../../../assets/images/Backgrounds/YellowLeaves.jpeg";
 
 function Tienda  () {
   const menuArray = [

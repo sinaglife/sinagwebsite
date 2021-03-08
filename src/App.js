@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import YellowLeaves from "./assets/images/Backgrounds/YellowLeaves.jpeg";
 import { Router } from "@reach/router";
 import Header from "./components/header/Header";
 import SideDrawer from './components/layout/SideDrawer';
@@ -88,7 +89,7 @@ const App = ()=> {
         {backdrop}
         {sideDrawerTienda}
         {sideDrawerMujer}
-        <div className="app__body">
+        <div className="app__body" >
           <Router>
             <Blog path="/Blog" />
             <BlogPost path="blog/:slug" />
@@ -106,8 +107,12 @@ const App = ()=> {
             <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
             <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
             <Pulseras path="/Pulseras"/>
-            <Tienda path="/Tienda"/>
             <TramitacionEnvios path="/TramitacionEnvios"/>
+          </Router>
+        </div>
+        <div className="app__body2" style={{backgroundImage: `url(${YellowLeaves})`}} >
+          <Router>
+            <Tienda path="/Tienda"/>
           </Router>
         </div>
       <div className="app__footer">
