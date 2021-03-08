@@ -21,6 +21,7 @@ import Colgantes from "./components/pages/mujer/Colgantes";
 import Pendientes from "./components/pages/mujer/Pendientes";
 import Conocenos from "./components/pages/footer_choices/Conocenos";
 import Tienda from "./components/pages/tienda";
+import GuiaTallas from "./components/pages/GuiaTallas";
 import TramitacionEnvios from "./components/pages/footer_choices/TramitacionEnvios";
 import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
 import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrecuentes';
@@ -96,6 +97,7 @@ const App = ()=> {
             <Bolso path="/Bolsos"/>
             <Colgantes path="/Colgantes"/>
             <Conocenos path="/Conocenos"/>
+            <GuiaTallas path="/Tallas"/>
             <Hombre path="/Hombre"/>
             <Home path="/"/>
             <Kokedama path="/Kokedamas"/>
@@ -107,12 +109,8 @@ const App = ()=> {
             <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
             <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
             <Pulseras path="/Pulseras"/>
-            <TramitacionEnvios path="/TramitacionEnvios"/>
-          </Router>
-        </div>
-        <div className="app__body2" style={{backgroundImage: `url(${YellowLeaves})`}} >
-          <Router>
             <Tienda path="/Tienda"/>
+            <TramitacionEnvios path="/TramitacionEnvios"/>
           </Router>
         </div>
       <div className="app__footer">
