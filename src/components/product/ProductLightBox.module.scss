@@ -1,62 +1,68 @@
 .lightBox{
     position: fixed;
     top: 20%;
-    left: 20%;
+    left: 17%;
     background-color: white;
-    margin: 2rem auto;
-    width: 60%;
+    width: 900px;
     display: flex;
-    justify-content: space-between;
-    height: 370px;
+    height: 450px;
     z-index: 700;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .lightBox__left{
+    display: flex;
+    flex-direction: column;
     position: relative;
     flex: 0.50;
-    padding:1.3rem 0.8rem;
-    img{
-        height: 85%;
-        width: 80%;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-  
-    .buttons{
-        background-color: transparent;
+    padding: 0.8rem 0;
+    .lightBox__main__img{
         position: relative;
-        background: none;
+        height: 85%; 
+    }
+
+    img{
+        object-fit: cover;
+        width: 65%;
+        height: 100%; 
+       
+    }
+    .lightBox__left__share{
+        position: absolute;
+        bottom: 0;
+        display: flex; 
+        justify-content: space-evenly;
+        align-items: center;
+        text-transform: uppercase;
+        width: 100%;
+        height: 15%;
+        padding: 1rem 0;
+    }
+    .goLeft{
+        position: absolute;
+        background-color: rgb(179, 179, 179);
+        opacity: 0.2;
+        color: rgb(0, 0, 0);
+        height: 100%;
+        top: 0%;
+        right: 83%;
         border: none;
-        cursor: pointer;
+        font-size: 2.5rem;
     }
-    
-    
-    .goLeft {
-      @extend .buttons;
-      left: 10%;
-      top: 22%;
-        i{
-            color:  #cececd;
-            font-size: 2.5rem;
-            position: absolute;
-            bottom: 60px;
-            right: 40px;
-        }
-    }
-    
-    .goRight {
-      @extend .buttons;
-      right:-15%;
-      top: 22%;
-        i{
-            color:  #cececd;
-            font-size: 2.5rem;
-            position: absolute;
-            bottom: 60px;
-            right: 40px;
-        }
-      
+    .goRight{
+        position: absolute;
+        background-color: rgb(179, 179, 179);
+        opacity: 0.2;
+        color: rgb(0, 0, 0);
+        height: 100%;
+        top: 0%;
+        left: 83%;
+        border: none;
+        font-size: 2.5rem;
+    }  
+    .share__icons{
+        display: flex;
+        align-items: flex-start;
     }
     
 }
@@ -68,56 +74,53 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    padding: 0.8rem;
+    padding: 0.5rem 2.5rem;
     h3{
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         font-weight: bold;
         text-transform: uppercase;
         font-family: "Parisienne", cursive;
         font-family: "Playfair Display", serif;
     }
     p{
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         text-align: justify;
     }
-    strong{
-        font-size: 1.2rem;
+    .lightBox__right__price{
+        font-size: 1.5rem;
+        font-weight: 500;
         margin-right: 1rem;
     }
 
     button{
-        background-color:  #efecdf;
-        padding: 0.2rem;
+        background-color: rgb(226, 226, 226);
+        border: none;
+        padding: 0.5rem 1.3rem;
         border-radius: 5px;
+        text-transform: uppercase;
     }
+    .lightBox__right__buttons{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .lightBox__more__info{
+        font-size: 1.2rem;
+        color: rgb(0, 0, 0);
+        text-decoration: underline black;
+    }
+
+    .lightBox__more__info p:hover{
+        color: rgb(85, 85, 85);
+    }
+    .lightBox__more__info p:visited{
+        color: rgb(165, 165, 165);
+    }
+    
       
 }
 
-.lightBox__left__share{
-    display: flex; 
-    justify-content: space-evenly;
-    padding:1rem 0.5rem;
-}
-
-.share__icons{
-    display: flex;
-    align-items: flex-start;
-}
-
-.lightBox__size__choice{
-    display: flex;
-}
-
-.lightBox__right__buttons{
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    
-}
-
-
-
-  
 @media (max-width: 415px){
     .lightBox{
         position: fixed;
@@ -125,73 +128,68 @@
         left: 5%;
         margin: 0;
         width: 90%;
-        height:285px;
+        height:280px;
     }
     
-    .lightBox__left{
-       
+    .lightBox__left{ 
+        padding: 1.3rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+        .lightBox__main__img{
+            position: relative;
+            height: 85%; 
+        }
+    
         img{
-            height: 85%;
-            width: 80%;
-            object-fit: contain;
+            object-fit: cover;
+            width: 65%;
+            height: 100%; 
+           
         }
-        .goLeft {
-  
-            i{
-                color:  #bbbab4;
-                font-size: 1.5rem;
-                position: absolute;
-                bottom: 60px;
-                right: 22px;
-            }
+       
+        .lightBox__left__share{
+            padding: 0.5rem 0;
+            font-size: 0.6rem;
         }
-        .goRight {
-      
-            i{
-                color:  #bbbab4;
-                font-size: 1.5rem;
-                position: absolute;
-                bottom: 60px;
-                right: 10px;
-            }
+        .goLeft{
+            font-size: 1.5rem;
+        }
+        .goRight{
+            font-size: 1.5rem;
+        }  
+        .share__icons{
+            margin-bottom: 0.9rem;
         }
      
     }
     
     .lightBox__right{
-        
+        padding:  1rem 0.5rem;
         h3{
+            font-size: 0.75rem;
+        }
+        p{
+            font-size: 0.6rem;
+        }
+        .lightBox__right__price{
             font-size: 0.8rem;
         }
-        p{
-            font-size: 0.7rem;
-        }
-        strong{
-            font-size: 0.7rem;
-            margin-bottom: 0.3rem;
-        }
-
-        button{
-            padding: 0.14rem;
+        .lightBox__more__info{
+            font-size: 0.8rem;
         }
     }
-     
-    .lightBox__left__share{
-        padding: 0.5rem ;
-        p{
-            font-size: 0.85rem;
-            padding: 0.2rem;
-        }
-    }
-    .lightBox__size__choice{
-        display: flex;
-        padding: 0.3rem;
-        
-    }
+    
     
     .lightBox__right__buttons{
         font-size: 0.5rem;
-        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button{
+            margin-bottom: 0.5rem;
+        }
     }
     
 }
@@ -202,75 +200,64 @@
         left: 5%;
         margin: 0;
         width: 90%;
-        height:350px;
+        height:400px;
     }
 
     .lightBox__left{
        
+        .lightBox__main__img{
+            height: 85%; 
+        }
+    
         img{
-            height: 85%;
-            width: 80%;
-            object-fit: contain;
+            object-fit: cover;
+            width: 85%;
+            height: 100%;   
         }
-        .goLeft {
-  
-            i{
-                color:  #bbbab4;
-                font-size: 2.2rem;
-                position: absolute;
-                bottom: 60px;
-                right: 18px;
-            }
+       
+        .lightBox__left__share{
+            padding: 0.5rem 0;
+            font-size: 0.6rem;
         }
-        .goRight {
-      
-            i{
-                color:  #bbbab4;
-                font-size: 2.2rem;
-                position: absolute;
-                bottom: 62px;
-                left: -80px;
-            }
+        .goLeft{
+            right: 81%;
+            opacity: 0.8;
+            font-size: 2.5rem;
+        }
+        .goRight{
+            left: 81%;
+            opacity: 0.8;
+            font-size: 2.5rem;
+        }  
+        .share__icons{
+            margin-bottom: 0.9rem;
         }
         
     }
     
     .lightBox__right{
-        
         h3{
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
         p{
             font-size: 1.2rem;
         }
-        strong{
-            font-size: 1rem;
+        .lightBox__right__price{
+            font-size: 1.3rem;
         }
-
-        button{
-            padding: 0.3;
+        .lightBox__more__info{
+            font-size: 1.3rem;
         }
-    }
-     
-    .lightBox__left__share{
-        padding: 0.5rem ;
-        justify-content: space-evenly;
-        p{
-            font-size: 1.2rem;
-            padding: 0.2rem;
-        }
-    }
-    .lightBox__size__choice{
-        padding: 0.3rem;
-        
+ 
     }
     
     .lightBox__right__buttons{
-        font-size: 0.7rem;
-        justify-content: space-evenly;
-    }
-
-    
+        font-size: 0.85rem;
+        button{
+            margin-right: 0.3rem;
+            padding: 0.5rem;
+        }
+    }    
 }
 
 
@@ -279,49 +266,60 @@
         top: 35%;
         left: 5%;
         width: 90%;
-        height:420px;
-        img{
-            object-fit: contain;
+        height:530px;  
+    }
+
+    .lightBox__left{
+        .lightBox__main__img{
+            height: 85%; 
+        }
+    
+        img{ 
+            width: 85%;
+            height: 100%;   
+        }
+       
+        .lightBox__left__share{
+            padding: 0.5rem 0;
+            font-size: 0.8rem;
+        }
+        .goLeft{
+            right: 81%;
+            opacity: 0.4;
+            font-size: 3.7rem;
+        }
+        .goRight{
+            left: 81%;
+            opacity: 0.4;
+            font-size: 3.7rem;
+        }  
+        .share__icons{
+            margin-bottom: 0.9rem;
         }
     }
 
     .lightBox__right{
         
         h3{
+            font-size: 1.9rem;
+        }
+        p{
             font-size: 1.5rem;
         }
-        p{
-            font-size: 1.38rem;
+        .lightBox__right__price{
+            font-size: 1.8rem;
         }
-        strong{
-            font-size: 1.3rem;
+        .lightBox__more__info{
+            font-size: 1.8rem;
         }
-
-        button{
-            padding: 0.5;
-        }
-    }
-     
-    .lightBox__left__share{
-        padding: 0.5rem ;
-        
-        p{
-            font-size: 1.4rem;
-            padding: 0.2rem;
-        }
-    }
-    .lightBox__size__choice{
-        padding: 0.5rem;
-        align-items: center;
         
     }
-    
     .lightBox__right__buttons{
-        font-size: 1rem;
+        font-size: 1.2rem;
         justify-content: space-evenly;
-    }
-
-    
+        button{
+            padding: 0.7rem;
+        }
+    }  
 }
 
-//font-size: 2rem;

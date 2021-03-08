@@ -1,5 +1,5 @@
 import React from "react";
-import {FacebookShareButton, FacebookIcon} from "react-share";
+import {FacebookShareButton} from "react-share";
 import Button from "../button/Button"
        
 export default function SocialMediaButtons(props) {

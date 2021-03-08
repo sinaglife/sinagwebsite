@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React from 'react'
+import PropTypes from "prop-types";
 import classes from "./FilterBySize.module.scss"
 
 function FilterSize({sizeChoice}) {
@@ -25,17 +26,17 @@ function FilterSize({sizeChoice}) {
         ))
     )
     
-    const sizePicker = sizeChoice == "anillo" ? 
+    const sizePicker = sizeChoice === "anillo" ? 
     ringFilter()
-    : sizeChoice == "colgante" ? 
+    : sizeChoice === "colgante" ? 
     necklaceFilter()
-    : sizeChoice == "pulsera" ? braceleteFilter()
+    : sizeChoice === "pulsera" ? braceleteFilter()
     : null
 
     return (
         <div>
             <select id="size" name="size" className={classes.filter__select}>
-                <option disabled selected></option>
+                <option></option>
                 {
                     sizePicker
                 }
@@ -44,4 +45,9 @@ function FilterSize({sizeChoice}) {
     )
 }
 
+FilterSize.propTypes = {
+    sizeChoice: PropTypes.string.isRequired
+}
+
 export default FilterSize
+

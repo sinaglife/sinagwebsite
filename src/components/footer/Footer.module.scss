@@ -10,6 +10,7 @@
     position: static;
     bottom: 0;
     left: 0;
+    z-index: 0;
 }
 
 
@@ -23,6 +24,11 @@
     font-size: 18px;
     color: black;
     text-align: center;
+    
+}
+
+.footer nav:hover{
+    color: rgb(187, 187, 187);
 }
 
 .footer__leftSection{

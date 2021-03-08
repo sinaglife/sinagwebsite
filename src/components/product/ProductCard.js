@@ -14,7 +14,7 @@ const ProductCard = ({src, alt, title, price, selectedImg}) => {
                 <div className={classes.productCard__content}>
                     <h3>{title}</h3>
                     <div className={classes.productCard__info}>
-                        <p className={classes.productCard__price}>{price}$</p>
+                        <p className={classes.productCard__price}>{price}€</p>
                         <button className={classes.shoppingButton}>
                            agregar al carrito
                         </button>
