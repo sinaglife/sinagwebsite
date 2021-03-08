@@ -23,6 +23,9 @@ const Footer = () => {
           <Link to="Conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
+          <Link to="Tallas" style={{ textDecoration: "none" }}>
+            <nav>Guía de tallas</nav>
+          </Link>
           <Link to="TramitacionEnvios" style={{ textDecoration: "none" }}>
             <nav>Tramitación de Envíos</nav>
           </Link>

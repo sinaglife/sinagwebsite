@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import YellowLeaves from "./assets/images/Backgrounds/YellowLeaves.jpeg";
 import { Router } from "@reach/router";
 import Header from "./components/header/Header";
 import SideDrawer from './components/layout/SideDrawer';
@@ -20,6 +21,7 @@ import Colgantes from "./components/pages/mujer/Colgantes";
 import Pendientes from "./components/pages/mujer/Pendientes";
 import Conocenos from "./components/pages/footer_choices/Conocenos";
 import Tienda from "./components/pages/tienda";
+import GuiaTallas from "./components/pages/GuiaTallas";
 import TramitacionEnvios from "./components/pages/footer_choices/TramitacionEnvios";
 import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
 import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrecuentes';
@@ -88,13 +90,14 @@ const App = ()=> {
         {backdrop}
         {sideDrawerTienda}
         {sideDrawerMujer}
-        <div className="app__body">
+        <div className="app__body" >
           <Router>
             <Blog path="/Blog" />
             <BlogPost path="blog/:slug" />
             <Bolso path="/Bolsos"/>
             <Colgantes path="/Colgantes"/>
             <Conocenos path="/Conocenos"/>
+            <GuiaTallas path="/Tallas"/>
             <Hombre path="/Hombre"/>
             <Home path="/"/>
             <Kokedama path="/Kokedamas"/>
