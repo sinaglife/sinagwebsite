@@ -8,9 +8,7 @@
 .app__body{
   grid-area: body;
 }
-.app__body2{
-  grid-area: body;
-}
+
 .app__footer{
   grid-area: footer;
 }
@@ -35,6 +33,10 @@ button:focus, button:active {
   .app__body {
     padding-top: 170px;
   }
+}
+
+.app__body2{
+  grid-area: body;
 }
 @media (min-width: 767.99px) and (max-width: 991.98px) {
   .app__body {
