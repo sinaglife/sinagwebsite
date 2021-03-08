@@ -10,7 +10,7 @@ const SideDrawer = (props) => {
       <ul>
         <IconButton>
           <Link
-            to="/"
+            to="/Tienda"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
             onClick={props.cerrar}

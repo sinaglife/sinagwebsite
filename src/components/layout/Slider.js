@@ -1,65 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import axios from "axios";
 import classes from "./Slider.module.scss";
 
-const Slider = () => {
-  const [sliderData, setSliderData] = useState(null);
+const Slider = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [carousel, setCarousel] = useState(null);
-
-  useEffect(() => {
-    let api1 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1`;
-    let api2 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=2`;
-    let api3 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=3`;
-
-    const promise1 = axios
-      .get(api1)
-      .then((res) => {
-        return res.data;
-      })
-      .catch((err) => []);
-    const promise2 = axios
-      .get(api2)
-      .then((res) => {
-        return res.data;
-      })
-      .catch((err) => []);
-    const promise3 = axios
-      .get(api3)
-      .then((res) => {
-        return res.data;
-      })
-      .catch((err) => []);
-
-    Promise.all([promise1, promise2, promise3]).then((results) => {
-      const data = results[0].concat(results[1]);
-      data.concat(results[2]);
-      setSliderData(data.filter((page) => page.parent === 134));
-    });
-  }, []);
-
-  //const wordpressRequest = (pageNumber, data) => {
-  //  axios
-  //    .get(
-  //      `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=${pageNumber}`
-  //    )
-  //    .then((res) => {
-  //      console.log(res.data.concat(wordpressRequest(pageNumber + 1)));
-  //      return res.data.concat(wordpressRequest(pageNumber + 1));
-  //    })
-  //    .catch((error) => {
-  //      return false;
-  //    });
-  //};
-
+  const [visibleControls, setVisibleControls] = useState(true);
+  
   const handleSelectImage = (selectedIndex, e) => {
     setCurrentImage(selectedIndex);
   };
 
+  useEffect(()=>{
+      if (window.innerWidth <= 767.98) {
+          setVisibleControls(false)
+      }
+  }, [])
+
   useEffect(() => {
-    if (sliderData) {
-      let sortedData = sliderData.sort((a, b) => {
+      let receivedData = props.data.filter((page) => page.parent === 134)
+      let sortedData = receivedData.sort((a, b) => {
         return (
           parseInt(a.slug[a.slug.length - 1]) -
           parseInt(b.slug[b.slug.length - 1])
@@ -72,6 +32,7 @@ const Slider = () => {
           onSelect={handleSelectImage}
           interval={5000}
           wrap={true}
+          controls={visibleControls}
         >
           {sortedData.map((item, index) => {
             return (
@@ -127,8 +88,7 @@ const Slider = () => {
       );
 
       setCarousel(carousel);
-    }
-  }, [currentImage, sliderData]);
+  }, [currentImage, visibleControls, props.data]);
   return <div>{carousel}</div>;
 };
 

@@ -3,7 +3,8 @@ import classes from "./Toolbar.module.scss";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "@reach/router";
-import Logo from "./logosinagvectoriced.png";
+import Logo from "../../assets/images/LogoSinagSinV&D.jpeg";
+// import Logo from "./logosinagvectoriced.png";
 import Button from "../UI/button/Button";
 
 const LogoHeader = () => {
@@ -14,16 +15,16 @@ const LogoHeader = () => {
       setShrunk((isShrunk) => {
         if (
           !isShrunk &&
-          (document.body.scrollTop > 70 ||
-            document.documentElement.scrollTop > 70)
+          (document.body.scrollTop > 0 ||
+            document.documentElement.scrollTop > 0)
         ) {
           return true;
         }
 
         if (
           isShrunk &&
-          document.body.scrollTop < 70 &&
-          document.documentElement.scrollTop < 70
+          document.body.scrollTop <= 0 &&
+          document.documentElement.scrollTop <= 0
         ) {
           return false;
         }
