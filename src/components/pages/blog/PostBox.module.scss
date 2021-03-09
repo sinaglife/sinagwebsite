@@ -11,12 +11,14 @@
   position: relative;
   margin: 20px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 30% 70%;
 }
 
 .cardTextContainer {
   padding: 2.5em 1.5em 1.5em 1.5em;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cardMainTitle {
@@ -57,6 +59,7 @@
 @media (max-width: 400px) {
   .card {
     max-width: 20rem;
+    height: 240px;
   }
   .cardMainTitle {
     font-size: 1.3rem;
