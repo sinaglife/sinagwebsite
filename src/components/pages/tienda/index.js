@@ -44,12 +44,6 @@ function Tienda  () {
   ]
   return(
     <div>
-      <div className={classes.tallas}>
-        <p>Conoces tus tallas?: </p>
-        <Link to="/Tallas" style={{ textDecoration: "none" }}>
-          <h2>Guía de tallas</h2>
-        </Link>
-      </div>
       <div className={classes.menu}>
         {menuArray.map((item) => {
           return (
@@ -61,6 +55,12 @@ function Tienda  () {
             </div>
           )
         })}
+      </div>
+      <div className={classes.tallas}>
+        <p>Conoces tus tallas?: </p>
+        <Link to="/Tallas" style={{ textDecoration: "none" }}>
+          <h2>Guía de tallas</h2>
+        </Link>
       </div>
     </div>
   )
