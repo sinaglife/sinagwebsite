@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import classes from "./Mosaic.module.scss";
-import axios from "axios";
 import ProductCard from "../product/ProductCard";
 import ProductLigthBox from "../product/ProductLigthBox";
 

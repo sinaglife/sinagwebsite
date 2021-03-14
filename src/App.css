@@ -29,6 +29,12 @@ button:focus, button:active {
   box-shadow: none !important;
 }
 
+.koketropic__logo{
+  width: 400px;
+  height: 150px;
+  margin-top: 1rem;
+}
+
 /* @media (min-width: 575.99px) and (max-width: 767.98px) {
   .app__body {
     padding-top: 170px;

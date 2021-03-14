@@ -20,22 +20,22 @@ const Footer = () => {
       <div className={classes.footer__rightSection}>
         <div className={classes.footer__rightInfo}>
           <p className={classes.footer__title}>Información</p>
-          <Link className={classes.footer__link} to="Conocenos" style={{ textDecoration: "none" }}>
+          <Link className={classes.footer__link} to="conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
-          <Link to="TramitacionEnvios" style={{ textDecoration: "none" }}>
+          <Link to="tramitacion-envios" style={{ textDecoration: "none" }}>
             <nav>Tramitación de Envíos</nav>
           </Link>
-          <Link to="PreguntasFrecuentes" style={{ textDecoration: "none" }}>
+          <Link to="preguntas-frecuentes" style={{ textDecoration: "none" }}>
             <nav>Preguntas Frecuentes</nav>
           </Link>
-          <Link to="PoliticasPrivacidad" style={{ textDecoration: "none" }}>
+          <Link to="politicas-de-privacidad" style={{ textDecoration: "none" }}>
             <nav>Política de Privacidad</nav>
           </Link>
-          <Link to="politicaDeDevoluciones" style={{ textDecoration: "none" }}>
+          <Link to="politica-de-devoluciones" style={{ textDecoration: "none" }}>
             <nav>Política de devoluciones</nav>
           </Link>  
-          <Link to="PoliticaCookies" style={{ textDecoration: "none" }}>
+          <Link to="politica-cookies" style={{ textDecoration: "none" }}>
             <nav>Política de cookies</nav>
           </Link>
         </div>

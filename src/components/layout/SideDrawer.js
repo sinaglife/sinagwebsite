@@ -10,7 +10,7 @@ const SideDrawer = (props) => {
       <ul>
         <IconButton>
           <Link
-            to="/Tienda"
+            to="/tienda"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
             onClick={props.cerrar}
@@ -25,7 +25,7 @@ const SideDrawer = (props) => {
         </IconButton>
         <IconButton>
           <Link
-            to="Mala"
+            to="mala"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
             onClick={props.close}
@@ -38,7 +38,7 @@ const SideDrawer = (props) => {
         </IconButton>
         <IconButton>
           <Link
-            to="Kokedamas"
+            to="kokedamas"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
             onClick={props.close}
@@ -51,7 +51,7 @@ const SideDrawer = (props) => {
         </IconButton>
         <IconButton>
           <Link
-            to="Conocenos"
+            to="conocenos"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
             onClick={props.close}
@@ -64,7 +64,7 @@ const SideDrawer = (props) => {
         </IconButton>
         <IconButton>
           <Link
-            to="Blog"
+            to="blog"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
             onClick={props.close}

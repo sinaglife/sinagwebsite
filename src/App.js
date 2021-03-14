@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
 import YellowLeaves from "./assets/images/Backgrounds/YellowLeaves.jpeg";
-import { Router } from "@reach/router";
+import { Router, Route } from "@reach/router";
 import Header from "./components/header/Header";
 import SideDrawer from './components/layout/SideDrawer';
 import Backdrop from "./components/layout/Backdrop";
@@ -10,12 +9,9 @@ import Home from "./components/pages/home/Home";
 import Blog from "./components/pages/blog/Blog";
 import BlogPost from "./components/pages/blog/BlogPost";
 import Niño from "./components/pages/niño/Niño";
-import SideDrawerTienda from "./components/pages/tienda/SideDrawerTienda";
-import Kokedama from "./components/pages/kokedama/Kokedama";
 import Mala from "./components/pages/mala/Mala";
 import Hombre from "./components/pages/hombre/Hombre";
 import Pulseras from "./components/pages/mujer/Pulseras";
-import SideDrawerMujer from "./components/pages/tienda/SideDrawerMujer";
 import Bolso from "./components/pages/mujer/Bolso";
 import Colgantes from "./components/pages/mujer/Colgantes";
 import Pendientes from "./components/pages/mujer/Pendientes";
@@ -27,13 +23,15 @@ import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrec
 import PoliticasPrivacidad from './components/pages/footer_choices/PoliticasPrivacidad';
 import PoliticasDevoluciones from './components/pages/footer_choices/PoliticasDevoluciones';
 import Products from "./components/product/Product"
+import Store from "./components/pages/tienda/Store"
+import Container from "./components/pages/tienda/Container"
+import kokeLogo from "./assets/images/Tienda/koketropic-logo.jpeg"
+import './App.css';
 
 const App = ()=> {
+
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
-  const [sideDrawerTiendaOpen, setSideDrawerTiendaOpen] = useState(false);
-  const [sideDrawerMujerOpen, setSideDrawerMujerOpen] = useState(false);
-
 
   const sideDrawerOpenHandler = () =>{
     setSideDrawerOpen(true)
@@ -43,41 +41,19 @@ const App = ()=> {
   const sideDrawerCloseHandler = () =>{
     setSideDrawerOpen(false)
     setShowBackdrop(false)
-    setSideDrawerTiendaOpen(false)
-    setSideDrawerMujerOpen(false)
   };
-
-  const sideDrawerTiedaHandler = () =>{
-    // setSideDrawerTiendaOpen(true);
-    setSideDrawerOpen(false);
-  };
-
-  const sideDrawerMujerHandler = ()=>{
-    setSideDrawerTiendaOpen(false);
-    setSideDrawerMujerOpen(true);
-  }
 
 
   let sideDrawer;
   let backdrop;
-  let sideDrawerTienda;
-  let sideDrawerMujer;
+  
 
   if(sideDrawerOpen){
-    sideDrawer = <SideDrawer open={sideDrawerOpen} cerrar={sideDrawerTiedaHandler} close={sideDrawerCloseHandler} />
+    sideDrawer = <SideDrawer open={sideDrawerOpen}  close={sideDrawerCloseHandler} />
     backdrop = <Backdrop show={showBackdrop} close={sideDrawerCloseHandler}/>
   };
 
-  if(sideDrawerTiendaOpen){
-    sideDrawerTienda =  <SideDrawerTienda show={sideDrawerTiendaOpen} close={sideDrawerCloseHandler} showHandler={sideDrawerMujerHandler}/>
-    backdrop = <Backdrop show={showBackdrop} close={sideDrawerCloseHandler}/>
-  }
-
-  if(sideDrawerMujerOpen){
-    backdrop = <Backdrop show={showBackdrop} close={sideDrawerCloseHandler}/>
-    sideDrawerMujer = <SideDrawerMujer show={sideDrawerMujerOpen} close={sideDrawerCloseHandler}/>
-  }
-
+ 
   return (
     <div className="app">
       <div className="app__header">
@@ -87,28 +63,27 @@ const App = ()=> {
       </div>
         {sideDrawer}
         {backdrop}
-        {sideDrawerTienda}
-        {sideDrawerMujer}
         <div className="app__body" >
           <Router>
-            <Blog path="/Blog" />
+            <Blog path="/blog" />
             <BlogPost path="blog/:slug" />
-            <Bolso path="/Bolsos"/>
-            <Colgantes path="/Colgantes"/>
-            <Conocenos path="/Conocenos"/>
-            <Hombre path="/Hombre"/>
+            <Bolso path="/bolsos"/>
+            <Colgantes path="/colgantes"/>
+            <Conocenos path="/conocenos"/>
+            <Hombre path="/hombre"/>
             <Home path="/"/>
-            <Kokedama path="/Kokedamas"/>
-            <Mala path="/Mala"/>
-            <Niño path="/Nino"/>
-            <Pendientes path="/Pendientes"/>
-            <PoliticaCookies  path="/PoliticaCookies"/>
-            <PoliticasDevoluciones  path="/PoliticaDeDevoluciones"/>
-            <PoliticasPrivacidad  path="/PoliticasPrivacidad"/>
-            <PreguntasFrecuentes  path="/PreguntasFrecuentes"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/mala"/>
+            <Container render={(data)=> <Store logo={<img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>} data={data}/>} path="/kokedamas"/>
+            <Mala path="/mala"/>
+            <Niño path="/nino"/>
+            <Pendientes path="/pendientes"/>
+            <PoliticaCookies  path="/politica-cookies"/>
+            <PoliticasDevoluciones  path="/politica-de-devoluciones"/>
+            <PoliticasPrivacidad  path="/politicas-de-privacidad"/>
+            <PreguntasFrecuentes  path="/preguntas-frecuentes"/>
             <Products path="/productos/:id" />
-            <Pulseras path="/Pulseras"/>
-            <TramitacionEnvios path="/TramitacionEnvios"/>
+            <Pulseras path="/pulseras"/>
+            <TramitacionEnvios path="/tramitacion-envios"/>
           </Router>
         </div>
         <div className="app__body2" style={{backgroundImage: `url(${YellowLeaves})`}} >
@@ -123,4 +98,4 @@ const App = ()=> {
   );
 }
 
-export default App;
+export default App;  
