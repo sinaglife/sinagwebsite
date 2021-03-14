@@ -1,12 +1,13 @@
 import React, {Fragment} from 'react'
 import Product from "./Product"
+import classes from "./Store.module.scss";
 
 function ProductGalery({data}) {
 
   console.log(data)
     return (
         <Fragment>
-          <div >
+          <div className={classes.product__container} >
             {
               data.map((item, index)=> (
               <Product

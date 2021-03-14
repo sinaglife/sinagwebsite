@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import YellowLeaves from "./assets/images/Backgrounds/YellowLeaves.jpeg";
-import { Router, Route } from "@reach/router";
+import { Router } from "@reach/router";
 import Header from "./components/header/Header";
 import SideDrawer from './components/layout/SideDrawer';
 import Backdrop from "./components/layout/Backdrop";
@@ -8,9 +8,6 @@ import Footer from "./components/footer/Footer";
 import Home from "./components/pages/home/Home";
 import Blog from "./components/pages/blog/Blog";
 import BlogPost from "./components/pages/blog/BlogPost";
-import Niño from "./components/pages/niño/Niño";
-import Mala from "./components/pages/mala/Mala";
-import Hombre from "./components/pages/hombre/Hombre";
 import Pulseras from "./components/pages/mujer/Pulseras";
 import Bolso from "./components/pages/mujer/Bolso";
 import Colgantes from "./components/pages/mujer/Colgantes";
@@ -25,7 +22,7 @@ import PoliticasDevoluciones from './components/pages/footer_choices/PoliticasDe
 import Products from "./components/product/Product"
 import Store from "./components/pages/tienda/Store"
 import Container from "./components/pages/tienda/Container"
-import kokeLogo from "./assets/images/Tienda/koketropic-logo.jpeg"
+import kokeLogo from "./assets/images/koketropic-logo.jpeg"
 import './App.css';
 
 const App = ()=> {
@@ -70,12 +67,16 @@ const App = ()=> {
             <Bolso path="/bolsos"/>
             <Colgantes path="/colgantes"/>
             <Conocenos path="/conocenos"/>
-            <Hombre path="/hombre"/>
             <Home path="/"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/hombre"/>
             <Container render={(data)=> <Store  data={data}/>} path="/mala"/>
-            <Container render={(data)=> <Store logo={<img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>} data={data}/>} path="/kokedamas"/>
-            <Mala path="/mala"/>
-            <Niño path="/nino"/>
+            <Container render={
+              (data)=> <Store 
+              logo={
+              <img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>
+              } data={data}/>} path="/kokedamas"
+            />
+            <Container render={(data)=> <Store  data={data}/>} path="/niño"/>
             <Pendientes path="/pendientes"/>
             <PoliticaCookies  path="/politica-cookies"/>
             <PoliticasDevoluciones  path="/politica-de-devoluciones"/>

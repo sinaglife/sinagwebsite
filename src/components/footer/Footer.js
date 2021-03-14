@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Footer.module.scss";
 import { Link } from "@reach/router";
 import Button from "../UI/button/Button";
-import cometa from "./cometa.png"
+import cometa from "../../assets/images/footer/cometa.png"
 
 const Footer = () => {
   return (

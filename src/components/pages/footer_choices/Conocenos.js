@@ -1,8 +1,8 @@
 import React from 'react'
 import classes from './Conocenos.module.scss';
-import jhose from "./jhose1.jpeg";
-import dani from "./dani1.jpeg";
-import daniyjhose from "./jhosedani.jpg"
+import jhose from "../../../assets/images/conocenos/jhose1.jpeg";
+import dani from "../../../assets/images/conocenos/dani1.jpeg";
+import daniyjhose from "../../../assets/images/conocenos/jhosedani.jpg"
 
 
 const Conocenos = () => {

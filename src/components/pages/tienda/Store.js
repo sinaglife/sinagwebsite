@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductGallery from "./ProductGallery"
 import FilterBar from "./FilterBar"
+import classes from "./Store.module.scss";
 
 const Store = ({data, logo}) => {
 
@@ -23,7 +24,7 @@ const Store = ({data, logo}) => {
         <div>
             <FilterBar/>
             {logo ? logo 
-            :<h1>{param}</h1> 
+            :<h1 className={classes.store__title}>{param}</h1> 
             }
             <ProductGallery data={list} />
         </div>
