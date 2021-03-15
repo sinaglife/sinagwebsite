@@ -4,18 +4,13 @@ import classes from "./Product.module.scss";
 const Product = (props) => {
 
     return (
-        <Fragment>
-            <div className={classes.productContainer} onClick={props.onClick}>
-                <div className={classes.card} >
-                    <img src={props.url} alt="" />
-                    <div className={classes.card_body}>
-                        <h5 className={classes.card_title}>{props.title}</h5>
-                        <p className={classes.card_text}>{props.desc}</p>
-                        <a className={classes.card_price} href="/">{props.price}€</a>
-                    </div>
+            <div className={classes.product__container} onClick={props.onClick}>
+                <img src={props.url} alt="" />
+                <div className={classes.card__body}>
+                    <h2 className={classes.card__title}>{props.title}</h2>
+                    <a className={classes.card__price} href="/">{props.price}€</a>
                 </div>
             </div>
-    </Fragment>
     )
 }
 

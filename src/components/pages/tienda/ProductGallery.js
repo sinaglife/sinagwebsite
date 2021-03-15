@@ -7,7 +7,7 @@ function ProductGalery({data}) {
   console.log(data)
     return (
         <Fragment>
-          <div className={classes.product__container} >
+          <div className={classes.product__gallery__container} >
             {
               data.map((item, index)=> (
               <Product

@@ -47,18 +47,20 @@ function Tienda  () {
       <div className={classes.menu}>
         {menuArray.map((item) => {
           return (
+            
             <div className={classes.card}>
               <p>{item.name}</p>
               <div className={classes.button_image}>
                 <img src={item.image} alt={item.alt}/>
               </div>
             </div>
+           
           )
         })}
       </div>
       <div className={classes.tallas}>
         <p>Conoces tus tallas?: </p>
-        <Link to="/Tallas" style={{ textDecoration: "none" }}>
+        <Link to="/tallas" style={{ textDecoration: "none" }}>
           <h2>Guía de tallas</h2>
         </Link>
       </div>
@@ -67,3 +69,10 @@ function Tienda  () {
 }
 
 export default Tienda
+
+
+/*
+<Link to={`/${item.name.toLocaleLowerCase()}`}>
+ </Link>
+
+*/

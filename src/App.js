@@ -8,12 +8,7 @@ import Footer from "./components/footer/Footer";
 import Home from "./components/pages/home/Home";
 import Blog from "./components/pages/blog/Blog";
 import BlogPost from "./components/pages/blog/BlogPost";
-import Pulseras from "./components/pages/mujer/Pulseras";
-import Bolso from "./components/pages/mujer/Bolso";
-import Colgantes from "./components/pages/mujer/Colgantes";
-import Pendientes from "./components/pages/mujer/Pendientes";
 import Conocenos from "./components/pages/footer_choices/Conocenos";
-import Tienda from "./components/pages/tienda";
 import GuiaTallas from "./components/pages/GuiaTallas";
 import TramitacionEnvios from "./components/pages/footer_choices/TramitacionEnvios";
 import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
@@ -24,6 +19,7 @@ import Products from "./components/product/Product"
 import Store from "./components/pages/tienda/Store"
 import Container from "./components/pages/tienda/Container"
 import kokeLogo from "./assets/images/koketropic-logo.jpeg"
+import Index from "./components/pages/tienda/index"
 import './App.css';
 
 const App = ()=> {
@@ -65,10 +61,10 @@ const App = ()=> {
           <Router>
             <Blog path="/blog" />
             <BlogPost path="blog/:slug" />
-            <Bolso path="/bolsos"/>
-            <Colgantes path="/colgantes"/>
             <Conocenos path="/conocenos"/>
             <Home path="/"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/colgantes"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/bolsos"/>
             <Container render={(data)=> <Store  data={data}/>} path="/hombre"/>
             <Container render={(data)=> <Store  data={data}/>} path="/mala"/>
             <Container render={
@@ -78,13 +74,15 @@ const App = ()=> {
               } data={data}/>} path="/kokedamas"
             />
             <Container render={(data)=> <Store  data={data}/>} path="/niño"/>
-            <Pendientes path="/pendientes"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/pendientes"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/pulseras"/>
+            <Index path="/tienda"/>
+            <GuiaTallas path="/tallas"/>
             <PoliticaCookies  path="/politica-cookies"/>
             <PoliticasDevoluciones  path="/politica-de-devoluciones"/>
             <PoliticasPrivacidad  path="/politicas-de-privacidad"/>
             <PreguntasFrecuentes  path="/preguntas-frecuentes"/>
             <Products path="/productos/:id" />
-            <Pulseras path="/pulseras"/>
             <TramitacionEnvios path="/tramitacion-envios"/>
           </Router>
         </div>

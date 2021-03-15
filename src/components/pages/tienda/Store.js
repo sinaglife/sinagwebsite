@@ -20,6 +20,19 @@ const Store = ({data, logo}) => {
     if(param === "niño" && data.length > 0){
         list = data.filter((page)=> page.parent === 5 && page.acf.product_showInNiño);
     }
+    if(param === "bolsos" && data.length > 0){
+        list = data.filter((page) => page.parent === 5 && page.acf.product_showInBolso);
+    }
+    if(param === "colgantes" && data.length > 0){
+        list = data.filter((page) => page.parent === 5 && page.acf.product_showInColgantes);
+    }
+    if(param === "pendientes" && data.length > 0){
+        list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPendientes);
+    }
+    if(param === "pulseras" && data.length > 0){
+        list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPulseras);
+    }
+    
     return (
         <div>
             <FilterBar/>
