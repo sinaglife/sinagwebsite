@@ -61,11 +61,10 @@ const App = ()=> {
           <Router>
             <Blog path="/blog" />
             <BlogPost path="blog/:slug" />
-            <Conocenos path="/conocenos"/>
-            <Home path="/"/>
-            <Container render={(data)=> <Store  data={data}/>} path="/colgantes"/>
+            <Container render={(data)=> <Home  data={data}/>} path="/"/>
+            <Container render={(data)=> <Store data={data}/>} path="/colgantes"/>
             <Container render={(data)=> <Store  data={data}/>} path="/bolsos"/>
-            <Container render={(data)=> <Store  data={data}/>} path="/hombre"/>
+            <Container render={(data)=> <Store data={data}/>} path="/hombre"/>
             <Container render={(data)=> <Store  data={data}/>} path="/mala"/>
             <Container render={
               (data)=> <Store 
@@ -73,17 +72,18 @@ const App = ()=> {
               <img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>
               } data={data}/>} path="/kokedamas"
             />
-            <Container render={(data)=> <Store  data={data}/>} path="/niño"/>
-            <Container render={(data)=> <Store  data={data}/>} path="/pendientes"/>
-            <Container render={(data)=> <Store  data={data}/>} path="/pulseras"/>
+            <Container render={(data)=> <Store  data={data}/>} path="/niños"/>
+            <Container render={(data)=> <Store data={data}/>} path="/pendientes"/>
+            <Container render={(data)=> <Store data={data}/>} path="/pulseras"/>
             <Index path="/tienda"/>
+            <Conocenos path="/conocenos"/>
+            <TramitacionEnvios path="/tramitacion-envios"/>
             <GuiaTallas path="/tallas"/>
             <PoliticaCookies  path="/politica-cookies"/>
             <PoliticasDevoluciones  path="/politica-de-devoluciones"/>
             <PoliticasPrivacidad  path="/politicas-de-privacidad"/>
             <PreguntasFrecuentes  path="/preguntas-frecuentes"/>
-            <Products path="/productos/:id" />
-            <TramitacionEnvios path="/tramitacion-envios"/>
+            <Container render={(data)=> <Products  data={data}/>} path="/:x/productos/:id"/>
           </Router>
         </div>
       <div className="app__footer">

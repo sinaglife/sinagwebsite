@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios'
+import React from 'react';
 import classes from "./Home.module.scss";
 import Slider from "../../layout/Slider";
 import Banner from "../../layout/Banner";
@@ -11,55 +10,21 @@ import { Link } from "@reach/router";
 import piedras from "../../../assets/images/piedrasFondo.jpg"
 
 
-const Home = ()=> {
-
-    const [pagesData, setPagesData] = useState(null);
-
-
-    useEffect(() => {
-        let api1 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1`;
-        let api2 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=2`;
-        let api3 = `https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=3`;
-    
-        const promise1 = axios
-            .get(api1)
-            .then((res) => {
-            return res.data;
-            })
-            .catch((err) => []);
-        const promise2 = axios
-            .get(api2)
-            .then((res) => {
-            return res.data;
-            })
-            .catch((err) => []);
-        const promise3 = axios
-            .get(api3)
-            .then((res) => {
-            return res.data;
-            })
-            .catch((err) => []);
-    
-        Promise.all([promise1, promise2, promise3]).then((results) => {
-            const data = results[0].concat(results[1]);
-            data.concat(results[2]);
-            setPagesData(data);
-        });
-    }, []);
+const Home = ({data})=> {
 
     return (
         <div className={classes.home}>
-            {pagesData && <Slider data={pagesData}/>}
+            {data && <Slider data={data}/>}
             <div className={classes.home__slogan}>
                 <h2>"Inspirados En Crear Desde El Alma."</h2> 
             </div>
             <Parallax   bgImage={piedras} strength={1200}  bgClassName={classes.ParaImg} blur={0}>
-                {pagesData && <Mosaic data={pagesData}/>}
+                {data && <Mosaic data={data}/>}
             </Parallax>
             <div className={classes.home__banner}>
-                <img src={banner} alt=""/>
+                <img src={banner} alt="envios a toda europa"/>
             </div>
-            {pagesData && <Banner data={pagesData}/>}
+            {data && <Banner data={data}/>}
             <Link to="Blog" style={{ textDecoration: "none", color: "black" }}>
                 <div className={classes.home__blog}>
                     <img src={blog} alt="blog" />

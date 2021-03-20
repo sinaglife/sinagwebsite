@@ -113,7 +113,7 @@ const BlogPost = (props)=> {
             });
             setPostRows(rows);
         }
-    }, [maxRows]);
+    }, [maxRows, postData.acf]);
 
     return postData ? (
         <div className={classes.postContainer}>

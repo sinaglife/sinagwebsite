@@ -8,14 +8,11 @@ const SideDrawer = (props) => {
   return (
     <nav className={`${classes.sideDrawer} ${props.open ? classes.open : ""}`}>
       <ul>
-        <IconButton>
+        <IconButton onClick={props.close}>
           <Link
             to="/tienda"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
-            onClick={props.cerrar}
-            close={props.close}
-            showHandler={props.showHandler}
           >
             <li className={classes.sideDrawer__list}>
               <Button icon="store" color="white" size="big" />
@@ -23,12 +20,11 @@ const SideDrawer = (props) => {
             </li>
           </Link>
         </IconButton>
-        <IconButton>
+        <IconButton onClick={props.close}>
           <Link
             to="mala"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
-            onClick={props.close}
           >
             <li className={classes.sideDrawer__list}>
               <Button icon="om" color="white" size="big" />
@@ -36,12 +32,11 @@ const SideDrawer = (props) => {
             </li>
           </Link>
         </IconButton>
-        <IconButton>
+        <IconButton onClick={props.close}>
           <Link
             to="kokedamas"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
-            onClick={props.close}
           >
             <li className={classes.sideDrawer__list}>
               <Button icon="kokedama" color="white" size="big" />
@@ -49,12 +44,11 @@ const SideDrawer = (props) => {
             </li>
           </Link>
         </IconButton>
-        <IconButton>
+        <IconButton  onClick={props.close}>
           <Link
             to="conocenos"
             style={{ textDecoration: "none" }}
             className={classes.sideDrawer__item}
-            onClick={props.close}
           >
             <li className={classes.sideDrawer__list}>
               <Button icon="hands" color="white" size="big" />
@@ -62,12 +56,11 @@ const SideDrawer = (props) => {
             </li>
           </Link>
         </IconButton>
-        <IconButton>
+        <IconButton onClick={props.close}>
           <Link
             to="blog"
             style={{ textDecoration: "none" }}
-            className={classes.sideDrawer__item}
-            onClick={props.close}
+            className={classes.sideDrawer__item} 
           >
             <li className={classes.sideDrawer__list}>
               <Button icon="blog" color="white" size="big" />

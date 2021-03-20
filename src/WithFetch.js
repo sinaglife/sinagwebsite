@@ -3,14 +3,7 @@ import axios from "axios";
 
 const WithFetch = (Component)=>{
     const NewComponent = (...props) =>{
-        const [x, setX] = useState("hello")
-        const [koke, setKoke] = useState([]);
-        const [mala, setMala] = useState([]);
-        const [hombre, setHombre] = useState([]);
-        const [niño, setNiño] = useState([]);
-        const [cuidado, setCuidado] = useState([]);
-        const [espiritud, setEspiritud] = useState([]);
-        const [complementos, setComplementos] = useState([]);
+
         const [data, setData] = useState([])
 
         useEffect(()=> {
@@ -39,20 +32,16 @@ const WithFetch = (Component)=>{
         
             Promise.all([promise1, promise2, promise3]).then((results) => {
               //const data = results[0].concat(results[1])
-                setData(results[0].concat(results[1]))
-              
-              
+                setData(results[0].concat(results[1])) 
             });
+         
+            
         }, [])
 
         return <Component
-         {...props}
-        data={data}
-          //koke={koke}
-          //mala={mala}
-          //niño={niño}
-          //hombre={hombre}
-           x={x} y="guay"/>
+                {...props}
+                data={data}
+                />
     };
     
     return NewComponent;

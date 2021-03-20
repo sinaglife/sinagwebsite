@@ -7,32 +7,36 @@ const Store = ({data, logo}) => {
 
     const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
     let list;
-    if(param === "mala" && data.length > 0){
-        list = data.filter((page)=> page.parent === 5 && page.acf.product_showInMala);
-    }
-   
-    if(param === "kokedamas" && data.length > 0){
-        list = data.filter((page)=> page.parent === 5 && page.acf.product_showInkokedama);
-    }
-    if(param === "hombre" && data.length > 0){
-        list = data.filter((page)=> page.parent === 5 && page.acf.product_showInHombre);
-    }
-    if(param === "niño" && data.length > 0){
-        list = data.filter((page)=> page.parent === 5 && page.acf.product_showInNiño);
-    }
-    if(param === "bolsos" && data.length > 0){
-        list = data.filter((page) => page.parent === 5 && page.acf.product_showInBolso);
-    }
-    if(param === "colgantes" && data.length > 0){
-        list = data.filter((page) => page.parent === 5 && page.acf.product_showInColgantes);
-    }
-    if(param === "pendientes" && data.length > 0){
-        list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPendientes);
-    }
-    if(param === "pulseras" && data.length > 0){
-        list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPulseras);
-    }
     
+    switch(param){
+        case "mala":
+            list = data.filter((page)=> page.parent === 5 && page.acf.product_showInMala);
+            break;
+        case "kokedamas":
+            list = data.filter((page)=> page.parent === 5 && page.acf.product_showInkokedama);
+            break;
+        case "hombre":
+            list = data.filter((page)=> page.parent === 5 && page.acf.product_showInHombre);
+            break;
+        case "niños":
+            list = data.filter((page)=> page.parent === 5 && page.acf.product_showInNiño);
+            break;
+        case "bolsos":
+            list = data.filter((page) => page.parent === 5 && page.acf.product_showInBolso);
+            break;
+        case "colgantes" :
+            list = data.filter((page) => page.parent === 5 && page.acf.product_showInColgantes);
+            break;
+        case "pendientes":
+            list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPendientes);
+            break;
+        case "pulseras":
+            list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPulseras);
+            break;
+        default:
+            return null;
+    }
+
     return (
         <div>
             <FilterBar/>

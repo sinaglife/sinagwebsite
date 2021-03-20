@@ -7,12 +7,6 @@ export default function SocialMediaButtons(props) {
   
        return (
              <WhatsappShareButton 
-                title ="titulo"
-                separator=""
-                borderRadius={20}
-                round={true}
-                size={36}
-                iconFillColor="black"
                 url={url}
                 quote={"CampersTribe - World is yours to explore"}
                 hashtag="#probando"

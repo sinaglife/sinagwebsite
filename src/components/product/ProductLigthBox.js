@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import Button from "../UI/button/Button";
-import FilterBySize from "./FilterBySize";
 import Backdrop from "../layout/Backdrop";
 import FacebookButton from "../UI/social-media-buttons/FacebookButton"
 import WhatsAppButton from "../UI/social-media-buttons/WhatsAppButton"
@@ -10,10 +9,13 @@ import { Link } from "@reach/router";
 import classes from "./ProductLightBox.module.scss"
 
 
-const ProductLigthBox = ({productData, src, title, price, alt, description, lightImgsArr, id, ...props})=> {
+const ProductLigthBox = ({productData, src, alt, lightImgsArr, ...props})=> {
     
         const [x, setX] = useState(0);
-        const [sizeChoice, setSizeChoice] = useState("");
+        const productTitle = productData.title;
+        const productPrice = productData.price;
+        const productDesc = productData.descripcion;
+        const productId = productData.id
 
         const goToBasketHandler = ()=> {
             console.log("go to the carrito")
@@ -24,18 +26,6 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
         }
    
         let lightImgArrLength = lightImgsArr.length;
-
-        useEffect(() => {
-            if(title.includes("Colgante"))
-            setSizeChoice("colgante")
-            else if(title.includes("Anillo"))
-            setSizeChoice("anillo")
-            else if(title.includes("Pulsera"))
-            setSizeChoice("pulsera")
-            else 
-            setSizeChoice("")
-        }, [title])
-
 
         const goRight = ()=>{
             
@@ -62,14 +52,14 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
                 className={classes.goLeft }
                 onClick={goLeft} 
                 >
-                    <i class="fas fa-chevron-left"></i>
+                    <i className="fas fa-chevron-left"></i>
                 </button>  
                     <img src={lightImgsArr[x]} alt={alt}/>
                 <button
                 className={classes.goRight}
                 onClick={goRight} 
                 >
-                    <i class="fas fa-chevron-right"></i>
+                    <i className="fas fa-chevron-right"></i>
                 </button>  
             </div>
         );
@@ -107,10 +97,10 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
                     </div>
                 </div>
                 <div className={classes.lightBox__right}>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <p className={classes.lightBox__right__price}>{price}€</p>
-                    <Link to={`productos/${id}`} state={{productData, lightImgsArr}} >
+                    <h3>{productTitle}</h3>
+                    <p>{productDesc}</p>
+                    <p className={classes.lightBox__right__price}>{productPrice}€</p>
+                    <Link to={`/mosaico/productos/${productId}`}  >
                         <p className={classes.lightBox__more__info}>Mas info</p>
                     </Link>
                     <div className={classes.lightBox__right__buttons}>
@@ -126,11 +116,11 @@ const ProductLigthBox = ({productData, src, title, price, alt, description, ligh
 }
 
 ProductLigthBox.propTypes = {
-    src: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    alt: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    src: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    alt: PropTypes.string,
+    description: PropTypes.string,
     lightImgsArr: PropTypes.arrayOf(PropTypes.string),
 }
 

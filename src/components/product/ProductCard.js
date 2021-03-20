@@ -2,6 +2,7 @@ import React from 'react'
 import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({src, alt, title, price, selectedImg}) => {
+   
     return (
         <div className={classes.productCard} onClick={selectedImg}>
             <div className={classes.productCard__container}>

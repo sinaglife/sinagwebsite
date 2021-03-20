@@ -5,6 +5,11 @@ import Button from "../UI/button/Button";
 import cometa from "../../assets/images/footer/cometa.png"
 
 const Footer = () => {
+
+  const goTop = ()=> {
+    window.scrollTo(0,0);
+  }
+
   return (
     <footer className={classes.footer}>
       <div className={classes.footer__leftSection}>
@@ -20,22 +25,22 @@ const Footer = () => {
       <div className={classes.footer__rightSection}>
         <div className={classes.footer__rightInfo}>
           <p className={classes.footer__title}>Información</p>
-          <Link className={classes.footer__link} to="conocenos" style={{ textDecoration: "none" }}>
+          <Link onClick={goTop} className={classes.footer__link} to="conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
-          <Link to="tramitacion-envios" style={{ textDecoration: "none" }}>
+          <Link onClick={goTop} to="tramitacion-envios" style={{ textDecoration: "none" }}>
             <nav>Tramitación de Envíos</nav>
           </Link>
-          <Link to="preguntas-frecuentes" style={{ textDecoration: "none" }}>
+          <Link onClick={goTop} to="preguntas-frecuentes" style={{ textDecoration: "none" }}>
             <nav>Preguntas Frecuentes</nav>
           </Link>
-          <Link to="politicas-de-privacidad" style={{ textDecoration: "none" }}>
+          <Link onClick={goTop} to="politicas-de-privacidad" style={{ textDecoration: "none" }}>
             <nav>Política de Privacidad</nav>
           </Link>
-          <Link to="politica-de-devoluciones" style={{ textDecoration: "none" }}>
+          <Link onClick={goTop} to="politica-de-devoluciones" style={{ textDecoration: "none" }}>
             <nav>Política de devoluciones</nav>
           </Link>  
-          <Link to="politica-cookies" style={{ textDecoration: "none" }}>
+          <Link onClick={goTop} to="politica-cookies" style={{ textDecoration: "none" }}>
             <nav>Política de cookies</nav>
           </Link>
         </div>

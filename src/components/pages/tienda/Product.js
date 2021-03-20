@@ -1,17 +1,27 @@
-import React, { Fragment} from 'react';
+import React from 'react';
+import { Link} from "@reach/router";
 import classes from "./Product.module.scss";
 
-const Product = (props) => {
-
+const Product = ({productData}) => {
     return (
-            <div className={classes.product__container} onClick={props.onClick}>
-                <img src={props.url} alt="" />
+        <Link  to={`productos/${productData.id}`} >
+            <div  className={classes.product__container} >
+                <img src={productData.acf.product_image1.url} alt="" />
                 <div className={classes.card__body}>
-                    <h2 className={classes.card__title}>{props.title}</h2>
-                    <a className={classes.card__price} href="/">{props.price}€</a>
+                    <h2 className={classes.card__title}>{productData.acf.product_title}</h2>
+                    <p className={classes.card__price} >{productData.acf.product_price}€</p>
                 </div>
             </div>
+        </Link>
     )
 }
 
 export default Product;
+
+
+/**
+ * 
+ * 
+   
+
+ */

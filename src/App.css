@@ -34,12 +34,20 @@ button:focus, button:active {
   height: 150px;
   margin-top: 1rem;
 }
+.store__titulo{
+  width: 400px;
+  height: 200px;
+}
 
 @media (max-width: 767.98px){
   .koketropic__logo{
     width: 200px;
     height: 80px;
     margin-top: 1rem;
+  }
+  .store__titulo{
+    width: 200px;
+    height: 100px;
   }
 }
 

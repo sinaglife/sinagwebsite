@@ -28,7 +28,7 @@ const GuiaTallas = () => {
     <div>
       {imagesToShow.map((image, index)=>{
         return (
-          <img alt={`Tallas${index}`} src={image} style={{width: "90%", margin: "5%"}}/>
+          <img key={index} alt={`Tallas${index}`} src={image} style={{width: "50%", margin: "3%"}}/>
         )
       })}
     </div>

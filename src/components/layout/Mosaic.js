@@ -27,7 +27,7 @@ const Mosaic = (props) => {
       price:  productAcf["product_price"],
       description:  productAcf["product_description"],
       alt:  productAcf["product_title"],
-      id: i
+      id: mosaicData[i]?.id
     })
 
     for(let key in productAcf){
@@ -73,12 +73,8 @@ const Mosaic = (props) => {
       {showLightbox ? (
         <ProductLigthBox
           lightImgsArr={lightImgsArr}
-          title={productData.title}
-          description={productData.description}
-          price={productData.price}
           show={showBackdrop}
           close={closeLightBox}
-          id={productData.id}
           productData={productData}
         />
       ) : null}

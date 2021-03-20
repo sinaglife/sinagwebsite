@@ -43,18 +43,18 @@ function Tienda  () {
     }
   ]
   return(
-    <div>
+    <div className={classes.tienda__container}>
       <div className={classes.menu}>
-        {menuArray.map((item) => {
+        {menuArray.map((item, index) => {
           return (
-            
-            <div className={classes.card}>
-              <p>{item.name}</p>
-              <div className={classes.button_image}>
-                <img src={item.image} alt={item.alt}/>
+            <Link key={index} to={`/${item.name.toLocaleLowerCase()}`}> 
+              <div className={classes.card}>
+                <p>{item.name}</p>
+                <div className={classes.button_image}>
+                  <img src={item.image} alt={item.alt}/>
+                </div>
               </div>
-            </div>
-           
+           </Link>
           )
         })}
       </div>
@@ -69,10 +69,3 @@ function Tienda  () {
 }
 
 export default Tienda
-
-
-/*
-<Link to={`/${item.name.toLocaleLowerCase()}`}>
- </Link>
-
-*/

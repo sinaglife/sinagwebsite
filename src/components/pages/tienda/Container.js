@@ -31,7 +31,6 @@ const Container = ({render}) => {
         Promise.all([promise1, promise2, promise3]).then((results) => {
           const data = results[0].concat(results[1])
            setProductData(data)
-          console.log(data)
         });
     }, [])
    
@@ -41,7 +40,7 @@ const Container = ({render}) => {
             {
             productData && productData.length > 0 ? 
             render(productData)
-            : <h2>Loading</h2>
+            : <h2>Loading..</h2>
             }
         </div>
     )
