@@ -6,10 +6,14 @@ import Ninos from '../../../assets/images/Tienda/Ninos.jpg'
 import Cuidado from '../../../assets/images/Tienda/Cuidado.jpg'
 import Complementos from '../../../assets/images/Tienda/Complementos.jpg'
 import Espiritualidad from '../../../assets/images/Tienda/Espiritualidad.jpg'
+import Pulseras from '../../../assets/images/Tienda/Pulseras.jpg'
+import Colgantes from '../../../assets/images/Tienda/Colgantes.jpg'
+import Pendientes from '../../../assets/images/Tienda/Pendientes.jpg'
+
 import classes from './tienda.module.scss'
 // import YellowLeaves from "../../../assets/images/Backgrounds/YellowLeaves.jpeg";
 
-function Tienda  () {
+function Tienda  ({isMenu, bottomMenu}) {
   const menuArray = [
     {
       name: "MUJER",
@@ -24,12 +28,12 @@ function Tienda  () {
     {
       name: "NIÑOS",
       image: Ninos,
-      alt: "NIÑOS"
+      alt: "NINOS"
     },
     {
       name: "CUIDADO DE TU SER",
       image: Cuidado,
-      alt: "CUIDADO"
+      alt: "CUIDADO DE TU SER"
     },
     {
       name: "COMPLEMENTOS",
@@ -42,10 +46,79 @@ function Tienda  () {
       alt: "ESPIRITUALIDAD"
     }
   ]
+
+  const subMenuArray = [
+    {
+      name: "PULSERAS",
+      image: Pulseras,
+      alt: "PULSERAS"
+    },
+    {
+      name: "ANILLOS",
+      image: Hombre,
+      alt: "ANILLOS"
+    },
+    {
+      name: "COLGANTES",
+      image: Colgantes,
+      alt: "COLGANTES"
+    },
+    {
+      name: "PENDIENTES",
+      image: Pendientes,
+      alt: "PENDIENTES"
+    }
+  ]
+
+  const renderTienda = menuArray.map((item, index) => {
+    return (
+      <Link key={index} to={`/${item.alt.toLocaleLowerCase()}`}> 
+        <div className={classes.card}>
+          <p>{item.name}</p>
+          <div className={classes.button_image}>
+            <img src={item.image} alt={item.alt}/>
+          </div>
+        </div>
+     </Link>
+    )
+  })
+
+  const renderMujer = subMenuArray.map((item, index) => {
+    return (
+      <Link key={index} to={`/${item.name.toLocaleLowerCase()}`}> 
+        <div className={classes.card}>
+          <p>{item.name}</p>
+          <div className={classes.button_image}>
+            <img src={item.image} alt={item.alt}/>
+          </div>
+        </div>
+     </Link>
+    )
+  })
+
+  
+
   return(
+
     <div className={classes.tienda__container}>
       <div className={classes.menu}>
-        {menuArray.map((item, index) => {
+        {
+          isMenu ? 
+          renderMujer
+          :
+          renderTienda
+        }
+      </div>
+      { !isMenu && bottomMenu}
+    </div>
+  )
+}
+
+export default Tienda
+
+
+/*
+{menuArray.map((item, index) => {
           return (
             <Link key={index} to={`/${item.name.toLocaleLowerCase()}`}> 
               <div className={classes.card}>
@@ -57,15 +130,5 @@ function Tienda  () {
            </Link>
           )
         })}
-      </div>
-      <div className={classes.tallas}>
-        <p>Conoces tus tallas?: </p>
-        <Link to="/tallas" style={{ textDecoration: "none" }}>
-          <h2>Guía de tallas</h2>
-        </Link>
-      </div>
-    </div>
-  )
-}
 
-export default Tienda
+*/

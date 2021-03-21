@@ -18,7 +18,7 @@ const Store = ({data, logo}) => {
         case "hombre":
             list = data.filter((page)=> page.parent === 5 && page.acf.product_showInHombre);
             break;
-        case "niños":
+        case "ninos":
             list = data.filter((page)=> page.parent === 5 && page.acf.product_showInNiño);
             break;
         case "bolsos":

@@ -16,21 +16,6 @@ const Product = ({ data}) => {
     const price = product?.acf.product_price
     const param = useParams()
     const paramId = parseInt(param.id)
-  
-//
-//   useEffect(() => {
-//   if(product){
-//    if(productData.title.includes("Colgante"))
-//    setSizeChoice("colgante")
-//    else if(productData.title.includes("Anillo"))
-//    setSizeChoice("anillo")
-//    else if(productData.title.includes("Pulsera"))
-//    setSizeChoice("pulsera")
-//    else 
-//    setSizeChoice("")
-//   }
-//}, [productData.title])
-//
 
 
 

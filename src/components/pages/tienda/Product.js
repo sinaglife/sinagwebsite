@@ -4,7 +4,7 @@ import classes from "./Product.module.scss";
 
 const Product = ({productData}) => {
     return (
-        <Link  to={`productos/${productData.id}`} >
+        <Link style={{ textDecoration: "none", color: "black" }}  to={`productos/${productData.id}`} >
             <div  className={classes.product__container} >
                 <img src={productData.acf.product_image1.url} alt="" />
                 <div className={classes.card__body}>

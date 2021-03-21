@@ -13,30 +13,6 @@
   justify-content: center;
 }
 
-.tallas {
-  margin-bottom: 5%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5%;
-  p {
-    font-size: 1.5rem;
-    margin: 0 5% 0 0;
-  }
-  h2{
-    font-size: 2.5rem;
-    color: rgb(204, 192, 137);
-    margin: 0;
-    transition: all ease 1s;
-  }
-  h2:hover {
-    color: rgb(197, 177, 85);
-    font-size: 3rem;
-    transition: all ease 1s;
-  }
-  
-}
 
 .card {
   z-index: 1;
@@ -81,13 +57,10 @@
   width: 250px;
 }
 
-
-
-
 @media (max-width: 500px) {
   .card {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 5% 1rem;
     padding: 5%;
     p {
