@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import YellowLeaves from "./assets/images/Backgrounds/YellowLeaves.jpeg";
 import { Router, Link } from "@reach/router";
 import Header from "./components/header/Header";
 import SideDrawer from './components/layout/SideDrawer';
@@ -31,6 +30,7 @@ const App = ()=> {
 
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
+
   const isMenu = true;
 
 

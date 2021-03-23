@@ -1,21 +1,29 @@
 import React, {useState} from 'react';
-import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
-import classes from "./Rating.module.scss"
+import star from "../../assets/images/star.svg"
 
-
-const style={
-  container: {
-    fontSize: "auto",
-  }
-}
 
 const  RatingComponent = ()=> {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(3);
  
+  const renderStars = Array(value).fill().map(()=>(
+    <img style={{width: "30px"}} alt="star" src={star}/>
+  ))
   return (
     <div>
-      <Box component="fieldset" mb={3} borderColor="transparent" >
+      {
+      renderStars
+      }
+    </div>
+  );
+}
+
+export default RatingComponent;
+
+
+
+/*
+
+    <Box component="fieldset" mb={3} borderColor="transparent" >
         <Rating
           className={classes.rating__container}
           size="large"
@@ -28,10 +36,5 @@ const  RatingComponent = ()=> {
         
         />
       </Box>
-      
-    </div>
-  );
-}
 
-export default RatingComponent;
-
+*/

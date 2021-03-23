@@ -1,0 +1,61 @@
+
+.tooltip__container{
+    position: absolute;
+    top: 130px;
+    z-index: 9;
+    border: 0.5px solid rgb(204, 204, 204);
+    background-color: rgb(255, 254, 254);
+    padding: 1rem  0.5rem;
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+    button{
+        width: 80%;
+        padding: 0.3rem;
+        text-transform: uppercase;
+        border: none;
+        background-color: #CDA34A;
+        color: rgb(255, 255, 255);
+    }
+    .tooltip__remember{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        width: 100%;
+        padding: 0.2rem;
+        p{
+            padding-top: 0.8rem;
+            margin-left: 0.4rem;
+        }
+    }
+    .tooltip__register{
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        p:hover{
+            color: rgb(134, 134, 134);
+        }
+    }
+}
+
+.tooltip__container__logout{
+    z-index: 9;
+    position: absolute;
+    top: 120px;
+    border: 0.5px solid rgb(204, 204, 204);
+    background-color: rgb(255, 254, 254);
+    padding: 1rem  0.5rem;
+    width: 200px;
+    height: 70px;
+    border-radius: 5px;
+    button{
+        width: 80%;
+        padding: 0.3rem;
+        text-transform: uppercase;
+        border: none;
+        background-color: #CDA34A;
+        color: rgb(255, 255, 255);
+    }
+}
+
+

@@ -28,6 +28,9 @@ const Footer = () => {
           <Link onClick={goTop} className={classes.footer__link} to="conocenos" style={{ textDecoration: "none" }}>
             <nav>Conócenos</nav>
           </Link>
+          <Link onClick={goTop} className={classes.footer__link} to="tallas" style={{ textDecoration: "none" }}>
+            <nav>Guia de tallas</nav>
+          </Link>
           <Link onClick={goTop} to="tramitacion-envios" style={{ textDecoration: "none" }}>
             <nav>Tramitación de Envíos</nav>
           </Link>

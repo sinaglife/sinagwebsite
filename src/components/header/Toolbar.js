@@ -5,9 +5,11 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "@reach/router";
 import Logo from "../../assets/images/LogoSinagSinV&D.jpeg";
 import Button from "../UI/button/Button";
+import UserTooltip from "./components/UserTooltip"
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
+
 
   useEffect(() => {
     const handler = () => {
@@ -43,29 +45,55 @@ const LogoHeader = () => {
   )
 };
 
-const Toolbar = (props) => (
-  <div className={classes.toolbar}>
-    <div className={classes.toolbar__mainButton} onClick={props.open}>
-      <IconButton>
-        <MenuIcon />
-      </IconButton>
-    </div>
-    <LogoHeader/>
-    <div className={classes.toolbar__rightContainer}>
-    <Button
-      icon="kart"
-      color="black"
-      size="medium"
-      padding="noPadding"
-    />
-    <Button
-      icon="account"
-      color="black"
-      size="medium"
-      padding="noPadding"
-    />
-    </div>
-  </div>
-);
+const Toolbar = (props) =>{
+  const [isTooltip, setIsTooltip] = useState(false)
+  const [user, setUser] = useState("jhoselina")
+
+  const toolTipHandler = ()=>{
+    console.log("prueba")
+    if(!isTooltip){
+      setIsTooltip(true)
+    }else{
+      setIsTooltip(false)
+    }
+  }
+
+return (
+      <div className={classes.toolbar}>
+        <div className={classes.toolbar__mainButton} onClick={props.open}>
+          <IconButton>
+            <MenuIcon />
+          </IconButton>
+        </div>
+        <LogoHeader/>
+        <div className={classes.toolbar__rightContainer}>
+        <Button
+          icon="kart"
+          color="black"
+          size="medium"
+          padding="noPadding"
+        />
+       
+          <Button
+            onClick={toolTipHandler}
+            icon="account"
+            color="black"
+            size="medium"
+            padding="noPadding"
+          />
+          {
+            isTooltip &&
+            <UserTooltip
+            toolTipHandler={toolTipHandler}
+            user={user}
+            /> 
+          }
+        
+          
+        
+        </div>
+      </div>
+  );
+}
 
 export default Toolbar;

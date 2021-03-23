@@ -18,7 +18,7 @@ function Button({
         classes[size],
         classes[padding],
         classes[backgroundColor],
-      ].join(" ")}
+      ].join(" ")} 
       onClick={onClick}
     >
       <Icon className={classes[color]} icon={icon} />
