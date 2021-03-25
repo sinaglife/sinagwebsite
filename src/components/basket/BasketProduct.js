@@ -63,7 +63,7 @@ const BasketProduct = ({title, src, talla}) => {
                             className={classes.whatsapp}
                             icon="delete"
                             color="black"
-                            size="medium"
+                            size="small"
                             padding="noPadding"
                         />
                     </div>

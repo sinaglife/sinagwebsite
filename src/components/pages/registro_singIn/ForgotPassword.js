@@ -1,11 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik';
-
 import {InputRow} from "./Register"
 
 import classes from "./RegistroSingIn.module.scss"
-
-
 
 const ForgotPassword = () => {
     const initialState = {

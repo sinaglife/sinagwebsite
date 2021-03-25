@@ -1,5 +1,4 @@
 
-
 .container__form{
     display: flex;
     flex-direction: column;
@@ -85,7 +84,15 @@
         h3{
             font-size: 1rem;
         }
+        p{
+            font-size: 0.8rem;
+        }
         form{
+           
+            button{
+                width: 70%;
+                padding: 0.2rem;
+            }
             .create__user__row{
                 label{
                     font-size: 0.8rem;
@@ -104,8 +111,7 @@
             img{
                 width: 20px;
                 position: absolute;
-                left: 20px;
-                
+                left: 20px;   
             }
         }
         a{
@@ -117,6 +123,60 @@
 
 @media (min-width: 701px) and (max-width: 1000px){
     .container__form{
+        p{
+            font-size: 1.5rem;
+        }
+        form{
+           
+            button{
+                width: 70%;
+                padding: 0.5rem;
+            }
+        }
         width: 400px;
     }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px){
+    .container__form{
+        width: 500px; 
+        padding: 0.2rem 1rem;
+        h3{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        form{
+           
+            button{
+                width: 70%;
+                padding: 0.8rem;
+                font-size: 1.4rem;
+            }
+            .create__user__row{
+                label{
+                    font-size: 1.5rem;
+                }
+                input{
+                    padding: 0;
+                    font-size: 1.5rem;
+                }
+            }
+           
+        }
+        .buttons__container{
+            button{
+                font-size: 1.3rem;
+            }
+            img{
+                width: 30px;
+                position: absolute;
+                left: 20px;   
+            }
+        }
+        a{
+            font-size: 1.3rem;
+        }
+    }  
 }

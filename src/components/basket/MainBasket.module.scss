@@ -1,6 +1,9 @@
 .mainBasket{
-    margin-bottom: 15rem;
-    height: 100%;
+   margin: 1.5rem 0;
+    h1{
+        font-family: 'Vidaloka', serif;
+    }
+    
 }
 
 .basket__resume{
@@ -60,4 +63,141 @@
            padding: 0.2rem;
        }
     }
+}
+
+@media (max-width: 420px){
+    .mainBasket{
+        h1{
+            font-size: 1.8rem;
+        }
+    }
+    
+.basket__resume{
+    width: 70%;
+    h3{
+        font-size: 0.8rem;
+    }
+    .resume__top{
+        
+        .introduce__cupon{
+            input{
+                font-size: 0.7rem;
+            }
+            button{
+                border: none;
+                font-size: 0.7rem;
+            }
+        }
+        
+    }
+    .resume__body{
+        margin-top: 0.5rem;
+        p{
+            font-size:0.7rem;
+        }
+    }
+    .resume__bottom{
+        .keep__shopping{
+            margin-top: 0.5rem;
+        }
+       button{
+           border: none;
+           width: 48%;
+           padding: 0.2rem;
+           font-size: 0.59rem;
+       }
+    }
+}
+   
+}
+
+@media  (min-width: 767px)  and (max-width: 1023px){
+    .mainBasket{
+        h1{
+            font-size: 2.5rem;
+        }
+    }
+        
+    .basket__resume{
+        width: 50%;
+        h3{
+            font-size: 1.3rem;
+        }
+        .resume__top{
+            
+            .introduce__cupon{
+                input{
+                    font-size: 1.1rem;
+                }
+                button{
+                    border: none;
+                    font-size: 1.1rem;
+                }
+            }
+            
+        }
+        .resume__body{
+            margin-top: 0.5rem;
+            p{
+                font-size:1.1rem;
+            }
+        }
+        .resume__bottom{
+            .keep__shopping{
+                margin-top: 0.5rem;
+            }
+        button{
+            border: none;
+            width: 48%;
+            padding: 0.2rem;
+            font-size: 0.9rem;
+        }
+        }
+    }
+}
+
+
+@media  (min-width: 1024px)  and (max-width: 1300px){
+    .mainBasket{
+        h1{
+            font-size: 3.5rem;
+        }
+    }
+        
+    .basket__resume{
+        width: 50%;
+        h3{
+            font-size: 1.7rem;
+        }
+        .resume__top{
+            
+            .introduce__cupon{
+                input{
+                    font-size: 1.7rem;
+                }
+                button{
+                    font-size: 1.6rem;
+                }
+            }
+            
+        }
+        .resume__body{
+            margin-top: 1rem;
+            p{
+                font-size:1.7rem;
+            }
+        }
+        .resume__bottom{
+            .keep__shopping{
+                margin-top: 1rem;
+            }
+        button{
+            border: none;
+            width: 48%;
+            padding: 0.3rem;
+            font-size: 1.4rem;
+        }
+        }
+    }
+   
 }

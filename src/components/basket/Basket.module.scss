@@ -105,3 +105,223 @@
 
    
 }
+
+@media  (max-width: 420px){
+    .basketProduct{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem auto;
+        height: 100%;
+        .basket__product__header{
+            padding: 0.1rem;
+        }
+        h2{
+            font-size: 1rem; 
+        }
+        .product__container{
+            .main__container{
+                .left__container{
+                    padding: 0.5rem 0rem ;
+                    img{
+                        width: 80px;
+                        padding: 0;
+                        height: 80px;
+                    }
+                }
+                .right__container{
+                    padding: 0.5rem 0rem ;
+                    
+                    h3{
+                        font-size: 0.8rem;
+                    }
+                    p{
+                        font-size: 0.7rem;
+                    }
+                    .right__bottom{
+                        margin-top: auto;  
+                        font-size: 0.7rem; 
+                        input{
+                            margin-right: 0.1rem;
+                        }
+                    }
+                }
+                  
+            }
+        }
+        .amount__container{
+            .quantity__container{
+                margin: 0.5rem auto;
+                .quantity__component{
+                    margin-left: 0;   
+                }
+            }
+        }
+        .delivery__container{
+            .delivery__content{
+                .delivery__choices{
+                    font-size: 0.7rem;
+                }
+                input{
+                    margin-right: 0.2rem;
+                }
+            }
+        }
+        .price__container{
+            .product__price{
+                font-size: 1rem;
+            }
+        }
+        .basket__delete{
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+    
+    }
+}
+
+@media  (min-width: 767px)  and (max-width: 1023px){
+    .basketProduct{
+        display: flex;
+        flex-direction: column;
+        margin: 2rem auto;
+        height: 100%;
+        .basket__product__header{
+            padding: 0.4rem;
+        }
+        h2{
+            font-size: 1.4rem; 
+        }
+        .product__container{
+            .main__container{
+                padding: 0.5rem 0rem;
+                .left__container{
+                    
+                    img{
+                        width: 120px;
+                        padding: 0;
+                        height: 120px;
+                    }
+                }
+                .right__container{
+                    h3{
+                        font-size: 1.2rem;
+                    }
+                    p{
+                        font-size: 1rem;
+                    }
+                    .right__bottom{
+                        margin-top: auto;  
+                        font-size: 1.1rem; 
+                        input{
+                            margin-right: 0.1rem;
+                        }
+                    }
+                }
+                  
+            }
+        }
+        .amount__container{
+            .quantity__container{
+                margin: 0.5rem auto;
+                .quantity__component{
+                    margin-left: 0;   
+                }
+            }
+        }
+        .delivery__container{
+            .delivery__content{
+                .delivery__choices{
+                    font-size: 1.1rem;
+                }
+                input{
+                    margin-right: 0.2rem;
+                }
+            }
+        }
+        .price__container{
+            .product__price{
+                font-size: 1.3rem;
+            }
+        }
+        .basket__delete{
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+    
+    }
+}
+
+
+@media  (min-width: 1024px)  and (max-width: 1300px){
+    .basketProduct{
+        display: flex;
+        flex-direction: column;
+        margin: 2rem auto;
+        height: 100%;
+        .basket__product__header{
+            padding: 1rem;
+        }
+        h2{
+            font-size: 1.8rem; 
+        }
+        .product__container{
+            .main__container{
+                padding: 0.5rem 0rem;
+                .left__container{
+                    
+                    img{
+                        width: 150px;
+                        padding: 0;
+                        height: 150px;
+                    }
+                }
+                .right__container{
+                    h3{
+                        font-size: 1.7rem;
+                    }
+                    p{
+                        font-size: 1.5rem;
+                    }
+                    .right__bottom{ 
+                        font-size: 1.5rem; 
+                        input{
+                            margin-right: 0.1rem;
+                        }
+                    }
+                }
+                  
+            }
+        }
+        .amount__container{
+            .quantity__container{
+                margin: 0.5rem auto;
+                .quantity__component{
+                    margin-left: 0;   
+                }
+            }
+        }
+        .delivery__container{
+            .delivery__content{
+                .delivery__choices{
+                    font-size: 1.7rem;
+                }
+                input{
+                    margin-right: 0.2rem;
+                }
+            }
+        }
+        .price__container{
+            .product__price{
+                font-size: 1.8rem;
+            }
+        }
+        .basket__delete{
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+    
+    }
+}
