@@ -70,6 +70,14 @@
         padding: 0.4rem;
         font-size: 1.8rem;
     }
+    a{  
+        text-decoration: none;
+        margin-left: 0.5rem;
+        color: rgb(0, 0, 255);
+        &:hover{
+            color: rgb(75, 75, 75);
+        }
+    }
 }
 
 .ParaImg{

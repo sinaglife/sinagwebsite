@@ -1,0 +1,63 @@
+.mainBasket{
+    margin-bottom: 15rem;
+    height: 100%;
+}
+
+.basket__resume{
+    box-shadow: 0px 2px 12px 1px #C7C7C7;
+    width: 30%;
+    margin: 1rem 0 1rem 3rem;
+    text-align: left;
+    padding: 0.5rem 1.5rem;
+    h3{
+        
+        font-size: 1.1rem;
+    }
+    button{
+        background-color: #CDA34A;
+        background-color: #efecdf;
+    }
+    .resume__top{
+        
+        .introduce__cupon{
+            display: flex;
+            justify-content: space-between;
+            input{
+                font-size: 1rem;
+                border: 2px solid rgb(187, 187, 187);
+                width: 100%;
+            }
+            button{
+                border: none;
+                padding:0.2rem 0.5rem;
+                width: 30%;
+            }
+        }
+        
+    }
+    .resume__body{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        p{
+            font-size:1.1rem;
+        }
+    }
+    .resume__bottom{
+        .keep__shopping{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+       button{
+           border: none;
+           width: 48%;
+           padding: 0.2rem;
+       }
+    }
+}

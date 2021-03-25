@@ -6,7 +6,6 @@ import banner from "../../../assets/images/sinagBanner.jpg";
 import blog from "../../../assets/images/homeBlog_img.jpg";
 import {Parallax} from "react-parallax";
 import Mosaic from "../../layout/Mosaic";
-import { Link } from "@reach/router";
 import piedras from "../../../assets/images/piedrasFondo.jpg"
 
 
@@ -25,17 +24,16 @@ const Home = ({data})=> {
                 <img src={banner} alt="envios a toda europa"/>
             </div>
             {data && <Banner data={data}/>}
-            <Link to="Blog" style={{ textDecoration: "none", color: "black" }}>
                 <div className={classes.home__blog}>
                     <img src={blog} alt="blog" />
                     <p><strong>LAS PIEDRAS Y SU MAGIA:</strong> Cada piedra tiene
                         un potencial desconocido, es el regalo que
                         nos da la naturaleza de tan diversas formas y
                         colores, llegan a nuestras vidas para sanar algún
-                        aspecto de nosotros
+                        aspecto de nosotros.
+                        <a  href="/blog">Mas info</a>
                     </p>
                 </div>
-            </Link>
         </div>
     )
 }

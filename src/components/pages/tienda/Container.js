@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
+import Loading from "../../layout/Loading"
 
 const Container = ({render}) => {
 
@@ -40,7 +41,7 @@ const Container = ({render}) => {
             {
             productData && productData.length > 0 ? 
             render(productData)
-            : <h2>Loading..</h2>
+            : <Loading/>
             }
         </div>
     )

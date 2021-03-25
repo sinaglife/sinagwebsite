@@ -1,27 +1,15 @@
 
-.app__header{
-  z-index: 100;
-  grid-area: header;
-  position: sticky;
-  top: 0;
-}
-.app__body{
-  grid-area: body;
-}
-
-.app__footer{
-  grid-area: footer;
-}
-
 .app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   text-align: center;
-  display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-areas: 
-  "header"
-  "body"
-  "footer";
 }
+
+.app__body{
+  flex: 1;
+}
+
 
 
 button:focus, button:active {
@@ -98,4 +86,26 @@ button:focus, button:active {
   .app__body {
     padding-top: 180px;
   }
-} */
+} 
+
+
+.app__footer{
+  grid-area: footer;
+}
+
+.app{
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+  "header"
+  "body"
+  "footer";
+}
+.app__header{
+  z-index: 100;
+  grid-area: header;
+  position: sticky;
+  top: 0;
+}
+*/

@@ -7,13 +7,13 @@ import Footer from "./components/footer/Footer";
 import Home from "./components/pages/home/Home";
 import Blog from "./components/pages/blog/Blog";
 import BlogPost from "./components/pages/blog/BlogPost";
-import Conocenos from "./components/pages/footer_choices/Conocenos";
+import Conocenos from "./components/pages/info-pages/Conocenos";
 import GuiaTallas from "./components/pages/GuiaTallas";
-import TramitacionEnvios from "./components/pages/footer_choices/TramitacionEnvios";
-import PoliticaCookies from './components/pages/footer_choices/PoliticaCookies';
-import PreguntasFrecuentes from './components/pages/footer_choices/PreguntasFrecuentes';
-import PoliticasPrivacidad from './components/pages/footer_choices/PoliticasPrivacidad';
-import PoliticasDevoluciones from './components/pages/footer_choices/PoliticasDevoluciones';
+import TramitacionEnvios from "./components/pages/info-pages/TramitacionEnvios";
+import PoliticaCookies from './components/pages/info-pages/PoliticaCookies';
+import PreguntasFrecuentes from './components/pages/info-pages/PreguntasFrecuentes';
+import PoliticasPrivacidad from './components/pages/info-pages/PoliticasPrivacidad';
+import PoliticasDevoluciones from './components/pages/info-pages/PoliticasDevoluciones';
 import Products from "./components/product/Product"
 import Store from "./components/pages/tienda/Store"
 import Container from "./components/pages/tienda/Container"
@@ -22,7 +22,7 @@ import Index from "./components/pages/tienda/index"
 import Register from "./components/pages/registro_singIn/Register"
 import SingIn from "./components/pages/registro_singIn/SingIn"
 import ForgotPassword from "./components/pages/registro_singIn/ForgotPassword"
-
+import MainBasket from "./components/basket/MainBasket"
 
 import './App.css';
 
@@ -91,6 +91,7 @@ const App = ()=> {
             </div>
             }/>
             <Index path="/mujer" isMenu={isMenu}/>
+            <MainBasket path="/cesta"/>
             <Conocenos path="/conocenos"/>
             <TramitacionEnvios path="/tramitacion-envios"/>
             <GuiaTallas path="/tallas"/>
