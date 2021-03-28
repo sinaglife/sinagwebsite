@@ -67,20 +67,29 @@ return (
         </div>
         <LogoHeader/>
         <div className={classes.toolbar__rightContainer}>
-        <Button
-          icon="kart"
-          color="black"
-          size="medium"
-          padding="noPadding"
-        />
-       
-          <Button
-            onClick={toolTipHandler}
-            icon="account"
-            color="black"
-            size="medium"
-            padding="noPadding"
-          />
+         <div className={classes.toolbar__right__user}>
+            {
+              window.innerWidth >= 1000 && <span>Jhoselina</span>
+            }
+            <Button
+              onClick={toolTipHandler}
+              icon="account"
+              color="black"
+              size="medium"
+              padding="noPadding"
+            />  
+         </div>
+          <div className={classes.toolbar__right__basket}>
+            {
+              window.innerWidth >= 1000 && <span>10</span>
+            }
+            <Button
+              icon="kart"
+              color="black"
+              size="medium"
+              padding="noPadding"
+            />
+          </div>
           {
             isTooltip &&
             <UserTooltip
@@ -88,9 +97,6 @@ return (
             user={user}
             /> 
           }
-        
-          
-        
         </div>
       </div>
   );

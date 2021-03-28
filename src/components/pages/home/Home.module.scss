@@ -119,22 +119,22 @@
     }
 
     .home__blog{
-        padding: 0.9rem;
+        padding: 0.5rem 0.9rem;
         display: flex;
         align-items: center;
 
         img{
             width: 55%;
-            height: 100%;
             object-fit: cover;
             margin-right: 0.3rem;
-            margin-left: 0rem;
+            padding: 0.5rem;
         }
         p{
             text-align: justify;
-            padding: 0.3rem;
-            font-size: 0.59rem;
-            margin-right: 0;
+            font-size: 0.6rem;
+        }
+        a{
+            font-size: 0.9rem;
         }
     }
     

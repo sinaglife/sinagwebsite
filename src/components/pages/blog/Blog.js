@@ -24,10 +24,11 @@ const Blog = (props)=> {
             </p>
             <div className={classes.postBoxContainer}>
                 {
-                    blogData.map((post)=>{
+                    blogData?.map((post)=>{
                         return <PostBox 
                                 key={post.acf.post_title} 
-                                postData={post}/>;
+                                postData={post}
+                                />;
                     })
                 }
             </div>

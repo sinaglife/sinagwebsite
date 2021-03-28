@@ -6,8 +6,10 @@
   text-align: center;
 }
 
+
 .app__body{
   flex: 1;
+  margin-top: 8.5rem;
 }
 
 

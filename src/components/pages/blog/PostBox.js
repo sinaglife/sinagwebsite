@@ -5,7 +5,7 @@ import { Link } from "@reach/router";
 
 const PostBox = ({ postData }) => {
   let blogRoute = postData.slug;
-  console.log(postData.acf.post_lobbyImage.url);
+  console.log(postData?.acf.post_lobbyImage.url);
   return (
     <Link to={`/blog/${blogRoute}`} style={{ textDecoration: "none" }}>
       <div className={classes.card}>

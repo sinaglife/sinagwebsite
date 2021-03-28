@@ -15,7 +15,7 @@ const BlogPost = (props)=> {
         .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
         .then((res)=>{
             let dataArray = res.data.filter((post)=>{
-                
+        
                 return post.slug === params.slug;
             });
             setPostData(dataArray[0]);
@@ -25,7 +25,6 @@ const BlogPost = (props)=> {
     
     useEffect(()=>{
         if(postData){
-            console.log(postData)//revisar lo de los subtitulos.
              let maxI = 0;
 
             for(let key in postData.acf){
@@ -113,7 +112,7 @@ const BlogPost = (props)=> {
             });
             setPostRows(rows);
         }
-    }, [maxRows, postData.acf]);
+    }, [maxRows]);
 
     return postData ? (
         <div className={classes.postContainer}>

@@ -40,17 +40,32 @@
 .toolbar__rightContainer {
   @extend .buttonWidth;
   justify-content: flex-end;
+  span{
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+  .toolbar__right__user{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .toolbar__right__basket{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
 }
 
 
 
 
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
   .toolbar__Logo {
     width: 35%;
   }
+
 }
 @media (min-width: 767.99px) and (max-width: 991.98px) {
   .toolbar__Logo {
