@@ -1,5 +1,3 @@
-import axios from "axios"
-import {getProductsRequest} from "./products.actions"
 import  { productTypes }  from "./products.types" 
 
 const initialState = {

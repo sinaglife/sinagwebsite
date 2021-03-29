@@ -60,10 +60,7 @@ const Mosaic = (props) => {
           <>
             <ProductCard
               key={i}
-              src={product.acf.product_image1.url}
-              alt={product.acf.product_image1.alt}
-              title={product.acf.product_title}
-              price={product.acf.product_price}
+              data={product}
               selectedImg={() => selectedImg(i)}
               />
           </>

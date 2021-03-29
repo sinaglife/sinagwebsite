@@ -34,7 +34,7 @@ useEffect(() => {
             sizeParam = "pulsera"
         }
       }
-       console.log(dataProduct)
+      
         setProduct(dataProduct)
         for(let key in dataProduct?.acf){
             if(key.includes("product_image") && dataProduct.acf[key]){

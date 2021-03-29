@@ -1,22 +1,24 @@
 import React from 'react'
+import {removeProductFromBasket} from "../../redux/basket/basket.actions"
 import Quantity from '../product/Quantity'
 import Button from "../UI/button/Button"
 
 import classes from "./Basket.module.scss"
 
-const BasketProduct = ({title, src, talla}) => {
+const BasketProduct = ({data, dispatch}) => {
+    console.log(data)
     return (
         <div className={classes.basketProduct}>
             <div className={classes.product__container}>
                <div className={classes.basket__product__header}> <h2>Producto</h2> </div>
                 <div className={classes.main__container}>
                     <div className={classes.left__container}>
-                        <img src={src} />
+                        <img src={data?.acf.product_image1.url} />
                     </div>
                     <div className={classes.right__container}>
                         <div>
-                            <h3>{title}</h3>
-                            <p>Talla:{talla}cm</p>
+                            <h3>{data?.acf.product_title}</h3>
+                            <p>Talla:32cm</p>
                         </div>
                         <div className={classes.right__bottom}>
                             <input type="checkbox"/>
@@ -53,13 +55,14 @@ const BasketProduct = ({title, src, talla}) => {
             <div className={classes.price__container}>
             <div className={classes.basket__product__header}> <h2>Precio</h2> </div>
                     <div className={classes.product__price}>
-                        12:00$
+                        {data?.acf.product_price}$
                     </div>
             </div>
             <div className={classes.delete__container}>
                 <div  className={classes.basket__product__header}><h2><br/></h2></div>
                     <div className={classes.basket__delete}>
                         <Button
+                            onClick={()=> dispatch(removeProductFromBasket(data.id))}
                             className={classes.whatsapp}
                             icon="delete"
                             color="black"

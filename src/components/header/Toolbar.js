@@ -6,6 +6,7 @@ import { Link } from "@reach/router";
 import Logo from "../../assets/images/LogoSinagSinV&D.jpeg";
 import Button from "../UI/button/Button";
 import UserTooltip from "./components/UserTooltip"
+import { connect } from 'react-redux'
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -45,9 +46,22 @@ const LogoHeader = () => {
   )
 };
 
-const Toolbar = (props) =>{
+const Toolbar = ({basket,...props}) =>{
   const [isTooltip, setIsTooltip] = useState(false)
   const [user, setUser] = useState("jhoselina")
+  const [basketLength, setBasketLength] = useState()
+  let basketArray = []
+
+  useEffect(() => {
+   
+      basketArray = basket.basketItems.map((item)=> {
+       return  item.quantity
+      })
+      if(basketArray.length > 0){
+        setBasketLength(basketArray.reduce((x, item)=> x + item))
+      }
+  
+  }, [basket.basketItems])
 
   const toolTipHandler = ()=>{
     console.log("prueba")
@@ -81,14 +95,16 @@ return (
          </div>
           <div className={classes.toolbar__right__basket}>
             {
-              window.innerWidth >= 1000 && <span>10</span>
+              window.innerWidth >= 1000 && <span>{basketLength}</span>
             }
-            <Button
-              icon="kart"
-              color="black"
-              size="medium"
-              padding="noPadding"
-            />
+            <Link to="/cesta">
+              <Button
+                icon="kart"
+                color="black"
+                size="medium"
+                padding="noPadding"
+              />
+            </Link>
           </div>
           {
             isTooltip &&
@@ -102,4 +118,10 @@ return (
   );
 }
 
-export default Toolbar;
+const mapStateToProps = state =>{
+  return{
+    basket: state.basket
+  }
+}
+
+export default connect(mapStateToProps, null)(Toolbar);
