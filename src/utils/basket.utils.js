@@ -13,7 +13,6 @@ export const addItemToBasket = (basket, item, qty) =>{
 }
 
 export const removeItemFromBasket = (basket, item) =>{
-    console.log(item)
     const existItem = basket.find(basketItem=> basketItem.id === item.id);
     if(existItem.quantity === 1){
         return basket.filter(basketItem => basketItem.id !== item.id)
@@ -31,3 +30,13 @@ export const getBasketTotal = (basket)=>{
      })
      return priceArray.reduce((amount, item)=> item + amount, 0)
 }
+
+export const getBasketLength = (basket)=>{
+    let basketArray = [];
+    basketArray = basket?.map(item=>(
+        item.quantity
+    ));
+    if(basketArray.length > 0)
+    return basketArray?.reduce((x, item)=> x + item);
+}
+

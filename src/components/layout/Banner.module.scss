@@ -11,9 +11,9 @@
 .banner__button{
     position: absolute;
     text-align: center;
-    bottom: 30px;
+    bottom: 80px;
     left: 570px;
-    width: 15%;
+    width: 20%;
     background-color: rgb(241, 193, 104);
     padding: 0.5rem 1rem;
     color: black;
@@ -23,18 +23,31 @@
 }
 
 
+@media (max-width: 400px){
+    .banner__image{
+        height: 220px;
+    }
+    .banner__button{
+        bottom: 30px;
+        left: 120px;
+        width: 35%;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+    }
+}
 
-@media (max-width: 570px){
+
+@media(min-width: 410px) and (max-width: 570px){
 
     .banner__image{
         height: 220px;
     }
     .banner__button{
-        bottom: 10px;
+        bottom: 30px;
         left: 140px;
-        width: 30%;
-        padding: 0.2rem 0.5rem;
-        font-size: 0.7rem;
+        width: 35%;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -43,20 +56,20 @@
         height: 400px;
     }
     .banner__button{
-        bottom: 10px;
+        bottom: 50px;
         left: 250px;
-        width: 30%;
-        padding: 0.5rem 1rem;
+        width: 35%;
+        padding: 0.4rem 0.8rem;
         font-size: 1.5rem;
     }
 }
 
 @media (min-width: 910px) and (max-width: 1300px){
     .banner__button{
-        bottom: 10px;
+        bottom: 60px;
         left: 350px;
-        width: 30%;
+        width: 32%;
         padding: 0.5rem 1rem;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 }

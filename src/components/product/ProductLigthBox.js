@@ -4,21 +4,24 @@ import Button from "../UI/button/Button";
 import Backdrop from "../layout/Backdrop";
 import FacebookButton from "../UI/social-media-buttons/FacebookButton"
 import WhatsAppButton from "../UI/social-media-buttons/WhatsAppButton"
+import {addProductToBasket} from "../../redux/basket/basket.actions"
+import { useDispatch} from "react-redux"
 import { Link } from "@reach/router";
 
 import classes from "./ProductLightBox.module.scss"
 
 
-const ProductLigthBox = ({productData, src, alt, lightImgsArr, ...props})=> {
-    
+const ProductLigthBox = ({productData, alt, lightImgsArr, ...props})=> {
+
+        const dispatch = useDispatch()
         const [x, setX] = useState(0);
-        const productTitle = productData.title;
-        const productPrice = productData.price;
-        const productDesc = productData.descripcion;
+        const productTitle = productData.acf?.product_title;
+        const productPrice = productData.acf?.product_price;
+        const productDesc = productData.acf?.product_descripcion;
         const productId = productData.id
 
-        const goToBasketHandler = ()=> {
-            console.log("go to the carrito")
+        const goToBasketHandler = (productData, x)=> {
+            dispatch(addProductToBasket(productData, x))
         }
 
         const buyNowHandler = ()=>{
@@ -104,7 +107,7 @@ const ProductLigthBox = ({productData, src, alt, lightImgsArr, ...props})=> {
                         <p className={classes.lightBox__more__info}>Mas info</p>
                     </Link>
                     <div className={classes.lightBox__right__buttons}>
-                        <button onClick={goToBasketHandler} >Agregar al carrito</button>
+                        <button onClick={()=>goToBasketHandler(productData,1)} >Agregar al carrito</button>
                         <button onClick={buyNowHandler} >Comprar ya</button>
                     </div>    
                 </div>

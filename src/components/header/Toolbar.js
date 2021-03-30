@@ -7,6 +7,7 @@ import Logo from "../../assets/images/LogoSinagSinV&D.jpeg";
 import Button from "../UI/button/Button";
 import UserTooltip from "./components/UserTooltip"
 import { connect } from 'react-redux'
+import {getBasketLength} from "../../utils/basket.utils"
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -54,13 +55,14 @@ const Toolbar = ({basket,...props}) =>{
 
   useEffect(() => {
    
-      basketArray = basket.basketItems.map((item)=> {
-       return  item.quantity
-      })
-      if(basketArray.length > 0){
-        setBasketLength(basketArray.reduce((x, item)=> x + item))
-      }
+      //basketArray = basket.basketItems.map((item)=> {
+      // return  item.quantity
+      //})
+      //if(basketArray.length > 0){
+      //  setBasketLength(basketArray.reduce((x, item)=> x + item))
+      //}
   
+      setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
   const toolTipHandler = ()=>{

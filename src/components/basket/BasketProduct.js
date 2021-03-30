@@ -62,7 +62,7 @@ const BasketProduct = ({data, dispatch}) => {
                 <div  className={classes.basket__product__header}><h2><br/></h2></div>
                     <div className={classes.basket__delete}>
                         <Button
-                            onClick={()=> dispatch(removeProductFromBasket(data.id))}
+                            onClick={()=> dispatch(removeProductFromBasket(data))}
                             className={classes.whatsapp}
                             icon="delete"
                             color="black"

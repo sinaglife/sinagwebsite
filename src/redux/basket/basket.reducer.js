@@ -17,10 +17,11 @@ export const basketReducer = (state = initialState, action)=>{
         case basketTypes.REMOVE_PRODUCT:
             return{
                 ...state,
-                basketItems: removeItemFromBasket(state.basketItems, action.payload.product)
+                basketItems: removeItemFromBasket(state.basketItems, action.payload)
             };
         case basketTypes.REMOVE_ALL:
             return {
+                ...state,
                 basketItems: [],
             };
         default:

@@ -8,13 +8,7 @@ const Mosaic = (props) => {
   const [lightImgsArr, setLightImgsArr] = useState([]);
   const [showLightbox, setShowLightBox] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
-  const [productData, setProductData] = useState({
-    title:"",
-    price:0,
-    alt:"",
-    description:"",
-    id:0,
-  })
+  const [productData, setProductData] = useState([])
 
   const selectedImg = (i) => {
     const productAcf = mosaicData[i]?.acf;
@@ -22,13 +16,7 @@ const Mosaic = (props) => {
     let lightBoxUrls = [];
     let title = productAcf["product_title"];
 
-    setProductData({
-      title: title,
-      price:  productAcf["product_price"],
-      description:  productAcf["product_description"],
-      alt:  productAcf["product_title"],
-      id: mosaicData[i]?.id
-    })
+    setProductData(mosaicData[i])
 
     for(let key in productAcf){
       if(key.includes("product_image") && productAcf[key]){

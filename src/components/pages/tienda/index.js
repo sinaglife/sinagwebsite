@@ -11,7 +11,7 @@ import Colgantes from '../../../assets/images/Tienda/Colgantes.jpg'
 import Pendientes from '../../../assets/images/Tienda/Pendientes.jpg'
 
 import classes from './tienda.module.scss'
-// import YellowLeaves from "../../../assets/images/Backgrounds/YellowLeaves.jpeg";
+
 
 function Tienda  ({isMenu, bottomMenu}) {
   const menuArray = [
@@ -116,19 +116,3 @@ function Tienda  ({isMenu, bottomMenu}) {
 
 export default Tienda
 
-
-/*
-{menuArray.map((item, index) => {
-          return (
-            <Link key={index} to={`/${item.name.toLocaleLowerCase()}`}> 
-              <div className={classes.card}>
-                <p>{item.name}</p>
-                <div className={classes.button_image}>
-                  <img src={item.image} alt={item.alt}/>
-                </div>
-              </div>
-           </Link>
-          )
-        })}
-
-*/

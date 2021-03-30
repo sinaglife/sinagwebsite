@@ -8,9 +8,9 @@ import classes from "./Banner.module.scss"
 function Banner (props) {
 
 
-  const bannerData = props.data.filter(
-    (page) => page.parent === 1869 && page.slug === "taller-banner"
-  )[0];
+  //const bannerData = props.data.filter(
+  //  (page) => page.parent === 1869 && page.slug === "taller-banner"
+  //)[0];
 
   return (
     <div style={{ position: "relative"}}>

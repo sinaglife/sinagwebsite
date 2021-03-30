@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import BasketProduct from "./BasketProduct"
 import { useSelector, useDispatch} from "react-redux"
+import {removeAllFromBasket} from "../../redux/basket/basket.actions"
 import {getBasketTotal} from "../../utils/basket.utils"
 import classes from "./MainBasket.module.scss"
 
 const BasketResume = ()=>{
     const basket = useSelector(state => state.basket.basketItems)
+    const dispatch = useDispatch()
     const [subTotal, setSubTotal]= useState(0)
     const delivery = 6.00;
     const total = subTotal + delivery
@@ -44,7 +46,7 @@ const BasketResume = ()=>{
                 <button>Tramitar Compra</button>
                 <div className={classes.keep__shopping}>
                     <button>Continuar Comprando</button>
-                    <button>Vaciar cesta</button>
+                    <button onClick={()=> dispatch(removeAllFromBasket())}>Vaciar cesta</button>
                 </div>
             </div> 
             </div>

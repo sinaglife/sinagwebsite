@@ -4,6 +4,8 @@ import FilterBySize from "./FilterBySize"
 import Quantity from "./Quantity"
 import RatingComponent from "./RatingComponent"
 import { useParams } from "@reach/router"
+import {addProductToBasket} from "../../redux/basket/basket.actions"
+import { useDispatch} from "react-redux"
 import classes from "./Product.module.scss"
 
 const Product = ({ data}) => {
@@ -16,8 +18,11 @@ const Product = ({ data}) => {
     const price = product?.acf.product_price
     const param = useParams()
     const paramId = parseInt(param.id)
+    const dispatch = useDispatch()
 
-
+    const goToBasket = (basket, x)=>{
+        dispatch(addProductToBasket(basket, x))
+    }
 
 useEffect(() => {
     if(data && data.length > 0){
@@ -34,7 +39,7 @@ useEffect(() => {
             sizeParam = "pulsera"
         }
       }
-      
+
         setProduct(dataProduct)
         for(let key in dataProduct?.acf){
             if(key.includes("product_image") && dataProduct.acf[key]){
@@ -121,7 +126,7 @@ const goRight = ()=> {
                                     }
                                 </div>
                             </div>
-                            <button className={classes.addToCart}>Agregar al carrito</button>
+                            <button onClick={()=>goToBasket(product, 1)} className={classes.addToCart}>Agregar al carrito</button>
                         </div>
                         <div className={classes.product__right__bottom}>
                             <div className={classes.product__payment}>

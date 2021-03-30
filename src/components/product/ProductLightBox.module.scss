@@ -7,7 +7,6 @@
     display: flex;
     height: 450px;
     z-index: 700;
-    border-radius: 10px;
 }
 
 .lightBox__left{
@@ -45,7 +44,7 @@
         color: rgb(0, 0, 0);
         height: 100%;
         top: 0%;
-        right: 83%;
+        right: 82%;
         border: none;
         font-size: 2.5rem;
     }
@@ -56,7 +55,7 @@
         color: rgb(0, 0, 0);
         height: 100%;
         top: 0%;
-        left: 83%;
+        left: 82%;
         border: none;
         font-size: 2.5rem;
     }  
@@ -96,7 +95,7 @@
         background-color: rgb(226, 226, 226);
         border: none;
         padding: 0.5rem 1.3rem;
-        border-radius: 5px;
+        
         text-transform: uppercase;
     }
     .lightBox__right__buttons{
@@ -152,6 +151,9 @@
         .lightBox__left__share{
             padding: 0.5rem 0;
             font-size: 0.6rem;
+            p{
+                font-size: 0.8rem;
+            }
         }
         .goLeft{
             font-size: 1.5rem;
@@ -168,22 +170,22 @@
     .lightBox__right{
         padding:  1rem 0.5rem;
         h3{
-            font-size: 0.75rem;
+            font-size: 0.85rem;
         }
         p{
             font-size: 0.6rem;
         }
         .lightBox__right__price{
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
         .lightBox__more__info{
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
     }
     
     
     .lightBox__right__buttons{
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -218,6 +220,9 @@
         .lightBox__left__share{
             padding: 0.5rem 0;
             font-size: 0.6rem;
+            p{
+                font-size: 1.2rem;
+            }
         }
         .goLeft{
             right: 81%;
