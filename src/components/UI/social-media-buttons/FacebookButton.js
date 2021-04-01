@@ -14,7 +14,7 @@ export default function SocialMediaButtons(props) {
                <Button
                   icon="facebook"
                   color="black"
-                  size="medium"
+                  size="small"
                   padding="noPadding"
                /> 
               </FacebookShareButton>

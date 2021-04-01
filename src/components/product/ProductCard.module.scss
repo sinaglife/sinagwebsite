@@ -1,17 +1,18 @@
 .productCard{
-    width: 250px;
-    height: 335px;
+    width: 220px;
+    height: 325px;
     margin: 0.65rem;
     background-color: #efecdf;
     position: relative;
     border: 0.5px solid #a1a1a1;
+    
 }
 
 
 .productCard__container{
     display: flex;
     flex-direction: column;
-    padding: 0.8rem;
+    padding: 0.9rem;
 }
 
 .productCard__header{
@@ -23,19 +24,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-   
 }
 
 .productCard__content{
     justify-content: space-between;
     h3{
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-top: 0.4rem;
-        font-family: "Parisienne", cursive;
         font-family: "Playfair Display", serif;
     }
     p{
-        font-size: 1.3rem;
+        font-size: 1rem;
+        font-weight: bold;
         text-align: center;
     }
     
@@ -48,11 +48,11 @@
     opacity: 0.8;
     padding: 0.5rem;
     width: 100%;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     border: none;
     border-top: 0.5px solid #a1a1a1;
-    background-color: #d4d3cc;
+    background-color: #a78742;
     color: black;
     
 }

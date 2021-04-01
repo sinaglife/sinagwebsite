@@ -3,13 +3,14 @@ import BasketProduct from "./BasketProduct"
 import { useSelector, useDispatch} from "react-redux"
 import {removeAllFromBasket} from "../../redux/basket/basket.actions"
 import {getBasketTotal} from "../../utils/basket.utils"
+import { Link } from "@reach/router";
 import classes from "./MainBasket.module.scss"
 
 const BasketResume = ()=>{
     const basket = useSelector(state => state.basket.basketItems)
     const dispatch = useDispatch()
     const [subTotal, setSubTotal]= useState(0)
-    const delivery = 6.00;
+    const delivery = subTotal < 40 ? 6.00 : null
     const total = subTotal + delivery
 
     useEffect(() => {
@@ -31,21 +32,25 @@ const BasketResume = ()=>{
             <div className={classes.resume__body}>
                 <div className={classes.container}>
                     <h3>Subtotal:</h3>
-                    <p>{subTotal}$</p>
+                    <p>{subTotal}€</p>
                 </div>
                 <div className={classes.container}>
                     <h3>Gastos de envio:</h3>
-                    <p>{delivery}$</p>
+                    {
+                        subTotal >= 40 ?
+                        <p>Gratis</p> :
+                        <p>{delivery}€</p>
+                    }
                 </div>
                 <div className={classes.container}>
                     <h3>Total:</h3>
-                    <p>{total}$</p>
+                    <p>{total}€</p>
                 </div>
             </div>
             <div className={classes.resume__bottom}>
                 <button>Tramitar Compra</button>
                 <div className={classes.keep__shopping}>
-                    <button>Continuar Comprando</button>
+                    <button><Link style={{textDecoration: "none", color: "black"}} to="/tienda">Continuar Comprando</Link></button>
                     <button onClick={()=> dispatch(removeAllFromBasket())}>Vaciar cesta</button>
                 </div>
             </div> 
@@ -75,7 +80,10 @@ const MainBasket = () => {
                             />
                         ))
                         :
-                        <span>Cesta Vacia</span>   
+                        <div>
+                            <h5>No tiendes Productos en tu cesta</h5>
+                             <Link style={{color: "black", fontSize: "1rem"}} to="/tienda">Seguir Comprando</Link>
+                        </div>
                     }
                     
                 </div>

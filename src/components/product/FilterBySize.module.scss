@@ -1,26 +1,32 @@
+
+.filter__select{
+    border: 0.5px solid rgb(128, 128, 128);
+}
+
 select{
-    border-radius: 5px;
     text-align: center;
+    width: 40px;
+    height: 25px;
 }
 
 
 @media (max-width: 415px){
     select{
-        width: 40px;
+        width: 35px;
         height: 20px;
     }
 }
 
 @media  (min-width: 767px)  and (max-width: 1023px){
     select{
-        width: 60px;
+        width: 50px;
         height: 30px;
     }
 }
 
 @media  (min-width: 1024px)  and (max-width: 1300px){
     select{
-        width: 80px;
-        height: 40px;
+        width: 70px;
+        height: 35px;
     }
 }

@@ -53,15 +53,7 @@ const Toolbar = ({basket,...props}) =>{
   const [basketLength, setBasketLength] = useState()
   let basketArray = []
 
-  useEffect(() => {
-   
-      //basketArray = basket.basketItems.map((item)=> {
-      // return  item.quantity
-      //})
-      //if(basketArray.length > 0){
-      //  setBasketLength(basketArray.reduce((x, item)=> x + item))
-      //}
-  
+  useEffect(() => { 
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
@@ -127,3 +119,6 @@ const mapStateToProps = state =>{
 }
 
 export default connect(mapStateToProps, null)(Toolbar);
+
+
+  

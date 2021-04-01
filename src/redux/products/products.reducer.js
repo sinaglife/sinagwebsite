@@ -8,7 +8,7 @@ const initialState = {
 
 
 export const productReducer = (state = initialState, action)=> {
-    console.log(action.type);
+    console.log(action.payload);
     switch(action.type){
         case productTypes.FETCH_PRODUCTS_REQUEST:
             return {

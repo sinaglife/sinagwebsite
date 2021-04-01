@@ -1,12 +1,13 @@
 .lightBox{
     position: fixed;
     top: 20%;
-    left: 17%;
+    left: 25%;
     background-color: white;
-    width: 900px;
+    width: 700px;
     display: flex;
-    height: 450px;
+    height: 320px;
     z-index: 700;
+    padding: 0.8rem;
 }
 
 .lightBox__left{
@@ -27,6 +28,7 @@
        
     }
     .lightBox__left__share{
+
         position: absolute;
         bottom: 0;
         display: flex; 
@@ -36,11 +38,15 @@
         width: 100%;
         height: 15%;
         padding: 1rem 0;
+        p{
+            padding: 1.1rem 0 0 0;
+            font-size: 1rem;
+        }
     }
     .goLeft{
         position: absolute;
         background-color: rgb(179, 179, 179);
-        opacity: 0.2;
+        opacity: 0.1;
         color: rgb(0, 0, 0);
         height: 100%;
         top: 0%;
@@ -51,7 +57,7 @@
     .goRight{
         position: absolute;
         background-color: rgb(179, 179, 179);
-        opacity: 0.2;
+        opacity: 0.1;
         color: rgb(0, 0, 0);
         height: 100%;
         top: 0%;
@@ -75,8 +81,8 @@
     text-align: center;
     padding: 0.5rem 2.5rem;
     h3{
-        font-size: 1.7rem;
-        font-weight: bold;
+        font-size: 1.5rem;
+        font-weight: 500;
         text-transform: uppercase;
         font-family: "Parisienne", cursive;
         font-family: "Playfair Display", serif;
@@ -86,17 +92,17 @@
         text-align: justify;
     }
     .lightBox__right__price{
-        font-size: 1.5rem;
-        font-weight: 500;
+        font-size: 1.3rem;
+        font-weight: 400;
         margin-right: 1rem;
     }
 
     button{
-        background-color: rgb(226, 226, 226);
+        background-color: #a78742;
         border: none;
         padding: 0.5rem 1.3rem;
-        
         text-transform: uppercase;
+        font-size: 0.8rem;
     }
     .lightBox__right__buttons{
         display: flex;
@@ -127,7 +133,7 @@
         left: 5%;
         margin: 0;
         width: 90%;
-        height:280px;
+        height:260px;
     }
     
     .lightBox__left{ 
@@ -161,22 +167,19 @@
         .goRight{
             font-size: 1.5rem;
         }  
-        .share__icons{
-            margin-bottom: 0.9rem;
-        }
      
     }
     
     .lightBox__right{
         padding:  1rem 0.5rem;
         h3{
-            font-size: 0.85rem;
+            font-size: 0.95rem;
         }
         p{
             font-size: 0.6rem;
         }
         .lightBox__right__price{
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
         .lightBox__more__info{
             font-size: 0.85rem;
@@ -185,12 +188,13 @@
     
     
     .lightBox__right__buttons{
-        font-size: 0.55rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         button{
             margin-bottom: 0.5rem;
+            font-size: 0.65rem;
+            padding: 0.4rem;
         }
     }
     
@@ -199,10 +203,10 @@
 @media  (min-width: 768px) and (max-width: 1023px){
     .lightBox{
         top: 35%;
-        left: 5%;
+        left: 10%;
         margin: 0;
-        width: 90%;
-        height:400px;
+        width: 80%;
+        height:300px;
     }
 
     .lightBox__left{
@@ -218,25 +222,20 @@
         }
        
         .lightBox__left__share{
-            padding: 0.5rem 0;
+            padding: 0.5rem 0 0.7rem 0;
             font-size: 0.6rem;
             p{
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
         .goLeft{
             right: 81%;
-            opacity: 0.8;
             font-size: 2.5rem;
         }
         .goRight{
             left: 81%;
-            opacity: 0.8;
             font-size: 2.5rem;
         }  
-        .share__icons{
-            margin-bottom: 0.9rem;
-        }
         
     }
     
@@ -257,10 +256,11 @@
     }
     
     .lightBox__right__buttons{
-        font-size: 0.85rem;
+        
         button{
             margin-right: 0.3rem;
             padding: 0.5rem;
+            font-size: 0.84rem;
         }
     }    
 }
@@ -271,7 +271,7 @@
         top: 35%;
         left: 5%;
         width: 90%;
-        height:530px;  
+        height:450px;  
     }
 
     .lightBox__left{
@@ -286,33 +286,33 @@
        
         .lightBox__left__share{
             padding: 0.5rem 0;
-            font-size: 0.8rem;
+           
+            p{
+                font-size: 1.3rem;
+            }
         }
         .goLeft{
             right: 81%;
-            opacity: 0.4;
+            opacity: 0.3;
             font-size: 3.7rem;
         }
         .goRight{
             left: 81%;
-            opacity: 0.4;
+            opacity: 0.3;
             font-size: 3.7rem;
         }  
-        .share__icons{
-            margin-bottom: 0.9rem;
-        }
     }
 
     .lightBox__right{
         
         h3{
-            font-size: 1.9rem;
+            font-size: 2rem;
         }
         p{
             font-size: 1.5rem;
         }
         .lightBox__right__price{
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
         .lightBox__more__info{
             font-size: 1.8rem;
@@ -320,10 +320,9 @@
         
     }
     .lightBox__right__buttons{
-        font-size: 1.2rem;
-        justify-content: space-evenly;
         button{
             padding: 0.7rem;
+            font-size: 1.3rem;
         }
     }  
 }

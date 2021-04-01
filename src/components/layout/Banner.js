@@ -21,7 +21,7 @@ function Banner (props) {
         alt="imagen taller"
       />
       <Link to="taller">
-        <button className={classes.banner__button}>Diseña Aqui</button>
+        <button className={classes.banner__button}>Diseña Aquí</button>
       </Link>
     </div>
   )

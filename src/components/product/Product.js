@@ -6,6 +6,9 @@ import RatingComponent from "./RatingComponent"
 import { useParams } from "@reach/router"
 import {addProductToBasket} from "../../redux/basket/basket.actions"
 import { useDispatch} from "react-redux"
+import visa from "../../assets/images/visa.svg"
+import mastercard from "../../assets/images/mastercard.svg"
+import paypal from "../../assets/images/paypal.svg"
 import classes from "./Product.module.scss"
 
 const Product = ({ data}) => {
@@ -13,6 +16,7 @@ const Product = ({ data}) => {
     const [product, setProduct] = useState()
     const [sizeChoice, setSizeChoice] = useState("")
     const [imagesArr, setImagesArr] = useState([])
+    const [quantity, setQuantity] = useState(1)
     const title = product?.acf.product_title
     const description = product?.acf.product_description
     const price = product?.acf.product_price
@@ -119,38 +123,29 @@ const goRight = ()=> {
                             <div className={classes.product__info}>
                                 <p>{price}$</p>
                                 <div className={classes.info__buttons}>
-                                    <Quantity/>
+                                   <div className={classes.quantity}>
+                                        <span>Cant</span>
+                                        <Quantity 
+                                        quantity={quantity}
+                                        setQuantity={setQuantity}
+                                        />
+                                   </div>
                                     {
                                         sizeChoice &&
-                                        <FilterBySize sizeChoice={sizeChoice}/>
+                                        <div className={classes.sizePicker}>
+                                            <span>Talla</span>
+                                            <FilterBySize sizeChoice={sizeChoice}/>
+                                        </div>
                                     }
                                 </div>
                             </div>
-                            <button onClick={()=>goToBasket(product, 1)} className={classes.addToCart}>Agregar al carrito</button>
+                            <button onClick={()=>goToBasket(product, quantity)} className={classes.addToCart}>Agregar al carrito</button>
                         </div>
                         <div className={classes.product__right__bottom}>
                             <div className={classes.product__payment}>
-                                <Button
-                                    className={classes.visa}
-                                    icon="visa"
-                                    color="black"
-                                    size="small"
-                                    padding="noPadding"
-                                />
-                                <Button
-                                    className={classes.masterCard}
-                                    icon="masterCard"
-                                    color="black"
-                                    size="small"
-                                    padding="noPadding"
-                                />
-                                <Button
-                                    className={classes.payPal}
-                                    icon="paypal"
-                                    color="black"
-                                    size="small"
-                                    padding="noPadding"
-                                />
+                                <img  alt="star" src={visa}/>
+                                <img alt="star" src={mastercard}/>
+                                <img alt="star" src={paypal}/>
                             </div>
                             <div className={classes.product__share}>
                                 <div>

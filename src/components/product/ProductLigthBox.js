@@ -11,7 +11,7 @@ import { Link } from "@reach/router";
 import classes from "./ProductLightBox.module.scss"
 
 
-const ProductLigthBox = ({productData, alt, lightImgsArr, ...props})=> {
+const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
 
         const dispatch = useDispatch()
         const [x, setX] = useState(0);
@@ -21,7 +21,8 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, ...props})=> {
         const productId = productData.id
 
         const goToBasketHandler = (productData, x)=> {
-            dispatch(addProductToBasket(productData, x))
+            dispatch(addProductToBasket(productData, x));
+            close();
         }
 
         const buyNowHandler = ()=>{
@@ -75,7 +76,7 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, ...props})=> {
     return (
         <>
             <Backdrop 
-                close={props.close}
+                close={close}
                 show={props.show}
             />
            
@@ -92,7 +93,7 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, ...props})=> {
                             <Button
                                 icon="insta"
                                 color="black"
-                                size="medium"
+                                size="small"
                                 padding="noPadding"
                             /> 
                             <WhatsAppButton/>       

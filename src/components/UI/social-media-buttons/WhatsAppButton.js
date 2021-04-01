@@ -14,7 +14,7 @@ export default function SocialMediaButtons(props) {
                  <Button
                     icon="whatsapp"
                     color="black"
-                    size="medium"
+                    size="small"
                     padding="noPadding"
                 /> 
               </WhatsappShareButton>

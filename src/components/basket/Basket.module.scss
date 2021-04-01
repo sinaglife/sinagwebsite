@@ -11,7 +11,7 @@
         padding: 0.5rem;
     }
     h2{
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-family: 'Playfair Display', serif;
         width: 100%;  
     }
@@ -43,8 +43,8 @@
                     font-size: 1rem;
                 }
                 .right__bottom{
-                    margin-top: auto;  
-                    font-size: 1rem; 
+                    margin-top: -0.7rem; 
+                    font-size: 0.8rem; 
                     input{
                         margin-right: 0.3rem;
                     }
@@ -89,7 +89,7 @@
     .price__container{
         flex: 0.2;
         .product__price{
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -168,7 +168,7 @@
         }
         .price__container{
             .product__price{
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
         }
         .basket__delete{

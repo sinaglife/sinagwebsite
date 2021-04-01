@@ -1,88 +1,70 @@
 import React, {useState} from 'react'
 
 const styles = {
-    form: {
-        display: "flex",
-    },
+   
     input: {
-        width: "60px",
+        width: "40px",
         height: "25px",
         textAlign: "center",
-        fontSize: "20px",
-        marginLeft: "20px",
-        marginRight: "30px"
+        fontSize: "17px",
+        border: "0.5px solid rgb(128, 128, 128)"
     },
     small: {
-        width: "40px",
+        width: "35px",
         height: "20px",
         textAlign: "center",
-        fontSize: "15px",
+        fontSize: "13px",
+        border: "0.5px solid rgb(128, 128, 128)"
     },
     medium:{
-        width: "70px",
+        width: "50px",
         height: "30px",
         textAlign: "center",
-        fontSize: "25px",
-        marginLeft: "15px",
+        fontSize: "15px",
+        border: "0.5px solid rgb(128, 128, 128)"
     },
     big:{
-        width: "80px",
-        height: "40px",
+        width: "70px",
+        height: "35px",
         textAlign: "center",
-        fontSize: "30px",
-        marginLeft: "20px",
-        marginRight: "50px"
+        fontSize: "20px",
+        border: "0.5px solid rgb(128, 128, 128)"
     }
 }
 
-const Quantity = () => {
+const Quantity = ({productQuantity, quantity, setQuantity}) => {
 
-    const [quantity, setQuantity] = useState(1)
-
+    
+    let value = productQuantity ? productQuantity : quantity
     let screenSize;
     const handleChange = (e)=> {
         let amount = parseInt(e.target.value)
-        console.log(amount)
-            setQuantity(amount)
+        setQuantity(amount)
     }
 
     const handleQuantity = (e)=> {
         e.preventDefault();
-        console.log("cantidad", quantity)
-       
+        let amount = parseInt(e.target.value)
+        setQuantity(amount)
     }
+
 
     if(window.innerWidth <= 400){
         screenSize = styles.small;
-    }else if (window.innerWidth  <= 769){
+    }else if (window.innerWidth  >= 400 && window.innerWidth  <= 770){
         screenSize = styles.medium;
-    } else if(window.innerWidth  <= 1300){
+    } else if(window.innerWidth  >= 770 && window.innerWidth  <= 1300){
         screenSize = styles.big;
     }
     else{
         screenSize = styles.input;
     }
 
-    //const plus = ()=> {
-    //    console.log("hello funciona")
-    //    if(quantity >= 1){
-    //        setQuantity(quantity + 1);
-    //        console.log(quantity)
-    //    }
-    //    
-    //}
-    //const minus = ()=> {
-    //    if(quantity !== 1){
-    //        setQuantity(quantity - 1);
-    //        console.log(quantity)
-    //    }
-    //}
-    //style={mobile ? styles.inputMobile : styles.input} min="0" max="10"/>
     return (
-        <form style={styles.form} onSubmit={handleQuantity}>
+        <form  onSubmit={handleQuantity}>
             <input onChange={handleChange}
             id="quantity" name="quantity" type="number" 
-            value={quantity} 
+            value={value} 
             style={screenSize} min="1" max="10"
             /> 
         </form>

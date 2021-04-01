@@ -84,7 +84,7 @@ const App = ()=> {
             <Container render={(data)=> <Store data={data}/>} path="/pulseras"/>
             <Index path="/tienda" bottomMenu={
               <div className="tallas">
-              <p>Conoces tus tallas?: </p>
+              <p>Conoces tú talla? </p>
               <Link to="/tallas" style={{ textDecoration: "none" }}>
                 <h2>Guía de tallas</h2>
               </Link>
