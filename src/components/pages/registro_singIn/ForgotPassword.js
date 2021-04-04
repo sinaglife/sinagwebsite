@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import {InputRow} from "./Register"
+import { passwordReset}  from "../../../utils/user.utils"
 
 import classes from "./RegistroSingIn.module.scss"
 
@@ -12,7 +13,7 @@ const ForgotPassword = () => {
     const formik = useFormik({
         initialValues: initialState,
         onSubmit: values => {
-            console.log("submitting", values)
+            passwordReset(values.email);
             formik.resetForm();
         },
         validate: values => {

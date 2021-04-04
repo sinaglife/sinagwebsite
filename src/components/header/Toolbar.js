@@ -8,6 +8,7 @@ import Button from "../UI/button/Button";
 import UserTooltip from "./components/UserTooltip"
 import { connect } from 'react-redux'
 import {getBasketLength} from "../../utils/basket.utils"
+import {singOut} from "../../utils/user.utils"
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -47,18 +48,15 @@ const LogoHeader = () => {
   )
 };
 
-const Toolbar = ({basket,...props}) =>{
+const Toolbar = ({basket, user, singOut, ...props}) =>{
   const [isTooltip, setIsTooltip] = useState(false)
-  const [user, setUser] = useState("jhoselina")
   const [basketLength, setBasketLength] = useState()
-  let basketArray = []
 
   useEffect(() => { 
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
   const toolTipHandler = ()=>{
-    console.log("prueba")
     if(!isTooltip){
       setIsTooltip(true)
     }else{
@@ -77,7 +75,7 @@ return (
         <div className={classes.toolbar__rightContainer}>
          <div className={classes.toolbar__right__user}>
             {
-              window.innerWidth >= 1000 && <span>Jhoselina</span>
+              window.innerWidth >= 1000 && user && <span>{user.displayName}</span>
             }
             <Button
               onClick={toolTipHandler}
@@ -105,6 +103,7 @@ return (
             <UserTooltip
             toolTipHandler={toolTipHandler}
             user={user}
+            singOut={singOut}
             /> 
           }
         </div>
@@ -113,12 +112,20 @@ return (
 }
 
 const mapStateToProps = state =>{
+  console.log(state.user)
   return{
-    basket: state.basket
+    basket: state.basket,
+    user: state.user.user
   }
 }
 
-export default connect(mapStateToProps, null)(Toolbar);
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    singOut: ()=> dispatch(singOut())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
 
 
   

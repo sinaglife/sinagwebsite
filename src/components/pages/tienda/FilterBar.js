@@ -44,9 +44,7 @@ const FilterBar = () => {
         
         validate: values =>{}
     })
-    //const handleChange = (e)=>{
-    //    console.log(e.target.value)
-    //}
+
     return (
         <div style={styles.div}>
             <form style={styles.form} onSubmit={formik.handleSubmit}>

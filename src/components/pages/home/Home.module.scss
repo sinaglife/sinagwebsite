@@ -23,6 +23,24 @@
         font-weight: 550;
     }
 }
+.home__mala{
+    display: flex;
+    height: 350px;
+    padding: 1rem;
+    margin: 1rem 0 1rem 0;
+    img{
+        flex: 0.6;
+        height: 100%;
+        object-fit: cover;
+    }
+    p{
+        flex: 0.4;
+        margin: auto;
+        font-family: 'Playfair Display', serif;
+        text-align: justify;
+        font-size: 1.8rem;
+    }
+}
 
 .home__banner{
     margin: 0.5rem 0 0.5rem 0;

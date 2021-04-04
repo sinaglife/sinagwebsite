@@ -15,6 +15,17 @@
         text-transform: uppercase;
     }
     form{
+        .remember__password{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            p{
+                align-items: flex-end;
+                font-size: 1rem;
+                margin-left: 0.3rem;
+                padding-top: 0.8rem;
+            }
+        }
         
         .create__user__row{
             display: flex;

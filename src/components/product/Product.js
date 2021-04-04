@@ -26,7 +26,20 @@ const Product = ({ data}) => {
 
     const goToBasket = (basket, x)=>{
         dispatch(addProductToBasket(basket, x))
+        setQuantity(1)
     }
+    const handleQuantityChange = (e)=>{
+        let amount = parseInt(e.target.value)
+        setQuantity(amount)
+    }
+
+    const handleSubmit = (e)=> {
+        e.preventDefault();
+        //let amount = parseInt(e.target.value)
+        //console.log(e.target.value)
+        e.target.reset()
+    }
+
 
 useEffect(() => {
     if(data && data.length > 0){
@@ -45,12 +58,14 @@ useEffect(() => {
       }
 
         setProduct(dataProduct)
+
         for(let key in dataProduct?.acf){
             if(key.includes("product_image") && dataProduct.acf[key]){
                 imgBoxUrls.push(dataProduct.acf[key].url)
             }
         }
-        setImagesArr(imgBoxUrls);
+        setImagesArr(imgBoxUrls)
+
         setSizeChoice(sizeParam)
    
   } 
@@ -126,8 +141,10 @@ const goRight = ()=> {
                                    <div className={classes.quantity}>
                                         <span>Cant</span>
                                         <Quantity 
+                                        id={param}
                                         quantity={quantity}
-                                        setQuantity={setQuantity}
+                                        handleChange={handleQuantityChange}
+                                        handleSubmit={handleSubmit}
                                         />
                                    </div>
                                     {

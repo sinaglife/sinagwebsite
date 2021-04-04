@@ -6,9 +6,29 @@ import Button from "../UI/button/Button"
 import classes from "./Basket.module.scss"
 
 const BasketProduct = ({data, dispatch}) => {
-    //const [quantity, setQuantity] = useState(1)
-    console.log(data)
     const productQuantity = data?.quantity;
+    const [quantity, setQuantity] = useState(productQuantity || 1)
+    const [value, setValue] = useState(0)
+    console.log(data)
+
+
+    const handleQuantityChange = (e)=>{
+        let amount = parseInt(e.target.value)
+        setQuantity(amount)
+    }
+
+    const removeItemFromBasket = (data)=>{
+        dispatch(removeProductFromBasket(data))
+        if(quantity > 1){
+            setQuantity(quantity - 1)
+        }else{
+            setQuantity(1)
+        }
+    }
+
+    const handleSubmit = ()=>{    
+        setValue(quantity)
+    }
     return (
         <div className={classes.basketProduct}>
             <div className={classes.product__container}>
@@ -34,7 +54,12 @@ const BasketProduct = ({data, dispatch}) => {
                    <div className={classes.quantity__container}>
                         <div className={classes.quantity__component}>
                             <Quantity 
+                            id={data?.id}
                             productQuantity={productQuantity}
+                            quantity={quantity}
+                            setQuantity={setQuantity}
+                            handleChange={handleQuantityChange}
+                            handleSubmit={handleSubmit}
                             />
                         </div>
                    </div>
@@ -66,7 +91,7 @@ const BasketProduct = ({data, dispatch}) => {
                 <div  className={classes.basket__product__header}><h2><br/></h2></div>
                     <div className={classes.basket__delete}>
                         <Button
-                            onClick={()=> dispatch(removeProductFromBasket(data))}
+                            onClick={()=> removeItemFromBasket(data)}
                             className={classes.whatsapp}
                             icon="delete"
                             color="black"

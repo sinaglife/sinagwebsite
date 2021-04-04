@@ -81,7 +81,7 @@ const MainBasket = () => {
                         ))
                         :
                         <div>
-                            <h5>No tiendes Productos en tu cesta</h5>
+                            <h5>No tienes Productos en tu cesta</h5>
                              <Link style={{color: "black", fontSize: "1rem"}} to="/tienda">Seguir Comprando</Link>
                         </div>
                     }

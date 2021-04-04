@@ -1,5 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useFormik } from 'formik';
+import { useSelector, useDispatch} from "react-redux"
+import { redirectTo } from "@reach/router";
+import { registerWithEmailAndPassword } from "../../../utils/user.utils"
 
 import classes from "./RegistroSingIn.module.scss"
 
@@ -18,30 +21,26 @@ export const InputRow = ({label, name, type, value, onChange, error})=>{
 
 const Register = () => {
 
+    const user = useSelector(state => state.user.user)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        if(user){
+            redirectTo("/")
+        }
+    }, [user])
+
     const initialState = {
-        name: "",
-        lastName: "",
         email: "",
         password: ""
     }
     const formik = useFormik({
         initialValues: initialState,
         onSubmit: values => {
-            console.log("submitting", values)
+            dispatch(registerWithEmailAndPassword(values.email, values.password))
             formik.resetForm();
         },
         validate: values => {
             let errors = {}
-
-            if(!values.name){
-                errors.name = "Nombre obligatorio"
-            }else if(values.name.length <= 3){
-                errors.name = "Minimo 3 caracteres"
-            }
-
-            if(!values.lastName){
-                errors.lastName = "Apellido obligatorio"
-            }
 
             if(!values.email){
                 errors.email = "Email requerido"
@@ -53,7 +52,7 @@ const Register = () => {
 
             if(!values.password){
                 errors.password = "Password Required"
-            }else if(!values.password.length <= 5){
+            }else if(values.password.length < 8 ){
                 errors.password = "Contraseña minimo 8 caracteres"
             }
             
@@ -66,20 +65,6 @@ const Register = () => {
         <div className={classes.container__form}>
             <h3>crear usuario</h3>
             <form onSubmit={formik.handleSubmit} >
-                <InputRow
-                error={formik.errors.name}
-                type="text" 
-                onChange={formik.handleChange}
-                name="name" value={formik.values.name}
-                label="Nombre"
-                />
-                <InputRow
-                error={formik.errors.lastName}
-                type="text" 
-                onChange={formik.handleChange}
-                name="lastName" value={formik.values.lastName}
-                label="Apellido"
-                />
                 <InputRow
                  error={formik.errors.email}
                 type="email" 

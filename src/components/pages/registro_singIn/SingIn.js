@@ -1,16 +1,22 @@
-import React,{useState} from 'react'
+import React, {useEffect}  from 'react'
 import {InputRow} from "./Register"
 import googleIcon from "../../../assets/images/google.svg"
 import { useFormik } from 'formik';
+import {logInWithGoogle, logWithEmailAndPassword} from "../../../utils/user.utils"
+import { Link, redirectTo } from "@reach/router";
+import { connect } from 'react-redux'
 
 import classes from "./RegistroSingIn.module.scss"
 
 
-const SingIn = () => {
-    const [user, setUser] = useState({
-        name: "",
-        email:""
-    })
+const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
+
+    useEffect(()=>{
+        if(user != null){
+            console.log("usuario",user)
+            redirectTo("/")
+        }
+    }, [user])
 
     const initialState = {
         email: "",
@@ -20,11 +26,7 @@ const SingIn = () => {
     const formik = useFormik({
         initialValues: initialState,
         onSubmit: values => {
-            setUser({
-                ...user,
-                name: values.name,
-                email: values.email
-            })
+            logWithEmailAndPassword(values.email, values.password)
             formik.resetForm();
         },
         validate: values => {
@@ -38,7 +40,7 @@ const SingIn = () => {
 
             if(!values.password){
                 errors.password = "Password Required"
-            }else if(values.password.length <= 5){
+            }else if(values.password.length < 8){
                 errors.password = "Contraseña minimo 8 caracteres"
             }
             return errors;
@@ -60,31 +62,46 @@ const SingIn = () => {
                  onChange={formik.handleChange}
                  type="password"
                  />
-                <a href="http://localhost:3000/olvido-contrasena" >
+                <div className={classes.remember__password}>
+                    <input type="checkbox" name="remember"/>
+                    <p>Recordar contraseña</p>
+                </div>
+                <Link to="/olvido-contrasena">
                     ¿Olvido su contraseña?
-                </a>
-                   
+                </Link>
+                
                     <div className={classes.buttons__container}>
                         <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}}
                          type="submit">
                              Aceptar
                         </button>
-                        <button style={{display: formik.isSubmitting ? "none" : null}}
+                        <button type="button" onClick={logInWithGoogle} style={{display: formik.isSubmitting ? "none" : null}}
                          className={classes.singWhit__button}>
                             <img src={googleIcon}/>
                             Registrarse con Google
                         </button>
                     </div>
                    
-                <a href="http://localhost:3000/nuevo-usuario" >
+                <Link to="/nuevo-usuario" >
                     ¿Aún no tienes cuenta?
-                </a>
+                </Link>
            </form>
         </div>
     )
 }
 
-export default SingIn
+const mapStateToProps = (state)=>{
+    return{
+        user: state.user.user,
+    }
+}
 
+const mapDispatchToProps = dispatch =>{
+    return{
+        logWithEmailAndPassword: (email, password) =>
+         dispatch(logWithEmailAndPassword(email, password)),
+        logInWithGoogle: ()=> dispatch(logInWithGoogle())
+    }
+}
 
-//style={`display:${formik.isSubmitting && "none"}`}
+export default connect(mapStateToProps, mapDispatchToProps)(SingIn)

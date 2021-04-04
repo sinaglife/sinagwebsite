@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React  from 'react'
 
 const styles = {
    
@@ -32,22 +32,16 @@ const styles = {
     }
 }
 
-const Quantity = ({productQuantity, quantity, setQuantity}) => {
+const Quantity = ({
+    quantity,
+    id,
+    handleChange,
+    handleSubmit
+}) => {
+
+    let screenSize;
 
     
-    let value = productQuantity ? productQuantity : quantity
-    let screenSize;
-    const handleChange = (e)=> {
-        let amount = parseInt(e.target.value)
-        setQuantity(amount)
-    }
-
-    const handleQuantity = (e)=> {
-        e.preventDefault();
-        let amount = parseInt(e.target.value)
-        setQuantity(amount)
-    }
-
 
     if(window.innerWidth <= 400){
         screenSize = styles.small;
@@ -61,10 +55,10 @@ const Quantity = ({productQuantity, quantity, setQuantity}) => {
     }
 
     return (
-        <form  onSubmit={handleQuantity}>
+        <form  onSubmit={handleSubmit}>
             <input onChange={handleChange}
-            id="quantity" name="quantity" type="number" 
-            value={value} 
+            id={id} name={id} type="number" 
+            value={quantity} 
             style={screenSize} min="1" max="10"
             /> 
         </form>

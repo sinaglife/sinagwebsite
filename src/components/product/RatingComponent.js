@@ -20,21 +20,3 @@ const  RatingComponent = ()=> {
 export default RatingComponent;
 
 
-
-/*
-
-    <Box component="fieldset" mb={3} borderColor="transparent" >
-        <Rating
-          className={classes.rating__container}
-          size="large"
-          style={style.container}
-          name="rating"
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        
-        />
-      </Box>
-
-*/

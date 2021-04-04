@@ -1,35 +1,37 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link } from "@reach/router";
+
 import classes from "./UserTooltip.module.scss"
 
 
 
-const UserTooltip = ({toolTipHandler, user}) => {
+const UserTooltip = ({toolTipHandler, user, singOut}) => {
     
 
     return (
         <>
         {
-            user ?
+            !user ?
             <div className={classes.tooltip__container}>
-                <button onCLick={toolTipHandler}>
-                <Link  to="/entrar" >
-                    <button >entrar</button>
+                <button onClick={toolTipHandler}>
+                <Link style={{color: "rgb(0, 0, 0)", textDecoration: "none"}}  to="/entrar" >
+                    entrar
                 </Link>
                 </button>
                 <div className={classes.tooltip__remember}>
-                    <input type="checkbox" name="remember"/>
-                    <p>Recordar contraseña</p>
+                    <p>Aun no tienes cuenta?</p>
                 </div>
-                <Link to="nuevo-usuario"
-                onCLick={toolTipHandler}
-                className={classes.tooltip__register}>
-                    <p>Registrarse</p>
-                </Link>
+                <button style={{border: "none", backgroundColor: "transparent"}}>
+                    <Link to="nuevo-usuario"
+                    onClick={toolTipHandler}
+                    className={classes.tooltip__register}>
+                        <p>Registrarse</p>
+                    </Link>
+                </button>
             </div>
             :
             <div className={classes.tooltip__container__logout}>
-                <button>salir</button>
+                <button onClick={singOut}>salir</button>
             </div>
         }
         
