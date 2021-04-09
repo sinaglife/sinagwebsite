@@ -75,7 +75,7 @@ return (
         <div className={classes.toolbar__rightContainer}>
          <div className={classes.toolbar__right__user}>
             {
-              window.innerWidth >= 1000 && user && <span>{user.displayName}</span>
+              window.innerWidth >= 1000 && user && <span>{user.additionalUserInfo.profile.name}</span>
             }
             <Button
               onClick={toolTipHandler}
@@ -112,7 +112,6 @@ return (
 }
 
 const mapStateToProps = state =>{
-  console.log(state.user)
   return{
     basket: state.basket,
     user: state.user.user

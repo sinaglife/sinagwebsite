@@ -12,8 +12,7 @@ import classes from "./RegistroSingIn.module.scss"
 const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
 
     useEffect(()=>{
-        if(user != null){
-            console.log("usuario",user)
+        if(user ){
             redirectTo("/")
         }
     }, [user])

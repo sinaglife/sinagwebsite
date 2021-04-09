@@ -26,8 +26,6 @@
 .home__mala{
     display: flex;
     height: 350px;
-    padding: 1rem;
-    margin: 1rem 0 1rem 0;
     img{
         flex: 0.6;
         height: 100%;
@@ -39,6 +37,7 @@
         font-family: 'Playfair Display', serif;
         text-align: justify;
         font-size: 1.8rem;
+        line-height: 3rem;
     }
 }
 
@@ -129,6 +128,21 @@
             object-fit: cover;
         }
     }
+
+    .home__mala{
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        p{
+            font-size: 0.75rem;
+            line-height: 1rem;
+            padding: 0.2rem;
+        }
+    }
     .home__taller{
         img{
             height: 100%;
@@ -184,6 +198,21 @@
         }
     }
 
+    .home__mala{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        p{
+            font-size: 0.8rem;
+            line-height: 1rem;
+            padding: 0.2rem;
+        }
+    }
+
     .home__blog{
         height: 150px;
         padding: 0.9rem;
@@ -234,6 +263,21 @@
                 object-fit: cover;
             }
         }
+
+        .home__mala{
+            display: flex;
+            flex-direction: column;
+            height: 440px;
+            img{
+                height: 320px;
+                width: 100%;
+            }
+            p{
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                padding:0.2rem;
+            }
+        }
     
         .home__blog{
             height: 250px;
@@ -275,6 +319,22 @@
             padding-top: 1.5px;
             font-size:2.8rem;
     }
+
+    .home__mala{
+        display: flex;
+        flex-direction: column;
+        height: 580px;
+        img{
+            height: 430px;
+            width: 100%;
+        }
+        p{
+            font-size: 2rem;
+            line-height: 2rem;
+            padding:0.5rem;
+        }
+    }
+
 
     .home__blog{
         height: 300px;

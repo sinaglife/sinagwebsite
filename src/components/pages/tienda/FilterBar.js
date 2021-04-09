@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { useFormik } from 'formik';
+import React from 'react'
+//import { useFormik } from 'formik';
 import SearchIcon from '@material-ui/icons/Search';
 const styles = {
     div: {
@@ -25,37 +25,28 @@ const styles = {
     }
 }
 
-const FilterBar = () => {
+const FilterBar = ({filterValue, setFilterValue}) => {
 
-    const [filterValue, setFilterValue] = useState()
+   
+const handleChange = (e)=>{
+    setFilterValue(e.target.value)
+}
 
-    const formik = useFormik({
-        initialValues: {
-            filter: "",
-        },
-        onSubmit: values =>{
-            
-            setFilterValue({
-                ...filterValue,
-                filter: values.filter
-            })
-            formik.resetForm()
-        },
-        
-        validate: values =>{}
-    })
-
+const handleSubmit = (e)=>{
+   e.preventDefault()
+   setFilterValue("")
+}
     return (
         <div style={styles.div}>
-            <form style={styles.form} onSubmit={formik.handleSubmit}>
+            <form style={styles.form} onSubmit={handleSubmit}>
             <button type="submit" style={styles.button}>
                 <SearchIcon /> 
             </button >
             <input 
             style={styles.input}
-            onChange={formik.handleChange}
+            onChange={handleChange}
             placeholder="filtrar"
-            value={formik.values.filter}
+            value={filterValue}
             name="filter" 
             id="filter"
             />

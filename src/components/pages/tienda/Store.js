@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ProductGallery from "./ProductGallery"
 import FilterBar from "./FilterBar"
 import classes from "./Store.module.scss";
 
 const Store = ({data, logo}) => {
-
+    const [filterValue, setFilterValue] = useState("")
     const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
-    let list;
+    let list = [];
     
     switch(param){
         case "mala":
@@ -28,18 +28,26 @@ const Store = ({data, logo}) => {
             list = data.filter((page) => page.parent === 5 && page.acf.product_showInColgantes);
             break;
         case "pendientes":
-            list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPendientes);
+            list = data.filter((page) => page.parent === 5 && page.acf.product_showInPendientes);
             break;
         case "pulseras":
-            list = data.filter( (page) => page.parent === 5 && page.acf.product_showInPulseras);
+            list = data.filter((page) => page.parent === 5 && page.acf.product_showInPulseras);
             break;
         default:
             return null;
     }
 
+    if(filterValue !== ""){
+       
+        list = list.filter((item)=>item.acf.product_title.toLowerCase().includes(filterValue.toLowerCase()))
+    }
+
     return (
         <div>
-            <FilterBar/>
+            <FilterBar
+            filterValue={filterValue}
+            setFilterValue={setFilterValue}
+            />
             {logo ? logo 
             :<h1 className={classes.store__title}>{param}</h1> 
             }

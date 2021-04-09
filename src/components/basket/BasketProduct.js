@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {removeProductFromBasket} from "../../redux/basket/basket.actions"
+import {removeProductFromBasket, addProductToBasket} from "../../redux/basket/basket.actions"
 import Quantity from '../product/Quantity'
 import Button from "../UI/button/Button"
 
@@ -7,14 +7,19 @@ import classes from "./Basket.module.scss"
 
 const BasketProduct = ({data, dispatch}) => {
     const productQuantity = data?.quantity;
-    const [quantity, setQuantity] = useState(productQuantity || 1)
-    const [value, setValue] = useState(0)
-    console.log(data)
-
+    const [quantity, setQuantity] = useState(productQuantity)
 
     const handleQuantityChange = (e)=>{
         let amount = parseInt(e.target.value)
-        setQuantity(amount)
+        console.log("modificando cantidad")
+        if(amount > productQuantity){
+            dispatch(addProductToBasket(data, 1))
+            setQuantity(quantity + 1)
+        }else if(amount < productQuantity && amount > 1){
+            dispatch(removeProductFromBasket(data))
+            setQuantity(quantity - 1)
+        }
+       
     }
 
     const removeItemFromBasket = (data)=>{
@@ -27,7 +32,7 @@ const BasketProduct = ({data, dispatch}) => {
     }
 
     const handleSubmit = ()=>{    
-        setValue(quantity)
+       
     }
     return (
         <div className={classes.basketProduct}>

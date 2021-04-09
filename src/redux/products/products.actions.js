@@ -13,7 +13,6 @@ export const getProducts = ()=>{
     }
 }
 
-
 export const getProductsRequest = ()=>{
     return {
         type: productTypes.FETCH_PRODUCTS_REQUEST
@@ -33,3 +32,4 @@ export const getProductsFailure = error =>{
         payload: error
     }
 }
+

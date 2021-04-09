@@ -21,7 +21,7 @@ import Index from "./components/pages/tienda/index";
 import Register from "./components/pages/registro_singIn/Register";
 import SingIn from "./components/pages/registro_singIn/SingIn";
 import ForgotPassword from "./components/pages/registro_singIn/ForgotPassword";
-
+import StripeContainer from "./components/payment/StripeContainer"
 
 import './App.css';
 
@@ -105,6 +105,7 @@ const App = ()=> {
               <Register path="/nuevo-usuario"/>
               <SingIn path="entrar"/>
               <ForgotPassword path="olvido-contrasena"/>
+              <StripeContainer path="pago"/>
             </Router>
           </div>
         <div className="app__footer">
