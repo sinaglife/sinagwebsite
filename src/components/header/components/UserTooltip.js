@@ -5,16 +5,18 @@ import classes from "./UserTooltip.module.scss"
 
 
 
-const UserTooltip = ({toolTipHandler, user, singOut}) => {
+const UserTooltip = ({isCloseToolTip, user, singOut}) => {
     
 
     return (
         <>
         {
             !user ?
-            <div className={classes.tooltip__container}>
-                <button onClick={toolTipHandler}>
-                <Link style={{color: "rgb(0, 0, 0)", textDecoration: "none"}}  to="/entrar" >
+            <div className={classes.tooltip__container} onMouseLeave={isCloseToolTip}>
+                <button >
+                <Link style={{color: "rgb(0, 0, 0)", textDecoration: "none"}}
+                  to="/entrar" 
+                  onClick={isCloseToolTip}>
                     entrar
                 </Link>
                 </button>
@@ -23,7 +25,7 @@ const UserTooltip = ({toolTipHandler, user, singOut}) => {
                 </div>
                 <button style={{border: "none", backgroundColor: "transparent"}}>
                     <Link to="nuevo-usuario"
-                    onClick={toolTipHandler}
+                    onClick={isCloseToolTip}
                     className={classes.tooltip__register}>
                         <p>Registrarse</p>
                     </Link>

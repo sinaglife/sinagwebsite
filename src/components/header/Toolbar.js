@@ -56,16 +56,13 @@ const Toolbar = ({basket, user, singOut, ...props}) =>{
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
-  const toolTipHandler = ()=>{
-    if(!isTooltip){
-      setIsTooltip(true)
-    }else{
-      setIsTooltip(false)
-    }
-  }
+  const isOpenToolTip = (e)=> setIsTooltip(true)
+
+  const isCloseToolTip = (e)=>  setIsTooltip(false)
+   
 
 return (
-      <div className={classes.toolbar}>
+      <div className={classes.toolbar} onMouseLeave={isCloseToolTip}>
         <div className={classes.toolbar__mainButton} onClick={props.open}>
           <IconButton>
             <MenuIcon />
@@ -73,12 +70,13 @@ return (
         </div>
         <LogoHeader/>
         <div className={classes.toolbar__rightContainer}>
-         <div className={classes.toolbar__right__user}>
+         <div className={classes.toolbar__right__user}    
+         onMouseMove={isOpenToolTip}
+         >
             {
               window.innerWidth >= 1000 && user && <span>{user.additionalUserInfo.profile.name}</span>
             }
             <Button
-              onClick={toolTipHandler}
               icon="account"
               color="black"
               size="medium"
@@ -101,7 +99,7 @@ return (
           {
             isTooltip &&
             <UserTooltip
-            toolTipHandler={toolTipHandler}
+            isCloseToolTip={isCloseToolTip}
             user={user}
             singOut={singOut}
             /> 

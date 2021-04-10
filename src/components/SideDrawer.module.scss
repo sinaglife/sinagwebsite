@@ -1,0 +1,46 @@
+@import "./UI/Variable";
+
+.sideDrawer {
+  background-color: #b3a690;
+  position: fixed;
+  max-width: 400px;
+  max-height: 670px;
+  top: 0;
+  left: 0;
+  z-index: 700;
+  border: 1px solid $colorFour;
+  box-shadow: 1px, 0px, 7px, rgba(0, 0, 0, 0.5);
+  transform: translateX(-100%);
+  transition: 0.3s;
+  padding:0 0.5rem;
+}
+
+.sideDrawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding:0;
+}
+
+.sideDrawer__list {
+  cursor: pointer;
+  border-top: 1px solid #a1895480;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 200px;
+  padding: 1rem 0.5rem;
+}
+
+.sideDrawer.open {
+  transform: translateX(0);
+}
+
+.sideDrawer p {
+  font-size: 22px;
+  color: white;
+}
+
+.classes.sideDrawer__item:hover .sideDrawerText {
+  color: black;
+}
