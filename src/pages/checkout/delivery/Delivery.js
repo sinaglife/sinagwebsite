@@ -17,7 +17,7 @@ import classes from "./Delivery.module.scss"
                 />
                 <p>Envio estandar nacional</p>
             </div>
-             <span>Gratis</span>
+             <span>5:00€</span>
         </div>
         <div className={classes.delivery__row}> 
             <div className={classes.delivery__row__left}>
@@ -30,7 +30,7 @@ import classes from "./Delivery.module.scss"
                 />
                 <p>Envio estandar internacional</p>
             </div>
-             <span>Gratis</span>
+             <span>10:00€</span>
         </div>
         <div className={classes.delivery__row} style={{borderBottom: "none"}}> 
             <div className={classes.delivery__row__left}>
@@ -43,7 +43,7 @@ import classes from "./Delivery.module.scss"
                 />
                 <p>Envio express</p>
             </div>
-             <span>6:00$</span>
+             <span>15:00€</span>
         </div>
     </div>
 )

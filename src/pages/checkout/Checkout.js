@@ -1,11 +1,25 @@
 import React, {useState, useEffect} from 'react'
 import Delivery from "./delivery/Delivery"
 import CustomerData from "./CustomerData"
-import StripeContainer from "./payment/StripeContainer"
+import StripeForm from "./payment/StripeContainer"
 import { useFormik } from 'formik';
+import { useSelector} from "react-redux"
+import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
+
+import axios from 'axios';
+
 import classes from "./Checkout.module.scss"
 
 function Checkout() {
+
+    const stripe = useStripe();
+    const elements = useElements();
+    const [success, setSuccess] = useState(false)
+    const [description, setDescription] = useState("")
+    const [subTotal, setSubTotal] = useState(0)
+    const basket = useSelector(state => state.basket.basketItems)
+    
+    const getDescription = ()=> basket?.map((item)=> item.acf.product_title)
 
     const initialState = {
         name: "",
@@ -17,50 +31,83 @@ function Checkout() {
         city: "",
         country: "",
         delivery: "",
-        national: false,
-        international: false,
-        express: false
     }
     const formik = useFormik({
         initialValues: initialState,
-        onSubmit:  values =>{
+        onSubmit: async values =>{
+
+            if (!stripe || !elements) return;
+
+            
+     const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: "card",
+        card: elements.getElement(CardElement),
+        billing_details: {
+         name:formik.values.name,
+         email: formik.values.email,
+        } 
+    });
+    if(!error){
+        try {
+            const { id } = paymentMethod
+            const response = await axios.post("http://localhost:3001", {
+                amount: total * 100,
+                id,
+                description: description.join()
+            })
+            if(response.data.success){
+                console.log("succesfull payment")
+                setSuccess(true)
+                
+            }
+        } catch (error) {
+            elements.getElement("card").focus();
+            console.log("Error",error);
+        }
+    }else{
+       
+        console.log(error.message)
+    }
             console.log(values)
     },
         validate: values =>{}
     });
-    let deliveryAmount = formik.values.delivery === "national" ? 5 : 
-    formik.values.delivery === "international" ? 10 : 
-    formik.values.delivery === "express" ? 15 : 0
 
     useEffect(()=>{
-        let value = formik.values.delivery;
-       
-    }, [formik.values.delivery])
+        setDescription(getDescription())
+        setSubTotal(parseInt(localStorage.getItem("subtotal")))
+        return () => {
+           localStorage.removeItem("subtotal")
+        }  
+    }, [])
    
+    let deliveryAmount = formik.values.delivery === "national" ? 5 : 
+    formik.values.delivery === "international" ? 10 : 
+    formik.values.delivery === "express" ? 15 : 0;
 
+    const total = subTotal < 40 ? subTotal + deliveryAmount : subTotal;
     return (
        
-        <div  className={classes.checkout}>  
-          <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} className={classes.checkout}>  
             <CustomerData 
-                name={formik.values.name}
-                lastName={formik.values.lastName}
-                email={formik.values.email}
-                phone={formik.values.phone}
-                address={formik.values.address}
-                zip={formik.values.zip}
-                city={formik.values.city}
-                country={formik.values.country}
-                onChange={formik.handleChange} 
-                />
-                <Delivery onChange={formik.handleChange} />
-          </form>
-            <StripeContainer
-            deliveryAmount={deliveryAmount}
             name={formik.values.name}
-            email={formik.values.email} 
+            lastName={formik.values.lastName}
+            email={formik.values.email}
+            phone={formik.values.phone}
+            address={formik.values.address}
+            zip={formik.values.zip}
+            city={formik.values.city}
+            country={formik.values.country}
+            onChange={formik.handleChange} 
             />
-        </div>
+            <Delivery onChange={formik.handleChange} />
+            <StripeForm
+            success={success}
+            deliveryAmount={deliveryAmount}
+            subTotal={subTotal}
+            total={total} 
+            />
+        </form>
     )
 }
 

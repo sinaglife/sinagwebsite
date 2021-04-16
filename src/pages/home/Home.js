@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from "./Home.module.scss";
 import Slider from "./components/Slider";
-import Banner from "./components/Banner";
 import banner from "../../assets/images/sinagBanner.jpg";
 import blog from "../../assets/images/homeBlog_img.jpg";
 import mala from "../../assets/images/home/japamala-image.jpg";

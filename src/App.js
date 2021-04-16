@@ -6,12 +6,10 @@ import Home from "./pages/home/Home";
 import Register from "./pages/registro_singIn/Register";
 import SingIn from "./pages/registro_singIn/SingIn";
 import ForgotPassword from "./pages/registro_singIn/ForgotPassword";
-import StripeContainer from "./pages/checkout/payment/StripeContainer"
-import {Elements, CardElement} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+import StripeContainer from "./pages/checkout/payment/StripeContainer";
 
 import './App.css';
-const stripePromise = loadStripe("pk_test_51IcwH9Cz57I5nxPx7a0Y9Gce66QaPSqIJknhMp0yXgDABgwpCItDAm4rR2w1WhF6NVr1Gc9yLOpSA0L0v8SJC83200lyuyLMyR");
+
 const Container = lazy(()=>import("./pages/store/product/Container"))
 const MainBasket = lazy(()=>import("./pages/basket/MainBasket"))
 const Blog = lazy(()=> import("./pages/blog/Blog"))
@@ -23,6 +21,8 @@ const SideDrawer = lazy(()=> import('./components/SideDrawer'))
 const StoreRoutesContainer = lazy(()=>import("./pages/store/product/StoreRoutesContainer"))
 const InfoRoutesContainer = lazy(()=> import("./pages/info-pages/InfoRoutesContainer"))
 const Checkout = lazy(()=>import("./pages/checkout/Checkout"))
+
+
 const App = ()=> {
 
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
