@@ -1,0 +1,115 @@
+
+.delivery__choices{
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid rgb(204, 204, 204);
+    box-shadow: 0px 2px 12px 1px #C7C7C7;
+    width: 350px;
+    padding: 0.5rem 1rem;
+    .delivery__row{
+        border-bottom: 0.5px solid rgb(204, 204, 204);
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.8rem;
+        .delivery__row__left{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            
+            p{
+                display: flex;
+                align-items: flex-end;
+            }
+            
+        }
+        span{
+            margin-right: 0.8rem;
+         }
+    }
+}
+
+.delivery__input{
+    width: 20px;
+    height: 20px;
+ }
+
+ @media  (max-width: 500px){
+    .delivery__choices{
+        width: 280px;
+        padding: 0.3rem;
+        margin: 1rem 0;
+        .delivery__row{
+            padding-top: 0.5rem;
+            .delivery__row__left{
+                p{
+                    font-size: 0.7rem;
+                    display: flex;
+                    align-items: flex-end;
+                }
+                
+            }
+            span{
+                font-size: 0.7rem;
+                margin-right: 0.8rem;
+             }
+        }
+    }
+    
+    .delivery__input{
+        width: 30px;
+        height: 10px;
+     }
+ }
+
+ 
+@media  (min-width: 767px)  and (max-width: 1023px){
+    .delivery__choices{
+        width: 300px;
+        padding: 0.5rem;
+        margin: 1rem 0;
+        .delivery__row{
+            padding-top: 0.8rem;
+            .delivery__row__left{
+                p{
+                    font-size: 1rem;
+                }
+                
+            }
+            span{
+                font-size: 0.9rem;
+                margin-right: 0.8rem;
+             }
+        }
+    }
+    
+    .delivery__input{
+        width: 30px;
+        height: 10px;
+     }
+}
+
+@media  (min-width: 1024px)  and (max-width: 1300px){
+    .delivery__choices{
+        width: 450px;
+        padding: 1rem;
+        margin: 1rem 0;
+        .delivery__row{
+            padding-top: 1rem;
+            .delivery__row__left{
+                p{
+                    font-size: 1.35rem;
+                }
+                
+            }
+            span{
+                font-size: 1.2rem;
+                margin-right: 0.8rem;
+             }
+        }
+    }
+    
+    .delivery__input{
+        width: 30px;
+        height: 10px;
+     }
+}

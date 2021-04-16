@@ -1,11 +1,11 @@
-import React, {lazy, suspense}  from 'react'
+import React, {lazy, Suspense}  from 'react'
 import Container from "./Container"
+import Store from "./Store"
+import Products from "./ProductDetails"
+import Index from "./index"
 import { Router, Link} from "@reach/router";
 import kokeLogo from "../../../assets/images/koketropic-logo.jpeg";
 
-const Store = lazy(()=>import("./Store"))
-const Products = lazy(()=> import("./ProductDetails"))
-const Index = lazy(()=> import("./index"))
 
 const StoreRoutesContainer = ({isMenu}) => {
 
@@ -28,12 +28,13 @@ const StoreRoutesContainer = ({isMenu}) => {
                 <Container render={(data)=> <Store data={data}/>} path="/pulseras"/>
                 <Index path="/tienda" bottomMenu={
                     <div className="tallas">
-                    <p>Conoces tú talla? </p>
-                    <Link to="/tallas" style={{ textDecoration: "none" }}>
-                    <h2>Guía de tallas</h2>
-                    </Link>
-                </div>
-                }/>
+                        <p>Conoces tú talla? </p>
+                        <Link to="/tallas" style={{ textDecoration: "none" }}>
+                        <h2>Guía de tallas</h2>
+                        </Link>
+                    </div>
+                }
+                />
                 <Index path="/mujer" isMenu={isMenu}/>
                 <Container render={(data)=> <Products  data={data}/>} path="/:x/productos/:id"/>
             </Router>

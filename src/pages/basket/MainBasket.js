@@ -10,13 +10,15 @@ const BasketResume = ()=>{
     const basket = useSelector(state => state.basket.basketItems)
     const dispatch = useDispatch()
     const [subTotal, setSubTotal]= useState(0)
-    const delivery = subTotal < 40 ? 6.00 : null
+    const delivery = subTotal < 40 ? 6 : 0
     const total = subTotal + delivery
 
     useEffect(() => {
         setSubTotal(getBasketTotal(basket))  
     }, [basket])
 
+    const goToCheckout = (subTotal)=> localStorage.setItem("subtotal", String(subTotal))   
+    
     return(
         <>
             {
@@ -34,21 +36,10 @@ const BasketResume = ()=>{
                     <h3>Subtotal:</h3>
                     <p>{subTotal}€</p>
                 </div>
-                <div className={classes.container}>
-                    <h3>Gastos de envio:</h3>
-                    {
-                        subTotal >= 40 ?
-                        <p>Gratis</p> :
-                        <p>{delivery}€</p>
-                    }
-                </div>
-                <div className={classes.container}>
-                    <h3>Total:</h3>
-                    <p>{total}€</p>
-                </div>
+               
             </div>
             <div className={classes.resume__bottom}>
-                <button>Tramitar Compra</button>
+                <button onClick={()=>goToCheckout(subTotal)}><Link style={{textDecoration: "none", color: "black"}} to="/checkout">Tramitar Compra</Link></button>
                 <div className={classes.keep__shopping}>
                     <button><Link style={{textDecoration: "none", color: "black"}} to="/tienda">Continuar Comprando</Link></button>
                     <button onClick={()=> dispatch(removeAllFromBasket())}>Vaciar cesta</button>

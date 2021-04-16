@@ -1,0 +1,56 @@
+
+.checkout{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+    h3{
+        font-family: 'Forum', serif;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+    
+}
+
+
+@media  (max-width: 500px){
+    .checkout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3{
+            font-size: 0.85rem;
+        }
+    
+    }
+}
+
+
+@media  (min-width: 767px)  and (max-width: 1023px){
+    .checkout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3{
+            font-size: 1.2rem;
+        }
+    
+    }
+}
+
+@media  (min-width: 1024px)  and (max-width: 1300px){
+    .checkout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h3{
+            font-size: 1.5rem;
+        }
+    
+    }
+}

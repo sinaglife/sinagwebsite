@@ -6,11 +6,20 @@ import { registerWithEmailAndPassword } from "../../utils/user.utils"
 
 import classes from "./RegistroSingIn.module.scss"
 
-export const InputRow = ({label, name, type, value, onChange, error})=>{
+export const InputRow = ({
+    label,
+    name,
+    type,
+    value,
+    onChange,
+    error,
+    style,
+    checked
+    })=>{
     return(
-        <div className={classes.create__user__row}>
+        <div className={style || classes.create__user__row}>
             <label>{label}</label>
-            <input name={name} type={type} value={value}  onChange={onChange}/>
+            <input name={name} type={type} checked={checked} value={value}  onChange={onChange}/>
             {
                 error && <p>{error}</p>
             }
@@ -73,7 +82,7 @@ const Register = () => {
                 label="Email"
                 />
                 <InputRow
-                 error={formik.errors.password}
+                error={formik.errors.password}
                 type="password" 
                 onChange={formik.handleChange}
                 name="password" value={formik.values.password}

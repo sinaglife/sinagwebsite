@@ -14,12 +14,12 @@ app.use(express.json());
 
 
 app.post("/", async (req, res)=> {
-    const {id, amount} = req.body;
+    const {id, amount, description} = req.body;
     try {
         const payment = await stripe.paymentIntents.create({
             amount,
             currency: "EUR",
-            description: "Gaming Keyboard",
+            description: description,
             payment_method: id,
             confirm: true, 
         });

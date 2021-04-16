@@ -4,7 +4,8 @@ import Slider from "./components/Slider";
 import Banner from "./components/Banner";
 import banner from "../../assets/images/sinagBanner.jpg";
 import blog from "../../assets/images/homeBlog_img.jpg";
-import mala from "../../assets/images/home/japamala-home.jpg";
+import mala from "../../assets/images/home/japamala-image.jpg";
+import taller from "../../assets/images/home/taller-espiritualidad.jpg";
 import piedras from "../../assets/images/piedrasFondo.jpg"
 import {Parallax} from "react-parallax";
 import Mosaic from "./components/Mosaic";
@@ -25,14 +26,13 @@ const Home = ({data})=> {
                 <img src={banner} alt="envios a toda europa"/>
             </div>
             <div className={classes.home__mala}>
-                    <img src={mala} alt="blog" />
-                    <p><strong>¿POR QUÉ TIENE 108 CUENTAS?</strong> Hay 108 letras en el alfabeto sánscrito. 
-                        El diámetro del Sol es aproximadamente 108 veces más grande que el diámetro de la Tierra,`
-                        a su vez la distancia entre la tierra y el sol es 108 veces el diámetro del sol.
-                        <a  href="/mala">Mas info</a>
+                    <p><span>¿POR QUÉ TIENE 108 CUENTAS?</span> Hinduista: El mala posee 108 cuentas, 
+                    es un número sagrado. Hay 108 letras en el alfabeto sánscrito. El diámetro del Sol 
+                    es aproximadamente 108 veces más grande que el diámetro de la Tierra, a su vez la 
+                    distancia entre la tierra y el sol es 108 veces el diámetro del sol.
                     </p>
+                    <img src={mala} alt="blog" />
                 </div>
-            {data && <Banner data={data}/>}
                 <div className={classes.home__blog}>
                     <img src={blog} alt="blog" />
                     <p><strong>LAS PIEDRAS Y SU MAGIA:</strong> Cada piedra tiene
@@ -42,6 +42,9 @@ const Home = ({data})=> {
                         aspecto de nosotros.
                         <a  href="/blog">Mas info</a>
                     </p>
+                </div>
+                <div className={classes.home__taller}>
+                    <img src={taller} alt="" />
                 </div>
         </div>
     )

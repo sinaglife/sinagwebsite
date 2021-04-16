@@ -69,18 +69,17 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
                 <Link to="/olvido-contrasena">
                     ¿Olvido su contraseña?
                 </Link>
-                
-                    <div className={classes.buttons__container}>
-                        <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}}
-                         type="submit">
-                             Aceptar
-                        </button>
-                        <button type="button" onClick={logInWithGoogle} style={{display: formik.isSubmitting ? "none" : null}}
-                         className={classes.singWhit__button}>
-                            <img src={googleIcon}/>
-                            Registrarse con Google
-                        </button>
-                    </div>
+                <div className={classes.buttons__container}>
+                    <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}}
+                     type="submit">
+                         Aceptar
+                    </button>
+                    <button type="button" onClick={logInWithGoogle} style={{display: formik.isSubmitting ? "none" : null}}
+                     className={classes.singWhit__button}>
+                        <img src={googleIcon}/>
+                        Registrarse con Google
+                    </button>
+                </div>
                    
                 <Link to="/nuevo-usuario" >
                     ¿Aún no tienes cuenta?

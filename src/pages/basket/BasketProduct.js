@@ -55,7 +55,7 @@ const BasketProduct = ({data, dispatch}) => {
               </div>
             </div>
             <div className={classes.amount__container}>
-            <div className={classes.basket__product__header}> <h2>Cantidad</h2> </div>
+                <div className={classes.basket__product__header}> <h2>Cantidad</h2> </div>
                    <div className={classes.quantity__container}>
                         <div className={classes.quantity__component}>
                             <Quantity 
@@ -67,31 +67,14 @@ const BasketProduct = ({data, dispatch}) => {
                             handleSubmit={handleSubmit}
                             />
                         </div>
-                   </div>
-            </div>
-            <div className={classes.delivery__container}>
-            <div className={classes.basket__product__header}> <h2>Envio</h2> </div>
-                    <div className={classes.delivery__content}>
-                        <div className={classes.delivery__choices}>
-                            <input type="checkbox"/>
-                            Correo ordinario
-                        </div>
-                        <div className={classes.delivery__choices}>
-                            <input type="checkbox"/>
-                            Correo certificado
-                        </div>
-                        <div className={classes.delivery__choices}>
-                            <input type="checkbox"/>
-                            Punto de recogida Madrid.
-                        </div>
                     </div>
-                </div>
+            </div>       
             <div className={classes.price__container}>
-            <div className={classes.basket__product__header}> <h2>Precio</h2> </div>
-                    <div className={classes.product__price}>
-                        {data?.acf.product_price}€
-                    </div>
-            </div>
+                <div className={classes.basket__product__header}> <h2>Precio</h2> </div>
+                        <div className={classes.product__price}>
+                            {data?.acf.product_price}€
+                        </div>
+                </div>
             <div className={classes.delete__container}>
                 <div  className={classes.basket__product__header}><h2><br/></h2></div>
                     <div className={classes.basket__delete}>
