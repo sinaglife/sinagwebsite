@@ -3,13 +3,13 @@ import {WhatsappShareButton} from "react-share";
 import Button from "../button/Button"
        
 export default function SocialMediaButtons(props) {
-    const url = "https://www.sinaglife.com";
+   const url = window.location.href;
   
        return (
              <WhatsappShareButton 
                 url={url}
-                quote={"CampersTribe - World is yours to explore"}
-                hashtag="#probando"
+                quote="Inspirados en crear desde el alma"
+                hashtag="#sinaglife"
                 >
                  <Button
                     icon="whatsapp"

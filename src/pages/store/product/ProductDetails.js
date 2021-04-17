@@ -12,6 +12,7 @@ import paypal from "../../../assets/images/paypal.svg"
 import classes from "./ProductDetails.module.scss"
 
 const Product = ({ data}) => {
+    
     const [x , setX] = useState(0);
     const [product, setProduct] = useState()
     const [sizeChoice, setSizeChoice] = useState("")
@@ -168,13 +169,7 @@ const goRight = ()=> {
                                 <div>
                                     <RatingComponent/>
                                 </div>
-                                <Button
-                                    className={classes.shareButton}
-                                    icon="share"
-                                    color="black"
-                                    size="medium"
-                                    padding="noPadding"
-                                />
+                                
                                 <a href="http://localhost:3000/tallas"  >GUIA DE TALLAS</a>
                             </div>
                         </div>

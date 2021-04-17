@@ -3,8 +3,9 @@ import Delivery from "./delivery/Delivery"
 import CustomerData from "./CustomerData"
 import StripeForm from "./payment/StripeContainer"
 import { useFormik } from 'formik';
-import { useSelector} from "react-redux"
+import { useSelector, useDispatch} from "react-redux"
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
+import {removeAllFromBasket} from "../../redux/basket/basket.actions";
 
 import axios from 'axios';
 
@@ -18,7 +19,7 @@ function Checkout() {
     const [description, setDescription] = useState("")
     const [subTotal, setSubTotal] = useState(0)
     const basket = useSelector(state => state.basket.basketItems)
-    
+    const dispatch = useDispatch()
     const getDescription = ()=> basket?.map((item)=> item.acf.product_title)
 
     const initialState = {
@@ -58,7 +59,7 @@ function Checkout() {
             if(response.data.success){
                 console.log("succesfull payment")
                 setSuccess(true)
-                
+                dispatch(removeAllFromBasket())
             }
         } catch (error) {
             elements.getElement("card").focus();

@@ -89,13 +89,7 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                     <div className={classes.lightBox__left__share}>
                         <p>Compartir</p>
                         <div className={classes.share__icons}>
-                            <FacebookButton/>
-                            <Button
-                                icon="insta"
-                                color="black"
-                                size="small"
-                                padding="noPadding"
-                            /> 
+                            <FacebookButton/>                          
                             <WhatsAppButton/>       
                         </div>
                     </div>
