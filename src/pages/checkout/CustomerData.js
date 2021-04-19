@@ -25,7 +25,7 @@ const CustomerData = ({
                     <InputRow style={classes.customer__data__input} name="phone" values={phone} onChange={onChange} label="Phone"/>
                 </div>
                 <div className={classes.delivery__info}>
-                    <h3>Direccion de envio</h3>
+                    <h3>Direccion de envío</h3>
                     <InputRow style={classes.customer__data__input} name="address" value={address} onChange={onChange} label="Direccion"/>
                     <InputRow style={classes.customer__data__input} name="zip" value={zip} onChange={onChange} label="Codigo postal"/>
                     <InputRow style={classes.customer__data__input} name="city" value={city} onChange={onChange} label="Ciudad"/>

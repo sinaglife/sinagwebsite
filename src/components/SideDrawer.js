@@ -11,10 +11,10 @@ const SideDrawer = (props) => {
         <IconButton onClick={props.close}>
           <Link
             to="/tienda"
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none"}}
             className={classes.sideDrawer__item}
           >
-            <li className={classes.sideDrawer__list}>
+            <li className={classes.sideDrawer__list} style={{borderTop: "none" }}>
               <Button icon="store" color="white" size="big" />
               <p className={classes.sideDrawer__paragraph}>Tienda</p>
             </li>

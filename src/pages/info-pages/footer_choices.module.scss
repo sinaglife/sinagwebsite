@@ -1,11 +1,14 @@
 
 .footer_choices{
     text-align: justify;
-    margin: 0 1.5rem;
+    padding: 0 2rem;
     h2{
         text-align: center;
         font-size: 2rem;
         margin: 1.5rem 0;
+    }
+    h3{
+        font-weight: bold;
     }
     p{
         font-size: 1.2rem;
@@ -26,6 +29,7 @@
         margin: 0 0.9rem;
         h3{
             font-size: 0.9rem;
+            font-weight: bold;
         }
         h2{
             text-align: center;

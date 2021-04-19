@@ -4,7 +4,7 @@ import Slider from "./components/Slider";
 import banner from "../../assets/images/sinagBanner.jpg";
 import blog from "../../assets/images/homeBlog_img.jpg";
 import mala from "../../assets/images/home/japamala-image.jpg";
-import taller from "../../assets/images/home/taller-espiritualidad.jpg";
+import taller from "../../assets/images/home/taller-espiritualidad-img.jpg";
 import piedras from "../../assets/images/piedrasFondo.jpg"
 import {Parallax} from "react-parallax";
 import Mosaic from "./components/Mosaic";
@@ -29,6 +29,7 @@ const Home = ({data})=> {
                     es un número sagrado. Hay 108 letras en el alfabeto sánscrito. El diámetro del Sol 
                     es aproximadamente 108 veces más grande que el diámetro de la Tierra, a su vez la 
                     distancia entre la tierra y el sol es 108 veces el diámetro del sol.
+                    <a  href="/mala">Mas info</a>
                     </p>
                     <img src={mala} alt="blog" />
                 </div>
@@ -44,6 +45,8 @@ const Home = ({data})=> {
                 </div>
                 <div className={classes.home__taller}>
                     <img src={taller} alt="" />
+                    <button className={classes.home__taller__btn}>Diseña aquí</button>
+                    <button className={classes.home__espiritualidad__btn}>Meditemos</button>
                 </div>
         </div>
     )

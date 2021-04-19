@@ -28,7 +28,6 @@
        
     }
     .lightBox__left__share{
-
         position: absolute;
         bottom: 0;
         display: flex; 
@@ -68,7 +67,7 @@
     .share__icons{
         display: flex;
         align-items: flex-start;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     
 }

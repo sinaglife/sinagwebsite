@@ -3,11 +3,11 @@ import loading from "../assets/images/loading.svg"
 
 const style = {
     backgroundColor: "transparent",
-    height: "100px",
-    width: "100px",
+    height: "80px",
+    width: "80px",
     position: "absolute",
-    top: "30%",
-    left: "45%"
+    top: "25%",
+    left: "47%"
 
 }
 const Loading = () => {

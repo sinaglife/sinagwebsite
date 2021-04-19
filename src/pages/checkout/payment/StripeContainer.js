@@ -41,7 +41,7 @@ const CARD_OPTIONS = {
                         <span>{subTotal}$</span>
                     </div>
                     <div className={classes.payment__details__row}>
-                        <h5>Envio:</h5>
+                        <h5>Envío:</h5>
                             {
                             subTotal < 40 ?
                             <span>{deliveryAmount}€</span> :

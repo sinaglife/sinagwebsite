@@ -82,9 +82,9 @@ function Checkout() {
         }  
     }, [])
    
-    let deliveryAmount = formik.values.delivery === "national" ? 5 : 
-    formik.values.delivery === "international" ? 10 : 
-    formik.values.delivery === "express" ? 15 : 0;
+    let deliveryAmount = formik.values.delivery === "national" ? 4.70 : 
+    formik.values.delivery === "international" ? 6.10 : 
+    formik.values.delivery === "express" ? 8.92 : 0;
 
     const total = subTotal < 40 ? subTotal + deliveryAmount : subTotal;
     return (

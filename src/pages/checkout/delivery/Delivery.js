@@ -5,7 +5,7 @@ import classes from "./Delivery.module.scss"
 
  const Delivery = ({onChange})=>(
     <div className={classes.delivery__choices}>
-        <h3>Opciones de envio</h3>
+        <h3>Opciones de envío</h3>
         <div className={classes.delivery__row}> 
             <div className={classes.delivery__row__left}>
                 <InputRow 
@@ -15,9 +15,9 @@ import classes from "./Delivery.module.scss"
                 name="delivery"
                 value="national"
                 />
-                <p>Envio estandar nacional</p>
+                <p>España, Peninsula y Baleares</p>
             </div>
-             <span>5:00€</span>
+             <span>4,70€</span>
         </div>
         <div className={classes.delivery__row}> 
             <div className={classes.delivery__row__left}>
@@ -28,9 +28,9 @@ import classes from "./Delivery.module.scss"
                 name="delivery"
                 value="international"
                 />
-                <p>Envio estandar internacional</p>
+                <p>Toda Europa</p>
             </div>
-             <span>10:00€</span>
+             <span>6,10€</span>
         </div>
         <div className={classes.delivery__row} style={{borderBottom: "none"}}> 
             <div className={classes.delivery__row__left}>
@@ -41,10 +41,11 @@ import classes from "./Delivery.module.scss"
                 name="delivery"
                 value="express"
                 />
-                <p>Envio express</p>
+                <p>Express</p>
             </div>
-             <span>15:00€</span>
+             <span>8,92€</span>
         </div>
+        <a href="https://www.correos.es/es/es/particulares">Más informacion.</a>
     </div>
 )
 

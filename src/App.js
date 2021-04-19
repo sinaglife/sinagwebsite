@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense, useEffect } from 'react';
 import { Router} from "@reach/router";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -7,6 +7,7 @@ import Register from "./pages/registro_singIn/Register";
 import SingIn from "./pages/registro_singIn/SingIn";
 import ForgotPassword from "./pages/registro_singIn/ForgotPassword";
 import StripeContainer from "./pages/checkout/payment/StripeContainer";
+import Loading from "./components/Loading"
 
 import './App.css';
 
@@ -30,7 +31,6 @@ const App = ()=> {
 
   const isMenu = true;
 
-
   const sideDrawerOpenHandler = () =>{
     setSideDrawerOpen(true)
     setShowBackdrop(true)
@@ -53,10 +53,10 @@ const App = ()=> {
 
  
   return (
-    <Suspense fallback={<div>loading...</div>}>
-      <div className="app">
+    <Suspense fallback={<Loading/>}>
+      <div className="app" >
         <div className="app__header">
-          <Header 
+          <Header
           open={sideDrawerOpenHandler}
           />
         </div>

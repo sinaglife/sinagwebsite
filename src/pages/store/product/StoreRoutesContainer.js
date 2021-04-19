@@ -28,7 +28,7 @@ const StoreRoutesContainer = ({isMenu}) => {
                 <Container render={(data)=> <Store data={data}/>} path="/pulseras"/>
                 <Index path="/tienda" bottomMenu={
                     <div className="tallas">
-                        <p>Conoces tú talla? </p>
+                        <p>¿Conóces tú talla?</p>
                         <Link to="/tallas" style={{ textDecoration: "none" }}>
                         <h2>Guía de tallas</h2>
                         </Link>
