@@ -14,8 +14,7 @@ const Mosaic = (props) => {
     const productAcf = mosaicData[i]?.acf;
    
     let lightBoxUrls = [];
-    let title = productAcf["product_title"];
-
+    
     setProductData(mosaicData[i])
 
     for(let key in productAcf){

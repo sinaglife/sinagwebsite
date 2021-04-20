@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense, useEffect } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Router} from "@reach/router";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
