@@ -5,10 +5,10 @@ import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({data, selectedImg, addProductToBasket}) => {
 
-    const src=data.acf.product_image1.url
-    const alt=data.acf.product_image1.alt
-    const title=data.acf.product_title
-    const price=data.acf.product_price
+    const src=data.images[0].src
+    const alt=data.images[0].alt
+    const title=data.name
+    const price=data.price
  
   const x = 1;
     return (

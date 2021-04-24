@@ -3,14 +3,16 @@ import Carousel from "react-bootstrap/Carousel";
 import classes from "./Slider.module.scss";
 
 const Slider = (props) => {
+
   const [currentImage, setCurrentImage] = useState(0);
   const [carousel, setCarousel] = useState(null);
   const [visibleControls, setVisibleControls] = useState(true);
-  
+
+
   const handleSelectImage = (selectedIndex, e) => {
     setCurrentImage(selectedIndex);
   };
-
+ 
   useEffect(()=>{
       if (window.innerWidth <= 767.98) {
           setVisibleControls(false)
@@ -18,6 +20,7 @@ const Slider = (props) => {
   }, [])
 
   useEffect(() => {
+
       let receivedData = props.data.filter((page) => page.parent === 134)
       let sortedData = receivedData.sort((a, b) => {
         return (

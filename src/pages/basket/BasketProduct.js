@@ -40,11 +40,11 @@ const BasketProduct = ({data, dispatch}) => {
                <div className={classes.basket__product__header}> <h2>Producto</h2> </div>
                 <div className={classes.main__container}>
                     <div className={classes.left__container}>
-                        <img src={data?.acf.product_image1.url} />
+                        <img src={data?.images[0].src} />
                     </div>
                     <div className={classes.right__container}>
                         <div>
-                            <h3>{data?.acf.product_title}</h3>
+                            <h3>{data?.name}</h3>
                             <p>Talla:32cm</p>
                         </div>
                         <div className={classes.right__bottom}>
@@ -72,7 +72,7 @@ const BasketProduct = ({data, dispatch}) => {
             <div className={classes.price__container}>
                 <div className={classes.basket__product__header}> <h2>Precio</h2> </div>
                         <div className={classes.product__price}>
-                            {data?.acf.product_price}€
+                           
                         </div>
                 </div>
             <div className={classes.delete__container}>

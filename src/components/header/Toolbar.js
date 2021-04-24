@@ -51,18 +51,34 @@ const LogoHeader = () => {
 const Toolbar = ({basket, user, singOut, ...props}) =>{
   const [isTooltip, setIsTooltip] = useState(false)
   const [basketLength, setBasketLength] = useState()
+  const [coord, setCoord] = useState({
+    x: 0,
+    y: 0
+  })
 
   useEffect(() => { 
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
+  useEffect(()=> {
+    if(coord.x >= window.innerWidth - 50 || coord.x <= 800 || coord.y >= 410 || coord.y <= 50) setIsTooltip(false)
+  }, [coord])
+
   const isOpenToolTip = (e)=> setIsTooltip(true)
 
   const isCloseToolTip = (e)=>  setIsTooltip(false)
    
+const hanldeMouseMove = (e)=> {
+  console.log(e.clientX, e.clientY)
+  console.log(window.innerWidth)
+  setCoord({
+    x: e.clientX,
+    y: e.clientY
+  })
+}
 
 return (
-      <div className={classes.toolbar} onMouseLeave={isCloseToolTip}>
+      <div className={classes.toolbar}  onMouseMove={hanldeMouseMove}>
         <div className={classes.toolbar__mainButton} onClick={props.open}>
           <IconButton>
             <MenuIcon />

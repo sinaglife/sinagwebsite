@@ -25,8 +25,8 @@ export const removeItemFromBasket = (basket, item) =>{
 
 export const getBasketTotal = (basket)=>{
     let priceArray = [];
-     priceArray  = basket.map((i)=>{
-        return i.acf.product_price * i.quantity
+     priceArray  = basket.map((item)=>{
+        return item.price * item.quantity
      })
      return priceArray.reduce((amount, item)=> item + amount, 0)
 }

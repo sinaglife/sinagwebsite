@@ -11,16 +11,19 @@ import mastercard from "../../../assets/images/mastercard.svg"
 import paypal from "../../../assets/images/paypal.svg"
 import classes from "./ProductDetails.module.scss"
 
-const Product = ({ data}) => {
-    
+const Product = ({data}) => {
+  
     const [x , setX] = useState(0);
     const [product, setProduct] = useState()
     const [sizeChoice, setSizeChoice] = useState("")
-    const [imagesArr, setImagesArr] = useState([])
+    const [imagesArr, setImagesArr] = useState(
+  
+    )
     const [quantity, setQuantity] = useState(1)
-    const title = product?.acf.product_title
-    const description = product?.acf.product_description
-    const price = product?.acf.product_price
+    const title = product?.name
+    const description = ""
+    const price = product?.price
+    const rating = product?.average_rating
     const param = useParams()
     const paramId = parseInt(param.id)
     const dispatch = useDispatch()
@@ -44,39 +47,30 @@ const Product = ({ data}) => {
 
 useEffect(() => {
     if(data && data.length > 0){
-        let dataProduct = [];
+        let productData = [];
         let imgBoxUrls = [];
-        let sizeParam = "";
-        dataProduct = data.find(element => element.id === paramId)
-      if(dataProduct ){  
-        if(dataProduct.acf["product_title"].includes("Colgante")){
-            sizeParam = "colgante"
-        }else if(dataProduct.acf["product_title"].includes("Anillo")){
-            sizeParam = "anillo"
-        }else if(dataProduct.acf["product_title"].includes("Pulsera")){
-            sizeParam = "pulsera"
-        }
+        productData = data.find(element => element.id === paramId)
+      if(productData ){ 
+          setImagesArr( productData.images?.map((item)=>(
+            item.src
+        )))
+         
       }
 
-        setProduct(dataProduct)
-
-        for(let key in dataProduct?.acf){
-            if(key.includes("product_image") && dataProduct.acf[key]){
-                imgBoxUrls.push(dataProduct.acf[key].url)
-            }
-        }
-        setImagesArr(imgBoxUrls)
-
-        setSizeChoice(sizeParam)
+    setProduct(productData)
    
-  } 
+} 
 }, [data, paramId])
 
 
 
-   const renderImages = imagesArr?.map((item, index)=>(              
-    <img src={item} key={index} onClick={()=>getMainImg(index)} alt="imagen"/>
-))
+   const renderImages = imagesArr?.map((item, index)=>{
+       if(index < 3) {
+        return(              
+            <img src={item} key={index} onClick={()=>getMainImg(index)} alt="imagen"/>
+        )
+       }
+   })
 
 const getMainImg = (index)=> {
     setX(index)
@@ -106,19 +100,7 @@ const goRight = ()=> {
                 <div className={classes.product__main}>
                     <div className={classes.product__left}>
                         <div className={classes.product__left__imgs}>
-               
-                            {
-                                imagesArr.length > 2 
-                                ?
-                                renderImages
-                                :
-                                <>
-                                    <img src={imagesArr[0]} alt="" onClick={()=>getMainImg(0)}/>
-                                    <img src={imagesArr[1]} alt="" onClick={()=>getMainImg(1)}/>
-                                    <img src={imagesArr[0]} alt="" onClick={()=>getMainImg(0)}/>
-                                </>
-                            }
-                    
+                            {renderImages}
                         </div>
                         <div className={classes.product__main__img}>
                             <button onClick={goLeft} className={classes.goLeft}>
@@ -167,7 +149,7 @@ const goRight = ()=> {
                             </div>
                             <div className={classes.product__share}>
                                 <div>
-                                    <RatingComponent/>
+                                    <RatingComponent rating={rating}/>
                                 </div>
                                 
                                 <a href="http://localhost:3000/tallas"  >GUIA DE TALLAS</a>

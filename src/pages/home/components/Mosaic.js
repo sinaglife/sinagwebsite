@@ -3,7 +3,7 @@ import classes from "./Mosaic.module.scss";
 import ProductCard from "../../store/product/components/ProductCard";
 import ProductLigthBox from "../../store/product/components/ProductLigthBox";
 
-const Mosaic = (props) => {
+const Mosaic = ({data}) => {
 
   const [lightImgsArr, setLightImgsArr] = useState([]);
   const [showLightbox, setShowLightBox] = useState(false);
@@ -11,19 +11,12 @@ const Mosaic = (props) => {
   const [productData, setProductData] = useState([])
 
   const selectedImg = (i) => {
-    const productAcf = mosaicData[i]?.acf;
-   
-    let lightBoxUrls = [];
-    
-    setProductData(mosaicData[i])
 
-    for(let key in productAcf){
-      if(key.includes("product_image") && productAcf[key]){
-        lightBoxUrls.push(productAcf[key].url);
-      }
-    
-    }
-    setLightImgsArr(lightBoxUrls);
+    setProductData(data[i])
+    setLightImgsArr(data[i].images.map((item)=>(
+      item.src
+    )))
+
     setShowLightBox(true);
     setShowBackdrop(true);
     
@@ -35,24 +28,30 @@ const Mosaic = (props) => {
     setShowBackdrop(false);
   };
 
-  const mosaicData = props.data.filter(
-    (page) => page.parent === 5 && page.acf.product_showInMosaic
-  )
+  //const mosaicData = data.filter(
+  //  (item) => item.parent === 5 && page.acf.product_showInMosaic
+  //)
+
+  const renderMosaicProducts =
+      data.map((product, i) => {
+        if(i < 12){
+          return (
+            <div className={classes.mosaic__product}>
+              <ProductCard
+                key={i}
+                data={product}
+                selectedImg={() => selectedImg(i)}
+                />
+            </div>
+          );
+        }
+       
+      })
 
   return (
     <Fragment>
       <div className={classes.mosaic}>
-        {mosaicData.map((product, i) => {
-          return (
-          <>
-            <ProductCard
-              key={i}
-              data={product}
-              selectedImg={() => selectedImg(i)}
-              />
-          </>
-          );
-        })}
+        {renderMosaicProducts}
       </div>
       {showLightbox ? (
         <ProductLigthBox

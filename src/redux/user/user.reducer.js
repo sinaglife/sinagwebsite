@@ -61,11 +61,6 @@ export const userReducer = (state = initialState, action)=>{
                     ...state,
                     error: action.payload
                 }
-            case userTypes.SING_OUT_SUCCESS:
-                return{
-                    ...state,
-                    user: null
-                }
             default:
                 return state;
         }

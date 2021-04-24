@@ -8,23 +8,23 @@ const Container = ({render, products, getProducts}) => {
   const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
 
     useEffect(()=> {
-         getProducts()
-        
+         getProducts()    
     }, [])
-
+  
     return (
         <div>
             {
-            products.products && products.products.length > 0 ? 
-            render(products.products)
+            products && products.length > 0 ? 
+             render(products)
             : <Loading/>
             }
         </div>
     )
 }
 const mapStateToProps = state => {
+    console.log(state.product.products.data)
     return{
-        products: state.product
+        products: state.product.products.data
     }
 }
 

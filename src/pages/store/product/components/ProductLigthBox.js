@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
-import Button from "../../../../components/UI/button/Button";
 import Backdrop from "../../../../components/Backdrop";
 import FacebookButton from "../../../../components/UI/social-media-buttons/FacebookButton"
 import WhatsAppButton from "../../../../components/UI/social-media-buttons/WhatsAppButton"
@@ -15,9 +14,9 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
 
         const dispatch = useDispatch()
         const [x, setX] = useState(0);
-        const productTitle = productData.acf?.product_title;
-        const productPrice = productData.acf?.product_price;
-        const productDesc = productData.acf?.product_descripcion;
+        const productTitle = productData.name;
+        const productPrice = productData.price;
+        const productDesc = productData.descripcion;
         const productId = productData.id
 
         const goToBasketHandler = (productData, x)=> {
@@ -96,7 +95,6 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                 </div>
                 <div className={classes.lightBox__right}>
                     <h3>{productTitle}</h3>
-                    <p>{productDesc}</p>
                     <p className={classes.lightBox__right__price}>{productPrice}€</p>
                     <Link to={`/mosaico/productos/${productId}`}  >
                         <p className={classes.lightBox__more__info}>Mas info</p>

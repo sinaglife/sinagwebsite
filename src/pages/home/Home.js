@@ -8,13 +8,13 @@ import taller from "../../assets/images/home/taller-espiritualidad-img.jpg";
 import piedras from "../../assets/images/piedrasFondo.jpg"
 import {Parallax} from "react-parallax";
 import Mosaic from "./components/Mosaic";
+import SliderComponent from './components/SliderComponent';
 
 
 const Home = ({data})=> {
-
     return (
         <div className={classes.home}>
-            {data && <Slider data={data}/>}
+                <SliderComponent/>
             <div className={classes.home__slogan}>
                 <h2>"Inspirados En Crear Desde El Alma."</h2> 
             </div>
@@ -48,6 +48,7 @@ const Home = ({data})=> {
                     <button className={classes.home__taller__btn}>Diseña aquí</button>
                     <button className={classes.home__espiritualidad__btn}>Meditemos</button>
                 </div>
+                
         </div>
     )
 }

@@ -2,22 +2,22 @@ const express = require("express");
 const Stripe = require("stripe");
 const cors = require("cors");
 const axios = require("axios")
-
 require("dotenv").config()
-
 const stripe = new Stripe(process.env.SECRET_KEY);
 const app = express();
+
+
 
 app.set("port", process.env.PORT || 3001)
 app.use(cors({ origin: '*' }));
 app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(express.json())
 
-const getData = async()=> {
+const getDataFromWc = async()=> {
     try {
         let response = await axios({
             method: "get",
-            url: "https://39570618.servicio-online.net/API/wp-json/wc/v2/products/",
+            url: "https://39570618.servicio-online.net/API/wp-json/wc/v2/products/?per_page=100",
             auth:{
                 username: "ck_f80844a27bd42c0423659df39d3968c2908ca8f0",
                 password: "cs_1f62d919eddc2913d6443098981bf1f41d1d089d"
@@ -29,14 +29,27 @@ const getData = async()=> {
     }
 }
 
+const getDataFromWordpress = async() => {
+    try {
+        let response = await axios.get("https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1")
+        return await response.data.filter(page => page.parent === 134)
+    } catch (error) {
+        console.log(error)
+    }
+};
 
-const prinData = async()=>{
-    const data = await getData()
-    if(data)
-    console.log(data)
-}
-
-prinData()
+//const prinData = async()=>{
+//   try {
+//    let data = await  getDataFromWordpress()
+//    if(data)
+//    console.log("prueba",data)
+//       
+//   } catch (error) {
+//       console.log(error)
+//   }
+//}
+//
+//prinData()
 
 app.post("/", async (req, res)=> {
     const {id, amount, description} = req.body;
@@ -66,10 +79,9 @@ app.post("/", async (req, res)=> {
 
 app.post("/products", async (req, res)=>{
    try {
-       const data = await getData()
+       const data = await getDataFromWc()
        return res.status(200).json({
            data,
-           message: "success",
            success: true
         })
    } catch (error) {
@@ -78,6 +90,21 @@ app.post("/products", async (req, res)=>{
         message: "there was a problem with woocommerce api"
     })
    }
+})
+
+app.get("/data", async (req, res) => {
+    try {
+        const data = await getDataFromWordpress()
+        return res.status(200).json({
+            data
+        })
+    } catch (error) {
+        
+        res.status(400).json({
+            message: "there was a problem with wordpress api",
+            error
+        })
+    }
 })
 
 app.listen(app.get("port"), ()=>{

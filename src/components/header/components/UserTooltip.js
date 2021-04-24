@@ -1,13 +1,9 @@
 import React from 'react'
 import { Link } from "@reach/router";
-
 import classes from "./UserTooltip.module.scss"
-
-
 
 const UserTooltip = ({isCloseToolTip, user, singOut}) => {
     
-
     return (
         <>
         {

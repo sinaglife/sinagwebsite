@@ -20,7 +20,7 @@ function Checkout() {
     const [subTotal, setSubTotal] = useState(0)
     const basket = useSelector(state => state.basket.basketItems)
     const dispatch = useDispatch()
-    const getDescription = ()=> basket?.map((item)=> item.acf.product_title)
+    const getDescription = ()=> basket?.map((item)=> item.name)
 
     const initialState = {
         name: "",

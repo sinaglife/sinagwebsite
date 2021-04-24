@@ -6,6 +6,9 @@
   justify-content: space-evenly;
   padding: 1% 0;
   margin: 1rem 0;
+  .mosaic__product{
+    margin: 1rem;
+  }
 }
 
 .image {
@@ -32,7 +35,7 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 415px) {
   .image img {
     height: 100%;
     width: 100%;
@@ -42,6 +45,9 @@
     width: 41.5%;
     border-radius: 10px;
     max-height: 9rem;
+  }
+  .mosaic__product{
+    margin: 0.1rem;
   }
 }
 
