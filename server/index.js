@@ -29,6 +29,25 @@ const getDataFromWc = async()=> {
     }
 }
 
+const updatProductData = async()=> {
+    try {
+        let response = await axios({
+            method: "post",
+            url: "https://39570618.servicio-online.net/API/wp-json/wc/v2/products/2402",
+            auth: {
+                username: "ck_f80844a27bd42c0423659df39d3968c2908ca8f0",
+                password: "cs_1f62d919eddc2913d6443098981bf1f41d1d089d"
+            },
+            data: {
+                regular_price: "20"
+               }
+           
+        }) 
+        return await response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
 const getDataFromWordpress = async() => {
     try {
         let response = await axios.get("https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1")
@@ -38,18 +57,18 @@ const getDataFromWordpress = async() => {
     }
 };
 
-//const prinData = async()=>{
-//   try {
-//    let data = await  getDataFromWordpress()
-//    if(data)
-//    console.log("prueba",data)
-//       
-//   } catch (error) {
-//       console.log(error)
-//   }
-//}
-//
-//prinData()
+const prinData = async()=>{
+   try {
+    let data = await  updatProductData()
+    if(data)
+    console.log("prueba",data)
+       
+   } catch (error) {
+       console.log(error)
+   }
+}
+
+prinData()
 
 app.post("/", async (req, res)=> {
     const {id, amount, description} = req.body;

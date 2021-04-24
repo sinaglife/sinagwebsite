@@ -3,6 +3,7 @@ import BasketProduct from "./BasketProduct"
 import { useSelector, useDispatch} from "react-redux"
 import {removeAllFromBasket} from "../../redux/basket/basket.actions"
 import {getBasketTotal} from "../../utils/basket.utils"
+import {formatAmount} from "../../utils/functions"
 import { Link } from "@reach/router";
 import classes from "./MainBasket.module.scss"
 
@@ -10,9 +11,7 @@ const BasketResume = ()=>{
     const basket = useSelector(state => state.basket.basketItems)
     const dispatch = useDispatch()
     const [subTotal, setSubTotal]= useState(0)
-    const delivery = subTotal < 40 ? 6 : 0
-    const total = subTotal + delivery
-
+   
     useEffect(() => {
         setSubTotal(getBasketTotal(basket))  
     }, [basket])
@@ -22,29 +21,29 @@ const BasketResume = ()=>{
     return(
         <>
             {
-                basket.length > 0 &&
-                <div className={classes.basket__resume}>
+            basket.length > 0 &&
+            <div className={classes.basket__resume}>
                 <div className={classes.resume__top}>
-                <h3>Cupones</h3>
-                <div className={classes.introduce__cupon}>
-                    <input type="text" name="cupon" placeholder="introduce tu cupon"/>
-                    <button>Aplicar</button>
+                    <h3>Cupones</h3>
+                    <div className={classes.introduce__cupon}>
+                        <input type="text" name="cupon" placeholder="introduce tu cupon"/>
+                        <button>Aplicar</button>
+                    </div>
                 </div>
-            </div>
-            <div className={classes.resume__body}>
-                <div className={classes.container}>
-                    <h3>Subtotal:</h3>
-                    <p>{subTotal}€</p>
+                <div className={classes.resume__body}>
+                    <div className={classes.container}>
+                        <h3>Subtotal:</h3>
+                        <p>{subTotal}€</p>
+                    </div>
+                
                 </div>
-               
-            </div>
-            <div className={classes.resume__bottom}>
-                <button onClick={()=>goToCheckout(subTotal)}><Link style={{textDecoration: "none", color: "black"}} to="/checkout">Tramitar Compra</Link></button>
-                <div className={classes.keep__shopping}>
-                    <button><Link style={{textDecoration: "none", color: "black"}} to="/tienda">Continuar Comprando</Link></button>
-                    <button onClick={()=> dispatch(removeAllFromBasket())}>Vaciar cesta</button>
-                </div>
-            </div> 
+                <div className={classes.resume__bottom}>
+                    <button onClick={()=>goToCheckout(subTotal)}><Link style={{textDecoration: "none", color: "black"}} to="/checkout">Tramitar Compra</Link></button>
+                    <div className={classes.keep__shopping}>
+                        <button><Link style={{textDecoration: "none", color: "black"}} to="/tienda">Continuar Comprando</Link></button>
+                        <button onClick={()=> dispatch(removeAllFromBasket())}>Vaciar cesta</button>
+                    </div>
+                </div> 
             </div>
             
             }

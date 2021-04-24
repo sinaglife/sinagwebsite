@@ -72,7 +72,7 @@ const BasketProduct = ({data, dispatch}) => {
             <div className={classes.price__container}>
                 <div className={classes.basket__product__header}> <h2>Precio</h2> </div>
                         <div className={classes.product__price}>
-                           
+                            {data?.price}€
                         </div>
                 </div>
             <div className={classes.delete__container}>

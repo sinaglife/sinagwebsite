@@ -96,12 +96,12 @@
         display: flex;
         flex-direction: column;
         margin: 1rem auto;
-        height: 100%;
+        height: auto;
         .basket__product__header{
-            padding: 0.1rem;
+            padding: 0.1rem 0;
         }
         h2{
-            font-size: 1rem; 
+            font-size: 0.7rem; 
         }
         .product__container{
             .main__container{
@@ -109,22 +109,22 @@
                     padding: 0.5rem 0rem ;
                     img{
                         width: 80px;
-                        padding: 0;
+                        padding: 0.2rem;
                         height: 80px;
                     }
                 }
                 .right__container{
-                    padding: 0.5rem 0rem ;
+                    padding: 0.5rem 0;
                     
                     h3{
-                        font-size: 0.8rem;
+                        font-size: 0.5rem;
                     }
                     p{
-                        font-size: 0.7rem;
+                        font-size: 0.5rem;
                     }
                     .right__bottom{
-                        margin-top: auto;  
-                        font-size: 0.7rem; 
+                         
+                        font-size: 0.5rem; 
                         input{
                             margin-right: 0.1rem;
                         }
@@ -135,29 +135,21 @@
         }
         .amount__container{
             .quantity__container{
-                margin: 0.5rem auto;
+                margin: 0 auto;
                 .quantity__component{
                     margin-left: 0;   
                 }
             }
         }
-        .delivery__container{
-            .delivery__content{
-                .delivery__choices{
-                    font-size: 0.7rem;
-                }
-                input{
-                    margin-right: 0.2rem;
-                }
-            }
-        }
+        
         .price__container{
             .product__price{
-                font-size: 0.8rem;
+                font-size: 0.5rem;
             }
         }
         .basket__delete{
-            margin: 0.5rem 0;
+            margin: 0.2rem 0;
+            padding: 0;
             display: flex;
             justify-content: center;
         }
@@ -214,19 +206,10 @@
                 }
             }
         }
-        .delivery__container{
-            .delivery__content{
-                .delivery__choices{
-                    font-size: 1.1rem;
-                }
-                input{
-                    margin-right: 0.2rem;
-                }
-            }
-        }
+       
         .price__container{
             .product__price{
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
         }
         .basket__delete{
@@ -249,7 +232,7 @@
             padding: 1rem;
         }
         h2{
-            font-size: 1.8rem; 
+            font-size: 1.5rem; 
         }
         .product__container{
             .main__container{
@@ -264,13 +247,13 @@
                 }
                 .right__container{
                     h3{
-                        font-size: 1.7rem;
-                    }
-                    p{
                         font-size: 1.5rem;
                     }
+                    p{
+                        font-size: 1.4rem;
+                    }
                     .right__bottom{ 
-                        font-size: 1.5rem; 
+                        font-size: 1.4rem; 
                         input{
                             margin-right: 0.1rem;
                         }
@@ -287,19 +270,10 @@
                 }
             }
         }
-        .delivery__container{
-            .delivery__content{
-                .delivery__choices{
-                    font-size: 1.7rem;
-                }
-                input{
-                    margin-right: 0.2rem;
-                }
-            }
-        }
+        
         .price__container{
             .product__price{
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
         }
         .basket__delete{

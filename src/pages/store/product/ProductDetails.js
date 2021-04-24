@@ -21,7 +21,9 @@ const Product = ({data}) => {
     )
     const [quantity, setQuantity] = useState(1)
     const title = product?.name
-    const description = ""
+    const description = product?.short_description
+    .slice(0,(product?.short_description.indexOf(".") + 1)).
+    replace("<p>", "") 
     const price = product?.price
     const rating = product?.average_rating
     const param = useParams()
