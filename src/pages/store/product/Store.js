@@ -10,15 +10,13 @@ const Store = ({data, logo}) => {
     console.log(param)
     let list;
     
-    const getProductsByCategory = (data, param)=> {
+    const getProductsByCategory = (data)=> {
         let itemsByCategorie;
         
        itemsByCategorie = data?.filter((item)=>{
-            //console.log(item.categories[0]?.name.toLowerCase())
            return item.categories.some((product)=> (
-               
-                product.name.toLowerCase().includes(param)
-          ))
+            product.name.toLowerCase().includes(param)
+            ))
         })
         return itemsByCategorie
     }
@@ -27,10 +25,10 @@ const Store = ({data, logo}) => {
     list = getProductsByCategory(data)
    
     useEffect(()=>{
-        list = getProductsByCategory(data, param)
+        list = getProductsByCategory()
         
         if(list)console.log("funciona",list)
-    }, [list])
+    }, [list, param])
 
     //if(filterValue !== ""){
     //    list = list.filter((item)=>item.acf.product_title.toLowerCase().includes(filterValue.toLowerCase()))
