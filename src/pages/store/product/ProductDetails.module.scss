@@ -199,19 +199,23 @@
     
     .product__right{
         .product__right__top{
+            padding: 0;
+            
+           
             h3{
                 font-size: 1.4rem;
                 text-transform: uppercase;
             }
             p{
-                font-size: 0.9rem;
+                padding:0;
+                font-size: 1rem;
             }
         }
     
         .product__right__center{
             width: 100%;
             padding: 0;
-            margin-top: 0.8rem;
+            margin-top: 0;
             .product__info{
                 display: flex;
                 justify-content: space-around;
@@ -228,7 +232,8 @@
             }
             .addToCart{
                 padding: 0.5rem 0;
-                font-size: 0.7rem;
+                font-size: 0.6rem;
+                width: 100%;
             }
         
         }

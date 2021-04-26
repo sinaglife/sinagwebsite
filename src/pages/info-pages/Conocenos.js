@@ -9,7 +9,7 @@ const Conocenos = () => {
     return (
         <div className={classes.conocenos}>
             <div className={classes.title__container}>
-                <h1>Conòcenos</h1>
+                <h1>Conócenos</h1>
                 <img  src={daniyjhose} alt="danyyjhose"/>
                 <p>SINAG,  del tagalo “Rayo de luz” representa la conexión, espiritualidad y el sentir.
                     Porque basta con un rayo de luz, para despejar cualquier oscuridad. 

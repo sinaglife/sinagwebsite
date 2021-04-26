@@ -1,6 +1,8 @@
 import React,{Fragment, useState, useEffect} from 'react';
 import axios from "axios";
 import { useParams } from "@reach/router";
+import Loading from "../../components/Loading"
+
 import classes from "./BlogPost.module.scss";
 
 const BlogPost = (props)=> {
@@ -123,7 +125,7 @@ const BlogPost = (props)=> {
             </h4>
             {postRows}
         </div>
-    ) : null;
+    ) : <Loading/>;
 };
 
 export default BlogPost;

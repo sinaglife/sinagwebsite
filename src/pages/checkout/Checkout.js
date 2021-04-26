@@ -101,7 +101,11 @@ function Checkout() {
             country={formik.values.country}
             onChange={formik.handleChange} 
             />
-            <Delivery onChange={formik.handleChange} />
+            {
+                subTotal < 40 && 
+                <Delivery onChange={formik.handleChange} />
+            }
+            
             <StripeForm
             success={success}
             deliveryAmount={deliveryAmount}

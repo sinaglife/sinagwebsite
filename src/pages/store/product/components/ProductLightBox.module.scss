@@ -45,7 +45,7 @@
     .goLeft{
         position: absolute;
         background-color: rgb(179, 179, 179);
-        opacity: 0.1;
+        opacity: 0.2;
         color: rgb(0, 0, 0);
         height: 100%;
         top: 0%;
@@ -56,7 +56,7 @@
     .goRight{
         position: absolute;
         background-color: rgb(179, 179, 179);
-        opacity: 0.1;
+        opacity: 0.2;
         color: rgb(0, 0, 0);
         height: 100%;
         top: 0%;
@@ -100,9 +100,9 @@
     button{
         background-color: #a78742;
         border: none;
-        padding: 0.5rem 1.3rem;
+        padding: 0.5rem 1rem;
         text-transform: uppercase;
-        font-size: 0.8rem;
+        font-size: 0.5rem;
     }
     .lightBox__right__buttons{
         display: flex;
@@ -133,7 +133,7 @@
         left: 5%;
         margin: 0;
         width: 90%;
-        height:260px;
+        height:300px;
     }
     
     .lightBox__left{ 
@@ -192,9 +192,9 @@
         flex-direction: column;
         justify-content: center;
         button{
-            margin-bottom: 0.5rem;
-            font-size: 0.65rem;
-            padding: 0.4rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.6rem;
+            padding: 0.2rem;
         }
     }
     
@@ -206,18 +206,19 @@
         left: 10%;
         margin: 0;
         width: 80%;
-        height:300px;
+        height:340px;
+        padding: 0 0.5rem;
     }
 
     .lightBox__left{
        
         .lightBox__main__img{
-            height: 85%; 
+            height: 90%; 
         }
     
         img{
             object-fit: cover;
-            width: 85%;
+            width: 75%;
             height: 100%;   
         }
        
@@ -229,11 +230,11 @@
             }
         }
         .goLeft{
-            right: 81%;
+            right: 87%;
             font-size: 2.5rem;
         }
         .goRight{
-            left: 81%;
+            left: 87%;
             font-size: 2.5rem;
         }  
         
@@ -259,8 +260,8 @@
         
         button{
             margin-right: 0.3rem;
-            padding: 0.5rem;
-            font-size: 0.84rem;
+            padding: 0.35rem;
+            font-size: 0.7rem;
         }
     }    
 }
@@ -271,33 +272,34 @@
         top: 35%;
         left: 5%;
         width: 90%;
-        height:450px;  
+        padding: 0.5rem;
+        height:460px;  
     }
 
     .lightBox__left{
         .lightBox__main__img{
-            height: 85%; 
+            height: 80%; 
         }
     
         img{ 
-            width: 85%;
+            width: 80%;
             height: 100%;   
         }
        
         .lightBox__left__share{
-            padding: 0.5rem 0;
+            bottom: 30px;
            
             p{
                 font-size: 1.3rem;
             }
         }
         .goLeft{
-            right: 81%;
+            right: 78%;
             opacity: 0.3;
             font-size: 3.7rem;
         }
         .goRight{
-            left: 81%;
+            left: 78%;
             opacity: 0.3;
             font-size: 3.7rem;
         }  
@@ -322,7 +324,7 @@
     .lightBox__right__buttons{
         button{
             padding: 0.7rem;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
     }  
 }

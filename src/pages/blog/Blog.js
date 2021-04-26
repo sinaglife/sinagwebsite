@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import classes from "./Blog.module.scss";
 import PostBox from './PostBox';
+import Loading from "../../components/Loading"
 
 const Blog = (props)=> {
 
@@ -33,7 +34,7 @@ const Blog = (props)=> {
                 }
             </div>
         </div>
-    ): null;
+    ): <Loading/>;
 };
 
 export default Blog

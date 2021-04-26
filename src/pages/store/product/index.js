@@ -9,6 +9,8 @@ import Espiritualidad from '../../../assets/images/Tienda/Espiritualidad.jpg'
 import Pulseras from '../../../assets/images/Tienda/Pulseras.jpg'
 import Colgantes from '../../../assets/images/Tienda/Colgantes.jpg'
 import Pendientes from '../../../assets/images/Tienda/Pendientes.jpg'
+import anillos from '../../../assets/images/Tienda/anillos-sinag.jpg'
+
 
 import classes from './tienda.module.scss'
 
@@ -55,7 +57,7 @@ function Tienda  ({isMenu, bottomMenu}) {
     },
     {
       name: "ANILLOS",
-      image: Hombre,
+      image: anillos,
       alt: "ANILLOS"
     },
     {

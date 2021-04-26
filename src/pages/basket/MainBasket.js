@@ -3,7 +3,6 @@ import BasketProduct from "./BasketProduct"
 import { useSelector, useDispatch} from "react-redux"
 import {removeAllFromBasket} from "../../redux/basket/basket.actions"
 import {getBasketTotal} from "../../utils/basket.utils"
-import {formatAmount} from "../../utils/functions"
 import { Link } from "@reach/router";
 import classes from "./MainBasket.module.scss"
 

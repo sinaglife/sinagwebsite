@@ -1,5 +1,6 @@
 import React from 'react'
 import {InputRow} from "../../registro_singIn/Register"
+import { Link} from "@reach/router";
 import classes from "./Delivery.module.scss"
 
 
@@ -45,7 +46,7 @@ import classes from "./Delivery.module.scss"
             </div>
              <span>8,92€</span>
         </div>
-        <a href="https://www.correos.es/es/es/particulares">Más informacion.</a>
+        <Link to="/tramitacion-envios">Más informacion.</Link>
     </div>
 )
 

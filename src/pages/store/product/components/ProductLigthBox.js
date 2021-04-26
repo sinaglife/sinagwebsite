@@ -16,16 +16,16 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
         const [x, setX] = useState(0);
         const productTitle = productData.name;
         const productPrice = productData.price;
-        const productDesc = productData.descripcion;
         const productId = productData.id
 
         const goToBasketHandler = (productData, x)=> {
             dispatch(addProductToBasket(productData, x));
             close();
         }
+       
 
-        const buyNowHandler = ()=>{
-            console.log("buy now")
+        const buyNowHandler = (subtotal)=>{
+            localStorage.setItem("subtotal", String(subtotal))
         }
    
         let lightImgArrLength = lightImgsArr.length;
@@ -101,7 +101,12 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                     </Link>
                     <div className={classes.lightBox__right__buttons}>
                         <button onClick={()=>goToBasketHandler(productData,1)} >Agregar al carrito</button>
-                        <button onClick={buyNowHandler} >Comprar ya</button>
+                        <button onClick={()=>buyNowHandler(Number(productPrice))} >
+                            <Link style={{textDecoration: "none", color: "black"}} to="/checkout">
+                                Comprar ya
+                            </Link>
+                        </button>
+                        
                     </div>    
                 </div>
                 
@@ -119,5 +124,6 @@ ProductLigthBox.propTypes = {
     description: PropTypes.string,
     lightImgsArr: PropTypes.arrayOf(PropTypes.string),
 }
+
 
 export default ProductLigthBox
