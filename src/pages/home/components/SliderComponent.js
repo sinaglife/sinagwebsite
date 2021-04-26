@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import {getSliderData} from "../../../utils/functions"
+import Loading from "../../../components/Loading"
 import classes from "./Slider.module.scss";
 
 const SliderComponent = (props) => {
 
   const [currentImage, setCurrentImage] = useState(0);
-  //const [carousel, setCarousel] = useState(null);
   const [visibleControls, setVisibleControls] = useState(true);
   const [sliderData, setSliderData] = useState([])
 
@@ -15,18 +15,30 @@ const SliderComponent = (props) => {
   };
 
   useEffect(() => {
+    let mounted = true;
+    
       getSliderData().then(res => {
-          console.log(res.data)
-          setSliderData(res.data)
+         
+          let result = res.data?.sort((a, b) => {
+            return (
+              parseInt(a.slug[a.slug.length - 1]) -
+              parseInt(b.slug[b.slug.length - 1])
+            );
+          });
+          if(mounted)
+          setSliderData(result)
       })
+      return ()=> mounted = false;
+
       
-  }, [])
+      
+  }, [sliderData, currentImage])
  
   useEffect(()=>{
       if (window.innerWidth <= 767.98) {
           setVisibleControls(false)
       }
-  }, [])
+  }, [visibleControls])
 
 
   let carousel = (
@@ -90,7 +102,15 @@ const SliderComponent = (props) => {
       })}
     </Carousel>
   )
-  return <div>{carousel}</div>;
+  return (
+    <div>
+      {
+      !sliderData || sliderData.length === 0 ? 
+      <Loading/> :
+      carousel 
+      }
+    </div>
+  )
 };
 
 export default SliderComponent;

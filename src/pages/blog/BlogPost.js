@@ -18,6 +18,7 @@ const BlogPost = (props)=> {
         
                 return post.slug === params.slug;
             });
+            console.log(dataArray)
             setPostData(dataArray[0]);
            
         });

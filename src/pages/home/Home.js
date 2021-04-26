@@ -27,27 +27,27 @@ const Home = ({data})=> {
             <div className={classes.home__mala}>
                     <p><span>¿POR QUÉ TIENE 108 CUENTAS?</span> Hinduista: El mala posee 108 cuentas, 
                     es un número sagrado. Hay 108 letras en el alfabeto sánscrito. El diámetro del Sol 
-                    es aproximadamente 108 veces más grande que el diámetro de la Tierra, a su vez la 
-                    distancia entre la tierra y el sol es 108 veces el diámetro del sol.
-                    <a  href="/mala">Mas info</a>
+                    es aproximadamente 108 veces más grande que el diámetro de la Tierra
+                    <a  href="/mala">Saber más</a>
+                    
                     </p>
                     <img src={mala} alt="blog" />
-                </div>
-                <div className={classes.home__blog}>
-                    <img src={blog} alt="blog" />
-                    <p><strong>LAS PIEDRAS Y SU MAGIA:</strong> Cada piedra tiene
-                        un potencial desconocido, es el regalo que
-                        nos da la naturaleza de tan diversas formas y
-                        colores, llegan a nuestras vidas para sanar algún
-                        aspecto de nosotros.
-                        <a  href="/blog">Mas info</a>
-                    </p>
-                </div>
-                <div className={classes.home__taller}>
-                    <img src={taller} alt="" />
-                    <button className={classes.home__taller__btn}>Diseña aquí</button>
-                    <button className={classes.home__espiritualidad__btn}>Meditemos</button>
-                </div>
+            </div>
+            <div className={classes.home__blog}>
+                <img src={blog} alt="blog" />
+                <p><strong>LAS PIEDRAS Y SU MAGIA:</strong> Cada piedra tiene
+                    un potencial desconocido, es el regalo que
+                    nos da la naturaleza de tan diversas formas y
+                    colores, llegan a nuestras vidas para sanar algún
+                    aspecto de nosotros.
+                    <a  href="/blog">Mas info</a>
+                </p>
+            </div>
+            <div className={classes.home__taller}>
+                <img src={taller} alt="" />
+                <button className={classes.home__taller__btn}>Diseña aquí</button>
+                <button className={classes.home__espiritualidad__btn}>Meditemos</button>
+            </div>
                 
         </div>
     )

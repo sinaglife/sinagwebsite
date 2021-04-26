@@ -25,7 +25,7 @@ export const getSliderData = async()=> {
   export const formatAmount = (amount)=> {
     let value = amount.toString();
 console.log(value)
-    if(value.indexOf(".") == -1){
+    if(value.indexOf(".") === -1){
       return value + ".00"
     }
     if(value.slice(value.indexOf("."), value.length).length === 1){

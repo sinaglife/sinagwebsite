@@ -22,6 +22,8 @@
 .productCard__hoovered{
     display: none;
     position: absolute;
+    top: 0;
+    left: 0;
     background: black;
     width: 220px;
     height: 335px;
@@ -99,6 +101,11 @@
         margin: -0.5rem;
     }
 
+    .productCard__hoovered{
+        width: 155px;
+        height: 255px;
+    }
+
     .productCard__container{
         padding: 0.5rem;
     }
@@ -131,6 +138,11 @@
         margin: -0.5rem;
     }
 
+    .productCard__hoovered{
+        width: 175px;
+        height: 270px;
+    }
+
     .productCard__container{
         padding: 0.4rem;
     }
@@ -156,11 +168,15 @@
     }
   }
 
-  @media  (min-width: 767px)  and (max-width: 1023px){
+  @media  (min-width: 767px)  and (max-width: 1022px){
     .productCard{
         width: 200px;
         height: 320px;
         margin: -0.5rem;
+    }
+    .productCard__hoovered{
+        width: 200px;
+        height: 320px;
     }
 
     .productCard__container{
@@ -188,12 +204,19 @@
     }
   }
 
-  @media  (min-width: 1024px)  and (max-width: 1300px){
- .productCard{
+  @media  (min-width: 1023px)  and (max-width: 1300px){
+    .productCard{
         width: 230px;
         height: 370px;
         padding: 0.5rem;
-}
+    }
+
+    .productCard__hoovered{
+        width: 230px;
+        height: 370px;
+        top: 0;
+        left: 0;
+    }
 
     .productCard__container{
         padding: 0.4rem;
@@ -218,23 +241,4 @@
         padding: 0.35rem 0;
     }
   }
-  /*
-  border-radius: 0 0 10px 10px;
   
-.productCard__backdrop{
-    width: 220px;
-    height: 325px;
-    background-color: black;
-    z-index: 9;
-    opacity: 0.7;
-    h3{
-        position: absolute;
-        color: rgb(255, 255, 255);
-        top: 40%;
-        left: 27%;
-        cursor: pointer;
-        opacity: 0.9;
-        font-size: 1.5rem;
-    }
-}
-  */

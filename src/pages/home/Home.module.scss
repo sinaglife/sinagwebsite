@@ -55,6 +55,7 @@
     }
     a{
         margin-left: 0.5rem;
+        color: rgb(134, 17, 17);
     }
 }
 
@@ -80,7 +81,7 @@
     a{  
         text-decoration: none;
         margin-left: 0.5rem;
-        color: rgb(0, 0, 255);
+        color: rgb(61, 14, 102);
         &:hover{
             color: rgb(75, 75, 75);
         }
@@ -103,9 +104,11 @@
     }
 
     .home__generic__btn{
-        width: 15%;
-        font-size: 0.5rem;
+        width: 12%;
+        font-size: 0.8rem;
+        font-weight: bold;
         padding: 0.5rem;
+        letter-spacing: 0.1rem;
         font-family: 'Playfair Display', serif;
         border: 2px solid white;
         opacity: 0.9;
@@ -131,7 +134,7 @@
 
 
 
-@media  (max-width: 400px) {
+@media  (max-width: 415px) {
 
     .home{
         margin-top: 0;
@@ -158,18 +161,23 @@
     }
 
     .home__mala{
+        position: relative;
         display: flex;
         flex-direction: column;
         margin: 0.2rem 0;
-        height:300px;
+        height:250px;
         img{
             height:160px;
             width: 100%;
         }
         p{
-            text-align: center;
+            position: absolute;
+            left: 0;
+            text-align: justify;
+            width: 50%;
+            color: rgb(255, 255, 255);
             height:100%;
-            font-size: 0.6rem;
+            font-size: 0.8rem;
             line-height: 1.2rem;
             padding: 0.5rem 0.9rem;
         }
@@ -201,7 +209,7 @@
     }
     
 .home__taller{
-    height: 150px;
+    height: 200px;
     margin: 0.2rem 0;
     img{
         width: 100%;
@@ -209,98 +217,17 @@
     }
 
     .home__generic__btn{
-        width: 25%;
-        padding: 0.2rem;
-        font-size: 0.2rem;
-    }
-}
-    
-}
-
-@media (min-width: 401px) and (max-width: 767.98px){
-    .home{
-        h3{
-            font-size: 1.6rem;
-        }
-        p{
-            font-weight: 50;
-            font-size: 0.8rem;
-        }
-    }
-    .home__slogan{
-        h2{
-            padding-top: 1.5px;
-            font-size:1.3rem;
-        }
-    }
-
-    .home__banner{
-        height: 150px;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-    .home__mala{
-        display: flex;
-        flex-direction: column;
-        margin: 0.5rem 0;
-        height:280px;
-        img{
-            height:200px;
-            width: 100%;
-        }
-        p{
-            font-size: 0.75rem;
-            line-height: 1rem;
-            padding: 0.8rem;
-        }
-    }
-    
-    .home__blog{
-        padding: 1.2rem 0.5rem;
-        display: flex;
-        align-items: center;
-        height:180px;
-        margin-top: 1.2rem;
-        img{
-            width: 50%;
-            height: 90%;
-            object-fit: cover;
-            margin-right: 0.1rem;
-        }
-        p{
-            text-align: center;
-            padding: 0;
-            font-size: 0.6rem;
-            margin-bottom: 0;
-            line-height: 1rem;
-        }
-        a{
-            font-size: 0.9rem;
-        }
-    }
-    
-.home__taller{
-    height: 180px;
-    margin: 0.2rem 0;
-    img{
-        width: 100%;
-        height:100%;
-    }
-    .home__generic__btn{
-        width: 25%;
+        width: 30%;
         padding: 0.1rem;
         font-size: 0.3rem;
     }
 }
     
-
 }
 
-@media (min-width: 768px) and (max-width: 1200px){
+
+
+@media (min-width: 768px) and (max-width: 1023px){
     .home{
         h3{
             font-size: 2.1rem;
@@ -325,16 +252,22 @@
         }
 
         .home__mala{
+            position: relative;
             display: flex;
             flex-direction: column;
             margin: 0.2rem 0;
-            height:420px;
+            height:370px;
             img{
                 height:240px;
             }
             p{
-                font-size: 1.1rem;
-                line-height: 1.5rem;
+                position: absolute;
+                left: 0;
+                text-align: justify;
+                width: 45%;
+                color: rgb(255, 255, 255);
+                font-size: 1.4rem;
+                line-height: 1.9rem;
                 padding: 0.3rem 0.5rem;
             }
         }
@@ -367,15 +300,15 @@
             height:100%;
         }
         .home__generic__btn{
-            width: 25%;
+            width: 20%;
             padding: 0.4rem;
-            font-size: 0.6rem;
+            font-size: 0.9rem;
         }
     }
     
 }
 
-@media (min-width: 1023px) and (max-width: 1300px){
+@media (min-width: 1024px) and (max-width: 1300px){
     .home{
         h3{
             font-size: 2.4rem;
@@ -402,14 +335,19 @@
         display: flex;
         flex-direction: column;
         margin: 0.2rem 0;
-        height:600px;
+        height:500px;
         img{
             height:400px;
         }
         p{
+            position: absolute;
+            left: 0;
+            text-align: justify;
+            width: 45%;
+            color: rgb(255, 255, 255);
             text-align: center;
-            font-size: 1.5rem;
-            line-height: 2rem;
+            font-size: 2rem;
+            line-height: 2.4rem;
             padding: 0.3rem 1rem;
         }
     }
@@ -444,9 +382,9 @@
         height:100%;
     }
     .home__generic__btn{
-        width: 25%;
+        width: 20%;
         padding: 0.4rem;
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 }
 }
