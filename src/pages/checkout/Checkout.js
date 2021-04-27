@@ -6,6 +6,8 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch} from "react-redux"
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import {removeAllFromBasket} from "../../redux/basket/basket.actions";
+import Modal from "../../components/Modal"
+import { navigate } from "@reach/router";
 
 import axios from 'axios';
 
@@ -18,9 +20,23 @@ function Checkout() {
     const [success, setSuccess] = useState(false)
     const [description, setDescription] = useState("")
     const [subTotal, setSubTotal] = useState(0)
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const basket = useSelector(state => state.basket.basketItems)
     const dispatch = useDispatch()
-    const getDescription = ()=> basket?.map((item)=> item.name)
+
+    const getDescription = ()=> basket?.map((item, index)=> {
+        let obj = {};
+        return obj = {
+            id: item.id,
+            name: item.name,
+            quantity: item.quantity
+        }
+    })
+    
+      const handleClose = () => {
+        setIsModalOpen(false);
+         navigate("/")
+      };
 
     const initialState = {
         name: "",
@@ -57,8 +73,9 @@ function Checkout() {
                 description: description.join()
             })
             if(response.data.success){
-                console.log("succesfull payment")
+                console.log("succesfull payment", description)
                 setSuccess(true)
+                setIsModalOpen(true)
                 dispatch(removeAllFromBasket())
             }
         } catch (error) {
@@ -69,7 +86,7 @@ function Checkout() {
        
         console.log(error.message)
     }
-            console.log(values)
+
     },
         validate: values =>{}
     });
@@ -81,6 +98,10 @@ function Checkout() {
            localStorage.removeItem("subtotal")
         }  
     }, [])
+
+    useEffect(()=>{
+        if(basket.length === 0) navigate("/")
+    }, [])
    
     let deliveryAmount = formik.values.delivery === "national" ? 4.70 : 
     formik.values.delivery === "international" ? 6.10 : 
@@ -88,7 +109,12 @@ function Checkout() {
 
     const total = subTotal < 40 ? subTotal + deliveryAmount : subTotal;
     return (
-       
+        isModalOpen ?
+       <Modal
+       close={handleClose}
+       open={isModalOpen}
+       /> 
+       :
         <form onSubmit={formik.handleSubmit} className={classes.checkout}>  
             <CustomerData 
             name={formik.values.name}

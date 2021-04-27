@@ -29,6 +29,13 @@ const getDataFromWc = async()=> {
     }
 }
 
+getProductToUpdate = ()=> {
+
+}
+const updateProductsData = async() => {
+    const data = [];
+}
+
 const updatProductData = async()=> {
     try {
         let response = await axios({

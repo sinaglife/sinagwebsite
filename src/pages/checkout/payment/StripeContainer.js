@@ -30,9 +30,6 @@ const CARD_OPTIONS = {
        
     return (
         <>
-        {
-        !success ?
-           
             <div  className={classes.stripe__form}>
                  <h3>Datos del la tarjeta</h3> 
                 <div className={classes.payment__details}>
@@ -58,9 +55,6 @@ const CARD_OPTIONS = {
                     Pagar
                 </button >
             </div>
-                : 
-            <h2>Gracias por tu compra</h2>
-        }   
         </>
     )
 }

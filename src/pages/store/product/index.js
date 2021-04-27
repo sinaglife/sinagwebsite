@@ -88,7 +88,7 @@ function Tienda  ({isMenu, bottomMenu}) {
   const renderMujer = subMenuArray.map((item, index) => {
     return (
       <Link key={index} to={`/${item.name.toLocaleLowerCase()}`}> 
-        <div className={classes.card}>
+        <div className={classes.card__woman}>
           <p>{item.name}</p>
           <div className={classes.button_image}>
             <img src={item.image} alt={item.alt}/>
@@ -106,12 +106,26 @@ function Tienda  ({isMenu, bottomMenu}) {
       <div className={classes.menu}>
         {
           isMenu ? 
-          renderMujer
+          <>
+            <Link to="/tienda" className={classes.goBack__link}>
+              Volver
+            </Link>
+            {renderMujer}
+           
+          </>
           :
-          renderTienda
+          <>
+            {renderTienda}
+            <div className={classes.tallas}>
+              <p>¿Conóces tú talla?</p>
+              <Link to="/tallas" style={{ textDecoration: "none" }}>
+              <h2>Guía de tallas</h2>
+              </Link>
+            </div>
+          </>
         }
       </div>
-      { !isMenu && bottomMenu}
+      
     </div>
   )
 }

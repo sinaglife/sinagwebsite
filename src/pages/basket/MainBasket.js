@@ -37,7 +37,11 @@ const BasketResume = ()=>{
                 
                 </div>
                 <div className={classes.resume__bottom}>
-                    <button onClick={()=>goToCheckout(subTotal)}><Link style={{textDecoration: "none", color: "black"}} to="/checkout">Tramitar Compra</Link></button>
+                    <button onClick={()=>goToCheckout(subTotal)}>
+                        <Link style={{textDecoration: "none", color: "black"}} to="/checkout">
+                            Tramitar Compra
+                        </Link>
+                    </button>
                     <div className={classes.keep__shopping}>
                         <button><Link style={{textDecoration: "none", color: "black"}} to="/tienda">Continuar Comprando</Link></button>
                         <button onClick={()=> dispatch(removeAllFromBasket())}>Vaciar cesta</button>

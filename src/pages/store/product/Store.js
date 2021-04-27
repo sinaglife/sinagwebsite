@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import ProductGallery from "./ProductGallery"
 import FilterBar from "./components/FilterBar"
+import kokeLogo from "../../../assets/images/koketropic-logo.jpeg";
+
 import classes from "./Store.module.scss";
 
 const Store = ({data, logo}) => {
@@ -40,7 +42,7 @@ const Store = ({data, logo}) => {
             filterValue={filterValue}
             setFilterValue={setFilterValue}
             />
-            {logo ? logo 
+            {param === "kokedamas" ? <img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>
             :<h1 className={classes.store__title}>{param}</h1> 
             }
             {list && <ProductGallery data={list} />}
