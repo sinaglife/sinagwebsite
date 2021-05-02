@@ -35,7 +35,7 @@ function Tienda  ({isMenu, bottomMenu}) {
     {
       name: "CUIDADO DE TU SER",
       image: Cuidado,
-      alt: "CUIDADO DE TU SER"
+      alt: "CUIDADO-DE-TU-SER"
     },
     {
       name: "COMPLEMENTOS",
@@ -119,7 +119,7 @@ function Tienda  ({isMenu, bottomMenu}) {
             <div className={classes.tallas}>
               <p>¿Conóces tú talla?</p>
               <Link to="/tallas" style={{ textDecoration: "none" }}>
-              <h2>Guía de tallas</h2>
+                <h2>Guía de tallas</h2>
               </Link>
             </div>
           </>

@@ -1,33 +1,34 @@
-import React from 'react'
-//import { useFormik } from 'formik';
+import React, {useState} from 'react'
+import { navigate } from "@reach/router";
 import SearchIcon from '@material-ui/icons/Search';
-const styles = {
-    div: {
-        width: "100%",
-        backgroundColor: "#efecdf",
-        padding: "0.5rem",
-        display: "flex",
-        marginTop: "0.5rem",
-    },
-    form:{
-        display: "flex",
-    },
-    input:{
-        borderRadius: "0 5px 5px 0",
-        border: "none",
-        padding: "0.2rem"
-    },
-    button:{
-        border: "none",
-        backgroundColor: "white",
-        borderRadius: " 5px 0 0 5px ",
-        padding: "0.15rem"
-    }
-}
+import SimpleMenu from "./SimpleMenu"
+import classes from "./FilterBar.module.scss";
+
 
 const FilterBar = ({filterValue, setFilterValue}) => {
+const [isStoreMenu, setIsStoreMenu] = useState(false)
 
-   
+const navChoices = [
+    "Hombre",
+    "Niño",
+    "Cuidado-de-tu-ser",
+    "Complementos",
+    "Espiritualidad",
+    "Pulseras",
+    "Anillos",
+    "Colgantes",
+    "Pendientes"
+]
+
+const navigateTo = (param)=> {
+    if(param.includes("ñ")){
+       return param.replace("ñ", "n").toLowerCase()
+    }if(param.includes("%20")){
+      return  param.replace("%20", "-").toLowerCase()
+    }
+    return param.toLowerCase()
+}
+
 const handleChange = (e)=>{
     setFilterValue(e.target.value)
 }
@@ -37,13 +38,12 @@ const handleSubmit = (e)=>{
    setFilterValue("")
 }
     return (
-        <div style={styles.div}>
-            <form style={styles.form} onSubmit={handleSubmit}>
-            <button type="submit" style={styles.button}>
+        <div className={classes.filterBar}>
+            <form  onSubmit={handleSubmit}>
+            <button type="submit" >
                 <SearchIcon /> 
             </button >
             <input 
-            style={styles.input}
             onChange={handleChange}
             placeholder="filtrar"
             value={filterValue}
@@ -51,8 +51,35 @@ const handleSubmit = (e)=>{
             id="filter"
             />
             </form>
+            {
+                window.innerWidth < 900 ?
+                !isStoreMenu ?
+                <button className={classes.showMenu__button} onClick={()=> setIsStoreMenu(true)}>
+                    Menu
+                </button> 
+                :      
+                <div className={classes.filterBar__navButton}>
+                    <SimpleMenu 
+                    navChoices={navChoices}
+                    navigateTo={navigateTo}
+                    navigate={navigate}
+                    />  
+                </div>
+                :
+                <div className={classes.navChoices}>
+                {navChoices.map((item, index)=>(
+                    <a 
+                    id={index} 
+                    onClick={()=>navigate(`${navigateTo(item)}`)}>{item}</a>
+                ))}
+            </div>
+            }
         </div>
     )
 }
 
 export default FilterBar
+
+/*
+
+*/

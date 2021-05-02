@@ -5,12 +5,13 @@ import kokeLogo from "../../../assets/images/koketropic-logo.jpeg";
 
 import classes from "./Store.module.scss";
 
-const Store = ({data, logo}) => {
+const Store = ({data}) => {
 
     const [filterValue, setFilterValue] = useState("")
     const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
     console.log(param)
     let list;
+    const title = param.includes("-") ? param.replace(/-/gi, " ") : param
     
     const getProductsByCategory = (data)=> {
         let itemsByCategorie;
@@ -35,6 +36,7 @@ const Store = ({data, logo}) => {
     //if(filterValue !== ""){
     //    list = list.filter((item)=>item.acf.product_title.toLowerCase().includes(filterValue.toLowerCase()))
     //}
+    
 
     return (
         <div>
@@ -43,7 +45,7 @@ const Store = ({data, logo}) => {
             setFilterValue={setFilterValue}
             />
             {param === "kokedamas" ? <img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>
-            :<h1 className={classes.store__title}>{param}</h1> 
+            :<h1 className={classes.store__title}>{title}</h1> 
             }
             {list && <ProductGallery data={list} />}
         </div>

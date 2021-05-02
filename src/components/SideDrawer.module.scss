@@ -19,7 +19,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  padding:0;
+  padding: 0;
 }
 
 .sideDrawer__list {
@@ -41,6 +41,4 @@
   color: white;
 }
 
-.classes.sideDrawer__item:hover .sideDrawerText {
-  color: black;
-}
+
