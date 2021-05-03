@@ -28,10 +28,6 @@ const Mosaic = ({data}) => {
     setShowBackdrop(false);
   };
 
-  //const mosaicData = data.filter(
-  //  (item) => item.parent === 5 && page.acf.product_showInMosaic
-  //)
-
   const renderMosaicProducts =
       data.map((product, i) => {
         if(i < 12){

@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { navigate } from "@reach/router";
 import SearchIcon from '@material-ui/icons/Search';
-import SimpleMenu from "./SimpleMenu"
+//import Button from "../../../../components/UI/button/Button"
+
 import classes from "./FilterBar.module.scss";
 
 
 const FilterBar = ({filterValue, setFilterValue}) => {
-const [isStoreMenu, setIsStoreMenu] = useState(false)
 
 const navChoices = [
     "Hombre",
@@ -20,8 +20,10 @@ const navChoices = [
     "Pendientes"
 ]
 
+const mobileNavChoices = ["Mujer", "Hombre", "Niño", "Tienda"]
+
 const navigateTo = (param)=> {
-    let regEx = /%20/gi;
+  
     if(param.includes("ñ")){
        return param.replace("ñ", "n").toLowerCase()
     }if(param.includes("%20")){
@@ -39,56 +41,69 @@ const handleSubmit = (e)=>{
    e.preventDefault()
    setFilterValue("")
 }
+
+
+const renderNavChoices = navChoices.map((item, index)=>{
+    let word;
+    word = item.includes("-") ? item.replace(/-/gi, " ") : item
+    return(
+        <a 
+        key={index} 
+        onClick={()=>navigate(`${navigateTo(item)}`)}
+        >
+        {word}
+        </a>
+    )
+})
+
+const renderMobileNavChoices = mobileNavChoices.map((item, index)=>(
+    <a 
+    key={index} 
+    onClick={()=>navigate(`${navigateTo(item)}`)}
+    >
+    {item}
+    </a>
+))
+
     return (
-        <div className={classes.filterBar}>
-            <form  onSubmit={handleSubmit}>
-            <button type="submit" >
-                <SearchIcon /> 
-            </button >
-            <input 
-            onChange={handleChange}
-            placeholder="filtrar"
-            value={filterValue}
-            name="filter" 
-            id="filter"
-            />
-            </form>
+        <>
+            <div className={classes.filterBar}>
             {
-                window.innerWidth < 900 ?
-                !isStoreMenu ?
-                <button className={classes.showMenu__button} onClick={()=> setIsStoreMenu(true)}>
-                    Menu
-                </button> 
-                :      
-                <div className={classes.filterBar__navButton}>
-                    <SimpleMenu 
-                    navChoices={navChoices}
-                    navigateTo={navigateTo}
-                    navigate={navigate}
-                    />  
-                </div>
-                :
+                window.innerWidth > 1025 ?
+                <div className={classes.filterBar}>
+                <form  onSubmit={handleSubmit}>
+                <button type="submit" >
+                    <SearchIcon /> 
+                </button >
+                <input 
+                onChange={handleChange}
+                placeholder="filtrar"
+                value={filterValue}
+                name="filter" 
+                id="filter"
+                />
+                </form>  
                 <div className={classes.navChoices}>
-                {navChoices.map((item, index)=>{
-                     let word;
-                     word = item.includes("-") ? item.replace(/-/gi, " ") : item
-                     return(
-                        <a 
-                        id={index} 
-                        onClick={()=>navigate(`${navigateTo(item)}`)}
-                        >
-                        {word}
-                        </a>
-                     )
-                })}
+                    {renderNavChoices}
+                </div>
+                </div>
+                
+                : 
+                <div className={classes.filterBar__responsive}>
+                   
+                    {renderMobileNavChoices}  
+                </div>
+            } 
             </div>
-            }
-        </div>
+        </>
     )
 }
 
 export default FilterBar
 
 /*
-
+ <div style={{display: "flex", alignItems: "center"}}>
+                        <Button  icon="leftArrow" color="arena" size="small" />
+                        <Button noPadding icon="rightArrow" color="arena" size="small" />
+                    </div>
 */
