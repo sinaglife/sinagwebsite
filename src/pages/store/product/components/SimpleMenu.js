@@ -8,15 +8,19 @@ export default function SimpleMenu({navChoices, navigateTo, navigate}) {
     <div className={classes.simpleMenu}>
       <ul>
         {
-          navChoices.map((item, index)=>(
-            <li
-            className={classes.simpleMenu}
-            key={index} 
-            onClick={()=>navigate(`${navigateTo(item)}`)}
-            >
-              {item}
-            </li>
-          ))
+          navChoices.map((item, index)=>{
+            let word;
+            word = item.includes("-") ? item.replace(/-/gi, " ") : item
+            return(
+              <li
+              className={classes.simpleMenu}
+              key={index} 
+              onClick={()=>navigate(`${navigateTo(item)}`)}
+              >
+                {word}
+              </li>
+            )       
+          })
         }
       </ul>
     </div>

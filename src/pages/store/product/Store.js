@@ -18,25 +18,15 @@ const Store = ({data}) => {
         
        itemsByCategorie = data?.filter((item)=>{
            return item.categories.some((product)=> (
-            product.name.toLowerCase().includes(param)
+            product.name.toLowerCase().includes(title)
             ))
         })
-        return itemsByCategorie
+        if(filterValue !== "")
+        return itemsByCategorie.filter((item)=>item.name.toLowerCase().includes(filterValue.toLowerCase()))
+        else return itemsByCategorie
     }
     
-
     list = getProductsByCategory(data)
-   
-    useEffect(()=>{
-        list = getProductsByCategory()
-        
-        if(list)console.log("funciona",list)
-    }, [list, param])
-
-    //if(filterValue !== ""){
-    //    list = list.filter((item)=>item.acf.product_title.toLowerCase().includes(filterValue.toLowerCase()))
-    //}
-    
 
     return (
         <div>

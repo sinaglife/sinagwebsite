@@ -10,7 +10,7 @@ const [isStoreMenu, setIsStoreMenu] = useState(false)
 
 const navChoices = [
     "Hombre",
-    "Niño",
+    "Niños",
     "Cuidado-de-tu-ser",
     "Complementos",
     "Espiritualidad",
@@ -21,12 +21,14 @@ const navChoices = [
 ]
 
 const navigateTo = (param)=> {
+    let regEx = /%20/gi;
     if(param.includes("ñ")){
        return param.replace("ñ", "n").toLowerCase()
     }if(param.includes("%20")){
-      return  param.replace("%20", "-").toLowerCase()
+        console.log("probando")
+        return param.replace("%20", "-").toLowerCase()
     }
-    return param.toLowerCase()
+    return param.toLowerCase().trim()
 }
 
 const handleChange = (e)=>{
@@ -67,11 +69,18 @@ const handleSubmit = (e)=>{
                 </div>
                 :
                 <div className={classes.navChoices}>
-                {navChoices.map((item, index)=>(
-                    <a 
-                    id={index} 
-                    onClick={()=>navigate(`${navigateTo(item)}`)}>{item}</a>
-                ))}
+                {navChoices.map((item, index)=>{
+                     let word;
+                     word = item.includes("-") ? item.replace(/-/gi, " ") : item
+                     return(
+                        <a 
+                        id={index} 
+                        onClick={()=>navigate(`${navigateTo(item)}`)}
+                        >
+                        {word}
+                        </a>
+                     )
+                })}
             </div>
             }
         </div>
