@@ -69,8 +69,8 @@ const Toolbar = ({basket, user, singOut, ...props}) =>{
   const isCloseToolTip = (e)=>  setIsTooltip(false)
    
 const hanldeMouseMove = (e)=> {
-  console.log(e.clientX, e.clientY)
-  console.log(window.innerWidth)
+  //console.log(e.clientX, e.clientY)
+  //console.log(window.innerWidth)
   setCoord({
     x: e.clientX,
     y: e.clientY
@@ -90,7 +90,7 @@ return (
          onMouseMove={isOpenToolTip}
          >
             {
-              window.innerWidth >= 1000 && user && <span>{user.additionalUserInfo.profile.name}</span>
+              window.innerWidth >= 1000 && user?.additionalUserInfo?.profile?.name && <span>{user.additionalUserInfo.profile.name}</span>
             }
             <Button
               icon="account"

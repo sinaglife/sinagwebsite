@@ -105,13 +105,16 @@
 
     .home__generic__btn{
         width: 12%;
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         font-weight: bold;
-        padding: 0.5rem;
-        letter-spacing: 0.1rem;
+        letter-spacing: 0.2rem;
+        padding:0.4rem 0.2rem;
         font-family: 'Playfair Display', serif;
-        border: 2px solid white;
+        border: 1px solid white;
+        color: rgb(255, 255, 255);
         opacity: 0.9;
+        border-radius: 10px;
+        cursor: pointer;
     }
 
     .home__taller__btn{
@@ -119,16 +122,14 @@
         position: absolute;
         top: 5%;
         left: 2%;
-        background-color: #b8aedb;
-        color: rgb(255, 255, 255);
+        background-color: rgb(196, 192, 192);
     }
     .home__espiritualidad__btn{
         @extend.home__generic__btn;
         position: absolute;
         bottom: 20px;
         right: 1%;
-        background-color: #a38a52;
-        color: rgb(255, 255, 255);
+        background-color: rgb(209, 165, 106);
     }
 }
 

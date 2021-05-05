@@ -5,11 +5,14 @@
     background-color: #efecdf;
     position: relative;
     border: 0.5px solid #a1a1a1;
+    color: #000000;
 }   
 
 .productCard:hover {
+
     .productCard__hoovered{
-        display: block;   
+        display: block;
+         
     }
     button{
         color: rgb(255, 255, 255);
@@ -19,6 +22,7 @@
     
 }
 
+
 .productCard__hoovered{
     display: none;
     position: absolute;
@@ -27,14 +31,14 @@
     background: black;
     width: 220px;
     height: 335px;
-    opacity: 0.5;
+    opacity: 0.4;
     .productCard__more__info{
         position: absolute;
         top: 45%;
         width: 100%;
         padding: 0.2rem;
         color: rgb(255, 255, 255);
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: bold;
         cursor: pointer;
         font-family: "Playfair Display", serif;
@@ -42,6 +46,10 @@
 
 }
 
+.productCard__more__info:hover{
+    font-size: 2rem;
+    transition: all ease-in 1s;
+}
 .productCard__container{
     display: flex;
     flex-direction: column;

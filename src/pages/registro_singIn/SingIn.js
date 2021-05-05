@@ -13,7 +13,7 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
 
     useEffect(()=>{
         window.scrollTo(0,0)
-        if(user ){
+        if(user){
             redirectTo("/")
         }
     }, [user])

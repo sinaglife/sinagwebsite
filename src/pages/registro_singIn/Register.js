@@ -32,6 +32,7 @@ const Register = () => {
 
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
+
     useEffect(()=>{
         if(user){
             redirectTo("/")

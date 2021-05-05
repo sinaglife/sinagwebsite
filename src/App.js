@@ -7,6 +7,7 @@ import Register from "./pages/registro_singIn/Register";
 import SingIn from "./pages/registro_singIn/SingIn";
 import ForgotPassword from "./pages/registro_singIn/ForgotPassword";
 import StripeContainer from "./pages/checkout/payment/StripeContainer";
+import SideDrawer from './components/SideDrawer'
 import Loading from "./components/Loading"
 
 import './App.css';
@@ -18,7 +19,6 @@ const BlogPost = lazy(()=> import("./pages/blog/BlogPost"))
 const Conocenos = lazy(()=> import("./pages/info-pages/Conocenos"))
 const GuiaTallas = lazy(()=> import("./pages/GuiaTallas"))
 const Backdrop = lazy(()=> import("./components/Backdrop"))
-const SideDrawer = lazy(()=> import('./components/SideDrawer'))
 const StoreRoutesContainer = lazy(()=>import("./pages/store/product/StoreRoutesContainer"))
 const InfoRoutesContainer = lazy(()=> import("./pages/info-pages/InfoRoutesContainer"))
 const Checkout = lazy(()=>import("./pages/checkout/Checkout"))

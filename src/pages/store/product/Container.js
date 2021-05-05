@@ -4,8 +4,7 @@ import {getProducts} from "../../../redux/products/products.actions"
 import { connect } from 'react-redux'
 
 const Container = ({render, products, getProducts}) => {
-
-  const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
+  //const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
 
     useEffect(()=> {
          getProducts()    
@@ -22,7 +21,6 @@ const Container = ({render, products, getProducts}) => {
     )
 }
 const mapStateToProps = state => {
-    console.log(state.product.products.data)
     return{
         products: state.product.products.data
     }

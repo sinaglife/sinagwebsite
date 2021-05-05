@@ -107,9 +107,6 @@ function Tienda  ({isMenu, bottomMenu}) {
         {
           isMenu ? 
           <>
-            <Link to="/tienda" className={classes.goBack__link}>
-              Volver
-            </Link>
             {renderMujer}
            
           </>

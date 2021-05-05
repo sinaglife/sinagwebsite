@@ -4,7 +4,7 @@ import {getSliderData} from "../../../utils/functions"
 import Loading from "../../../components/Loading"
 import classes from "./Slider.module.scss";
 
-const SliderComponent = (props) => {
+const SliderComponent = () => {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [visibleControls, setVisibleControls] = useState(true);
@@ -14,34 +14,28 @@ const SliderComponent = (props) => {
     setCurrentImage(selectedIndex);
   };
 
+  useEffect(()=>{
+    if (window.innerWidth <= 767.98) {
+        setVisibleControls(false)
+    }
+}, [visibleControls])
+
+
   useEffect(() => {
-    let mounted = true;
-    
+
       getSliderData().then(res => {
          
-          let result = res.data?.sort((a, b) => {
+          setSliderData( res.data?.sort((a, b) => {
             return (
               parseInt(a.slug[a.slug.length - 1]) -
               parseInt(b.slug[b.slug.length - 1])
             );
-          });
-          if(mounted)
-          setSliderData(result)
+          }))
       })
-      return ()=> mounted = false;
-
-      
       
   }, [sliderData, currentImage])
- 
-  useEffect(()=>{
-      if (window.innerWidth <= 767.98) {
-          setVisibleControls(false)
-      }
-  }, [visibleControls])
 
-
-  let carousel = (
+  let carousel =   (
     <Carousel
       activeIndex={currentImage}
       onSelect={handleSelectImage}
@@ -102,6 +96,7 @@ const SliderComponent = (props) => {
       })}
     </Carousel>
   )
+ 
   return (
     <div>
       {
