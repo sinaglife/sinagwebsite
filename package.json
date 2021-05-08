@@ -32,9 +32,10 @@
     "redux-thunk": "^2.3.0",
     "stripe": "^8.142.0"
   },
+  "homepage": "https://sinaglife.com/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI= react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

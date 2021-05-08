@@ -14,7 +14,11 @@ const ProductCard = ({data, selectedImg, addProductToBasket}) => {
     return (
         <div className={classes.productCard} >
             <div className={classes.productCard__hoovered}>
-                <h3 className={classes.productCard__more__info} onClick={selectedImg}>Mas info</h3>
+                <h3 className={classes.productCard__more__info} 
+                onClick={selectedImg}
+                >
+                    Mas info
+                </h3>
             </div>       
             <div className={classes.productCard__container}>
                 <div className={classes.productCard__header}>
@@ -27,7 +31,9 @@ const ProductCard = ({data, selectedImg, addProductToBasket}) => {
                     <h3>{title}</h3>
                     <div className={classes.productCard__info}>
                         <p className={classes.productCard__price}>{price}€</p>
-                        <button onClick={()=>addProductToBasket(data, x)} className={classes.shoppingButton}>
+                        <button onClick={()=>addProductToBasket(data, x)} 
+                        className={classes.shoppingButton}
+                        >
                             Agregar al carrito
                         </button>
                     </div>
