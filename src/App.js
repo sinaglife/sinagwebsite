@@ -2,12 +2,6 @@ import React, { useState, lazy, Suspense } from 'react';
 import { Router} from "@reach/router";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Home from "./pages/home/Home";
-import Register from "./pages/registro_singIn/Register";
-import SingIn from "./pages/registro_singIn/SingIn";
-import ForgotPassword from "./pages/registro_singIn/ForgotPassword";
-import StripeContainer from "./pages/checkout/payment/StripeContainer";
-import SideDrawer from './components/SideDrawer'
 import Loading from "./components/Loading"
 
 import './App.css';
@@ -22,7 +16,12 @@ const Backdrop = lazy(()=> import("./components/Backdrop"))
 const StoreRoutesContainer = lazy(()=>import("./pages/store/product/StoreRoutesContainer"))
 const InfoRoutesContainer = lazy(()=> import("./pages/info-pages/InfoRoutesContainer"))
 const Checkout = lazy(()=>import("./pages/checkout/Checkout"))
-
+const Home = lazy(()=> import("./pages/home/Home"))
+const Register = lazy(()=> import("./pages/registro_singIn/Register"))
+const SingIn = lazy(()=> import("./pages/registro_singIn/SingIn"))
+const ForgotPassword = lazy(()=> import("./pages/registro_singIn/ForgotPassword"))
+const StripeContainer = lazy(()=> import("./pages/checkout/payment/StripeContainer"))
+const SideDrawer = lazy(()=> import('./components/SideDrawer'))
 
 const App = ()=> {
 
