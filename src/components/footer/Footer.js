@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Footer.module.scss";
-import { Link } from "@reach/router";
+import {Link} from "react-router-dom";
 import Button from "../UI/button/Button";
 import cometa from "../../assets/images/footer/cometa.png"
 

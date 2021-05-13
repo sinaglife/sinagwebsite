@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "@reach/router";
+import {Link} from "react-router-dom";
 
 import classes from "./UserTooltip.module.scss"
 
@@ -9,7 +9,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
         <>
         {
             !user ?
-            <div className={classes.tooltip__container} onMouseLeave={isCloseToolTip}>
+            <div className={classes.tooltip__container} >
                 <button >
                 <Link style={{color: "rgb(0, 0, 0)", textDecoration: "none"}}
                   to="/entrar" 
@@ -21,7 +21,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
                     <p>Aun no tienes cuenta?</p>
                 </div>
                 <button style={{border: "none", backgroundColor: "transparent"}}>
-                    <Link to="nuevo-usuario"
+                    <Link to="/nuevo-usuario"
                     onClick={isCloseToolTip}
                     className={classes.tooltip__register}>
                         <p>Registrarse</p>
@@ -31,13 +31,13 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
             :
             <div className={classes.tooltip__container__logout}>
                 <Link style={{color: "#CDA34A" }}
-                 to="olvido-contrasena"
+                 to="/olvido-contrasena"
                     onClick={isCloseToolTip}
                 >
                     <p>Cambiar contraseña</p>
                 </Link>
                 <button onClick={singOut}>salir</button>
-                <Link  to="olvido-contrasena"
+                <Link  to="/olvido-contrasena"
                     onClick={isCloseToolTip}
                 >
                     <p className={classes.unsubscribe}>Darme de baja</p>

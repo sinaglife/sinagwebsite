@@ -1,5 +1,8 @@
-import React, {lazy, Suspense} from 'react'
-import { Router} from "@reach/router";
+import React, {lazy} from 'react'
+import {
+    Switch,
+    Route
+  } from "react-router-dom";
 
 const TramitacionEnvios = lazy(()=> import("./TramitacionEnvios"))
 const PoliticaCookies = lazy(()=> import('./PoliticaCookies'))
@@ -10,13 +13,13 @@ const PoliticasDevoluciones = lazy(()=> import('./PoliticasDevoluciones'))
 const InfoRoutesContainer = () => {
     return (
         <div>
-            <Router>
-                <TramitacionEnvios path="/tramitacion-envios"/>
-                <PoliticaCookies  path="/politica-cookies"/>
-                <PoliticasDevoluciones  path="/politica-de-devoluciones"/>
-                <PoliticasPrivacidad  path="/politicas-de-privacidad"/>
-                <PreguntasFrecuentes  path="/preguntas-frecuentes"/>
-            </Router>
+            <Switch>
+                <Route component={TramitacionEnvios} path="/tramitacion-envios"/>
+                <Route component={PoliticaCookies}  path="/politica-cookies"/>
+                <Route component={PoliticasDevoluciones}  path="/politica-de-devoluciones"/>
+                <Route component={PoliticasPrivacidad}  path="/politicas-de-privacidad"/>
+                <Route component={PreguntasFrecuentes}  path="/preguntas-frecuentes"/>
+            </Switch>
         </div>
     )
 }

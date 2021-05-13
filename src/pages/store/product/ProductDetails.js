@@ -1,9 +1,8 @@
 import React, {useState, useEffect, Fragment} from 'react'
-import Button from "../../../components/UI/button/Button"
 import FilterBySize from "./components/FilterBySize"
 import Quantity from "./components/Quantity"
 import RatingComponent from "./components/RatingComponent"
-import { useParams } from "@reach/router"
+import {useParams} from "react-router-dom";
 import {addProductToBasket} from "../../../redux/basket/basket.actions"
 import { useDispatch} from "react-redux"
 import visa from "../../../assets/images/visa.svg"

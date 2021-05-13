@@ -1,6 +1,6 @@
 import React from 'react'
 import {CardElement} from '@stripe/react-stripe-js';
-//import { redirectTo } from "@reach/router";
+
 
 import classes from "./StripeContainer.module.scss"
 

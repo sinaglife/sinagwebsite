@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useFormik } from 'formik';
 import { useSelector, useDispatch} from "react-redux"
-import { redirectTo } from "@reach/router";
+import { useHistory } from "react-router-dom";
 import { registerWithEmailAndPassword } from "../../utils/user.utils"
 
 import classes from "./RegistroSingIn.module.scss"
@@ -16,6 +16,7 @@ export const InputRow = ({
     style,
     checked
     })=>{
+
     return(
         <div className={style || classes.create__user__row}>
             <label>{label}</label>
@@ -32,10 +33,11 @@ const Register = () => {
 
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
+    let history = useHistory()
 
     useEffect(()=>{
         if(user){
-            redirectTo("/")
+            history.push("/")
         }
     }, [user])
 

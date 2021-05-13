@@ -12,7 +12,7 @@
   box-shadow: 1px, 0px, 7px, rgba(0, 0, 0, 0.5);
   transform: translateX(-100%);
   transition: 0.3s;
-  padding:0 0.5rem;
+  padding:0.2rem 0.5rem;
 }
 
 .sideDrawer ul {
@@ -39,6 +39,39 @@
 .sideDrawer p {
   font-size: 22px;
   color: white;
+  margin: 0;
 }
 
 
+@media (max-width: 500px){
+  
+  .sideDrawer p {
+    font-size: 1rem;
+    color: white;
+    margin-left: 0.2rem;
+  }
+}
+
+@media  (min-width: 767px)  and (max-width: 1023px){
+  .sideDrawer p {
+    font-size: 1.3rem;
+    margin-left: 0.2rem;
+  }
+}
+
+@media  (min-width: 1024px)  and (max-width: 1300px){
+
+  .sideDrawer {
+    width: 320px;
+    height: 620px;
+  }
+
+  .sideDrawer__list{
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+  .sideDrawer p {
+    font-size: 1.5rem;
+    margin-left: 0.2rem;
+  }
+}

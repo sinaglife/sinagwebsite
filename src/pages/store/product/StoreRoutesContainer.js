@@ -1,30 +1,32 @@
 import React  from 'react'
-import Container from "./Container"
 import Store from "./Store"
 import Products from "./ProductDetails"
 import Index from "./index"
-import { Router} from "@reach/router";
+import {
+    Switch,
+    Route
+  } from "react-router-dom";
 
 const StoreRoutesContainer = ({isMenu}) => {
 
     return (
         <div>
-            <Router>
-                <Container render={(data)=> <Store  data={data}/>} path="/mala"/>
-                <Container render={(data)=> <Store data={data}/>} path="/kokedamas"/>
-                <Container render={(data)=> <Store data={data}/>} path="/colgantes"/>
-                <Container render={(data)=> <Store data={data}/>} path="/hombre"/>
-                <Container render={(data)=> <Store data={data}/>} path="/ninos"/>
-                <Container render={(data)=> <Store data={data}/>} path="/pendientes"/>
-                <Container render={(data)=> <Store data={data}/>} path="/pulseras"/>
-                <Container render={(data)=> <Store data={data}/>} path="/anillos"/>
-                <Container render={(data)=> <Store data={data}/>} path="/complementos"/>
-                <Container render={(data)=> <Store data={data}/>} path="/cuidado-de-tu-ser"/>
-                <Container render={(data)=> <Store data={data}/>} path="/espiritualidad"/>
-                <Index path="/tienda" />
-                <Index path="/mujer" isMenu={isMenu}/>
-                <Container render={(data)=> <Products  data={data}/>} path="/:x/productos/:id"/>
-            </Router>
+            <Switch>
+                <Route  component={Store} path="/mala"/>
+                <Route  component={Store} path="/kokedamas"/>
+                <Route  component={Store} path="/colgantes"/>
+                <Route  component={Store} path="/hombre"/>
+                <Route  component={Store} path="/ninos"/>
+                <Route  component={Store} path="/pendientes"/>
+                <Route  component={Store} path="/pulseras"/>
+                <Route  component={Store} path="/anillos"/>
+                <Route  component={Store} path="/complementos"/>
+                <Route  component={Store} path="/cuidado-de-tu-ser"/>
+                <Route  component={Store} path="/espiritualidad"/>
+                <Route component={Index} path="/tienda" />
+                <Route render={()=> <Index isMenu={isMenu}/>} path="/mujer" />
+               
+            </Switch>
             
         </div>
     )
@@ -34,3 +36,7 @@ const StoreRoutesContainer = ({isMenu}) => {
 
 export default StoreRoutesContainer
 
+/*
+ <Route render={(data)=> <Products  data={data}/>} path="/:x/productos/:id"/>
+
+*/

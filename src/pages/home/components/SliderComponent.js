@@ -4,7 +4,7 @@ import {getSliderData} from "../../../utils/functions"
 import Loading from "../../../components/Loading"
 import classes from "./Slider.module.scss";
 
-const SliderComponent = () => {
+const SliderComponent = ({datoToSlider}) => {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [visibleControls, setVisibleControls] = useState(true);
@@ -21,17 +21,13 @@ const SliderComponent = () => {
 }, [visibleControls])
 
 
-  useEffect(() => {
-
-      getSliderData().then(res => {
-         
-          setSliderData( res.data?.sort((a, b) => {
-            return (
-              parseInt(a.slug[a.slug.length - 1]) -
-              parseInt(b.slug[b.slug.length - 1])
-            );
-          }))
-      })
+  useEffect(() => {    
+      setSliderData( datoToSlider?.sort((a, b) => {
+        return (
+          parseInt(a.slug[a.slug.length - 1]) -
+          parseInt(b.slug[b.slug.length - 1])
+        );
+      }))
       
   }, [sliderData, currentImage])
 

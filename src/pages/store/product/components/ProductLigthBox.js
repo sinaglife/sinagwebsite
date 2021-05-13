@@ -5,7 +5,7 @@ import FacebookButton from "../../../../components/UI/social-media-buttons/Faceb
 import WhatsAppButton from "../../../../components/UI/social-media-buttons/WhatsAppButton"
 import {addProductToBasket} from "../../../../redux/basket/basket.actions"
 import { useDispatch} from "react-redux"
-import { Link } from "@reach/router";
+import {Link} from "react-router-dom";
 
 import classes from "./ProductLightBox.module.scss"
 

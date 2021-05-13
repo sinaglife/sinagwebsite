@@ -2,8 +2,8 @@ import React, {useEffect}  from 'react'
 import {InputRow} from "./Register"
 import googleIcon from "../../assets/images/google.svg"
 import { useFormik } from 'formik';
+import { useHistory, Link } from "react-router-dom";
 import {logInWithGoogle, logWithEmailAndPassword} from "../../utils/user.utils"
-import { Link, redirectTo } from "@reach/router";
 import { connect } from 'react-redux'
 
 import classes from "./RegistroSingIn.module.scss"
@@ -11,10 +11,11 @@ import classes from "./RegistroSingIn.module.scss"
 
 const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
 
+    let history = useHistory()
     useEffect(()=>{
         window.scrollTo(0,0)
         if(user){
-            redirectTo("/")
+            history.push("/")
         }
     }, [user])
 

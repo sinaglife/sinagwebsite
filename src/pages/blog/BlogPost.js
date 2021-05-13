@@ -1,8 +1,7 @@
 import React,{Fragment, useState, useEffect} from 'react';
 import axios from "axios";
-import { useParams } from "@reach/router";
+import {useParams} from "react-router-dom";
 import Loading from "../../components/Loading"
-
 import classes from "./BlogPost.module.scss";
 
 const BlogPost = (props)=> {
@@ -14,9 +13,10 @@ const BlogPost = (props)=> {
 
     useEffect(()=>{
         axios
-        .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
+        .get(`http://localhost:8080/api/blog`)
         .then((res)=>{
-            let dataArray = res.data.filter((post)=>{
+            console.log(res.data)
+            let dataArray = res.data.data.filter((post)=>{
         
                 return post.slug === params.slug;
             });
@@ -129,3 +129,18 @@ const BlogPost = (props)=> {
 };
 
 export default BlogPost;
+
+
+/*
+
+  axios
+        .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
+        .then((res)=>{
+            let dataArray = res.data.filter((post)=>{
+        
+                return post.slug === params.slug;
+            });
+            console.log(dataArray)
+            setPostData(dataArray[0]);
+
+*/

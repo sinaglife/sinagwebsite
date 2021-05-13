@@ -10,14 +10,14 @@ const Blog = (props)=> {
 
     useEffect(()=>{
         axios
-            .get(`https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100`)
+            .get(`http://localhost:8080/api/blog`)
             .then((res)=>{
-                let dataArray = res.data;
-                setBlogData(dataArray);
+                setBlogData(res.data.data)
             });
+            if(blogData) console.log(blogData)
     }, [props]);
 
-    return blogData ? (
+    return blogData  ? (
         <div className={classes.blog}>
             <h1 className={classes.blogTitle}>Blog</h1>
             <p className={classes.blogParagraph}>
@@ -25,7 +25,7 @@ const Blog = (props)=> {
             </p>
             <div className={classes.postBoxContainer}>
                 {
-                    blogData?.map((post)=>{
+                  blogData.length > 0 &&  blogData.map((post)=>{
                         return <PostBox 
                                 key={post.acf.post_title} 
                                 postData={post}

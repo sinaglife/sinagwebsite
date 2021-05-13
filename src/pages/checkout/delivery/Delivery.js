@@ -1,6 +1,6 @@
 import React from 'react'
 import {InputRow} from "../../registro_singIn/Register"
-import { Link} from "@reach/router";
+import {Link} from "react-router-dom";
 import classes from "./Delivery.module.scss"
 
 

@@ -29,7 +29,7 @@ const Mosaic = ({data}) => {
   };
 
   const renderMosaicProducts =
-      data.map((product, i) => {
+      data?.map((product, i) => {
         if(i < 12){
           return (
             <div className={classes.mosaic__product}>

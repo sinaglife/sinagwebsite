@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 import classes from "./Toolbar.module.scss";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "@reach/router";
+import {Link} from "react-router-dom";
 import Logo from "../../assets/images/LogoSinagSinV&D.jpeg";
 import Button from "../UI/button/Button";
 import UserTooltip from "./components/UserTooltip"
@@ -51,63 +49,60 @@ const LogoHeader = () => {
 const Toolbar = ({basket, user, singOut, ...props}) =>{
   const [isTooltip, setIsTooltip] = useState(false)
   const [basketLength, setBasketLength] = useState()
-  const [coord, setCoord] = useState({
-    x: 0,
-    y: 0
-  })
+
+  const basketAmountSt = window.innerWidth >= 1000 ? "regular" : "responsive"
 
   useEffect(() => { 
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
-  useEffect(()=> {
-    if(coord.x >= window.innerWidth - 50 || coord.x <= 800 || coord.y >= 410 || coord.y <= 50) setIsTooltip(false)
-  }, [coord])
 
+  const handleUserTooltip = ()=> {
+    
+  }
   const isOpenToolTip = (e)=> setIsTooltip(true)
 
   const isCloseToolTip = (e)=>  setIsTooltip(false)
    
-const hanldeMouseMove = (e)=> {
-  //console.log(e.clientX, e.clientY)
-  //console.log(window.innerWidth)
-  setCoord({
-    x: e.clientX,
-    y: e.clientY
-  })
-}
+
 
 return (
-      <div className={classes.toolbar}  onMouseMove={hanldeMouseMove}>
+      <div className={classes.toolbar} >
         <div className={classes.toolbar__mainButton} onClick={props.open}>
-          <IconButton>
-            <MenuIcon />
-          </IconButton>
+          <Button
+            icon="menuBars"
+            color="black"
+            size="big"
+            padding="noPadding"
+          />
         </div>
         <LogoHeader/>
         <div className={classes.toolbar__rightContainer}>
-         <div className={classes.toolbar__right__user}    
-         onMouseMove={isOpenToolTip}
-         >
-            {
-              window.innerWidth >= 1000 && user?.additionalUserInfo?.profile?.name && <span>{user.additionalUserInfo.profile.name}</span>
-            }
-            <Button
-              icon="account"
-              color="black"
-              size="medium"
-              padding="noPadding"
-            />  
-         </div>
+          <div className={classes.toolbar__right__user}    
+          onClick={()=> setIsTooltip(!isTooltip)}
+          >
+              {
+                window.innerWidth >= 1000 &&
+                 user?.additionalUserInfo?.profile?.name &&
+                  <span className={classes.toolbar__basket__total}>{user.additionalUserInfo.profile.name}</span>
+              }
+              <Button
+                icon="account"
+                color="black"
+                size="big"
+                padding="noPadding"
+              />  
+          </div>
           <div className={classes.toolbar__right__basket}>
             {
-              window.innerWidth >= 1000 && <span>{basketLength}</span>
+              window.innerWidth >= 1000 && <span className={basketAmountSt}>{basketLength}</span>
             }
+            
             <Link to="/cesta">
               <Button
                 icon="kart"
                 color="black"
-                size="medium"
+                size="big"
                 padding="noPadding"
               />
             </Link>

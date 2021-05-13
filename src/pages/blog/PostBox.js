@@ -1,11 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import classes from "./PostBox.module.scss";
 
-import { Link } from "@reach/router";
-
 const PostBox = ({ postData }) => {
+  console.log(postData.slug)
   let blogRoute = postData.slug;
-  console.log(postData?.acf.post_lobbyImage.url);
+
   return (
     <Link to={`/blog/${blogRoute}`} style={{ textDecoration: "none" }}>
       <div className={classes.card}>

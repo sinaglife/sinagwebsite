@@ -7,7 +7,7 @@
   align-items: center;
   background-color: $colorTwo;
   box-sizing: border-box;
-  padding: 0 10px;
+  padding: 0 15px;
   .shrunk {
     max-width: 60px;
     transition: 1s;
@@ -40,7 +40,13 @@
 .toolbar__rightContainer {
   @extend .buttonWidth;
   justify-content: flex-end;
-  span{
+  .regular{
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  .responsive{
+    position: absolute;
     font-weight: bold;
     font-size: 0.8rem;
   }
@@ -55,10 +61,6 @@
     justify-content: center;
   }
 }
-
-
-
-
 
 @media (max-width: 420px) {
 

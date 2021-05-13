@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from '@reach/router'
+import {Link} from "react-router-dom";
 import Mujer from '../../../assets/images/Tienda/Mujer.jpg'
 import Hombre from '../../../assets/images/Tienda/Hombre.jpg'
 import Ninos from '../../../assets/images/Tienda/Ninos.jpg'

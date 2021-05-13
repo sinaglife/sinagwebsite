@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from "./Home.module.scss";
-import Slider from "./components/Slider";
 import banner from "../../assets/images/sinagBanner.jpg";
 import blog from "../../assets/images/homeBlog_img.jpg";
 import mala from "../../assets/images/home/japamala-image.jpg";
@@ -11,15 +10,15 @@ import Mosaic from "./components/Mosaic";
 import SliderComponent from './components/SliderComponent';
 
 
-const Home = ({data})=> {
+const Home = ({data, datoToSlider, dataToMosaic})=> {
     return (
         <div className={classes.home}>
-                <SliderComponent/>
+                <SliderComponent datoToSlider={datoToSlider}/>
             <div className={classes.home__slogan}>
                 <h2>"Inspirados En Crear Desde El Alma."</h2> 
             </div>
             <Parallax   bgImage={piedras} strength={1200}  bgClassName={classes.ParaImg} blur={0}>
-                {data && <Mosaic data={data}/>}
+                {data && <Mosaic data={dataToMosaic}/>}
             </Parallax>
             <div className={classes.home__banner}>
                 <img src={banner} alt="envios a toda europa"/>

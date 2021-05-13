@@ -1,8 +1,15 @@
-import React, { useState, lazy, Suspense } from 'react';
-import { Router} from "@reach/router";
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import {getSliderData} from "./utils/functions"
+import axios from "axios"
 import Loading from "./components/Loading"
+
+
 
 import './App.css';
 
@@ -27,8 +34,34 @@ const App = ()=> {
 
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(true);
+  const [sliderData, setSliderData] = useState([])
+  const [mosaicData, setMosaicData] = useState([])
 
   const isMenu = true;
+
+  useEffect( ()=>{
+    try {
+     getSliderData().then((res)=>{
+
+       setSliderData(res.data)
+     })
+      
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
+  useEffect(()=> {
+
+   const getMosaicData = () => {
+    axios.post("http://localhost:8080/api/products").then((res)=>{
+      console.log("mosaico",res.data)
+      setMosaicData(res.data.data)
+    })
+   }    
+   getMosaicData() 
+
+}, [])
 
   const sideDrawerOpenHandler = () =>{
     setSideDrawerOpen(true)
@@ -62,19 +95,40 @@ const App = ()=> {
           {sideDrawer}
           {backdrop}
           <div className="app__body" >
-            <Router>
-              <Blog path="/blog" />
-              <BlogPost path="blog/:slug" />
-              <Container render={(data)=> <Home  data={data}/>} path="/"/>
-              <Conocenos path="/conocenos"/>
-              <GuiaTallas path="/tallas"/>
-              <Register path="/nuevo-usuario"/>
-              <SingIn path="entrar"/>
-              <ForgotPassword path="olvido-contrasena"/>
-              <StripeContainer path="pago"/>
-              <MainBasket path="/cesta"/>
-              <Checkout path="/checkout"/>
-            </Router>
+            <Switch>
+              <Container exact render={(data)=> <Home dataToMosaic={mosaicData} datoToSlider={sliderData}  data={data}/>} path="/"/>
+              <Route exact  path="/blog" >
+                <Blog/>
+              </Route>
+              <Route exact path="/blog/:slug">
+                <BlogPost/>
+              </Route>
+              <Route exact path="/conocenos">
+                <Conocenos/>
+              </Route>
+             
+              <Route exact path="/tallas">
+                <GuiaTallas />
+              </Route>
+              <Route exact path="/nuevo-usuario">
+                <Register/>
+              </Route>
+              <Route exact path="/entrar">
+                <SingIn />
+              </Route>
+              <Route exact path="olvido-contrasena">
+                <ForgotPassword />
+              </Route>
+              <Route exact path="/pago">
+                <StripeContainer/>
+              </Route>
+              <Route exact  path="/cesta">
+                <MainBasket  />
+              </Route>
+              <Route exact path="/checkout">
+                <Checkout />
+              </Route>  
+            </Switch>
             <InfoRoutesContainer/>
             <StoreRoutesContainer isMenu={isMenu}/>
           </div>
