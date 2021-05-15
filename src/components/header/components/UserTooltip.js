@@ -11,21 +11,23 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
             !user ?
             <div className={classes.tooltip__container} >
                 <Link 
-                className={classes.tooltip__button} 
                 to="/entrar" 
                 onClick={isCloseToolTip}
                 >
-                    entrar
+                    <p className={classes.tooltip__button}>
+                        entrar
+                    </p>
                 </Link>
                 <p className={classes.tooltip__paragraph}>
                     Aun no tienes cuenta?
                 </p>
                 <Link
-                className={classes.tooltip__button}
                 to="/nuevo-usuario"
                 onClick={isCloseToolTip}
                 >
-                     Registrarse 
+                    <p className={classes.tooltip__button}>
+                        Registrarse
+                    </p> 
                 </Link>
             </div>
             :

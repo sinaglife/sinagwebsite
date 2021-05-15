@@ -1,24 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import ProductGallery from "./ProductGallery"
 import FilterBar from "./components/FilterBar"
 import kokeLogo from "../../../assets/images/koketropic-logo.jpeg";
 import Loading from "../../../components/Loading"
-import {getProducts} from "../../../redux/products/products.actions"
 
 import classes from "./Store.module.scss";
 
-const Store = () => {
+const Store = ({data}) => {
 
     const [filterValue, setFilterValue] = useState("")
     const param = (window.location.pathname).replace("/", "").toLowerCase().trim();
-    const [data, setData] = useState([])
     console.log(param)
     let list;
     const title = param.includes("-") ? param.replace(/-/gi, " ") : param
-    
-    useEffect(()=> {
-        setData(getProducts())    
-   }, [data])
 
     const getProductsByCategory = (data)=> {
         let itemsByCategorie;
@@ -33,7 +27,7 @@ const Store = () => {
         else return itemsByCategorie
     }
     
-    list = getProductsByCategory(data)
+    if(data && data.length > 0) list = getProductsByCategory(data)
 
     return (
         <div>

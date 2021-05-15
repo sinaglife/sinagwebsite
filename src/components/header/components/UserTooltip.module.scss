@@ -1,3 +1,14 @@
+
+._const__buttons{
+    width: 80%;
+    padding: 0.3rem;
+    margin: 0 auto;
+    text-transform: uppercase;
+    border: none;
+    background-color: #CDA34A;
+    color: rgb(255, 255, 255);
+}
+
 .tooltip__container{
     position: absolute;
     top: 130px;
@@ -8,15 +19,13 @@
     width: 200px;
     border-radius: 5px;
 }
+
+
 .tooltip__button{
-    width: 80%;
-    padding: 0.3rem;
-    margin: 0 auto;
-    text-transform: uppercase;
-    border: none;
-    background-color: #CDA34A;
-    color: rgb(255, 255, 255);
-    justify-content: center;
+    @extend ._const__buttons;
+}
+.tooltip__button p{
+    @extend ._const__buttons;
 }
 
 .tooltip__paragraph{
