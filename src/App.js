@@ -116,7 +116,7 @@ const App = ()=> {
               <Route exact path="/entrar">
                 <SingIn />
               </Route>
-              <Route exact path="olvido-contrasena">
+              <Route exact path="/olvido-contrasena">
                 <ForgotPassword />
               </Route>
               <Route exact path="/pago">

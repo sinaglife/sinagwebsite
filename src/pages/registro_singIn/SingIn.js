@@ -1,12 +1,16 @@
 import React, {useEffect}  from 'react'
-import {InputRow} from "./Register"
+//import {InputRow} from "./Register"
 import googleIcon from "../../assets/images/google.svg"
 import { useFormik } from 'formik';
 import { useHistory, Link } from "react-router-dom";
 import {logInWithGoogle, logWithEmailAndPassword} from "../../utils/user.utils"
 import { connect } from 'react-redux'
+import {
+    FormComponent, 
+    InputRow
+} from "../../components/form/FormComponent"
 
-import classes from "./RegistroSingIn.module.scss"
+import classes from "./SingIn.module.scss"
 
 
 const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
@@ -48,10 +52,13 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
         }
     });
     return (
-        <div className={classes.container__form}>
-           <h3>Entrar</h3> 
-           <form onSubmit={formik.handleSubmit}>
-                <InputRow 
+        <FormComponent
+        title="Entrar"
+        onSubmit={formik.handleSubmit}
+        isSubmitting={formik.isSubmitting}
+        buttonTitle="Aceptar"
+        >
+            <InputRow 
                 error={formik.errors.email}
                 name="email" label="Email"
                 value={formik.values.email}
@@ -63,14 +70,16 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
                  onChange={formik.handleChange}
                  type="password"
                  />
-                <div className={classes.remember__password}>
+                <div className={classes.singIn__remember}>
                     <input type="checkbox" name="remember"/>
                     <p>Recordar contraseña</p>
                 </div>
                 <Link to="/olvido-contrasena">
-                    ¿Olvido su contraseña?
+                    <p className={classes.singIn__linkTo}>
+                        ¿Olvido su contraseña?
+                    </p>
                 </Link>
-                <div className={classes.buttons__container}>
+                <div className={classes.singIn__submit__buttons}>
                     <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}}
                      type="submit">
                          Aceptar
@@ -83,10 +92,11 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
                 </div>
                    
                 <Link to="/nuevo-usuario" >
-                    ¿Aún no tienes cuenta?
+                    <p className={classes.singIn__linkTo}>
+                        ¿Aun no tienes cuenta?
+                    </p>
                 </Link>
-           </form>
-        </div>
+        </FormComponent>
     )
 }
 

@@ -3,31 +3,10 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch} from "react-redux"
 import { useHistory } from "react-router-dom";
 import { registerWithEmailAndPassword } from "../../utils/user.utils"
+import {InputRow, FormComponent} from "../../components/form/FormComponent"
 
 import classes from "./RegistroSingIn.module.scss"
 
-export const InputRow = ({
-    label,
-    name,
-    type,
-    value,
-    onChange,
-    error,
-    style,
-    checked
-    })=>{
-
-    return(
-        <div className={style || classes.create__user__row}>
-            <label>{label}</label>
-            <input name={name} type={type} checked={checked} value={value}  onChange={onChange}/>
-            {
-                error && <p>{error}</p>
-            }
-        </div>
-       
-    )
-};
 
 const Register = () => {
 
@@ -74,27 +53,31 @@ const Register = () => {
     });
 
     return (
-        <div className={classes.container__form}>
-            <h3>crear usuario</h3>
-            <form onSubmit={formik.handleSubmit} >
-                <InputRow
-                 error={formik.errors.email}
-                type="email" 
-                onChange={formik.handleChange}
-                name="email" value={formik.values.email}
-                label="Email"
-                />
-                <InputRow
-                error={formik.errors.password}
-                type="password" 
-                onChange={formik.handleChange}
-                name="password" value={formik.values.password}
-                label="Contraseña"
-                />
-                <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}} type="submit">Crear</button>
-            </form>
-        </div>
+            <FormComponent>
+            <InputRow
+             error={formik.errors.email}
+            type="email" 
+            onChange={formik.handleChange}
+            name="email" 
+            value={formik.values.email}
+            label="Email"
+            />
+            <InputRow
+            error={formik.errors.password}
+            type="password" 
+            onChange={formik.handleChange}
+            name="password" 
+            value={formik.values.password}
+            label="Contraseña"
+            />
+            <button className={classes.register__button} 
+            type="submit">
+                Crear
+            </button>
+        </FormComponent>
     )
 }
 
 export default Register
+
+

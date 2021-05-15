@@ -1,6 +1,9 @@
 import React from 'react'
 import { useFormik } from 'formik';
-import {InputRow} from "./Register"
+import {
+    FormComponent, 
+    InputRow
+} from "../../components/form/FormComponent"
 import { passwordReset}  from "../../utils/user.utils"
 
 import classes from "./RegistroSingIn.module.scss"
@@ -30,21 +33,17 @@ const ForgotPassword = () => {
         }
     });
     return (
-        <div className={classes.container__form}>
-            <h3>restablecer contraseña</h3>
-            <p>Le enviaremos un email, para restablecer su contraseña.</p>
-            <form onSubmit={formik.handleSubmit}>
-                <InputRow 
-                 error={formik.errors.email}
-                label="Email"
-                name="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}/>
-                     <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}} type="submit">
-                         Enviar
-                    </button>
-            </form>
-        </div>
+        <FormComponent>
+            <InputRow 
+             error={formik.errors.email}
+            label="Email"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}/>
+            <button className={classes.register__button} type="submit">
+             Enviar
+            </button>
+        </FormComponent>
     )
 }
 

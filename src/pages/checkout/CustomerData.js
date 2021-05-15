@@ -1,5 +1,5 @@
 import React from 'react'
-import {InputRow} from "../registro_singIn/Register"
+import {InputRow} from "../../components/form/FormComponent"
 import classes from "./CustomerData.module.scss"
 
 

@@ -2,8 +2,12 @@ import React from 'react';
 import classes from "./Home.module.scss";
 import banner from "../../assets/images/sinagBanner.jpg";
 import blog from "../../assets/images/homeBlog_img.jpg";
-import mala from "../../assets/images/home/japamala-image.jpg";
-import taller from "../../assets/images/home/taller-espiritualidad-img.jpg";
+import desktopMalaImg from "../../assets/images/home/desktop-mala-image.jpg";
+import mobileMalaImg from "../../assets/images/home/mobile-mala-image.jpg";
+import desktopTallerImg from "../../assets/images/home/desktop-taller-image.jpg";
+import mobileTallerImg from "../../assets/images/home/mobile-taller-image.jpg";
+import desktopEspiritualidadImg from "../../assets/images/home/desktop-espiritualidad-image.jpg";
+import mobileEspiritualidadImg from "../../assets/images/home/mobile-espiritualidad-image.jpg";
 import piedras from "../../assets/images/piedrasFondo.jpg"
 import {Parallax} from "react-parallax";
 import Mosaic from "./components/Mosaic";
@@ -11,6 +15,11 @@ import SliderComponent from './components/SliderComponent';
 
 
 const Home = ({data, datoToSlider, dataToMosaic})=> {
+
+    const malaImg = window.innerWidth > 500 ? desktopMalaImg : mobileMalaImg
+    const tallerImg = window.innerWidth > 500 ? desktopTallerImg : mobileTallerImg
+    const espiritualidadImg = window.innerWidth > 500 ? desktopEspiritualidadImg : mobileEspiritualidadImg
+    
     return (
         <div className={classes.home}>
                 <SliderComponent datoToSlider={datoToSlider}/>
@@ -24,28 +33,31 @@ const Home = ({data, datoToSlider, dataToMosaic})=> {
                 <img src={banner} alt="envios a toda europa"/>
             </div>
             <div className={classes.home__mala}>
-                    <p><span>¿POR QUÉ TIENE 108 CUENTAS?</span> Hinduista: El mala posee 108 cuentas, 
-                    es un número sagrado. Hay 108 letras en el alfabeto sánscrito. El diámetro del Sol 
-                    es aproximadamente 108 veces más grande que el diámetro de la Tierra
-                    <a  href="/mala">Saber más</a>
-                    
-                    </p>
-                    <img src={mala} alt="blog" />
+                <div>
+                <span>JAPAMALA 108 CUENTAS</span> 
+                    <p>Es el rosario hindú por excelencia, 
+                        empleado para recitar mantras, frases o palabras 108 veces, es una herramienta
+                        práctica y al mismo tiempo está llena de simbolismo. Lo que se busca 
+                        con esta experiencia es la concentración y la unión entre el cuerpo y 
+                        espíritu a través de la meditación.</p> 
+                    <a href="/mala">Saber más</a>
+                </div>    
+                <img src={malaImg} alt="japamala-108-cuentas" />
             </div>
             <div className={classes.home__blog}>
                 <img src={blog} alt="blog" />
-                <p><strong>LAS PIEDRAS Y SU MAGIA:</strong> Cada piedra tiene
+                <div className={classes.home__blog__info}>
+                    <strong>LAS PIEDRAS Y SU MAGIA:</strong><p>Cada piedra tiene
                     un potencial desconocido, es el regalo que
                     nos da la naturaleza de tan diversas formas y
                     colores, llegan a nuestras vidas para sanar algún
-                    aspecto de nosotros.
+                    aspecto de nosotros.</p>
                     <a  href="/blog">Mas info</a>
-                </p>
+                </div>
             </div>
             <div className={classes.home__taller}>
-                <img src={taller} alt="" />
-                <button className={classes.home__taller__btn}>Diseña aquí</button>
-                <button className={classes.home__espiritualidad__btn}>Meditemos</button>
+                <img src={tallerImg} alt="" />
+                <img src={espiritualidadImg} alt="" />
             </div>
                 
         </div>

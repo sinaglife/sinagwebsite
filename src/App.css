@@ -4,12 +4,14 @@
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
+  margin-top: 7.5rem;
 }
 
 
 .app__body{
   flex: 1;
   margin-bottom: -0.5rem;
+
 }
 
 
@@ -29,17 +31,13 @@ button:focus, button:active {
   height: 200px;
 }
 
-@media  (min-width: 500px){
-  .app__body{
-    margin-top: 0;
+@media  (max-width: 500px){
+  .app{
+    margin-top: 5rem;
   }
 }
 
 @media (max-width: 767.98px){
-  
-.app__body{
-  margin-top: 5.8rem;
-}
 
   .koketropic__logo{
     width: 200px;
@@ -53,46 +51,3 @@ button:focus, button:active {
 
 }
 
-/*
- color: rgb(204, 192, 137);
-@media (min-width: 575.99px) and (max-width: 767.98px) {
-  .app__body {
-    padding-top: 170px;
-  }
-}
-
-.app__body2{
-  grid-area: body;
-}
-@media (min-width: 767.99px) and (max-width: 991.98px) {
-  .app__body {
-    padding-top: 130px;
-  }
-}
-@media (min-width: 991.99px) {
-  .app__body {
-    padding-top: 180px;
-  }
-} 
-
-
-.app__footer{
-  grid-area: footer;
-}
-
-.app{
-  text-align: center;
-  display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-areas: 
-  "header"
-  "body"
-  "footer";
-}
-.app__header{
-  z-index: 100;
-  grid-area: header;
-  position: sticky;
-  top: 0;
-}
-*/

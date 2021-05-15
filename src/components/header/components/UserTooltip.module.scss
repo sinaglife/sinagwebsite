@@ -1,4 +1,3 @@
-
 .tooltip__container{
     position: absolute;
     top: 130px;
@@ -8,60 +7,81 @@
     padding: 1rem  0.5rem;
     width: 200px;
     border-radius: 5px;
-    button{
-        width: 80%;
-        padding: 0.3rem;
-        text-transform: uppercase;
-        border: none;
-        background-color: #CDA34A;
-        color: rgb(255, 255, 255);
+}
+.tooltip__button{
+    width: 80%;
+    padding: 0.3rem;
+    margin: 0 auto;
+    text-transform: uppercase;
+    border: none;
+    background-color: #CDA34A;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+}
+
+.tooltip__paragraph{
+    font-size: 1rem;
+    margin: 0.5rem auto;
+    color: rgb(182, 182, 182);
+}
+
+.tooltip__unsubscribe p{
+    font-size: 0.5rem;
+    margin: 0.5rem auto;
+    color: rgb(182, 182, 182);
+}
+
+.tooltip__change__password p{
+    font-size: 1rem;
+    margin: 0.5rem auto;
+    color: #CDA34A;
+}
+
+
+@media (min-width: 550.99px) and (max-width: 991.98px) {
+
+    .tooltip__container{
+        width: 250px;
     }
-    .tooltip__remember{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    
+    .tooltip__button{
+        padding: 0.5rem;
+    }
+    
+    .tooltip__paragraph{
+        font-size: 1.5rem;
+    }
+    
+    .tooltip__unsubscribe p{
         font-size: 1rem;
-        width: 100%;
-        padding: 0.2rem;
-        p{
-            padding-top: 0.8rem;
-            margin-left: 0.4rem;
-        }
     }
-    .tooltip__register{
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        p:hover{
-            color: rgb(134, 134, 134);
-        }
+    
+    .tooltip__change__password p{
+        font-size: 1.2rem;
     }
 }
 
-.tooltip__container__logout{
-    z-index: 9;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 120px;
-    border: 0.5px solid rgb(204, 204, 204);
-    background-color: rgb(255, 254, 254);
-    padding: 1rem  0.5rem;
-    width: 200px;
-    border-radius: 5px;
-    button{
-        width: 80%;
-        padding: 0.3rem;
-        text-transform: uppercase;
-        border: none;
-        background-color: #CDA34A;
-        color: rgb(255, 255, 255);
+@media (min-width: 991.98px) and (max-width: 1300px) {
+
+    
+    .tooltip__container{
+        width: 320px;
     }
-    .unsubscribe{
-        font-size: 0.5rem;
-        margin-top: 0.5rem;
-        color: rgb(182, 182, 182);
+    
+    .tooltip__button{
+        padding: 0.5rem;
     }
+    
+    .tooltip__paragraph{
+        font-size: 1.5rem;
+    }
+    
+    .tooltip__unsubscribe p{
+        font-size: 1.2rem;
+    }
+    
+    .tooltip__change__password p{
+        font-size: 1.5rem;
+    }
+
 }
-
-
