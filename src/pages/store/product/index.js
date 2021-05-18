@@ -15,7 +15,7 @@ import anillos from '../../../assets/images/Tienda/anillos-sinag.jpg'
 import classes from './tienda.module.scss'
 
 
-function Tienda  ({isMenu, bottomMenu}) {
+function Tienda  ({isMenu}) {
   const menuArray = [
     {
       name: "MUJER",

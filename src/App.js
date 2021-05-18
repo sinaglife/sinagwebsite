@@ -1,4 +1,9 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, {
+   useState, 
+   useEffect, 
+   lazy, 
+   Suspense
+  } from 'react';
 import {
   Switch,
   Route,
@@ -8,9 +13,6 @@ import Footer from "./components/footer/Footer";
 import {getSliderData} from "./utils/functions"
 import axios from "axios"
 import Loading from "./components/Loading"
-
-
-
 import './App.css';
 
 const Container = lazy(()=>import("./pages/store/product/Container"))
@@ -42,24 +44,24 @@ const App = ()=> {
   useEffect( ()=>{
     try {
      getSliderData().then((res)=>{
-
+      console.log(res.data)
        setSliderData(res.data)
      })
       
     } catch (error) {
-      console.log(error)
+      console.log("problema slider",error)
     }
-  })
+  }, [])
 
-  useEffect(()=> {
-
-   const getMosaicData = () => {
+  const getMosaicData = () => {
     axios.post("http://localhost:8080/api/products").then((res)=>{
       console.log("mosaico",res.data)
       setMosaicData(res.data.data)
     })
    }    
-   getMosaicData() 
+
+  useEffect(()=> {
+    getMosaicData()
 
 }, [])
 
@@ -96,7 +98,15 @@ const App = ()=> {
           {backdrop}
           <div className="app__body" >
             <Switch>
-              <Container exact render={(data)=> <Home dataToMosaic={mosaicData} datoToSlider={sliderData}  data={data}/>} path="/"/>
+              {
+                mosaicData && sliderData && 
+                <Home 
+                dataToMosaic={mosaicData.length > 0 && mosaicData} 
+                datoToSlider={sliderData.length > 0 && sliderData}  
+                exact path="/"
+                />
+              }
+               
               <Route exact  path="/blog" >
                 <Blog/>
               </Route>

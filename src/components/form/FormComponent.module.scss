@@ -19,16 +19,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 0.5rem;
     label{
         font-family: 'Forum', serif;
         letter-spacing: 0.2rem;
-        font-size: 1rem;
-        margin-right: auto;
+        font-size: 0.8rem;
+        font-weight: 550;
+        margin:0.5rem auto 0 0;
     }
     input{
         width: 100%;
-        padding: 0.2rem;
+        padding: 0;
         font-size: 1rem;
         border: 2.5px solid rgb(187, 187, 187);
     }
@@ -40,26 +40,46 @@
 }  
 
 
-
-@media   (max-width: 1023px){
+@media (max-width: 500px){
     .formComponent{
-        width: 280px; 
+        width: 260px; 
         margin: 1.5rem auto;
-        padding: 1rem;
         h3{
             font-size: 1rem;
+        }
+    }
+    
+    .inputRow{
+        label{
+            font-size: 0.8rem;
+        }
+        input{
+            font-size: 0.8rem;
+        }
+        p{
+            font-size: 0.5rem;
+        }
+    }  
+}
+
+
+@media   (min-width: 767px) and (max-width: 1022px){
+    .formComponent{
+        width: 340px; 
+        h3{
+            font-size: 1.2rem;
         }
     }
 
     
     .inputRow{
-        margin-top: 0.2rem;
         label{
-            font-size: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
         input{
             padding: 0;
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
     }  
 }
@@ -67,14 +87,13 @@
 
 @media   (min-width: 1023px) and (max-width: 1300px){
     .formComponent{
-        width: 400px; 
-        padding: 1.2rem;
+        width: 420px; 
+        padding: 1rem;
         h3{
             font-size: 1.5rem;
         }
     }
     .inputRow{
-        margin-top: 0.2rem;
         label{
             font-size: 1.4rem;
         }
@@ -84,114 +103,3 @@
         }
     }  
 }
-/*
-
-
-@media  (max-width: 700px){
-    .container__form{
-        width: 250px; 
-        padding: 0.5rem 1rem;
-        h3{ 
-            font-size: 1rem;
-            margin: 0;
-            padding: 0.5rem 0;
-        }
-        p{
-            font-size: 0.8rem;
-        }
-        form{
-           
-            .remember__password {
-                input{
-                    margin-bottom: 0.2rem;
-                }
-                p{
-                    font-size: 0.8rem;
-                }           
-            }
-            button{
-                width: 70%;
-                padding: 0.2rem;
-            }
-           
-        }
-        .buttons__container{
-            button{
-                font-size: 0.7rem;
-            }
-            img{
-                width: 20px;
-                position: absolute;
-                left: 20px;   
-            }
-        }
-        a{
-            font-size: 0.7rem;
-        }
-    }  
-    
-}
-
-
-@media (min-width: 701px) and (max-width: 1000px){
-    .container__form{
-        p{
-            font-size: 1.5rem;
-        }
-        form{
-            .remember__password {
-                input{
-                    margin-bottom: 0.4rem;
-                }
-                p{
-                    font-size: 1rem;
-                }           
-            }
-           
-            button{
-                width: 70%;
-                padding: 0.5rem;
-            }
-        }
-        width: 300px;
-    }
-}
-
-@media (min-width: 1002px) and (max-width: 1300px){
-    .container__form{
-        width: 400px; 
-        padding: 0.5rem 1rem;
-        margin: 2.5rem auto;
-        h3{
-            font-size: 1.5rem;
-        }
-        form{
-            .remember__password {
-                input{
-                    margin-bottom: 0.6rem;
-                }
-                p{
-                    font-size: 1.2rem;
-                }           
-            }
-        }
-        .buttons__container{
-            button{
-                width: 100%;
-                padding: 0.5rem;
-                font-size: 1rem;
-            }
-            img{
-                width: 30px;
-                position: absolute;
-                left: 20px;   
-            }
-        }
-        a{
-            padding: 0.5rem;
-            font-size: 1.3rem;
-        }
-    }  
-}
-
-*/

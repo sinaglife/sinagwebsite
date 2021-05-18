@@ -12,6 +12,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
             <div className={classes.tooltip__container} >
                 <Link 
                 to="/entrar" 
+                style={{ textDecoration: "none"}}
                 onClick={isCloseToolTip}
                 >
                     <p className={classes.tooltip__button}>
@@ -23,6 +24,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
                 </p>
                 <Link
                 to="/nuevo-usuario"
+                style={{ textDecoration: "none"}}
                 onClick={isCloseToolTip}
                 >
                     <p className={classes.tooltip__button}>
@@ -35,6 +37,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
                 <Link 
                 className={classes.tooltip__change__password}
                 to="/olvido-contrasena"
+                style={{ textDecoration: "none"}}
                 onClick={isCloseToolTip}
                 >
                 <p>Cambiar contraseña</p>
@@ -47,6 +50,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
                 <Link 
                 className={classes.tooltip__unsubscribe}
                 to="/olvido-contrasena"
+                style={{ textDecoration: "none"}}
                 onClick={isCloseToolTip}
                 >
                 <p>Darme de baja</p>

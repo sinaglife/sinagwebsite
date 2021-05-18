@@ -32,7 +32,7 @@ const Mosaic = ({data}) => {
       data?.map((product, i) => {
         if(i < 12){
           return (
-            <div className={classes.mosaic__product}>
+            <div key={i} className={classes.mosaic__product}>
               <ProductCard
                 key={i}
                 data={product}

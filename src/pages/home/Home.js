@@ -22,12 +22,12 @@ const Home = ({data, datoToSlider, dataToMosaic})=> {
     
     return (
         <div className={classes.home}>
-                <SliderComponent datoToSlider={datoToSlider}/>
+             { datoToSlider &&   <SliderComponent datoToSlider={datoToSlider}/>}
             <div className={classes.home__slogan}>
                 <h2>"Inspirados En Crear Desde El Alma."</h2> 
             </div>
             <Parallax   bgImage={piedras} strength={1200}  bgClassName={classes.ParaImg} blur={0}>
-                {data && <Mosaic data={dataToMosaic}/>}
+                {dataToMosaic && <Mosaic data={dataToMosaic}/>}
             </Parallax>
             <div className={classes.home__banner}>
                 <img src={banner} alt="envios a toda europa"/>

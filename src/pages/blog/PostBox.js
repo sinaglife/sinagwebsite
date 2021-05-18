@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import classes from "./PostBox.module.scss";
 
 const PostBox = ({ postData }) => {
-  console.log(postData.slug)
+  
   let blogRoute = postData.slug;
 
   return (

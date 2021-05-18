@@ -26,6 +26,7 @@
 .singIn__linkTo{
     color: black;
     text-align: right;
+    font-size: 0.9rem;
     margin: 0;
 }
 
@@ -46,6 +47,14 @@
         position: absolute;
         left: 5px;
         bottom: 3px;   
+    }
+}
+
+@media (max-width: 500px){
+    .singIn__submit__buttons{
+        img{
+            width: 20px;
+        }
     }
 }
 
@@ -77,8 +86,7 @@
     .singIn__linkTo{
         font-size: 1.5rem;
     }
-
-    
+   
     .singIn__remember{
         margin-bottom: 0.5rem;
         input{
@@ -92,8 +100,8 @@
     }
 
     
-.const__submit__button {
-    padding: 0.5rem;
-    font-size: 1rem;
-}
+    .const__submit__button {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
 }

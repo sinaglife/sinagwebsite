@@ -8,6 +8,7 @@ import { useDispatch} from "react-redux"
 import visa from "../../../assets/images/visa.svg"
 import mastercard from "../../../assets/images/mastercard.svg"
 import paypal from "../../../assets/images/paypal.svg"
+import Loading from "../../../components/Loading"
 import classes from "./ProductDetails.module.scss"
 
 const Product = ({data}) => {
@@ -15,9 +16,7 @@ const Product = ({data}) => {
     const [x , setX] = useState(0);
     const [product, setProduct] = useState()
     const [sizeChoice, setSizeChoice] = useState("")
-    const [imagesArr, setImagesArr] = useState(
-  
-    )
+    const [imagesArr, setImagesArr] = useState()
     const [quantity, setQuantity] = useState(1)
     const title = product?.name
     const description = product?.short_description.replace(/<[^>]*>?/g, "") 
@@ -38,8 +37,6 @@ const Product = ({data}) => {
 
     const handleSubmit = (e)=> {
         e.preventDefault();
-        //let amount = parseInt(e.target.value)
-        //console.log(e.target.value)
         e.target.reset()
     }
 
@@ -47,17 +44,12 @@ const Product = ({data}) => {
 useEffect(() => {
     if(data && data.length > 0){
         let productData = [];
-        let imgBoxUrls = [];
-        productData = data.find(element => element.id === paramId)
-      if(productData ){ 
+         setProduct(data.find(element => element.id === paramId))
+      if(product ){ 
           setImagesArr( productData.images?.map((item)=>(
             item.src
-        )))
-         
+        )))         
       }
-
-    setProduct(productData)
-   
 } 
 }, [data, paramId])
 
@@ -157,7 +149,7 @@ const goRight = ()=> {
                     </div>
                 </div>
                 : 
-                <h3>Loading</h3>
+                <Loading/>
             
             }
             

@@ -24,15 +24,14 @@
             box-shadow: 0px 2px 12px 1px #C7C7C7;   
 
             .customer__data__input{
-                margin: 0.2rem 0;
                 label{
                     margin: 0.2rem 0;
                     font-size: 0.7rem;
                 }
                 input{
-                    margin-top: 0.4rem;
-                    width: 95%;
-                    padding: 0.25rem;
+                    margin-top: 0.2rem;
+                    width: 92%;
+                    padding: 0;
                     font-size: 0.7rem;
                 }
             }
@@ -43,19 +42,19 @@
 @media  (min-width: 767px)  and (max-width: 1023px){
     .customer__form{
         margin: 1rem 0;
-        width: 440px; 
-        padding: 1.2rem 0.9rem;
+        width: 440px;
+        padding: 0.5rem;
 
         .customer__data__input{
             margin: 0.2rem 0;
             label{
-                margin: 0.2rem 0;
-                font-size: 1.1rem;
+                margin: 0.1rem 0;
+                font-size: 1rem;
             }
             input{
                 margin-top: 0.3rem;
                 width: 98%;
-                padding: 0.4rem;
+                padding: 0.2rem;
                 font-size: 1rem;
             }
         }
@@ -63,14 +62,14 @@
 }
 
 
-@media  (min-width: 1024px)  and (max-width: 1300px){
+@media  (min-width: 1024px) and (max-width: 1300px){
     .customer__form{
         margin: 1rem 0;
         width: 620px; 
         padding: 1.4rem 1rem;
 
         .customer__data__input{
-            margin: 0.5rem 0.3rem;
+            margin: 0.2rem 0.3rem;
             label{
                 margin: 0.4rem 0;
                 font-size: 1.3rem;
@@ -78,8 +77,8 @@
             input{
                 margin-top: 0.2rem;
                 width: 98%;
-                padding: 0.5rem;
-                font-size: 1.4rem;
+                padding: 0.3rem;
+                font-size: 1.5rem;
             }
         }
     }

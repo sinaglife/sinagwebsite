@@ -1,64 +1,58 @@
-import React, {useState, useEffect}  from 'react'
+import React, {useEffect}  from 'react'
 import Store from "./Store"
 import {getProducts} from "../../../redux/products/products.actions"
 import Products from "./ProductDetails"
 import Index from "./index"
+import Loading from "../../../components/Loading"
 import { connect } from 'react-redux'
 import {
     Switch,
-    Route
+    Route,
   } from "react-router-dom";
 
-const StoreRoutesContainer = ({isMenu, products, getProducts}) => {
+const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
 
     useEffect(()=> {
-        getProducts()   
+        getProducts() 
+       
    }, [])
 
     return (
         <div>
+            {
+            loading || !products ?
+            <Loading /> : products && products.length > 0 &&
+              
             <Switch> 
-                <Route path="/mala">
-                    <Store />    
+                <Route exact path="/productos/:id">
+                    <Products  data={products}/>
                 </Route>
-                <Route  path="/kokedamas">
-                    <Store />
+          
+                <Route exact path="/tienda/:param">
+                    <Store 
+                        loading={loading} 
+                        data={products}
+                    />
+                </Route>  
+                <Route exact path="/tienda">
+                    <Index/>   
                 </Route>
-                {
-                    products && products.length > 0 &&
-                    <Route path="/:x/productos/:id">
-                        <Products  data={products}/>
-                    </Route>
-                    
-                }
-                    
-                    
-                <Route  component={Store} path="/colgantes"/>
-                <Route  component={Store} path="/hombre"/>
-                <Route  component={Store} path="/ninos"/>
-                <Route  component={Store} path="/pendientes"/>
-                <Route  component={Store} path="/pulseras">
-                    <Store data={products}/>
-                </Route>
-                <Route  component={Store} path="/anillos"/>
-                <Route  component={Store} path="/complementos"/>
-                <Route  component={Store} path="/cuidado-de-tu-ser"/>
-                <Route  component={Store} path="/espiritualidad"/>
-                <Route component={Index} path="/tienda" />
-                <Route render={()=> <Index isMenu={isMenu}/>} path="/mujer" />
+                <Route render={()=> <Index isMenu={isMenu}/>} exact path="/mujer" />
             </Switch>
-            
+            }  
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return{
-        products: state.product.products.data
+        products: state.product.products.data,
+        loading: state.product.loading
     }
 }
 
 const mapDispatchToProps = dispatch =>{
+    console.log("dispatch desde storeR")
     return{
         getProducts: ()=> dispatch(getProducts()),
     }
@@ -68,6 +62,35 @@ const mapDispatchToProps = dispatch =>{
 export default connect(mapStateToProps, mapDispatchToProps)(StoreRoutesContainer)
 
 /*
+ <Route exact path="/pulsera">
+                    <Store 
+                    loading={loading} 
+                    data={list}
+                    filterValue={filterValue}
+                    setFilterValue={setFilterValue}
+                    title={title}
+                    param={params}
+                    />
+                </Route>
+
+filterValue={filterValue}
+                    setFilterValue={setFilterValue}
  <Route render={(data)=> <Products  data={data}/>} path="/:x/productos/:id"/>
+
+   <Route  component={Store} path="/colgantes"/>
+                
+                    <Route  component={Store} path="/ninos"/>
+                    <Route  component={Store} path="/pendientes"/>
+                   
+                    <Route  component={Store} path="/anillos"/>
+                    <Route  component={Store} path="/complementos"/>
+                    <Route  component={Store} path="/cuidado-de-tu-ser"/>
+                    <Route  component={Store} path="/espiritualidad"/>
+                               <Route path="/mala">
+                        <Store />    
+                    </Route>
+                    <Route  path="/kokedamas">
+                        <Store />
+                    </Route>
 
 */

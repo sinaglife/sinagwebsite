@@ -96,7 +96,7 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                 <div className={classes.lightBox__right}>
                     <h3>{productTitle}</h3>
                     <p className={classes.lightBox__right__price}>{productPrice}€</p>
-                    <Link to={`/mosaico/productos/${productId}`}  >
+                    <Link to={`/productos/${productId}`}  >
                         <p className={classes.lightBox__more__info}>Mas info</p>
                     </Link>
                     <div className={classes.lightBox__right__buttons}>

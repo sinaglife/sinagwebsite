@@ -6,12 +6,12 @@
   max-width: 400px;
   max-height: 670px;
   top: 0;
-  left: 0;
+  left: 0;  
   z-index: 700;
   border: 1px solid $colorFour;
   box-shadow: 1px, 0px, 7px, rgba(0, 0, 0, 0.5);
   transform: translateX(-100%);
-  transition: 0.3s;
+  transition: transform  5s;
   padding:0.2rem 0.5rem;
 }
 
@@ -34,6 +34,7 @@
 
 .sideDrawer.open {
   transform: translateX(0);
+  transition: transform  5s;
 }
 
 .sideDrawer p {

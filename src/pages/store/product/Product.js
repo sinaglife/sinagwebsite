@@ -20,7 +20,7 @@ const Product = ({productData}) => {
     }
     return (
         <Link style={{ textDecoration: "none", color: "black" }}  
-        to={`productos/${productData.id}`} 
+        to={`/productos/${productData.id}`} 
         >
             <div  className={classes.product__container} >
                 <img onMouseEnter={getImgToShow}

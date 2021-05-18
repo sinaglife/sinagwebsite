@@ -1,37 +1,67 @@
 import React from 'react'
-import { navigate } from "@reach/router";
 import SearchIcon from '@material-ui/icons/Search';
-//import Button from "../../../../components/UI/button/Button"
+import {Link} from "react-router-dom";
 
 import classes from "./FilterBar.module.scss";
 
 
 const FilterBar = ({filterValue, setFilterValue}) => {
 
-const navChoices = [
-    "Hombre",
-    "Niños",
-    "Cuidado-de-tu-ser",
-    "Complementos",
-    "Espiritualidad",
-    "Pulseras",
-    "Anillos",
-    "Colgantes",
-    "Pendientes"
+const storeLinks = [
+    {
+        path: "hombre",
+        title: "Hombre"
+    },
+    {
+        path: "ninos",
+        title: "Niños"
+    },
+    {
+        path: "cuidado-de-tu-ser",
+        title: "Cuidado de tu ser"
+    },
+    {
+        path: "complementos",
+        title: "Complementos"
+    },
+    {
+        path: "espiritualidad",
+        title: "Espiritualidad"
+    },
+    {
+        path: "pulseras",
+        title: "Pulseras"
+    },
+    {
+        path: "anillos",
+        title: "Anillos"
+    },
+    {
+        path: "colgantes",
+        title: "Colgantes"
+    },
+    {
+        path: "pendientes",
+        title: "Pendientes"
+    },
 ]
 
-const mobileNavChoices = ["Mujer", "Hombre", "Niño", "Tienda"]
-
-const navigateTo = (param)=> {
-  
-    if(param.includes("ñ")){
-       return param.replace("ñ", "n").toLowerCase()
-    }if(param.includes("%20")){
-        console.log("probando")
-        return param.replace("%20", "-").toLowerCase()
-    }
-    return param.toLowerCase().trim()
-}
+const mobileStoreLinks = [ {
+    path: "mujer",
+    title: "Mujer"
+},
+{
+    path: "hombre",
+    title: "Hombre"
+},
+{
+    path: "ninos",
+    title: "Niño"
+},
+{
+    path: "tienda",
+    title: "Tienda"
+}]
 
 const handleChange = (e)=>{
     setFilterValue(e.target.value)
@@ -43,26 +73,23 @@ const handleSubmit = (e)=>{
 }
 
 
-const renderNavChoices = navChoices.map((item, index)=>{
-    let word;
-    word = item.includes("-") ? item.replace(/-/gi, " ") : item
-    return(
-        <a 
+const renderStoreLinks = storeLinks.map((item, index)=>(
+        <Link 
+        to={`/tienda/${item.path}`}
         key={index} 
-        onClick={()=>navigate(`${navigateTo(item)}`)}
         >
-        {word}
-        </a>
+        {item.title}
+        </Link>
     )
-})
+)
 
-const renderMobileNavChoices = mobileNavChoices.map((item, index)=>(
-    <a 
+const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
+    <Link 
+    to={`/tienda/${item.path}`}
     key={index} 
-    onClick={()=>navigate(`${navigateTo(item)}`)}
     >
-    {item}
-    </a>
+    {item.title}
+    </Link>
 ))
 
     return (
@@ -84,14 +111,14 @@ const renderMobileNavChoices = mobileNavChoices.map((item, index)=>(
                 />
                 </form>  
                 <div className={classes.navChoices}>
-                    {renderNavChoices}
+                    {renderStoreLinks}
                 </div>
                 </div>
                 
                 : 
                 <div className={classes.filterBar__responsive}>
                    
-                    {renderMobileNavChoices}  
+                    {renderMobileStoreLinks}  
                 </div>
             } 
             </div>

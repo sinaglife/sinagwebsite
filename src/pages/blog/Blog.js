@@ -14,7 +14,6 @@ const Blog = (props)=> {
             .then((res)=>{
                 setBlogData(res.data.data)
             });
-            if(blogData) console.log(blogData)
     }, [props]);
 
     return blogData  ? (
