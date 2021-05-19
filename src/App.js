@@ -53,7 +53,7 @@ const App = ()=> {
   }, [])
 
   const getMosaicData = () => {
-    axios.post("http://localhost:8080/api/products").then((res)=>{
+    axios.post("https://sinag-api-2021.herokuapp.com/api/products").then((res)=>{
       console.log("mosaico",res.data)
       setMosaicData(res.data.data)
     })
