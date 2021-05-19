@@ -5,8 +5,8 @@ import classes from "./Rating.module.scss"
 const  RatingComponent = ({rating})=> {
   const [value, setValue] = useState(5);
  //parseInt(rating)
-  const renderStars = Array(value).fill().map(()=>(
-    <img  alt="star" src={star}/>
+  const renderStars = Array(value).fill().map((item, index)=>(
+    <img key={index} alt="star" src={star}/>
   ))
   return (
     <div className={classes.rating__container}>

@@ -22,10 +22,9 @@ const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
             {
             loading || !products ?
             <Loading /> : products && products.length > 0 &&
-              
             <Switch> 
                 <Route exact path="/productos/:id">
-                    <Products  data={products}/>
+                    <Products/>
                 </Route>
           
                 <Route exact path="/tienda/:param">
@@ -34,10 +33,10 @@ const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
                         data={products}
                     />
                 </Route>  
-                <Route exact path="/tienda">
+                <Route exact  path="/menu">
                     <Index/>   
                 </Route>
-                <Route render={()=> <Index isMenu={isMenu}/>} exact path="/mujer" />
+                <Route  render={()=> <Index isMenu={isMenu}/>} exact path="/menu/mujer" />
             </Switch>
             }  
         </div>

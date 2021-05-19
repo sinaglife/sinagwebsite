@@ -2,7 +2,7 @@ import React, {useState, useEffect, Fragment} from 'react'
 import FilterBySize from "./components/FilterBySize"
 import Quantity from "./components/Quantity"
 import RatingComponent from "./components/RatingComponent"
-import {useParams} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {addProductToBasket} from "../../../redux/basket/basket.actions"
 import { useDispatch} from "react-redux"
 import visa from "../../../assets/images/visa.svg"
@@ -13,17 +13,19 @@ import classes from "./ProductDetails.module.scss"
 
 const Product = ({data}) => {
   
+    let history = useHistory()
     const [x , setX] = useState(0);
-    const [product, setProduct] = useState()
+    const product = history.location.state
     const [sizeChoice, setSizeChoice] = useState("")
-    const [imagesArr, setImagesArr] = useState()
+    const [imagesArr, setImagesArr] = useState(product?.images.map((item)=>(
+        item.src
+    )))
     const [quantity, setQuantity] = useState(1)
     const title = product?.name
     const description = product?.short_description.replace(/<[^>]*>?/g, "") 
     const price = product?.price
     const rating = product?.average_rating
-    const param = useParams()
-    const paramId = parseInt(param.id)
+    const id = product?.id
     const dispatch = useDispatch()
 
     const goToBasket = (basket, x)=>{
@@ -39,19 +41,6 @@ const Product = ({data}) => {
         e.preventDefault();
         e.target.reset()
     }
-
-
-useEffect(() => {
-    if(data && data.length > 0){
-        let productData = [];
-         setProduct(data.find(element => element.id === paramId))
-      if(product ){ 
-          setImagesArr( productData.images?.map((item)=>(
-            item.src
-        )))         
-      }
-} 
-}, [data, paramId])
 
 
 
@@ -84,14 +73,14 @@ const goRight = ()=> {
 }
 
     return (
-            <Fragment>
+            <>
             {
-                product ?
+                product  ?
 
                 <div className={classes.product__main}>
                     <div className={classes.product__left}>
                         <div className={classes.product__left__imgs}>
-                            {renderImages}
+                            { imagesArr && renderImages}
                         </div>
                         <div className={classes.product__main__img}>
                             <button onClick={goLeft} className={classes.goLeft}>
@@ -115,7 +104,7 @@ const goRight = ()=> {
                                    <div className={classes.quantity}>
                                         <span>Cant</span>
                                         <Quantity 
-                                        id={param}
+                                        id={id}
                                         quantity={quantity}
                                         handleChange={handleQuantityChange}
                                         handleSubmit={handleSubmit}
@@ -153,7 +142,7 @@ const goRight = ()=> {
             
             }
             
-        </Fragment>
+        </>
     )
 }
 

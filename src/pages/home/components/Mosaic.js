@@ -9,6 +9,7 @@ const Mosaic = ({data}) => {
   const [showLightbox, setShowLightBox] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
   const [productData, setProductData] = useState([])
+//const productImage = data?.images[0].src
 
   const selectedImg = (i) => {
 
@@ -49,14 +50,13 @@ const Mosaic = ({data}) => {
       <div className={classes.mosaic}>
         {renderMosaicProducts}
       </div>
-      {showLightbox ? (
+      {showLightbox && (
         <ProductLigthBox
-          lightImgsArr={lightImgsArr}
           show={showBackdrop}
           close={closeLightBox}
           productData={productData}
         />
-      ) : null}
+      ) }
     </Fragment>
   );
 };

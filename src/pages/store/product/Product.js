@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import classes from "./Product.module.scss";
 
 const Product = ({productData}) => {
@@ -7,6 +7,8 @@ const Product = ({productData}) => {
     const imgArray = productData.images.map((item)=>(
         item.src
     ));
+    let history = useHistory();
+    //onsole.log(history)
     const altImg = productData.images[0].alt
 
     const getImgToShow = ()=> {
@@ -20,7 +22,10 @@ const Product = ({productData}) => {
     }
     return (
         <Link style={{ textDecoration: "none", color: "black" }}  
-        to={`/productos/${productData.id}`} 
+        to={{
+            pathname: `/productos/${productData.id}`,
+            state: productData
+        }} 
         >
             <div  className={classes.product__container} >
                 <img onMouseEnter={getImgToShow}

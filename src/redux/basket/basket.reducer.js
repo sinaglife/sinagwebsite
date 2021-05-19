@@ -6,7 +6,6 @@ const initialState = {
 }
 
 export const basketReducer = (state = initialState, action)=>{
-    console.log(action.type)
     switch(action.type){
         case basketTypes.ADD_PRODUCT:
             const{product, qty} = action.payload

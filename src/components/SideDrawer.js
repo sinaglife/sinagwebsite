@@ -9,7 +9,7 @@ const SideDrawer = (props) => {
   const drawerData = [
     {
       title: "Tienda",
-      path: "/tienda",
+      path: "/menu",
       icon: "store"
     },
     {

@@ -9,57 +9,57 @@ const FilterBar = ({filterValue, setFilterValue}) => {
 
 const storeLinks = [
     {
-        path: "hombre",
+        path: "/tienda/hombre",
         title: "Hombre"
     },
     {
-        path: "ninos",
+        path: "/tienda/ninos",
         title: "Niños"
     },
     {
-        path: "cuidado-de-tu-ser",
+        path: "/tienda/cuidado-de-tu-ser",
         title: "Cuidado de tu ser"
     },
     {
-        path: "complementos",
+        path: "/tienda/complementos",
         title: "Complementos"
     },
     {
-        path: "espiritualidad",
+        path: "/tienda/espiritualidad",
         title: "Espiritualidad"
     },
     {
-        path: "pulseras",
+        path: "/tienda/pulseras",
         title: "Pulseras"
     },
     {
-        path: "anillos",
+        path: "/tienda/anillos",
         title: "Anillos"
     },
     {
-        path: "colgantes",
+        path: "/tienda/colgantes",
         title: "Colgantes"
     },
     {
-        path: "pendientes",
+        path: "/tienda/pendientes",
         title: "Pendientes"
     },
 ]
 
 const mobileStoreLinks = [ {
-    path: "mujer",
+    path: "/menu/mujer",
     title: "Mujer"
 },
 {
-    path: "hombre",
+    path: "/tienda/hombre",
     title: "Hombre"
 },
 {
-    path: "ninos",
-    title: "Niño"
+    path: "/tienda/ninos",
+    title: "Niños"
 },
 {
-    path: "tienda",
+    path: "/menu",
     title: "Tienda"
 }]
 
@@ -75,7 +75,7 @@ const handleSubmit = (e)=>{
 
 const renderStoreLinks = storeLinks.map((item, index)=>(
         <Link 
-        to={`/tienda/${item.path}`}
+        to={item.path}
         key={index} 
         >
         {item.title}
@@ -85,7 +85,7 @@ const renderStoreLinks = storeLinks.map((item, index)=>(
 
 const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
     <Link 
-    to={`/tienda/${item.path}`}
+    to={item.path}
     key={index} 
     >
     {item.title}

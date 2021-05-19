@@ -10,10 +10,16 @@ import {Link} from "react-router-dom";
 import classes from "./ProductLightBox.module.scss"
 
 
-const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
+const ProductLigthBox = ({productData, close, ...props})=> {
 
         const dispatch = useDispatch()
         const [x, setX] = useState(0);
+        const [productImg, setProductImg] = useState(productData.images.map((item)=>(
+           {
+            src: item.src,
+            alt: item.alt
+           }
+        )))
         const productTitle = productData.name;
         const productPrice = productData.price;
         const productId = productData.id
@@ -28,11 +34,11 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
             localStorage.setItem("subtotal", String(subtotal))
         }
    
-        let lightImgArrLength = lightImgsArr.length;
+        let productImgLength = productImg?.length;
 
         const goRight = ()=>{
             
-            if(x === lightImgArrLength - 1){
+            if(x === productImgLength - 1){
                 setX(0);
             }else{
                 let newX = x + 1;
@@ -43,7 +49,7 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
         const goLeft = ()=>{
            
             if(x === 0){
-                setX(lightImgArrLength - 1);
+                setX(productImgLength - 1);
             }else{
                 setX(x - 1);
             }
@@ -57,7 +63,7 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                 >
                     <i className="fas fa-chevron-left"></i>
                 </button>  
-                    <img src={lightImgsArr[x]} alt={alt}/>
+                    <img src={productImg[x].src} alt={productImg[x].alt}/>
                 <button
                 className={classes.goRight}
                 onClick={goRight} 
@@ -66,10 +72,10 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                 </button>  
             </div>
         );
-        const navigationButtons =  lightImgArrLength > 1
+        const navigationButtons =  productImgLength > 1
         ? renderButtons()
         : (
-            <img src={lightImgsArr[x]} alt={alt}/>
+            <img src={productImg[x].src} alt={productImg[x].alt}/>
         )
     
     return (
@@ -96,7 +102,10 @@ const ProductLigthBox = ({productData, alt, lightImgsArr, close, ...props})=> {
                 <div className={classes.lightBox__right}>
                     <h3>{productTitle}</h3>
                     <p className={classes.lightBox__right__price}>{productPrice}€</p>
-                    <Link to={`/productos/${productId}`}  >
+                    <Link to={{
+                        pathname: `/productos/${productId}`,
+                        state: productData
+                    }}  >
                         <p className={classes.lightBox__more__info}>Mas info</p>
                     </Link>
                     <div className={classes.lightBox__right__buttons}>
@@ -122,7 +131,7 @@ ProductLigthBox.propTypes = {
     price: PropTypes.number,
     alt: PropTypes.string,
     description: PropTypes.string,
-    lightImgsArr: PropTypes.arrayOf(PropTypes.string),
+    productImg: PropTypes.arrayOf(PropTypes.string),
 }
 
 

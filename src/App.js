@@ -15,7 +15,6 @@ import axios from "axios"
 import Loading from "./components/Loading"
 import './App.css';
 
-const Container = lazy(()=>import("./pages/store/product/Container"))
 const MainBasket = lazy(()=>import("./pages/basket/MainBasket"))
 const Blog = lazy(()=> import("./pages/blog/Blog"))
 const BlogPost = lazy(()=> import("./pages/blog/BlogPost"))
@@ -49,7 +48,7 @@ const App = ()=> {
      })
       
     } catch (error) {
-      console.log("problema slider",error)
+      console.log("there is a problem with the slider",error)
     }
   }, [])
 

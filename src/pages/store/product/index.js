@@ -20,32 +20,32 @@ function Tienda  ({isMenu}) {
     {
       name: "MUJER",
       image: Mujer,
-      alt: "MUJER"
+      path: "/menu/mujer"
     },
     {
       name: "HOMBRE",
       image: Hombre,
-      alt: "HOMBRE"
+      path: "/tienda/hombre"
     },
     {
       name: "NIÑOS",
       image: Ninos,
-      alt: "NINOS"
+      path: "/tienda/ninos"
     },
     {
       name: "CUIDADO DE TU SER",
       image: Cuidado,
-      alt: "CUIDADO-DE-TU-SER"
+      path: "/tienda/cuidado-de-tu-ser"
     },
     {
       name: "COMPLEMENTOS",
       image: Complementos,
-      alt: "COMPLEMENTOS"
+      path: "/tienda/complementos"
     },
     {
       name: "ESPIRITUALIDAD",
       image: Espiritualidad,
-      alt: "ESPIRITUALIDAD"
+      path: "/tienda/espiritualidad"
     }
   ]
 
@@ -53,32 +53,32 @@ function Tienda  ({isMenu}) {
     {
       name: "PULSERAS",
       image: Pulseras,
-      alt: "PULSERAS"
+      path: "/tienda/pulseras"
     },
     {
       name: "ANILLOS",
       image: anillos,
-      alt: "ANILLOS"
+      path: "/tienda/anillos"
     },
     {
       name: "COLGANTES",
       image: Colgantes,
-      alt: "COLGANTES"
+      path: "/tienda/colgantes"
     },
     {
       name: "PENDIENTES",
       image: Pendientes,
-      alt: "PENDIENTES"
+      path: "/tienda/pendientes"
     }
   ]
 
   const renderTienda = menuArray.map((item, index) => {
     return (
-      <Link key={index} to={`/${item.alt.toLocaleLowerCase()}`}> 
+      <Link key={index} to={item.path}> 
         <div className={classes.card}>
           <p>{item.name}</p>
           <div className={classes.button_image}>
-            <img src={item.image} alt={item.alt}/>
+            <img src={item.image} alt={item.name}/>
           </div>
         </div>
      </Link>
@@ -87,11 +87,11 @@ function Tienda  ({isMenu}) {
 
   const renderMujer = subMenuArray.map((item, index) => {
     return (
-      <Link key={index} to={`/${item.name.toLocaleLowerCase()}`}> 
+      <Link key={index}  to={item.path}> 
         <div className={classes.card__woman}>
           <p>{item.name}</p>
           <div className={classes.button_image}>
-            <img src={item.image} alt={item.alt}/>
+            <img src={item.image} alt={item.name}/>
           </div>
         </div>
      </Link>
