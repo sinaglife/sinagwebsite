@@ -50,8 +50,6 @@ const Toolbar = ({basket, user, singOut, ...props}) =>{
   const [isTooltip, setIsTooltip] = useState(false)
   const [basketLength, setBasketLength] = useState()
 
-  const basketAmountSt = window.innerWidth >= 1000 ? "regular" : "responsive"
-
   useEffect(() => { 
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
@@ -94,10 +92,7 @@ return (
               />  
           </div>
           <div className={classes.toolbar__right__basket}>
-            {
-              window.innerWidth >= 1000 && <span className={basketAmountSt}>{basketLength}</span>
-            }
-            
+            <span className={classes.basketBadge}>{basketLength}</span> 
             <Link to="/cesta">
               <Button
                 icon="kart"

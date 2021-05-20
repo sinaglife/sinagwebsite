@@ -5,13 +5,12 @@
   min-height: 100vh;
   text-align: center;
   margin-top: 7.5rem;
+  flex: 1;
 }
 
 
 .app__body{
   flex: 1;
-  margin-bottom: -0.5rem;
-
 }
 
 

@@ -56,8 +56,12 @@ const Home = ({data, datoToSlider, dataToMosaic})=> {
                 </div>
             </div>
             <div className={classes.home__taller}>
-                <img src={tallerImg} alt="" />
-                <img src={espiritualidadImg} alt="" />
+                <div>
+                    <img src={tallerImg} alt="" />
+                </div>
+               <div>
+                    <img src={espiritualidadImg} alt="" />
+               </div>
             </div>
                 
         </div>

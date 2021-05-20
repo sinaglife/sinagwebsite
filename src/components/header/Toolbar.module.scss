@@ -7,7 +7,7 @@
   align-items: center;
   background-color: $colorTwo;
   box-sizing: border-box;
-  padding: 0 15px;
+  padding: 0 20px;
   .shrunk {
     max-width: 60px;
     transition: 1s;
@@ -40,32 +40,43 @@
 .toolbar__rightContainer {
   @extend .buttonWidth;
   justify-content: flex-end;
-  .regular{
-    font-weight: bold;
-    font-size: 0.8rem;
-  }
+  
 
-  .responsive{
-    position: absolute;
-    font-weight: bold;
-    font-size: 0.8rem;
-  }
   .toolbar__right__user{
     display: flex;
     align-items: flex-end;
     justify-content: center;
   }
   .toolbar__right__basket{
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
   }
 }
 
-@media (max-width: 420px) {
+.basketBadge{
+  font-weight: 700;
+  border-radius: 100%;
+  background-color: #a78742;
+  color: white;
+  padding: 0 0.2rem;
+  font-size: 0.4rem;
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+}
+
+
+@media (max-width: 500px) {
 
   .toolbar__Logo {
     width: 35%;
+  }
+
+  .basketBadge{
+    bottom: 15px;
+    left: 25px;
   }
 
 }
@@ -73,10 +84,20 @@
   .toolbar__Logo {
     width: 35%;
   }
+
+  .basketBadge{
+    bottom: 20px;
+    left: 30px;
+  }
 }
 @media  (min-width: 1024px)  and (max-width: 1300px){
   .toolbar__Logo {
     width: 40%; 
+  }
+
+  .basketBadge{
+    bottom: 30px;
+    left: 40px;
   }
   
 }
