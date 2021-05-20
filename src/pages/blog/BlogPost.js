@@ -13,7 +13,7 @@ const BlogPost = (props)=> {
 
     useEffect(()=>{
         axios
-        .get(`http://localhost:8080/api/blog`)
+        .get(`https://sinag-api-2021.herokuapp.com/api/blog`)
         .then((res)=>{
             console.log(res.data)
             let dataArray = res.data.data.filter((post)=>{
