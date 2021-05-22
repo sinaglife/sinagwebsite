@@ -75,6 +75,7 @@ const handleSubmit = (e)=>{
 
 const renderStoreLinks = storeLinks.map((item, index)=>(
         <Link 
+        style={{color: "#CDA34A"}}
         to={item.path}
         key={index} 
         >
@@ -85,6 +86,7 @@ const renderStoreLinks = storeLinks.map((item, index)=>(
 
 const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
     <Link 
+    style={{color: "#CDA34A"}}
     to={item.path}
     key={index} 
     >
@@ -116,7 +118,7 @@ const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
                 </div>
                 
                 : 
-                <div className={classes.filterBar__responsive}>
+                <div className={classes.filterBar}>
                    
                     {renderMobileStoreLinks}  
                 </div>

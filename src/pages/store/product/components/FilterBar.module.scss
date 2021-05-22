@@ -1,8 +1,10 @@
+@import "../../../../variables.module";
+
 
 .filterBar{
     display: flex; 
     width: 100%;
-    background-color: #efecdf;
+    background-color: $xLightSilver;
     padding: 0.2rem;
   form {
     display: flex; 
@@ -26,14 +28,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 1rem;
-        a{
-            color: #CDA34A;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        a:hover{
-            color: rgb(184, 184, 184);
-        }
     }
 
     .showMenu__button{
@@ -49,36 +43,35 @@
     }
 }
 
-.filterBar__responsive{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.8rem;
-    width: 100%;
-    color: #CDA34A;
-    
-    a{
-        font-size: 0.8rem;
+@media  (max-width: 766px){
+    .filterBar{
+        padding: $xtiny;
+        justify-content: space-between;
+        a{
+            font-size: $xSmall;
+        }
     }
 }
 
 
 
 @media  (min-width: 767px)  and (max-width: 1023px){
-    .filterBar__responsive{
-        padding:0 1rem;
+    .filterBar{
+        padding: $xtiny $tiny;
+        justify-content: space-between;
         a{
-            font-size: 1.3rem;
+            font-size: $small;
         }
     }
 }
 
 
 @media  (min-width: 1024px)  and (max-width: 1300px){
-    .filterBar__responsive{
-        padding:0 2rem;
+    .filterBar{
+        padding: $xtiny $tiny;
+        justify-content: space-between;
         a{
-            font-size: 1.6rem;
+            font-size: $small;
         }
     }
 }

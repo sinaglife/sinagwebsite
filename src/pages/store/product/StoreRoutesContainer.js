@@ -10,7 +10,7 @@ import {
     Route,
   } from "react-router-dom";
 
-const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
+  const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
 
     useEffect(()=> {
         getProducts() 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment} from 'react'
+import React, {useState, useEffect} from 'react'
 import FilterBySize from "./components/FilterBySize"
 import Quantity from "./components/Quantity"
 import RatingComponent from "./components/RatingComponent"
@@ -11,7 +11,7 @@ import paypal from "../../../assets/images/paypal.svg"
 import Loading from "../../../components/Loading"
 import classes from "./ProductDetails.module.scss"
 
-const Product = ({data}) => {
+const Product = () => {
   
     let history = useHistory()
     const [x , setX] = useState(0);
@@ -27,6 +27,10 @@ const Product = ({data}) => {
     const rating = product?.average_rating
     const id = product?.id
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const goToBasket = (basket, x)=>{
         dispatch(addProductToBasket(basket, x))

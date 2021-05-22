@@ -15,6 +15,7 @@ import axios from "axios"
 import Loading from "./components/Loading"
 import './App.css';
 
+
 const MainBasket = lazy(()=>import("./pages/basket/MainBasket"))
 const Blog = lazy(()=> import("./pages/blog/Blog"))
 const BlogPost = lazy(()=> import("./pages/blog/BlogPost"))
@@ -53,15 +54,21 @@ const App = ()=> {
   }, [])
 
   const getMosaicData = () => {
-    axios.post("https://sinag-api-2021.herokuapp.com/api/products").then((res)=>{
-      console.log("mosaico",res.data)
-      setMosaicData(res.data.data)
+    axios.post("http://localhost:8080/api/products").then((res)=>{
+      console.log("mosaic",res.data)
+      setMosaicData(res.data.data.filter((item)=> {
+        return item.categories.some((product)=> (
+          product.name.toLowerCase().includes("mosaico")
+        ))
+      }))
     })
-   }    
+   }   
+   
+   
 
   useEffect(()=> {
     getMosaicData()
-
+    
 }, [])
 
   const sideDrawerOpenHandler = () =>{

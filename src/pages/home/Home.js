@@ -12,7 +12,7 @@ import piedras from "../../assets/images/piedrasFondo.jpg"
 import {Parallax} from "react-parallax";
 import Mosaic from "./components/Mosaic";
 import SliderComponent from './components/SliderComponent';
-
+import { Link } from "react-router-dom";
 
 const Home = ({data, datoToSlider, dataToMosaic})=> {
 
@@ -34,13 +34,13 @@ const Home = ({data, datoToSlider, dataToMosaic})=> {
             </div>
             <div className={classes.home__mala}>
                 <div>
-                <span>JAPAMALA 108 CUENTAS</span> 
+                <strong>JAPAMALA 108 CUENTAS</strong> 
                     <p>Es el rosario hindú por excelencia, 
                         empleado para recitar mantras, frases o palabras 108 veces, es una herramienta
                         práctica y al mismo tiempo está llena de simbolismo. Lo que se busca 
                         con esta experiencia es la concentración y la unión entre el cuerpo y 
                         espíritu a través de la meditación.</p> 
-                    <a href="/mala">Saber más</a>
+                    <Link to="tienda/mala">Saber más</Link>
                 </div>    
                 <img src={malaImg} alt="japamala-108-cuentas" />
             </div>
@@ -52,7 +52,7 @@ const Home = ({data, datoToSlider, dataToMosaic})=> {
                     nos da la naturaleza de tan diversas formas y
                     colores, llegan a nuestras vidas para sanar algún
                     aspecto de nosotros.</p>
-                    <a  href="/blog">Mas info</a>
+                    <Link  to="/blog">Mas info</Link>
                 </div>
             </div>
             <div className={classes.home__taller}>
