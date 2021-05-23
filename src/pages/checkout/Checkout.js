@@ -7,7 +7,7 @@ import { useSelector, useDispatch} from "react-redux"
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import {removeAllFromBasket} from "../../redux/basket/basket.actions";
 import Modal from "../../components/Modal"
-import { navigate } from "@reach/router";
+import {useHistory} from "react-router-dom";
 
 import axios from 'axios';
 
@@ -15,27 +15,28 @@ import classes from "./Checkout.module.scss"
 
 function Checkout() {
 
+    const history = useHistory()
+    console.log( history.location.state)
     const stripe = useStripe();
     const elements = useElements();
     const [success, setSuccess] = useState(false)
-    const [description, setDescription] = useState("")
+    const [error, setError] = useState("")
     const [subTotal, setSubTotal] = useState(0)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const basket = useSelector(state => state.basket.basketItems)
     const dispatch = useDispatch()
 
-    const getDescription = ()=> basket?.map((item, index)=> {
-        let obj = {};
-        return obj = {
-            id: item.id,
-            name: item.name,
-            quantity: item.quantity
-        }
-    })
+    const removeItemsSucces = ()=> {
+        localStorage.removeItem("delivery")
+        localStorage.removeItem("subtotal")
+        localStorage.removeItem("total")
+    }
     
       const handleClose = () => {
         setIsModalOpen(false);
-         navigate("/")
+        removeItemsSucces()
+
+        history.push("/");
       };
 
     const initialState = {
@@ -70,29 +71,41 @@ function Checkout() {
             const response = await axios.post("http://localhost:3001", {
                 amount: total * 100,
                 id,
-                description: description.join()
+                description: JSON.stringify(basket)
             })
             if(response.data.success){
-                console.log("succesfull payment", description)
+                console.log("succesfull payment", basket)
                 setSuccess(true)
                 setIsModalOpen(true)
                 dispatch(removeAllFromBasket())
             }
         } catch (error) {
             elements.getElement("card").focus();
-            console.log("Error",error);
+            setError(error)
         }
     }else{
-       
-        console.log(error.message)
+        setError(error.message)
     }
 
     },
-        validate: values =>{}
+    validate: values => {
+        let errors = {}
+
+        if(!values.email){
+            errors.email = "Email requerido"
+        }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+            errors.email = "Email invalido"
+        }
+        if(values.zip.length < 5)
+        errors.zip = "Codigo postal incorrecto"
+
+        return errors;
+    }
     });
 
+
     useEffect(()=>{
-        setDescription(getDescription())
+       
         setSubTotal(parseInt(localStorage.getItem("subtotal")))
         return () => {
            localStorage.removeItem("subtotal")
@@ -100,7 +113,7 @@ function Checkout() {
     }, [])
 
     useEffect(()=>{
-        if(basket.length === 0) navigate("/")
+        if(basket.length === 0) history.push("/");
     }, [])
    
     let deliveryAmount = formik.values.delivery === "national" ? 4.70 : 
@@ -108,8 +121,17 @@ function Checkout() {
     formik.values.delivery === "express" ? 8.92 : 0;
 
     const total = subTotal < 40 ? subTotal + deliveryAmount : subTotal;
+
+    if(total && total > 0)
+    localStorage.setItem("total", String(total))
+
+    if(deliveryAmount && deliveryAmount > 0)
+    localStorage.setItem("delivery", String(deliveryAmount))
+
     return (
+        
         isModalOpen ?
+
        <Modal
        close={handleClose}
        open={isModalOpen}
@@ -133,7 +155,6 @@ function Checkout() {
             }
             
             <StripeForm
-            success={success}
             deliveryAmount={deliveryAmount}
             subTotal={subTotal}
             total={total} 

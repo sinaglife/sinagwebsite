@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import {getSliderData} from "../../../utils/functions"
 import Loading from "../../../components/Loading"
 import classes from "./Slider.module.scss";
 

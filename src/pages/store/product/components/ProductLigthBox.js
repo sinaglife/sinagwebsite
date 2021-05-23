@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import Backdrop from "../../../../components/Backdrop";
-import FacebookButton from "../../../../components/UI/social-media-buttons/FacebookButton"
-import WhatsAppButton from "../../../../components/UI/social-media-buttons/WhatsAppButton"
+import {WhatsappShareButton, FacebookShareButton} from "react-share";
 import {addProductToBasket} from "../../../../redux/basket/basket.actions"
 import { useDispatch} from "react-redux"
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import SocialMediaBtn from "../../../../components/UI/social-media-buttons/SocialMediaBtn"
 
 import classes from "./ProductLightBox.module.scss"
 
 
 const ProductLigthBox = ({productData, close, ...props})=> {
 
+        const location = useLocation()
+        console.log(location)
         const dispatch = useDispatch()
         const [x, setX] = useState(0);
         const [productImg, setProductImg] = useState(productData.images.map((item)=>(
@@ -94,8 +96,25 @@ const ProductLigthBox = ({productData, close, ...props})=> {
                     <div className={classes.lightBox__left__share}>
                         <p>Compartir</p>
                         <div className={classes.share__icons}>
-                            <FacebookButton/>                          
-                            <WhatsAppButton/>       
+                            <SocialMediaBtn
+                            Component={FacebookShareButton}
+                            url={location.pathname}
+                            quote="Inspirados en crear desde el alma"
+                            hashtag="#sinaglife"
+                            icon="facebook"
+                            color="black"
+                            size="small"
+                            />
+                            <SocialMediaBtn
+                            Component={WhatsappShareButton}
+                            url={location.pathname}
+                            quote="Inspirados en crear desde el alma"
+                            hashtag="#sinaglife"
+                            icon="whatsapp"
+                            color="black"
+                            size="small"
+                            />
+                            
                         </div>
                     </div>
                 </div>

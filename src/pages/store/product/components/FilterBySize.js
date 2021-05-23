@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {memo} from 'react'
 import PropTypes from "prop-types";
 import classes from "./FilterBySize.module.scss"
 
-function FilterSize({sizeChoice}) {
+const FilterSize = memo(function FilterSize({sizeChoice}) {
 
     let ringArray = [6,7,8,9,10];
     let necklaceArray = [35,42,45,50,55,60,70,80];
@@ -43,7 +43,7 @@ function FilterSize({sizeChoice}) {
             </select> 
         </div>
     )
-}
+})
 
 FilterSize.propTypes = {
     sizeChoice: PropTypes.string.isRequired

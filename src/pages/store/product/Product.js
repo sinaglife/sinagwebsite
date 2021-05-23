@@ -12,11 +12,13 @@ const Product = ({productData}) => {
     const altImg = productData.images[0].alt
 
     const getImgToShow = ()=> {
-        if(imgArray[1]){
-            if(imgToShow === imgArray[1]){
-                setImgToShow(imgArray[0])
-            }else{
-                setImgToShow(imgArray[1])
+        if(imgArray.length > 1){
+            if(imgArray[1]){
+                if(imgToShow === imgArray[1]){
+                    setImgToShow(imgArray[0])
+                }else{
+                    setImgToShow(imgArray[1])
+                }
             }
         }
     }

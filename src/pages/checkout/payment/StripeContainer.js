@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {CardElement} from '@stripe/react-stripe-js';
 
 
@@ -26,7 +26,12 @@ const CARD_OPTIONS = {
     }
   };
 
- const StripeForm = ({subTotal, total, deliveryAmount, success})=>{
+ const StripeForm = ()=>{
+
+  const subTotal = localStorage.getItem("subtotal")
+  const total = localStorage.getItem("total")
+  const deliveryAmount = localStorage.getItem("delivery")
+  
        
     return (
         <>

@@ -15,7 +15,11 @@ const BasketResume = ()=>{
         setSubTotal(getBasketTotal(basket))  
     }, [basket])
 
-    const goToCheckout = (subTotal)=> localStorage.setItem("subtotal", String(subTotal))   
+    const goToCheckout = (subTotal, products)=> {
+        localStorage.setItem("subtotal", String(subTotal))   
+        localStorage.setItem("products", JSON.stringify(products))   
+
+    }
     
     return(
         <>
@@ -37,8 +41,10 @@ const BasketResume = ()=>{
                 
                 </div>
                 <div className={classes.resume__bottom}>
-                    <button onClick={()=>goToCheckout(subTotal)}>
-                        <Link style={{textDecoration: "none", color: "black"}} to="/checkout">
+                    <button onClick={()=>goToCheckout(subTotal,basket)}>
+                        <Link style={{textDecoration: "none", color: "black"}}
+                         to="/checkout"
+                         >
                             Tramitar Compra
                         </Link>
                     </button>

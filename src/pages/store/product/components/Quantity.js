@@ -32,37 +32,37 @@ const styles = {
     }
 }
 
-const Quantity = ({
-    quantity,
-    id,
-    handleChange,
-    handleSubmit
-}) => {
-
-    let screenSize;
-
+const Quantity = React.memo(function Quantity(
+    {
+        quantity,
+        id,
+        handleChange,
+        handleSubmit
+    }) {
     
-
-    if(window.innerWidth <= 400){
-        screenSize = styles.small;
-    }else if (window.innerWidth  >= 400 && window.innerWidth  <= 770){
-        screenSize = styles.medium;
-    } else if(window.innerWidth  >= 770 && window.innerWidth  <= 1300){
-        screenSize = styles.big;
+        let screenSize;
+     
+        if(window.innerWidth <= 400){
+            screenSize = styles.small;
+        }else if (window.innerWidth  >= 400 && window.innerWidth  <= 770){
+            screenSize = styles.medium;
+        } else if(window.innerWidth  >= 770 && window.innerWidth  <= 1300){
+            screenSize = styles.big;
+        }
+        else{
+            screenSize = styles.input;
+        }
+    
+        return (
+            <form  onSubmit={handleSubmit}>
+                <input onChange={handleChange}
+                id={id} name={id} type="number" 
+                value={quantity} 
+                style={screenSize} min="1" max="10"
+                /> 
+            </form>
+        )
     }
-    else{
-        screenSize = styles.input;
-    }
-
-    return (
-        <form  onSubmit={handleSubmit}>
-            <input onChange={handleChange}
-            id={id} name={id} type="number" 
-            value={quantity} 
-            style={screenSize} min="1" max="10"
-            /> 
-        </form>
-    )
-}
+)
 
 export default Quantity
