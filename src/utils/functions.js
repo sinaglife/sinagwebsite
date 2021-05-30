@@ -1,24 +1,65 @@
 import axios from "axios";
+import endpoints from "./endpoints"
 
 export const getSliderData = async()=> {
-  const api = " http://localhost:8080/data"
+ 
   try {
-    let response = await axios.get(api)
+    let response = await axios.get(`${endpoints.devBasePath}${endpoints.slider}`)
     return response.data
   } catch (error) {
     console.log(error)
   }
 }
 
-  export const getProductData = async() => {
-    const api = " http://localhost:8080/products" 
-
-    //const api = "https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1";
+  export const getProductData = async(param) => {
+  
     try {
-      let response = await axios.post(api)
+      let response = await axios.post(`${endpoints.devBasePath}${endpoints.products}`, {
+        filerParam: param
+      })
       return  response.data
     } catch (error) {
       console.log("there was an error with the products api")
     }
   }
 
+  export const getMosaicData = async () => {
+    try {
+      let result = await axios.post("http://localhost:4003/api/products")
+
+      return result.data.data.filter((item) => (
+        item.categories.some((product)=> (
+          product.name.toLowerCase().includes("mosaico")
+        ))
+      ))
+
+    } catch (error) {
+      console.log(error)
+    }
+  
+  }   
+
+   
+  export const getData = async (url, method, auth, param) => {
+
+    const methods = ["get", "post"];
+
+    if(methods.includes(method)){
+      try {
+        let response = await axios({
+          method: method,
+          url: url,
+          auth: auth ? auth : null,
+          data: {
+            param: param
+          }
+        })
+
+        return response.data;
+      
+      } catch (error) {
+        console.log(url, error)
+      }
+    }
+   
+  }

@@ -13,20 +13,20 @@ const Store = ({
 }) => {
 
     const [filterValue, setFilterValue] = useState("")
-    const [productList, setProductList] = useState([])
+    const [productList, setProductList] = useState(data)
     const {param} = useParams()
     const title = param.includes("-") ? param?.replace(/-/gi, " ") : param
 
-    useEffect(()=>{
-        if(data && data.length > 0){
-            setProductList(data?.filter((item)=>{
-                return item.categories.some((product)=> (
-                 product.name.toLowerCase().includes(title)
-                 ))
-            }))
-            
-        }if(productList) console.log("store productss",productList, param)
-    }, [data, param])
+    //useEffect(()=>{
+    //    if(data && data.length > 0){
+    //        setProductList(data?.filter((item)=>{
+    //            return item.categories.some((product)=> (
+    //             product.name.toLowerCase().includes(title)
+    //             ))
+    //        }))
+    //        
+    //    }if(productList) console.log("store productss",productList, param)
+    //}, [data, param])
     return (
         <div>
             <FilterBar

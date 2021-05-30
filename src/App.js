@@ -10,9 +10,9 @@ import {
 } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import {getSliderData} from "./utils/functions"
-import axios from "axios"
+import {getData} from "./utils/functions"
 import Loading from "./components/Loading"
+import endpoints from "./utils/endpoints"
 import './App.css';
 
 
@@ -42,32 +42,24 @@ const App = ()=> {
   const isMenu = true;
 
   useEffect( ()=>{
-    try {
-     getSliderData().then((res)=>{
-      console.log(res.data)
-       setSliderData(res.data)
-     })
-      
-    } catch (error) {
-      console.log("there is a problem with the slider",error)
-    }
+
+    getData(
+      `${endpoints.devBasePath}${endpoints.slider}`, 
+      "get"
+      ).then((res)=> {
+        setSliderData(res.data)
+      })  
   }, [])
 
-  const getMosaicData = () => {
-    axios.post("http://localhost:8080/api/products").then((res)=>{
-      console.log("mosaic",res.data)
-      setMosaicData(res.data.data.filter((item)=> {
-        return item.categories.some((product)=> (
-          product.name.toLowerCase().includes("mosaico")
-        ))
-      }))
-    })
-   }   
-   
-   
-
   useEffect(()=> {
-    getMosaicData()
+    getData(
+    `${endpoints.devBasePath}${endpoints.products}`, 
+    "post",
+    null,
+    "mosaico"
+    ).then((res)=> {
+      setMosaicData(res.data)
+    })
     
 }, [])
 

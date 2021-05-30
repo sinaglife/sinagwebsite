@@ -75,9 +75,9 @@ function Tienda  ({isMenu}) {
   const renderTienda = menuArray.map((item, index) => {
     return (
       <Link key={index} to={item.path}> 
-        <div className={classes.card}>
+        <div className={classes.tienda__card}>
           <p>{item.name}</p>
-          <div className={classes.button_image}>
+          <div className={classes.card__image}>
             <img src={item.image} alt={item.name}/>
           </div>
         </div>
@@ -88,9 +88,9 @@ function Tienda  ({isMenu}) {
   const renderMujer = subMenuArray.map((item, index) => {
     return (
       <Link key={index}  to={item.path}> 
-        <div className={classes.card__woman}>
+        <div className={classes.isMenu__card}>
           <p>{item.name}</p>
-          <div className={classes.button_image}>
+          <div className={classes.card__image}>
             <img src={item.image} alt={item.name}/>
           </div>
         </div>
@@ -103,7 +103,7 @@ function Tienda  ({isMenu}) {
   return(
 
     <div className={classes.tienda__container}>
-      <div className={classes.menu}>
+      <div className={classes.tienda__content}>
         {
           isMenu ? 
           <>
