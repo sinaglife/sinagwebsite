@@ -22,7 +22,7 @@ const Product = () => {
     )))
     const [quantity, setQuantity] = useState(1)
     const title = product?.name
-    const description = product?.short_description.replace(/<[^>]*>?/g, "") 
+    const description = product?.description 
     const price = product?.price
     const rating = product?.average_rating
     const id = product?.id

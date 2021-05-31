@@ -2,16 +2,13 @@ import {productTypes}  from "./products.types"
 import {getProductData, getData} from "../../utils/functions"
 import endpoints from "../../utils/endpoints"
 
-export const getProducts = (param)=> {
+export const getProducts = ()=> {
     return async(dispatch)=>{
         try {
-            console.log(param)
             dispatch(getProductsRequest())
             let products = await getData(
                 `${endpoints.devBasePath}${endpoints.products}`,
                 "post",
-                null,
-                param
             )
             dispatch(getProductsSuccess(products))
         } catch (error) {

@@ -53,10 +53,8 @@ const App = ()=> {
 
   useEffect(()=> {
     getData(
-    `${endpoints.devBasePath}${endpoints.products}`, 
-    "post",
-    null,
-    "mosaico"
+    `${endpoints.devBasePath}${endpoints.mosaic}`, 
+    "get"
     ).then((res)=> {
       setMosaicData(res.data)
     })

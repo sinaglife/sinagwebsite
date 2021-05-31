@@ -6,6 +6,7 @@ const devBasePath = "http://localhost:8080";
 const slider = "/api/products/slider"  
 // "https://39570618.servicio-online.net/API/wp-json/wp/v2/pages/?per_page=100&page=1"
 
+const mosaic = "/api/products/mosaic"
 
 const products = "/api/products"
 
@@ -15,5 +16,6 @@ export default  {
   basePath,
   devBasePath,
   slider,
-  products
+  products,
+  mosaic
 }

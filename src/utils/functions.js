@@ -40,7 +40,7 @@ export const getSliderData = async()=> {
   }   
 
    
-  export const getData = async (url, method, auth, param) => {
+  export const getData = async (url, method, auth) => {
 
     const methods = ["get", "post"];
 
@@ -50,9 +50,6 @@ export const getSliderData = async()=> {
           method: method,
           url: url,
           auth: auth ? auth : null,
-          data: {
-            param: param
-          }
         })
 
         return response.data;
