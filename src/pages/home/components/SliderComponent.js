@@ -7,7 +7,7 @@ const SliderComponent = ({datoToSlider}) => {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [visibleControls, setVisibleControls] = useState(true);
-  const [sliderData, setSliderData] = useState([])
+  const [sliderData, setSliderData] = useState(datoToSlider)
 
   const handleSelectImage = (selectedIndex, e) => {
     setCurrentImage(selectedIndex);
@@ -19,16 +19,6 @@ const SliderComponent = ({datoToSlider}) => {
     }
 }, [visibleControls])
 
-
-  useEffect(() => {    
-      setSliderData( datoToSlider?.sort((a, b) => {
-        return (
-          parseInt(a.slug[a.slug.length - 1]) -
-          parseInt(b.slug[b.slug.length - 1])
-        );
-      }))
-      
-  }, [sliderData, currentImage])
 
   let carousel =   (
     <Carousel
@@ -49,8 +39,8 @@ const SliderComponent = ({datoToSlider}) => {
             >
               <img
                 className="d-block w-100"
-                src={item.acf.slide_image_big.url}
-                alt={item.acf.slide_title}
+                src={item.bigImg}
+                alt={item.title}
               />
             </div>
             <div
@@ -63,8 +53,8 @@ const SliderComponent = ({datoToSlider}) => {
             >
               <img
                 className="d-block w-100"
-                src={item.acf.slide_image_medium.url}
-                alt={item.acf.slide_title}
+                src={item.mediumImg}
+                alt={item.title}
               />
             </div>
             <div
@@ -74,16 +64,16 @@ const SliderComponent = ({datoToSlider}) => {
             >
               <img
                 className="d-block w-100"
-                src={item.acf.slide_image_small.url}
-                alt={item.acf.slide_title}
+                src={item.smallImg}
+                alt={item.title}
               />
             </div>
             <Carousel.Caption>
               <h3 className={classes.sliderTitle}>
-                {item.acf.slide_title}
+                {item.title}
               </h3>
               <p className={classes.sliderSubTitle}>
-                {item.acf.slide_description}
+                {item.subTitle}
               </p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -95,7 +85,7 @@ const SliderComponent = ({datoToSlider}) => {
   return (
     <div>
       {
-      !sliderData || sliderData.length === 0 ? 
+      !sliderData || sliderData?.length === 0 ? 
       <Loading/> :
       carousel 
       }

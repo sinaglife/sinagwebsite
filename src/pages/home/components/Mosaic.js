@@ -9,7 +9,7 @@ const Mosaic = ({data}) => {
   const [showLightbox, setShowLightBox] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
   const [productData, setProductData] = useState([])
-//const productImage = data?.images[0].src
+
 
   const selectedImg = (i) => {
 
