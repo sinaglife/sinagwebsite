@@ -2,6 +2,7 @@ import React,{Fragment, useState, useEffect} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import Loading from "../../components/Loading"
+import endpoints from "../../utils/endpoints"
 import classes from "./BlogPost.module.scss";
 
 const BlogPost = (props)=> {
@@ -13,7 +14,7 @@ const BlogPost = (props)=> {
 
     useEffect(()=>{
         axios
-        .get(`https://sinag-api-2021.herokuapp.com/api/blog`)
+        .get(`${endpoints.basePath}${endpoints.blog}`)
         .then((res)=>{
             console.log(res.data)
             let dataArray = res.data.data.filter((post)=>{

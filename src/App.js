@@ -44,7 +44,7 @@ const App = ()=> {
   useEffect( ()=>{
 
     getData(
-      `${endpoints.devBasePath}${endpoints.slider}`, 
+      `${endpoints.basePath}${endpoints.slider}`, 
       "get"
       ).then((res)=> {
         setSliderData(res.data)
@@ -53,7 +53,7 @@ const App = ()=> {
 
   useEffect(()=> {
     getData(
-    `${endpoints.devBasePath}${endpoints.mosaic}`, 
+    `${endpoints.basePath}${endpoints.mosaic}`, 
     "get"
     ).then((res)=> {
       setMosaicData(res.data)

@@ -5,7 +5,6 @@ import Products from "./ProductDetails"
 import Index from "./index"
 import Loading from "../../../components/Loading"
 import { connect } from 'react-redux'
-import {useParams, useHistory} from "react-router-dom";
 import {
     Switch,
     Route,

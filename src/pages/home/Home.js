@@ -14,7 +14,7 @@ import Mosaic from "./components/Mosaic";
 import SliderComponent from './components/SliderComponent';
 import { Link } from "react-router-dom";
 
-const Home = ({data, datoToSlider, dataToMosaic})=> {
+const Home = ({ datoToSlider, dataToMosaic})=> {
 
     const malaImg = window.innerWidth > 500 ? desktopMalaImg : mobileMalaImg
     const tallerImg = window.innerWidth > 500 ? desktopTallerImg : mobileTallerImg

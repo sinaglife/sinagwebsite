@@ -68,7 +68,7 @@ function Checkout() {
     if(!error){
         try {
             const { id } = paymentMethod
-            const response = await axios.post(`${endpoints.devBasePath}${endpoints.payment}`, {
+            const response = await axios.post(`${endpoints.basePath}${endpoints.payment}`, {
                 amount: total * 100,
                 id,
                 description: JSON.stringify(basket)

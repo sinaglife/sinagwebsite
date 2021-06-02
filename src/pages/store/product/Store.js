@@ -16,7 +16,7 @@ const Store = ({
     const [productList, setProductList] = useState([])
     const {param} = useParams()
     const title = param.includes("-") ? param?.replace(/-/gi, " ") : param
-console.log(param, title)
+
     useEffect(()=>{
         if(data && data.length > 0){
             setProductList(data?.filter((item)=>(

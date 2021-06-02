@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import classes from "./Blog.module.scss";
 import PostBox from './PostBox';
 import Loading from "../../components/Loading"
+import endpoints from "../../utils/endpoints"
+
 
 const Blog = (props)=> {
 
@@ -10,7 +12,7 @@ const Blog = (props)=> {
 
     useEffect(()=>{
         axios
-            .get(`https://sinag-api-2021.herokuapp.com/api/blog`)
+            .get(`${endpoints.basePath}${endpoints.blog}`)
             .then((res)=>{
                 setBlogData(res.data.data)
             });

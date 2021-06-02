@@ -1,5 +1,5 @@
 import {productTypes}  from "./products.types" 
-import {getProductData, getData} from "../../utils/functions"
+import { getData} from "../../utils/functions"
 import endpoints from "../../utils/endpoints"
 
 export const getProducts = ()=> {
@@ -7,7 +7,7 @@ export const getProducts = ()=> {
         try {
             dispatch(getProductsRequest())
             let products = await getData(
-                `${endpoints.devBasePath}${endpoints.products}`,
+                `${endpoints.basePath}${endpoints.products}`,
                 "post",
             )
             dispatch(getProductsSuccess(products))
