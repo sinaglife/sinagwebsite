@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import ProductGallery from "./ProductGallery"
 import FilterBar from "./components/FilterBar"
-import kokeLogo from "../../../assets/images/koketropic-logo.jpeg";
+import kokeLogo from "../../../assets/images/koketropic-logo.jpg";
 import {useParams} from "react-router-dom";
 //import Loading from "../../../components/Loading"
 

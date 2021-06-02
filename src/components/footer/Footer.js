@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className={classes.footer}>
       <div className={classes.footer__leftSection}>
-        <img src={cometa} alt="" />
+        <img src={cometa} alt="sinag-cometa" />
         <p>
           En Sinag estamos comprometidos en
           cuidar el planeta tierra, el embalaje
