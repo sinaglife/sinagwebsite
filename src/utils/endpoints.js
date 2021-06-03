@@ -1,5 +1,5 @@
 
-const basePath = "https://git.heroku.com/sinag-api-2021.git";
+const basePath = "https://sinag-api-2021.herokuapp.com";
 // const basePath = "http://localhost:8080";
 const slider = "/api/products/slider"  
 const mosaic = "/api/products/mosaic"
