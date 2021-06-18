@@ -5,26 +5,26 @@ import classes from "./Modal.module.scss"
 
 
 
-export default function SimpleModal({close, open}) {
+export default function SimpleModal({
+  close, 
+  open, 
+  title,
+  children
+}) {
   
-  const body = (
-    <div  className={classes.modal__container}>
-      <img  src={cometa} alt="" />
-      <h2  >Gracias por tu compra</h2>
-      <p>
-       Orden de envio
-      </p>
-      
-    </div>
-  );
-
   return (
     <div>
       <Modal
         open={open}
         onClose={close}
       >
-        {body}
+        <div  className={classes.modal__container}>
+          <img  src={cometa} alt="" />
+          <h2  >{title}</h2>
+          <p>
+          {children}
+          </p>
+        </div>
       </Modal>
     </div>
   );

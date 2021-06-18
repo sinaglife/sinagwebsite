@@ -1,24 +1,34 @@
-import React, {useEffect}  from 'react'
+import React, {useEffect, useState}  from 'react'
 //import {InputRow} from "./Register"
 import googleIcon from "../../assets/images/google.svg"
 import { useFormik } from 'formik';
 import { useHistory, Link } from "react-router-dom";
-import {logInWithGoogle, logWithEmailAndPassword} from "../../utils/user.utils"
 import { connect } from 'react-redux'
 import {
     FormComponent, 
     InputRow
 } from "../../components/form/FormComponent"
+import {  
+    singInStart,
+    singInSuccess,
+    singInFailure
+} from "../../redux/user/user.actions"
+import { getData} from "../../utils/functions"
+import { useDispatch} from "react-redux"
+import Modal from "../../components/Modal"
 
 import classes from "./SingIn.module.scss"
 
 
-const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
+const SingIn = ({logWithEmailAndPassword, user}) => {
 
+    
     let history = useHistory()
+    const dispatch = useDispatch()
+
     useEffect(()=>{
         window.scrollTo(0,0)
-        if(user){
+        if(!!user?.status){
             history.push("/")
         }
     }, [user])
@@ -30,8 +40,35 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
 
     const formik = useFormik({
         initialValues: initialState,
-        onSubmit: values => {
-            logWithEmailAndPassword(values.email, values.password)
+        onSubmit: async values => {
+            
+            try {
+                dispatch(singInStart())
+
+                const response = await getData(
+                    "http://localhost:8080/api/user/singin",
+                    "post",
+                    null,
+                    {
+                        email:values.email, 
+                        password:values.password
+                    }
+                )
+
+                if(response.success){
+                    dispatch(singInSuccess(response.data))
+                    formik.resetForm();
+                    history.push("/")
+                }else {
+                    dispatch(singInFailure(response.message))
+                    alert(response.message)
+                    formik.resetForm();
+                }
+                
+            } catch (error) {
+                dispatch(singInFailure(error))
+            }
+           
             formik.resetForm();
         },
         validate: values => {
@@ -84,11 +121,11 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
                      type="submit">
                          Aceptar
                     </button>
-                    <button type="button" onClick={logInWithGoogle} style={{display: formik.isSubmitting ? "none" : null}}
+                    {/* <button type="button"  style={{display: formik.isSubmitting ? "none" : null}}
                      className={classes.singWhit__button}>
                         <img src={googleIcon}/>
                         Registrarse con Google
-                    </button>
+                    </button> */}
                 </div>
                    
                 <Link to="/nuevo-usuario" >
@@ -100,18 +137,4 @@ const SingIn = ({logWithEmailAndPassword, logInWithGoogle, user}) => {
     )
 }
 
-const mapStateToProps = (state)=>{
-    return{
-        user: state.user.user,
-    }
-}
-
-const mapDispatchToProps = dispatch =>{
-    return{
-        logWithEmailAndPassword: (email, password) =>
-         dispatch(logWithEmailAndPassword(email, password)),
-        logInWithGoogle: ()=> dispatch(logInWithGoogle())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SingIn)
+export default SingIn

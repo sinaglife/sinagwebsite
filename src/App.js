@@ -15,7 +15,6 @@ import Loading from "./components/Loading"
 import endpoints from "./utils/endpoints"
 import './App.css';
 
-
 const MainBasket = lazy(()=>import("./pages/basket/MainBasket"))
 const Blog = lazy(()=> import("./pages/blog/Blog"))
 const BlogPost = lazy(()=> import("./pages/blog/BlogPost"))
@@ -44,7 +43,7 @@ const App = ()=> {
   useEffect( ()=>{
 
     getData(
-      `${endpoints.basePath}${endpoints.slider}`, 
+      `http://localhost:8080/api/products/slider`, 
       "get"
       ).then((res)=> {
         setSliderData(res.data)
@@ -53,9 +52,14 @@ const App = ()=> {
 
   useEffect(()=> {
     getData(
-    `${endpoints.basePath}${endpoints.mosaic}`, 
-    "get"
-    ).then((res)=> {
+      `http://localhost:8080/api/products/mosaic`,
+      "post",
+      null,
+      {
+        categorie: "mosaico"
+      }
+    )
+   .then((res)=> {
       setMosaicData(res.data)
     })
     

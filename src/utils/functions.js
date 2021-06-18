@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-  export const getData = async (url, method, auth) => {
+  export const getData = async (url, method, auth, data) => {
 
     const methods = ["get", "post"];
 
@@ -11,6 +11,7 @@ import axios from "axios";
           method: method,
           url: url,
           auth: auth ? auth : null,
+          data: data && data
         })
 
         return response.data;

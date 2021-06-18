@@ -9,14 +9,14 @@ const initialState = {
 
 export const userReducer = (state = initialState, action)=>{
     console.log(action.payload)
-        switch(action.type){
+        switch(action.type, action.type){
             case userTypes.SING_IN_START:
                 return {
                     ...state,
                     loading: true
                 }
             case userTypes.SING_IN_SUCCESS:
-                //localStorage.setItem("user", JSON.stringify(action.payload.user))
+               
                 return{
                     ...state,
                     loading: false,

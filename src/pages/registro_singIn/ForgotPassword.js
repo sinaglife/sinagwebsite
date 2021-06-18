@@ -4,7 +4,6 @@ import {
     FormComponent, 
     InputRow
 } from "../../components/form/FormComponent"
-import { passwordReset}  from "../../utils/user.utils"
 
 import classes from "./RegistroSingIn.module.scss"
 
@@ -16,7 +15,7 @@ const ForgotPassword = () => {
     const formik = useFormik({
         initialValues: initialState,
         onSubmit: values => {
-            passwordReset(values.email);
+            //passwordReset(values.email);
             formik.resetForm();
         },
         validate: values => {

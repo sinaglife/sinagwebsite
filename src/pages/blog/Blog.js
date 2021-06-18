@@ -12,9 +12,9 @@ const Blog = (props)=> {
 
     useEffect(()=>{
         axios
-            .get(`${endpoints.basePath}${endpoints.blog}`)
+            .get("https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100")
             .then((res)=>{
-                setBlogData(res.data.data)
+                setBlogData(res.data)
             });
     }, [props]);
 

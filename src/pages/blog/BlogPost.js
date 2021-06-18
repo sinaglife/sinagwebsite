@@ -14,10 +14,10 @@ const BlogPost = (props)=> {
 
     useEffect(()=>{
         axios
-        .get(`${endpoints.basePath}${endpoints.blog}`)
+        .get("https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100")
         .then((res)=>{
             console.log(res.data)
-            let dataArray = res.data.data.filter((post)=>{
+            let dataArray = res.data.filter((post)=>{
         
                 return post.slug === params.slug;
             });

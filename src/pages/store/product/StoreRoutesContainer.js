@@ -12,6 +12,8 @@ import {
 
   const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
 
+    console.log("renderizando storeRoute")
+
     useEffect(()=> {
         getProducts() 
        
@@ -28,10 +30,7 @@ import {
                 </Route>
           
                 <Route exact path="/tienda/:param">
-                    <Store 
-                    loading={loading} 
-                    data={products}
-                    />
+                    <Store />
                 </Route>  
                 <Route exact  path="/menu">
                     <Index/>   

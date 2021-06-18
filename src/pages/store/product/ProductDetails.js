@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import FilterBySize from "./components/FilterBySize"
 import Quantity from "./components/Quantity"
 import RatingComponent from "./components/RatingComponent"
-import {useHistory} from "react-router-dom";
+import {useHistory, Link} from "react-router-dom";
 import {addProductToBasket} from "../../../redux/basket/basket.actions"
 import { useDispatch} from "react-redux"
 import visa from "../../../assets/images/visa.svg"
@@ -136,7 +136,7 @@ const goRight = ()=> {
                                     <RatingComponent rating={rating}/>
                                 </div>
                                 
-                                <a href="http://localhost:3000/tallas"  >GUIA DE TALLAS</a>
+                                <Link to="/tallas"  >GUIA DE TALLAS</Link>
                             </div>
                         </div>
                     </div>

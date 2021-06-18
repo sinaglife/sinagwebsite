@@ -3,28 +3,26 @@ import ProductGallery from "./ProductGallery"
 import FilterBar from "./components/FilterBar"
 import kokeLogo from "../../../assets/images/koketropic-logo.jpg";
 import {useParams} from "react-router-dom";
-//import Loading from "../../../components/Loading"
+import { connect } from 'react-redux'
+
 
 import classes from "./Store.module.scss";
 
 const Store = ({
-    data,
-    loading
+    products
 }) => {
 
-    const [filterValue, setFilterValue] = useState("")
-    const [productList, setProductList] = useState([])
     const {param} = useParams()
     const title = param.includes("-") ? param?.replace(/-/gi, " ") : param
+    const [filterValue, setFilterValue] = useState("")
+    const [productList, setProductList] = useState([])
 
     useEffect(()=>{
-        if(data && data.length > 0){
-            setProductList(data?.filter((item)=>(
-                item?.categories?.includes(title)
-              )))
-            
-        }if(productList) console.log("store productss",productList, param)
-    }, [data, param])
+       setProductList(products?.filter((item)=>(
+        item?.categories?.includes(title)
+      )))
+          if(productList) console.log("store productss",productList, param)
+    }, [ param])
     
     return (
         <div>
@@ -40,7 +38,15 @@ const Store = ({
     )
 }
 
-export default Store
+const mapStateToProps = state => {
+    return{
+        products: state.product.products.data,
+        loading: state.product.loading
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Store)
 
  
  

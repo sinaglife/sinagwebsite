@@ -7,7 +7,7 @@ export const getProducts = ()=> {
         try {
             dispatch(getProductsRequest())
             let products = await getData(
-                `${endpoints.basePath}${endpoints.products}`,
+                `http://localhost:8080/api/products`,
                 "post",
             )
             dispatch(getProductsSuccess(products))

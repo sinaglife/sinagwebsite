@@ -6,7 +6,7 @@ import Button from "../UI/button/Button";
 import UserTooltip from "./components/UserTooltip"
 import { connect } from 'react-redux'
 import {getBasketLength} from "../../utils/basket.utils"
-import {singOut} from "../../utils/user.utils"
+
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -54,10 +54,6 @@ const Toolbar = ({basket, user, singOut, ...props}) =>{
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
 
-
-  const handleUserTooltip = ()=> {
-    
-  }
   const isOpenToolTip = (e)=> setIsTooltip(true)
 
   const isCloseToolTip = (e)=>  setIsTooltip(false)
@@ -107,7 +103,6 @@ return (
             <UserTooltip
             isCloseToolTip={isCloseToolTip}
             user={user}
-            singOut={singOut}
             /> 
           }
         </div>
@@ -122,13 +117,8 @@ const mapStateToProps = state =>{
   }
 }
 
-const mapDispatchToProps = (dispatch)=>{
-  return {
-    singOut: ()=> dispatch(singOut())
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default connect(mapStateToProps, null)(Toolbar);
 
 
   

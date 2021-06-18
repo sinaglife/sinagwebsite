@@ -8,7 +8,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
     return (
         <>
         {
-            !user ?
+            !user?.status ?
             <div className={classes.tooltip__container} >
                 <Link 
                 to="/entrar" 

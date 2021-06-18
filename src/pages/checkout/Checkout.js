@@ -129,37 +129,35 @@ function Checkout() {
     localStorage.setItem("delivery", String(deliveryAmount))
 
     return (
-        
-        isModalOpen ?
-
-       <Modal
-       close={handleClose}
-       open={isModalOpen}
-       /> 
-       :
-        <form onSubmit={formik.handleSubmit} className={classes.checkout}>  
-            <CustomerData 
-            name={formik.values.name}
-            lastName={formik.values.lastName}
-            email={formik.values.email}
-            phone={formik.values.phone}
-            address={formik.values.address}
-            zip={formik.values.zip}
-            city={formik.values.city}
-            country={formik.values.country}
-            onChange={formik.handleChange} 
-            />
-            {
-                subTotal < 40 && 
-                <Delivery onChange={formik.handleChange} />
-            }
-            
-            <StripeForm
-            deliveryAmount={deliveryAmount}
-            subTotal={subTotal}
-            total={total} 
-            />
-        </form>
+        <>
+            <Modal
+            close={handleClose}
+            open={isModalOpen}
+            /> 
+            <form onSubmit={formik.handleSubmit} className={classes.checkout}>  
+                <CustomerData 
+                name={formik.values.name}
+                lastName={formik.values.lastName}
+                email={formik.values.email}
+                phone={formik.values.phone}
+                address={formik.values.address}
+                zip={formik.values.zip}
+                city={formik.values.city}
+                country={formik.values.country}
+                onChange={formik.handleChange} 
+                />
+                {
+                    subTotal < 40 && 
+                    <Delivery onChange={formik.handleChange} />
+                }
+                
+                <StripeForm
+                deliveryAmount={deliveryAmount}
+                subTotal={subTotal}
+                total={total} 
+                />
+            </form>
+        </>
     )
 }
 

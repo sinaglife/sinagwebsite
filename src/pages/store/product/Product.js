@@ -1,15 +1,18 @@
-import React, {useState} from 'react';
-import {Link, useHistory } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import {Link } from "react-router-dom";
 import classes from "./Product.module.scss";
 
 const Product = ({productData}) => {
-    const [imgToShow, setImgToShow] = useState(productData.images[0].src)
+    const [imgToShow, setImgToShow] = useState([])
     const imgArray = productData.images.map((item)=>(
         item.src
     ));
-    let history = useHistory();
-    //onsole.log(history)
+  
     const altImg = productData.images[0].alt
+
+    useEffect(()=>{
+        setImgToShow(productData.images[0].src)
+    }, [productData])
 
     const getImgToShow = ()=> {
         if(imgArray.length > 1){
