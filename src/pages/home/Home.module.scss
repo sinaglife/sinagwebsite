@@ -23,6 +23,7 @@
     color: black;
     text-align: center;
     padding: 0.5rem 0;
+
     h2{
         font-weight: 550;
         margin: 0;
@@ -30,8 +31,10 @@
 }
 
 .home__banner{
-    background-color: white;
+    background-color: $white;
     height: 240px;
+    border-top: 2px solid $white;
+    border-bottom: 2px solid $white;
     img{
         width: 70%;
         height: 100%;
@@ -103,11 +106,12 @@
 
 
 .home__taller{
-    height: 420px;
     display: flex;
+    flex-direction: column;
     overflow:hidden;
     div{
         width: 100%;
+        border-top: 2px solid $white;
     }
     img{
         object-fit: cover;

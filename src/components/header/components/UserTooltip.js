@@ -36,7 +36,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
             <div className={classes.tooltip__container}>
                 <Link 
                 className={classes.tooltip__change__password}
-                to="/olvido-contrasena"
+                to="/cambiar-contrasena"
                 style={{ textDecoration: "none"}}
                 onClick={isCloseToolTip}
                 >

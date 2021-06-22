@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from 'moment';
 
 
   export const getData = async (url, method, auth, data) => {
@@ -22,3 +23,12 @@ import axios from "axios";
     }
    
   }
+
+
+export const getUserAge = (birthDate) => {
+  const today = moment();
+  const userAge = today.diff(birthDate, "years")
+
+  console.log(userAge, birthDate)
+  return userAge
+}

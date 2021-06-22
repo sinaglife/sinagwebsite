@@ -6,7 +6,7 @@ import Button from "../UI/button/Button";
 import UserTooltip from "./components/UserTooltip"
 import { connect } from 'react-redux'
 import {getBasketLength} from "../../utils/basket.utils"
-
+import {singOutSuccess} from "../../redux/user/user.actions"
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -103,6 +103,7 @@ return (
             <UserTooltip
             isCloseToolTip={isCloseToolTip}
             user={user}
+            singOut={singOut}
             /> 
           }
         </div>
@@ -117,8 +118,15 @@ const mapStateToProps = state =>{
   }
 }
 
+const mapDispachToProps = dispatch =>{
+  return{
+    singOut: () => dispatch(singOutSuccess())
+  }
+}
 
-export default connect(mapStateToProps, null)(Toolbar);
+
+
+export default connect(mapStateToProps, mapDispachToProps)(Toolbar);
 
 
   

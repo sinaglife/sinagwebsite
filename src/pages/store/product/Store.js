@@ -20,10 +20,16 @@ const Store = ({
     useEffect(()=>{
        setProductList(products?.filter((item)=>(
         item?.categories?.includes(title)
-      )))
-          if(productList) console.log("store productss",productList, param)
-    }, [ param])
-    
+       )))
+
+       if(filterValue !== "")
+        setProductList(productList?.filter(item => (
+        item?.name.toLowerCase().trim().includes(filterValue)
+        )))
+          if(filterValue !== "") console.log("store productss",productList, param, filterValue)
+       
+    }, [ param, filterValue])
+
     return (
         <div>
             <FilterBar

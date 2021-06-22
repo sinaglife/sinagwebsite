@@ -28,6 +28,7 @@ const Home = lazy(()=> import("./pages/home/Home"))
 const Register = lazy(()=> import("./pages/registro_singIn/Register"))
 const SingIn = lazy(()=> import("./pages/registro_singIn/SingIn"))
 const ForgotPassword = lazy(()=> import("./pages/registro_singIn/ForgotPassword"))
+const UpdatePassword = lazy(()=> import("./pages/registro_singIn/UpdatePassword"))
 const StripeContainer = lazy(()=> import("./pages/checkout/payment/StripeContainer"))
 const SideDrawer = lazy(()=> import('./components/SideDrawer'))
 
@@ -125,6 +126,9 @@ const App = ()=> {
               </Route>
               <Route exact path="/entrar">
                 <SingIn />
+              </Route>
+              <Route exact path="/cambiar-contrasena">
+                <UpdatePassword />
               </Route>
               <Route exact path="/olvido-contrasena">
                 <ForgotPassword />

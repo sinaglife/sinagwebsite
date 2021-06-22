@@ -1,13 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useFormik } from 'formik';
 import {
     FormComponent, 
     InputRow
 } from "../../components/form/FormComponent"
+import { getData} from "../../utils/functions"
 
 import classes from "./RegistroSingIn.module.scss"
 
 const ForgotPassword = () => {
+
+    const [isLoading, setIsLoading] = useState(false)
     const initialState = {
         email: "",
     }
@@ -15,7 +18,14 @@ const ForgotPassword = () => {
     const formik = useFormik({
         initialValues: initialState,
         onSubmit: values => {
-            //passwordReset(values.email);
+
+            try {
+
+                
+            } catch (error) {
+                
+            }
+          
             formik.resetForm();
         },
         validate: values => {
@@ -31,14 +41,15 @@ const ForgotPassword = () => {
             return errors;
         }
     });
+
     return (
         <FormComponent>
             <InputRow 
-             error={formik.errors.email}
-            label="Email"
-            name="email"
-            value={formik.values.email}
-            onChange={formik.handleChange}/>
+               error={formik.errors.email}
+               name="email" label="Email"
+               value={formik.values.email}
+               onChange={formik.handleChange}
+            />
             <button className={classes.register__button} type="submit">
              Enviar
             </button>

@@ -50,7 +50,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch =>{
-    console.log("dispatch desde storeR")
     return{
         getProducts: ()=> dispatch(getProducts()),
     }

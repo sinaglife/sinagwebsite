@@ -21,13 +21,15 @@ const Product = () => {
         item.src
     )))
     const [quantity, setQuantity] = useState(1)
+   const regex = /(<([^>]+)>)/ig;
     const title = product?.name
-    const description = product?.description 
+    const description = product?.description.replace(regex, "")
     const price = product?.price
     const rating = product?.average_rating
     const id = product?.id
     const dispatch = useDispatch()
 
+   
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])

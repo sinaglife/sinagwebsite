@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useFormik } from 'formik';
 import { useSelector, useDispatch} from "react-redux"
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {InputRow, FormComponent} from "../../components/form/FormComponent"
 import Modal from "../../components/Modal"
 import Loading from "../../components/Loading"
@@ -10,7 +10,7 @@ import {
     registerUserSuccess,
     registerUserFailure
 } from "../../redux/user/user.actions"
-import { getData} from "../../utils/functions"
+import { getData, getUserAge} from "../../utils/functions"
 
 
 import classes from "./RegistroSingIn.module.scss"
@@ -19,7 +19,6 @@ import classes from "./RegistroSingIn.module.scss"
 const Register = () => {
     
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
     let history = useHistory()
@@ -35,7 +34,8 @@ const Register = () => {
         lastName: "",
         email: "",
         password: "",
-        password2: ""
+        password2: "",
+        birth: ""
     }
 
     const formik = useFormik({
@@ -52,6 +52,7 @@ const Register = () => {
                     {
                         name:values.name,
                         lastName:values.lastName,
+                        birthDate: values.birth,
                         email:values.email, 
                         password:values.password
                     }
@@ -84,12 +85,15 @@ const Register = () => {
 
             if(!values.password){
                 errors.password = "Password Required"
-            }else if(values.password.length < 8 ){
+            }else if(values.password.length < 6 ){
                 errors.password = "Contraseña minimo 8 caracteres"
             }
 
             if(values.password !== values.password2)
             errors.password = "Las contraseñas deben coincidir"
+
+            if(values.birth === "" || getUserAge(values.birth) < 18)
+            errors.birth = "Debes ser mayor de edad"
             
             return errors;
         }
@@ -114,6 +118,14 @@ const Register = () => {
             name:"lastName", 
             value: formik.values.lastName,
             label: "Apellido"
+        },
+        {
+            error: formik.errors.birth,
+            type:"date", 
+            onChange: formik.handleChange,
+            name:"birth", 
+            value: formik.values.birth,
+            label: "Fecha de nacimiento"
         },
         {
             error: formik.errors.email,
@@ -174,6 +186,9 @@ const Register = () => {
                     />
                 ))
             }
+            <p>Al registrarte, aceptas las <Link to="/politicas-de-privacidad">politicas de privacidad</Link> 
+             <br/>y terminos de uso.
+            </p>
             <button 
             className={classes.register__button} 
             disabled={formik.isSubmitting}
