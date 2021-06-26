@@ -19,6 +19,10 @@ import classes from "./RegistroSingIn.module.scss"
 const Register = () => {
     
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalTex, setModalText] = useState({
+        title: "",
+        text: ""
+    })
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
     let history = useHistory()
@@ -60,16 +64,28 @@ const Register = () => {
                 if(response.success){
                     dispatch(registerUserSuccess(response.data))
                     setIsModalOpen(true)
+                    setModalText({
+                        title:"Registro exitoso",
+                        text: "revise su correo electronico"
+                    })
                     formik.resetForm();
                 }else{
                     dispatch(registerUserFailure(response.message))
-                    alert(response.message)
+                    setIsModalOpen(true)
+                    setModalText({
+                        title:"Registro Fallido",
+                        text: "Ya existe un usuario con este email"
+                    })
                     formik.resetForm();
                 }
                
             } catch (error) {
                 dispatch(registerUserFailure(error))
-                //Abrir modal de error
+                setIsModalOpen(true)
+                    setModalText({
+                        title:"Registro Fallido",
+                        text: "Lo sentimos, algo ha ido mal"
+                    })
             }
         },
         validate: values => {
@@ -169,9 +185,9 @@ const Register = () => {
             <Modal 
             open={isModalOpen} 
             close={handleClose}
-            title="Registro exitoso"
+            title={modalTex.title}
             >
-                Favor revise su correo.
+                {modalTex.text}
             </Modal>
             {
                 formData.map((item, index)=> (

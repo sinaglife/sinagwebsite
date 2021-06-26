@@ -42,25 +42,10 @@ export const registerUserFailure = (error)=>{
         payload: error
     }
 }
-export const singOutStart = ()=>{
-    return {
-        type: userTypes.SING_OUT_START
-    }
-}
-
 
 export const singOutSuccess = ()=>{
     return {
         type: userTypes.SING_OUT_SUCCESS
     }
 }
-
-
-export const singOutFailure = (error)=>{
-    return {
-        type: userTypes.SING_OUT_FAILURE,
-        payload: error
-    }
-}
-
 

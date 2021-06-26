@@ -1,10 +1,11 @@
 import {basketTypes}  from "./basket.types" 
 
-export const addProductToBasket = (product, qty)=>({
+export const addProductToBasket = (product, qty, size)=>({
     type: basketTypes.ADD_PRODUCT,
     payload:{
         product,
-        qty
+        qty,
+        size
     } 
 })
 

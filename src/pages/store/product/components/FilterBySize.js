@@ -2,46 +2,50 @@ import React, {memo} from 'react'
 import PropTypes from "prop-types";
 import classes from "./FilterBySize.module.scss"
 
-const FilterSize = memo(function FilterSize({sizeChoice}) {
+const FilterSize = memo(function FilterSize({
+    sizeParam,
+    handleChange
+}) {
 
     let ringArray = [6,7,8,9,10];
-    let necklaceArray = [35,42,45,50,55,60,70,80];
+    let necklaceArray = ["35cm","42cm","45cm","50cm","55cm","60cm","70cm","80cm"];
     let braceletArray = ["s", "m", "l", "xl"];
 
     const ringFilter = ()=> (
         ringArray.map((item, index)=> (
-            <option  key={index} value={item}>{item}</option>
+            <option  name={item}  key={index} value={item}>{item}</option>
         ))
     )
 
     const braceleteFilter = ()=>(
         braceletArray.map((item, index)=> (
-            <option  key={index} value={item}>{item}</option>
+            <option name={item}  key={index} value={item}>{item}</option>
         ))
     )
 
     const necklaceFilter = ()=>(
         necklaceArray.map((item, index)=> (
-            <option  key={index} value={item}>{item}cm</option>
+            <option name={item}  key={index} value={item}>{item}</option>
         ))
     )
     
-    const sizePicker = sizeChoice === "anillo" ? 
+    const sizePicker = sizeParam === "anillos" ? 
     ringFilter()
-    : sizeChoice === "colgante" ? 
+    : sizeParam === "colgantes" ? 
     necklaceFilter()
-    : sizeChoice === "pulsera" ? braceleteFilter()
+    : sizeParam === "pulseras" ? braceleteFilter()
     : null
 
+
     return (
-        <div>
-            <select id="size" name="size" className={classes.filter__select}>
+        <form id="">
+            <select onChange={handleChange} id="size" name="size"  className={classes.filter__select}>
                 <option></option>
                 {
                     sizePicker
                 }
             </select> 
-        </div>
+        </form>
     )
 })
 

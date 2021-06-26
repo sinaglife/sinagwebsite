@@ -1,15 +1,19 @@
 
 
-
-export const addItemToBasket = (basket, item, qty) =>{
-   const existItem = basket.find(basketItem => basketItem.id === item.id);
-   if(existItem){
-    return basket.map((basketItem)=> basketItem.id === item.id ? 
-    {...basketItem, quantity: basketItem.quantity + qty} : basketItem
-    );
-   }else{
-       return [...basket, {...item, quantity: qty}];
-   }
+export const addItemToBasket = (basket, item, qty, size) => {
+    const existItem = basket.find(basketItem => basketItem.id === item.id && 
+        basketItem.size === size);
+    if(existItem){
+        console.log("item",existItem.size, existItem.quantity)
+        return basket.map(basketItem =>  basketItem.id === item.id && 
+            basketItem.size === size ? 
+        {
+            ...basketItem, quantity: basketItem.quantity + qty
+        } : basketItem
+        );
+    }else {
+        return [...basket, {...item, quantity: qty, size: size}]
+    }
 }
 
 export const removeItemFromBasket = (basket, item) =>{

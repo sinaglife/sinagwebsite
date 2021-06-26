@@ -8,7 +8,7 @@ import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import {removeAllFromBasket} from "../../redux/basket/basket.actions";
 import Modal from "../../components/Modal"
 import {useHistory} from "react-router-dom";
-import endpoints from "../../utils/endpoints"
+import uri from "../../utils/uri.utils"
 
 import axios from 'axios';
 
@@ -68,7 +68,7 @@ function Checkout() {
     if(!error){
         try {
             const { id } = paymentMethod
-            const response = await axios.post(`${endpoints.basePath}${endpoints.payment}`, {
+            const response = await axios.post(`${uri.basePath}${uri.payment}`, {
                 amount: total * 100,
                 id,
                 description: JSON.stringify(basket)

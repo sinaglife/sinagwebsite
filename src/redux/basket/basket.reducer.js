@@ -8,10 +8,10 @@ const initialState = {
 export const basketReducer = (state = initialState, action)=>{
     switch(action.type){
         case basketTypes.ADD_PRODUCT:
-            const{product, qty} = action.payload
+            const{product, qty, size} = action.payload
             return{
                 ...state,
-                basketItems:addItemToBasket(state.basketItems, product, qty)
+                basketItems:addItemToBasket(state.basketItems, product, qty, size)
             };
         case basketTypes.REMOVE_PRODUCT:
             return{

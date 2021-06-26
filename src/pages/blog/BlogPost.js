@@ -2,7 +2,7 @@ import React,{Fragment, useState, useEffect} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import Loading from "../../components/Loading"
-import endpoints from "../../utils/endpoints"
+import uri from "../../utils/uri.utils"
 import classes from "./BlogPost.module.scss";
 
 const BlogPost = (props)=> {
@@ -14,7 +14,7 @@ const BlogPost = (props)=> {
 
     useEffect(()=>{
         axios
-        .get("https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100")
+        .get(`${uri.blog}`)
         .then((res)=>{
             console.log(res.data)
             let dataArray = res.data.filter((post)=>{

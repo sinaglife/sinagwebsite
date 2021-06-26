@@ -10,7 +10,6 @@ import classes from "./RegistroSingIn.module.scss"
 
 const ForgotPassword = () => {
 
-    const [isLoading, setIsLoading] = useState(false)
     const initialState = {
         email: "",
     }

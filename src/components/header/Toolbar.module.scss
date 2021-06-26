@@ -47,6 +47,12 @@
     align-items: flex-end;
     justify-content: center;
   }
+
+  .toolbar__basket__total{
+    font-size: 0.5rem;
+    font-weight: bold;
+  }
+
   .toolbar__right__basket{
     position: relative;
     display: flex;

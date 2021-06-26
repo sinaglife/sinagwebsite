@@ -1,9 +1,7 @@
 import React, {useEffect, useState}  from 'react'
-//import {InputRow} from "./Register"
 import googleIcon from "../../assets/images/google.svg"
 import { useFormik } from 'formik';
 import { useHistory, Link } from "react-router-dom";
-import { connect } from 'react-redux'
 import {
     FormComponent, 
     InputRow
@@ -20,9 +18,13 @@ import Modal from "../../components/Modal"
 import classes from "./SingIn.module.scss"
 
 
-const SingIn = ({logWithEmailAndPassword, user}) => {
+const SingIn = ({user}) => {
 
-    
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalTex, setModalText] = useState({
+        title: "",
+        text: ""
+    })
     let history = useHistory()
     const dispatch = useDispatch()
 
@@ -32,6 +34,11 @@ const SingIn = ({logWithEmailAndPassword, user}) => {
             history.push("/")
         }
     }, [user])
+
+    const handleClose = () => {
+        setIsModalOpen(false)
+        history.push("/")
+    }
 
     const initialState = {
         email: "",
@@ -57,16 +64,25 @@ const SingIn = ({logWithEmailAndPassword, user}) => {
 
                 if(response.success){
                     dispatch(singInSuccess(response.data))
-                    formik.resetForm();
                     history.push("/")
+                    formik.resetForm();
                 }else {
                     dispatch(singInFailure(response.message))
-                    alert(response.message)
+                    setIsModalOpen(true)
+                    setModalText({
+                        title: "Inicio de sesion",
+                        text: "Contraseña o email incorrectos"
+                    })
                     formik.resetForm();
                 }
                 
             } catch (error) {
                 dispatch(singInFailure(error))
+                setIsModalOpen(true)
+                setModalText({
+                    title: "Inicio de sesion",
+                    text: "Lo sentimos algo ha ido mal"
+                })
             }
            
             formik.resetForm();
@@ -89,51 +105,60 @@ const SingIn = ({logWithEmailAndPassword, user}) => {
         }
     });
     return (
-        <FormComponent
-        title="Entrar"
-        onSubmit={formik.handleSubmit}
-        isSubmitting={formik.isSubmitting}
-        buttonTitle="Aceptar"
-        >
-            <InputRow 
-                error={formik.errors.email}
-                name="email" label="Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                />
-                <InputRow name="password" label="Contraseña"
-                error={formik.errors.password}
-                 value={formik.values.password}
-                 onChange={formik.handleChange}
-                 type="password"
-                 />
-                <div className={classes.singIn__remember}>
-                    <input type="checkbox" name="remember"/>
-                    <p>Recordar contraseña</p>
-                </div>
-                <Link to="/olvido-contrasena">
-                    <p className={classes.singIn__linkTo}>
-                        ¿Olvido su contraseña?
-                    </p>
-                </Link>
-                <div className={classes.singIn__submit__buttons}>
-                    <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}}
-                     type="submit">
-                         Aceptar
-                    </button>
-                    {/* <button type="button"  style={{display: formik.isSubmitting ? "none" : null}}
-                     className={classes.singWhit__button}>
-                        <img src={googleIcon}/>
-                        Registrarse con Google
-                    </button> */}
-                </div>
-                   
-                <Link to="/nuevo-usuario" >
-                    <p className={classes.singIn__linkTo}>
-                        ¿Aun no tienes cuenta?
-                    </p>
-                </Link>
-        </FormComponent>
+        <>
+            <Modal 
+            open={isModalOpen} 
+            close={handleClose}
+            title={modalTex.title}
+            >
+            {modalTex.text}
+            </Modal>
+            <FormComponent
+            title="Entrar"
+            onSubmit={formik.handleSubmit}
+            isSubmitting={formik.isSubmitting}
+            buttonTitle="Aceptar"
+            >
+                <InputRow 
+                    error={formik.errors.email}
+                    name="email" label="Email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    />
+                    <InputRow name="password" label="Contraseña"
+                    error={formik.errors.password}
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    type="password"
+                    />
+                    <div className={classes.singIn__remember}>
+                        <input type="checkbox" name="remember"/>
+                        <p>Recordar contraseña</p>
+                    </div>
+                    <Link to="/olvido-contrasena">
+                        <p className={classes.singIn__linkTo}>
+                            ¿Olvido su contraseña?
+                        </p>
+                    </Link>
+                    <div className={classes.singIn__submit__buttons}>
+                        <button style={{backgroundColor: formik.isSubmitting ? "rgb(214, 212, 212)" : null}}
+                        type="submit">
+                            Aceptar
+                        </button>
+                        {/* <button type="button"  style={{display: formik.isSubmitting ? "none" : null}}
+                        className={classes.singWhit__button}>
+                            <img src={googleIcon}/>
+                            Registrarse con Google
+                        </button> */}
+                    </div>
+                    
+                    <Link to="/nuevo-usuario" >
+                        <p className={classes.singIn__linkTo}>
+                            ¿Aun no tienes cuenta?
+                        </p>
+                    </Link>
+            </FormComponent>
+        </>
     )
 }
 

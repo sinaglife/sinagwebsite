@@ -12,15 +12,13 @@ import {
 
   const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
 
-    console.log("renderizando storeRoute")
-
     useEffect(()=> {
         getProducts() 
        
    }, [])
 
     return (
-        <div>
+        <>
             {
             loading || !products ?
             <Loading /> : products && products.length > 0 &&
@@ -38,7 +36,7 @@ import {
                 <Route  render={()=> <Index isMenu={isMenu}/>} exact path="/menu/mujer" />
             </Switch>
             }  
-        </div>
+        </>
     )
 }
 

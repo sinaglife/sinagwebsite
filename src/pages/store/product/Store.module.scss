@@ -1,19 +1,20 @@
+@import "../../../variables.module";
 
 .product__gallery__container{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0.5rem 1.5rem;
+    padding: $xtiny $small;
     height: 100%;
-    margin: 0.5rem auto 3rem;
+    margin: $xtiny auto 3rem;
 }
 
 .store__title{
-    font-size: 2rem;
+    font-size: $titleMedium;
     text-transform: uppercase;
-    margin: 1.5rem 0;
-    color: #a78742;
-    font-family: 'Vidaloka', serif;
+    margin: $small 0;
+    color: $earth;
+    font-family: $vidaLoka;
 }
 
 
@@ -23,14 +24,14 @@
     }
 
     .store__title{
-        font-size: 1.4rem;
-        margin-top: 1rem;
+        font-size: $titleRegular;
+        margin-top: $xSmall;
     }
 }
 
 @media (min-width: 501px) and (max-width: 1300px){
     .store__title{
-        margin-top: 2rem;
+        margin-top: $large;
     }
 
     .product__gallery__container{
@@ -41,7 +42,7 @@
 @media (min-width: 1024px) and (max-width: 1300px){
     .store__title{
         font-size: 3.2rem;
-        margin-top: 2rem;
+        margin-top: $large;
     }
 
     .product__gallery__container{

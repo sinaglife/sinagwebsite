@@ -77,8 +77,8 @@ return (
           >
               {
                 window.innerWidth >= 1000 &&
-                 user?.additionalUserInfo?.profile?.name &&
-                  <span className={classes.toolbar__basket__total}>{user.additionalUserInfo.profile.name}</span>
+                 user?.name &&
+                  <span className={classes.toolbar__basket__total}>{user?.name}</span>
               }
               <Button
                 icon="account"

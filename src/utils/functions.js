@@ -18,7 +18,7 @@ import moment from 'moment';
         return response.data;
       
       } catch (error) {
-        console.log(url, error)
+        throw new Error
       }
     }
    
@@ -28,7 +28,5 @@ import moment from 'moment';
 export const getUserAge = (birthDate) => {
   const today = moment();
   const userAge = today.diff(birthDate, "years")
-
-  console.log(userAge, birthDate)
   return userAge
 }

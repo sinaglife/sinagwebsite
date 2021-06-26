@@ -1,13 +1,13 @@
 import {productTypes}  from "./products.types" 
 import { getData} from "../../utils/functions"
-import endpoints from "../../utils/endpoints"
+import uri from "../../utils/uri.utils"
 
 export const getProducts = ()=> {
     return async(dispatch)=>{
         try {
             dispatch(getProductsRequest())
             let products = await getData(
-                `http://localhost:8080/api/products`,
+                `${uri.basePath}${uri.products}`,
                 "post",
             )
             dispatch(getProductsSuccess(products))

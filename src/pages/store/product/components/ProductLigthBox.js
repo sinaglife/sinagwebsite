@@ -13,7 +13,6 @@ import classes from "./ProductLightBox.module.scss"
 const ProductLigthBox = ({productData, close, ...props})=> {
 
         const location = useLocation()
-        console.log(location)
         const dispatch = useDispatch()
         const [x, setX] = useState(0);
         const [productImg, setProductImg] = useState(productData.images.map((item)=>(

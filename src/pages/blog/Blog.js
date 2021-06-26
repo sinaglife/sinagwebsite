@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import classes from "./Blog.module.scss";
 import PostBox from './PostBox';
 import Loading from "../../components/Loading"
-import endpoints from "../../utils/endpoints"
+import uri from "../../utils/uri.utils"
 
 
 const Blog = (props)=> {
@@ -12,10 +12,11 @@ const Blog = (props)=> {
 
     useEffect(()=>{
         axios
-            .get("https://39570618.servicio-online.net/API/wp-json/wp/v2/posts/?per_page=100")
+            .get(`${uri.blog}`)
             .then((res)=>{
                 setBlogData(res.data)
             });
+            
     }, [props]);
 
     return blogData  ? (

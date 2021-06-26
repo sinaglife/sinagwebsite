@@ -12,8 +12,9 @@ $lightEarth: rgb(197, 177, 85);
 $xLightSilver:#efecdf;
 $lightSilver: #dbd9d9;
 $darkSilver: #616161;
-$white: #ffffff;
+$white: #cfc9c9;
 //fonts
+$vidaLoka: 'Vidaloka', serif;
 $fontFive: "EB Garamond", serif;
 $pFontsFamily: 'Playfair Display', serif;
 $homeSlogan: 'Parisienne', cursive;
@@ -29,12 +30,14 @@ $xLarge: 2.5rem;
 
 //fonts
 
+$pSmall: 0.5rem;
 $pRegular: 1rem;
-$pSmall: 0.8rem;
 $pMedium: 1.5rem;
-$pLarge: 1.6rem;
+$pLarge: 2rem;
 
-$titleRegular: 1rem;
 $titleSmall: 1rem;
-$titleMedium: 1rem;
-$titleLarge: 1rem;
+$titleRegular: 1.5rem;
+$titleMedium: 2rem;
+$titleLarge: 2.5rem;
+
+//screen sizes

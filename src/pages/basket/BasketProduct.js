@@ -7,6 +7,7 @@ import classes from "./Basket.module.scss"
 
 const BasketProduct = ({data, dispatch}) => {
     const productQuantity = data?.quantity;
+    const productSize = data?.size
     const [quantity, setQuantity] = useState(productQuantity)
 
     const handleQuantityChange = (e)=>{
@@ -34,6 +35,8 @@ const BasketProduct = ({data, dispatch}) => {
     const handleSubmit = ()=>{    
        
     }
+
+    console.log("basket",data)
     return (
         <div className={classes.basketProduct}>
             <div className={classes.product__container}>
@@ -45,7 +48,7 @@ const BasketProduct = ({data, dispatch}) => {
                     <div className={classes.right__container}>
                         <div>
                             <h3>{data?.name}</h3>
-                            <p>Talla:32cm</p>
+                            <p>Talla:{productSize}</p>
                         </div>
                         <div className={classes.right__bottom}>
                             <input type="checkbox"/>

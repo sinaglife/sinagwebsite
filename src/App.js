@@ -12,7 +12,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import {getData} from "./utils/functions"
 import Loading from "./components/Loading"
-import endpoints from "./utils/endpoints"
+import uri from "./utils/uri.utils"
 import './App.css';
 
 const MainBasket = lazy(()=>import("./pages/basket/MainBasket"))
@@ -41,10 +41,9 @@ const App = ()=> {
 
   const isMenu = true;
 
-  useEffect( ()=>{
-
+  useEffect(()=>{
     getData(
-      `http://localhost:8080/api/products/slider`, 
+      `${uri.basePath}${uri.slider}`, 
       "get"
       ).then((res)=> {
         setSliderData(res.data)
@@ -53,7 +52,7 @@ const App = ()=> {
 
   useEffect(()=> {
     getData(
-      `http://localhost:8080/api/products/mosaic`,
+      `${uri.basePath}${uri.mosaic}`,
       "post",
       null,
       {
@@ -108,11 +107,11 @@ const App = ()=> {
                 />
               }
                
-              <Route exact  path="/blog" >
-                <Blog/>
-              </Route>
               <Route exact path="/blog/:slug">
                 <BlogPost/>
+              </Route>
+              <Route exact  path="/blog" >
+                <Blog/>
               </Route>
               <Route exact path="/conocenos">
                 <Conocenos/>

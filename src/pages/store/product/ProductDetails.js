@@ -10,23 +10,25 @@ import mastercard from "../../../assets/images/mastercard.svg"
 import paypal from "../../../assets/images/paypal.svg"
 import Loading from "../../../components/Loading"
 import classes from "./ProductDetails.module.scss"
+import {getLinkTo} from "./Product.data"
 
 const Product = () => {
   
     let history = useHistory()
     const [x , setX] = useState(0);
     const product = history.location.state
-    const [sizeChoice, setSizeChoice] = useState("")
+    const [sizeChoice, setSizeChoice] = useState(null)
     const [imagesArr, setImagesArr] = useState(product?.images.map((item)=>(
         item.src
     )))
     const [quantity, setQuantity] = useState(1)
-   const regex = /(<([^>]+)>)/ig;
+    const regex = /(<([^>]+)>)/ig;
     const title = product?.name
     const description = product?.description.replace(regex, "")
     const price = product?.price
     const rating = product?.average_rating
     const id = product?.id
+    const category = product?.categories
     const dispatch = useDispatch()
 
    
@@ -34,8 +36,8 @@ const Product = () => {
         window.scrollTo(0, 0)
       }, [])
 
-    const goToBasket = (basket, x)=>{
-        dispatch(addProductToBasket(basket, x))
+    const goToBasket = (basket, x, size)=>{
+        dispatch(addProductToBasket(basket, x, size))
         setQuantity(1)
     }
     const handleQuantityChange = (e)=>{
@@ -48,7 +50,23 @@ const Product = () => {
         e.target.reset()
     }
 
+    const handleSizeChange = (e) =>{
+        setSizeChoice(e.target.value)
+        console.log(e.target.value)
+    }
 
+    const sizeParam = category.includes("anillos")  ?
+    "anillos" : category.includes("pulseras") ?
+    "pulseras" : category.includes("colgantes") ?
+    "colgantes" : category.includes("pendientes") && 
+    "pendientes"
+
+    const linkTo = category.includes("complementos") ?
+    "complemento" : category.includes("kokedama") ?
+    "koke" : category.includes("mala") ?
+    "mala" : category.includes("cuidado de tu ser") ?
+    "cuidado de tu ser" : category.includes("espiritualidad") ? 
+    "espiritualidad" :"guia de tallas"
 
    const renderImages = imagesArr?.map((item, index)=>{
        if(index < 3) {
@@ -77,6 +95,7 @@ const goRight = ()=> {
         setX(x +1)
     }  
 }
+
 
     return (
             <>
@@ -117,15 +136,18 @@ const goRight = ()=> {
                                         />
                                    </div>
                                     {
-                                        sizeChoice &&
+                                        sizeParam &&
                                         <div className={classes.sizePicker}>
                                             <span>Talla</span>
-                                            <FilterBySize sizeChoice={sizeChoice}/>
+                                            <FilterBySize 
+                                            sizeParam={sizeParam}
+                                            handleChange={handleSizeChange}
+                                            />
                                         </div>
                                     }
                                 </div>
                             </div>
-                            <button onClick={()=>goToBasket(product, quantity)} className={classes.addToCart}>Agregar al carrito</button>
+                            <button onClick={()=>goToBasket(product, quantity, sizeChoice)} className={classes.addToCart}>Agregar al carrito</button>
                         </div>
                         <div className={classes.product__right__bottom}>
                             <div className={classes.product__payment}>
@@ -136,9 +158,10 @@ const goRight = ()=> {
                             <div className={classes.product__share}>
                                 <div>
                                     <RatingComponent rating={rating}/>
-                                </div>
-                                
-                                <Link to="/tallas"  >GUIA DE TALLAS</Link>
+                                </div> 
+                                <Link style={{textTransform: "uppercase"}} to={getLinkTo(linkTo)}>
+                                    {linkTo}
+                                </Link>         
                             </div>
                         </div>
                     </div>

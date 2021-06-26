@@ -1,3 +1,5 @@
+@import "../../../variables.module";
+
 .product__main{
     display: flex;
     width: 100%;
@@ -72,6 +74,7 @@
         }
         p{
             font-size: 1.1rem;
+            text-align: justify;
         }
     }
 
@@ -176,7 +179,7 @@
                 height: 100%;
                 top: 0%;
                 right: 83%;
-                font-size: 2.2rem;
+                font-size: $small;
             }
             .goRight{
                 background-color: rgb(212, 212, 212);
@@ -184,7 +187,7 @@
                 height: 100%;
                 top: 0%;
                 left: 83%;
-                font-size: 2.2rem;
+                font-size: $small;
             }
         }
     }
@@ -194,13 +197,13 @@
             padding: 0;
             margin: 0;
             h3{
-                font-size: 1.4rem;
+                font-size: $titleSmall;
                 text-transform: uppercase;
             }
             p{
-                padding:0;
+                padding: 0 $xtiny;
+                font-size: $pSmall;
                 margin: 0;
-                font-size: 0.8rem;
             }
         }
     
@@ -213,7 +216,8 @@
                 padding: 0.2rem 0;
                 display: flex;
                 p{
-                    font-size: 1.2rem;
+                    font-size: $pRegular;
+                    font-weight: 500;
                 }
                 .info__buttons{
                     span{
@@ -222,8 +226,8 @@
                 }
             }
             .addToCart{
-                padding: 0.5rem 0;
-                font-size: 0.6rem;
+                padding: 0.2rem;
+                font-size: 0.5rem;
                 width: 80%;
             }
         
@@ -243,7 +247,7 @@
             .product__share{
                 display: flex;
                 a{
-                    font-size: 1rem;
+                    font-size: 0.5rem;
                 }
             }
         }

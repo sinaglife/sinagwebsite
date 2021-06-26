@@ -13,6 +13,10 @@ import classes from "./RegistroSingIn.module.scss"
 const UpdatePassword = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalTex, setModalText] = useState({
+        title: "",
+        text: ""
+    })
     const [isLoading, setIsLoading] = useState(false)
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
@@ -46,15 +50,28 @@ const UpdatePassword = () => {
         if(response.success){
           setIsLoading(false)
           setIsModalOpen(true)
+          setModalText({
+            title: "Cambio de contraseña",
+            text: "Cambio exitoso"
+        })
           formik.resetForm();
         }else {
           setIsLoading(false)
-          alert(response.message)
+          setIsModalOpen(true)
+          setModalText({
+            title: "Cambio de contraseña",
+            text: "Contraseña incorrecta"
+        })
           formik.resetForm();
         }
         
       } catch (error) {
         setIsLoading(false)
+        setIsModalOpen(true)
+          setModalText({
+            title: "Error",
+            text: "Lo sentimos, algo ha ido mal"
+        })
         formik.resetForm();
       }
     },
@@ -71,14 +88,14 @@ const UpdatePassword = () => {
 
       if(!values.password){
         errors.password = "Campo obligatorio"
-      }else if(values.password.length < 6 ){
+      }else if(values.password.length < 9  ){
           errors.password = "Contraseña minimo 8 caracteres"
       }
 
       if(!values.newPassword){
         errors.newPassword = "Campo obligatorio"
       }
-      if(values.newPassword.length < 6 ){
+      if(values.newPassword.length < 9 ){
         errors.newPassword = "Contraseña minimo 8 caracteres"
       }else if(values.password === values.newPassword){
       errors.newPassword = "Las contraseñas no pueden coincidir"
@@ -88,7 +105,14 @@ const UpdatePassword = () => {
     }
   });
 
-  
+  const handleClose = () => {
+    if(modalTex.title === "Cambio exitoso"){
+      setIsModalOpen(false)
+      history.push("/")
+    }else {
+      setIsModalOpen(false)
+    }
+  }
   
   const formData = [
     {
@@ -118,6 +142,13 @@ const UpdatePassword = () => {
   ]
     return (
     <>
+      <Modal 
+       open={isModalOpen} 
+       close={handleClose}
+       title={modalTex.title}
+      >
+       {modalTex.text}
+      </Modal>
     {
       isLoading ? <Loading/> :
       <FormComponent
@@ -137,7 +168,7 @@ const UpdatePassword = () => {
             />
         ))
         }
-        <button className={classes.register__button} type="submit">
+        <button disabled={formik.isSubmitting} className={classes.register__button} type="submit">
           Enviar
         </button>
       </FormComponent>
