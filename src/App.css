@@ -32,7 +32,7 @@ button:focus, button:active {
 
 @media  (max-width: 500px){
   .app{
-    margin-top: 5rem;
+    margin-top: 6rem;
   }
 }
 

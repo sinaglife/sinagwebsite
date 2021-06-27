@@ -52,7 +52,6 @@ const Product = () => {
 
     const handleSizeChange = (e) =>{
         setSizeChoice(e.target.value)
-        console.log(e.target.value)
     }
 
     const sizeParam = category.includes("anillos")  ?
@@ -125,27 +124,25 @@ const goRight = ()=> {
                         <div className={classes.product__right__center}>
                             <div className={classes.product__info}>
                                 <p>{price}$</p>
-                                <div className={classes.info__buttons}>
-                                   <div className={classes.quantity}>
-                                        <span>Cant</span>
-                                        <Quantity 
-                                        id={id}
-                                        quantity={quantity}
-                                        handleChange={handleQuantityChange}
-                                        handleSubmit={handleSubmit}
-                                        />
-                                   </div>
-                                    {
-                                        sizeParam &&
-                                        <div className={classes.sizePicker}>
-                                            <span>Talla</span>
-                                            <FilterBySize 
-                                            sizeParam={sizeParam}
-                                            handleChange={handleSizeChange}
-                                            />
-                                        </div>
-                                    }
+                                <div className={classes.quantity}>
+                                     <Quantity 
+                                     title="Cant"
+                                     id={id}
+                                     quantity={quantity}
+                                     handleChange={handleQuantityChange}
+                                     handleSubmit={handleSubmit}
+                                     />
                                 </div>
+                                {
+                                sizeParam &&
+                                <div className={classes.sizePicker}>
+                                    <FilterBySize 
+                                    title="Talla"
+                                    sizeParam={sizeParam}
+                                    handleChange={handleSizeChange}
+                                    />
+                                </div>
+                                }
                             </div>
                             <button onClick={()=>goToBasket(product, quantity, sizeChoice)} className={classes.addToCart}>Agregar al carrito</button>
                         </div>

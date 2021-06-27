@@ -1,0 +1,49 @@
+@import "../../../../variables.module";
+
+
+.quantity{
+  display: flex;
+  flex-direction: column;
+
+  input{
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    font-size: 17px;
+    border: 0.5px solid $darkSilver;
+  }
+}
+
+@media (max-width: 500px){
+  .quantity{
+    input{
+      width: 30px;
+      height: 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (min-width: 501px) and (max-width: 800px){
+  .quantity{
+    input{
+      width: 45px;
+      height: 25px;
+      text-align: center;
+      font-size: 15px;
+    }
+  }
+}
+
+
+@media (min-width: 801px) and (max-width: 1200px){
+  .quantity{
+    input{
+      width: 60px;
+      height: 35px;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}

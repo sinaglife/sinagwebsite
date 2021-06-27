@@ -43,19 +43,19 @@
     }
 }
 
-@media  (max-width: 766px){
+@media  (max-width: 500px){
     .filterBar{
-        padding: $xtiny;
+        padding: 0.2rem;
         justify-content: space-between;
         a{
-            font-size: $xSmall;
+            font-size: $tiny;
         }
     }
 }
 
 
 
-@media  (min-width: 767px)  and (max-width: 1023px){
+@media  (min-width: 501px)  and (max-width: 800px){
     .filterBar{
         padding: $xtiny $tiny;
         justify-content: space-between;
@@ -66,9 +66,9 @@
 }
 
 
-@media  (min-width: 1024px)  and (max-width: 1300px){
+@media  (min-width: 801px)  and (max-width: 1300px){
     .filterBar{
-        padding: $xtiny $tiny;
+        padding: $xtiny $xSmall;
         justify-content: space-between;
         a{
             font-size: $small;

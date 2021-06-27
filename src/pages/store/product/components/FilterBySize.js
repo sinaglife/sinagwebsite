@@ -4,7 +4,8 @@ import classes from "./FilterBySize.module.scss"
 
 const FilterSize = memo(function FilterSize({
     sizeParam,
-    handleChange
+    handleChange,
+    title
 }) {
 
     let ringArray = [6,7,8,9,10];
@@ -38,14 +39,15 @@ const FilterSize = memo(function FilterSize({
 
 
     return (
-        <form id="">
+        <div className={classes.filterBy}>
+            <span>{title}</span>
             <select onChange={handleChange} id="size" name="size"  className={classes.filter__select}>
                 <option></option>
                 {
                     sizePicker
                 }
             </select> 
-        </form>
+        </div>
     )
 })
 

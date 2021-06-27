@@ -18,7 +18,7 @@
 }
 
 
-@media (max-width: 412px){
+@media (max-width: 500px){
     .product__gallery__container{
         justify-content: space-around;
     }
@@ -29,7 +29,7 @@
     }
 }
 
-@media (min-width: 501px) and (max-width: 1300px){
+@media (min-width: 501px) and (max-width: 800px){
     .store__title{
         margin-top: $large;
     }
@@ -39,7 +39,7 @@
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1300px){
+@media (min-width: 801px) and (max-width: 1300px){
     .store__title{
         font-size: 3.2rem;
         margin-top: $large;
