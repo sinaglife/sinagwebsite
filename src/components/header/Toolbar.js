@@ -7,10 +7,10 @@ import UserTooltip from "./components/UserTooltip"
 import { connect } from 'react-redux'
 import {getBasketLength} from "../../utils/basket.utils"
 import {singOutSuccess} from "../../redux/user/user.actions"
+import Modal from "../Modal"
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
-
 
   useEffect(() => {
     const handler = () => {

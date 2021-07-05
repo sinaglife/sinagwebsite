@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import classes from './footer_choices.module.scss';
 
 const PoliticasPrivacidad = () => {
@@ -33,11 +34,8 @@ const PoliticasPrivacidad = () => {
             <h3>¿Cómo puedo quitarles mi consentimiento?</h3>
             <p>
                 Si después de habernos dado su consentimiento, cambia de idea y ya no está de acuerdo con
-                el hecho de que podamos contactarte, recolectar sus datos, puede avisarnos al siguiente
-                correo electrónico: <a href="mailto:sinaglife@gmail.com?Subject=Interesado%20en%20sus%20artes">sinaglife@gmail.com</a>.
-                Si desea acceder a corregir, modificar o suprimir cualquier información personal que
-                poseamos, presentar una queja o si sencillamente, desea obtener más información,
-                contactenos a <a href="mailto:sinaglife@gmail.com?Subject=Interesado%20en%20sus%20artes">sinaglife@gmail.com</a>.
+                el hecho de que podamos contactarte o recolectar sus datos, puede darse de baja en el siguiente enlace <Link to="/darme-de-baja">darse de baja</Link>.
+                Para cualquier duda escribirnos a: <a href="mailto:soporte@sinaglife.com">soporte@sinaglife.com</a>.
             </p>
         </div>
     )

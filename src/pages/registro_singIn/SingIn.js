@@ -14,6 +14,7 @@ import {
 import { getData} from "../../utils/functions"
 import { useDispatch} from "react-redux"
 import Modal from "../../components/Modal"
+import uri from "../../utils/uri.utils"
 
 import classes from "./SingIn.module.scss"
 
@@ -21,7 +22,7 @@ import classes from "./SingIn.module.scss"
 const SingIn = ({user}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalTex, setModalText] = useState({
+    const [modalText, setModalText] = useState({
         title: "",
         text: ""
     })
@@ -33,11 +34,10 @@ const SingIn = ({user}) => {
         if(!!user?.status){
             history.push("/")
         }
-    }, [user])
+    }, [user, history])
 
     const handleClose = () => {
         setIsModalOpen(false)
-        history.push("/")
     }
 
     const initialState = {
@@ -53,7 +53,7 @@ const SingIn = ({user}) => {
                 dispatch(singInStart())
 
                 const response = await getData(
-                    "http://localhost:8080/api/user/singin",
+                    `${uri.basePath}${uri.singIn}`,
                     "post",
                     null,
                     {
@@ -109,9 +109,9 @@ const SingIn = ({user}) => {
             <Modal 
             open={isModalOpen} 
             close={handleClose}
-            title={modalTex.title}
+            title={modalText.title}
             >
-            {modalTex.text}
+            {modalText.text}
             </Modal>
             <FormComponent
             title="Entrar"

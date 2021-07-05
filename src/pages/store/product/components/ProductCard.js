@@ -12,9 +12,7 @@ const ProductCard = ({data, selectedImg, addProductToBasket}) => {
  
   const x = 1;
     return (
-        <div className={classes.productCard} >
-            <div className={classes.productCard__hoovered} onClick={selectedImg}>
-            </div>       
+        <div className={classes.productCard} >       
             <div className={classes.productCard__container}>
                 <div className={classes.productCard__header}>
                     <img 

@@ -4,7 +4,7 @@ import moment from 'moment';
 
   export const getData = async (url, method, auth, data) => {
 
-    const methods = ["get", "post"];
+    const methods = ["get", "post", "put"];
 
     if(methods.includes(method)){
       try {
@@ -18,7 +18,7 @@ import moment from 'moment';
         return response.data;
       
       } catch (error) {
-        throw new Error
+        throw new Error()
       }
     }
    

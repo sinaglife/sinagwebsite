@@ -11,6 +11,8 @@ import {
     registerUserFailure
 } from "../../redux/user/user.actions"
 import { getData, getUserAge} from "../../utils/functions"
+import uri from "../../utils/uri.utils"
+
 
 
 import classes from "./RegistroSingIn.module.scss"
@@ -19,7 +21,7 @@ import classes from "./RegistroSingIn.module.scss"
 const Register = () => {
     
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalTex, setModalText] = useState({
+    const [modalText, setModalText] = useState({
         title: "",
         text: ""
     })
@@ -31,7 +33,7 @@ const Register = () => {
         if(!!user?.status){
             history.push("/")
         }
-    }, [user])
+    }, [user, history])
 
     const initialState = {
         name: "",
@@ -50,7 +52,7 @@ const Register = () => {
                 dispatch(registerUserStart())
                 
                 const response = await getData(
-                    "http://localhost:8080/api/user/register",
+                    `${uri.basePath}${uri.register}`,
                     "post",
                     null,
                     {
@@ -185,9 +187,9 @@ const Register = () => {
             <Modal 
             open={isModalOpen} 
             close={handleClose}
-            title={modalTex.title}
+            title={modalText.title}
             >
-                {modalTex.text}
+                {modalText.text}
             </Modal>
             {
                 formData.map((item, index)=> (

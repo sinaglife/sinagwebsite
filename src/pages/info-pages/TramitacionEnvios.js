@@ -55,7 +55,7 @@ const TramitacionEnvios = () => {
                 ponerse en contacto con la empresa de envío CORREOS e informarles con su número de
                 seguimiento la incidencia que esté experimentando en ese momento. Ellos deberían poder
                 ayudarle con cualquier problema relacionado a su compra.
-                Si aún no puede ubicar su paquete, contáctenos a sinaglife@gmail.com y haremos todo lo
+                Si aún no puede ubicar su paquete, contáctenos a soporte@sinaglife.com y haremos todo lo
                 posible para ayudarle.    
                 </p>          
         </div>

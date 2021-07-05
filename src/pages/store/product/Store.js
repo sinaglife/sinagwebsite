@@ -5,7 +5,6 @@ import kokeLogo from "../../../assets/images/koketropic-logo.jpg";
 import {useParams} from "react-router-dom";
 import { connect } from 'react-redux'
 
-
 import classes from "./Store.module.scss";
 
 const Store = ({
@@ -16,6 +15,7 @@ const Store = ({
     const title = param.includes("-") ? param?.replace(/-/gi, " ") : param
     const [filterValue, setFilterValue] = useState("")
     const [productList, setProductList] = useState([])
+     
 
     useEffect(()=>{
        setProductList(products?.filter((item)=>(
@@ -26,21 +26,20 @@ const Store = ({
         setProductList(productList?.filter(item => (
         item?.name.toLowerCase().trim().includes(filterValue)
         )))
-          if(filterValue !== "") console.log("store productss",productList, param, filterValue)
-       
-    }, [ param, filterValue])
+
+    }, [ title, filterValue, products])
 
     return (
-        <div>
-            <FilterBar
-            filterValue={filterValue}
-            setFilterValue={setFilterValue}
-            />
-            {param === "kokedamas" ? <img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>
-            :<h1 className={classes.store__title}>{title}</h1> 
-            }
-            {productList && <ProductGallery data={productList}/>}
-        </div>
+       <>
+        <FilterBar
+        filterValue={filterValue}
+        setFilterValue={setFilterValue}
+        />
+        {param === "kokedamas" ? <img className="koketropic__logo" alt="koketropic-logo" src={kokeLogo}/>
+        :<h1 className={classes.store__title}>{title}</h1> 
+        }
+         {productList && <ProductGallery data={productList}/>}
+       </>
     )
 }
 

@@ -41,7 +41,7 @@ const PreguntasFrecuentes = () => {
             Si la pieza ha sido deteriorada por el uso normal, o por una modificación
             ajena a nuestra marca, SINAG no podrá cubrir dichas alteraciones. No obstante,
             para cualquier duda, estaremos encantados de ayudarte a través del correo electrónico:
-            <a href="sinaglife@gmail.com">sinaglife@gmail.com</a>. Por otro parte si es por rotura de roller o complementos durante el
+            <a href="soporte@sinaglife.com">soporte@sinaglife.com</a>. Por otro parte si es por rotura de roller o complementos durante el
             envio, dispondrá de 30 días a partir de la fecha en la que ha recibido el producto para
             reclamar la garantía. El 80% de las piezas y artículos que vendemos son hechos a
             mano y por tanto, cumplen las legislaciones españolas en cuanto garantía.

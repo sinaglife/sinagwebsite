@@ -73,7 +73,18 @@ const handleSubmit = (e)=>{
 }
 
 
-const renderStoreLinks = storeLinks.map((item, index)=>(
+    const renderStoreLinks = storeLinks.map((item, index)=>(
+            <Link 
+            style={{color: "#CDA34A"}}
+            to={item.path}
+            key={index} 
+            >
+            {item.title}
+            </Link>
+        )
+    )
+
+    const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
         <Link 
         style={{color: "#CDA34A"}}
         to={item.path}
@@ -81,18 +92,7 @@ const renderStoreLinks = storeLinks.map((item, index)=>(
         >
         {item.title}
         </Link>
-    )
-)
-
-const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
-    <Link 
-    style={{color: "#CDA34A"}}
-    to={item.path}
-    key={index} 
-    >
-    {item.title}
-    </Link>
-))
+    ))
 
     return (
         <>
@@ -116,11 +116,9 @@ const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
                     {renderStoreLinks}
                 </div>
                 </div>
-                
                 : 
                 <div className={classes.filterBar}>
-                   
-                    {renderMobileStoreLinks}  
+                    {renderMobileStoreLinks}   
                 </div>
             } 
             </div>
@@ -129,10 +127,3 @@ const renderMobileStoreLinks = mobileStoreLinks.map((item, index)=>(
 }
 
 export default FilterBar
-
-/*
- <div style={{display: "flex", alignItems: "center"}}>
-                        <Button  icon="leftArrow" color="arena" size="small" />
-                        <Button noPadding icon="rightArrow" color="arena" size="small" />
-                    </div>
-*/

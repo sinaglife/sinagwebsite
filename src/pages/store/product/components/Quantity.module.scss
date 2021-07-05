@@ -17,10 +17,9 @@
 @media (max-width: 500px){
   .quantity{
     input{
-      width: 30px;
-      height: 20px;
-      text-align: center;
-      font-size: 13px;
+      width: 55px;
+      height: 25px;
+      font-size: 0.2rem;
     }
   }
 }
@@ -28,10 +27,9 @@
 @media (min-width: 501px) and (max-width: 800px){
   .quantity{
     input{
-      width: 45px;
-      height: 25px;
-      text-align: center;
-      font-size: 15px;
+      width: 70px;
+      height: 30px;
+      font-size: 1rem;
     }
   }
 }

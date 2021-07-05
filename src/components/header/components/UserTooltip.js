@@ -49,7 +49,7 @@ const UserTooltip = ({isCloseToolTip, user, singOut}) => {
                 </button>
                 <Link 
                 className={classes.tooltip__unsubscribe}
-                to="/olvido-contrasena"
+                to="/darme-de-baja"
                 style={{ textDecoration: "none"}}
                 onClick={isCloseToolTip}
                 >

@@ -9,16 +9,18 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
+import ErrorBoundary from "../../../components/errorBoundary/ErrorBoundary"
+
 
   const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
 
     useEffect(()=> {
         getProducts() 
        
-   }, [])
+   }, [getProducts])
 
     return (
-        <>
+        <ErrorBoundary>
             {
             loading || !products ?
             <Loading /> : products && products.length > 0 &&
@@ -36,7 +38,7 @@ import {
                 <Route  render={()=> <Index isMenu={isMenu}/>} exact path="/menu/mujer" />
             </Switch>
             }  
-        </>
+        </ErrorBoundary>
     )
 }
 

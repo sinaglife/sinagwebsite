@@ -11,6 +11,8 @@ import paypal from "../../../assets/images/paypal.svg"
 import Loading from "../../../components/Loading"
 import classes from "./ProductDetails.module.scss"
 import {getLinkTo} from "./Product.data"
+import ErrorBoundary from "../../../components/errorBoundary/ErrorBoundary"
+
 
 const Product = () => {
   
@@ -60,12 +62,7 @@ const Product = () => {
     "colgantes" : category.includes("pendientes") && 
     "pendientes"
 
-    const linkTo = category.includes("complementos") ?
-    "complemento" : category.includes("kokedama") ?
-    "koke" : category.includes("mala") ?
-    "mala" : category.includes("cuidado de tu ser") ?
-    "cuidado de tu ser" : category.includes("espiritualidad") ? 
-    "espiritualidad" :"guia de tallas"
+  
 
    const renderImages = imagesArr?.map((item, index)=>{
        if(index < 3) {
@@ -75,32 +72,30 @@ const Product = () => {
        }
    })
 
-const getMainImg = (index)=> {
-    setX(index)
-}
-
-const goLeft = ()=> {
-    if(x === 0){
-        setX(imagesArr.length - 1)
-    }else{
-        setX(x - 1)
+    const getMainImg = (index)=> {
+        setX(index)
     }
-}
 
-const goRight = ()=> {
-    if(x === imagesArr.length - 1){
-        setX(0)
-    }else{
-        setX(x +1)
-    }  
-}
+    const goLeft = ()=> {
+        if(x === 0){
+            setX(imagesArr.length - 1)
+        }else{
+            setX(x - 1)
+        }
+    }
 
+    const goRight = ()=> {
+        if(x === imagesArr.length - 1){
+            setX(0)
+        }else{
+            setX(x +1)
+        }  
+    }
 
     return (
-            <>
+            <ErrorBoundary>
             {
-                product  ?
-
+                product  ?  
                 <div className={classes.product__main}>
                     <div className={classes.product__left}>
                         <div className={classes.product__left__imgs}>
@@ -155,20 +150,25 @@ const goRight = ()=> {
                             <div className={classes.product__share}>
                                 <div>
                                     <RatingComponent rating={rating}/>
-                                </div> 
-                                <Link style={{textTransform: "uppercase"}} to={getLinkTo(linkTo)}>
-                                    {linkTo}
-                                </Link>         
+                                </div>
+                                {
+                                    getLinkTo(category) !== null && (
+                                    <Link style={{textTransform: "uppercase"}} to={getLinkTo(category).url}>
+                                        {getLinkTo(category).title}
+                                    </Link>  
+                                    )
+                                } 
+                                       
                             </div>
                         </div>
                     </div>
                 </div>
                 : 
                 <Loading/>
-            
+                            
             }
-            
-        </>
+
+        </ErrorBoundary>
     )
 }
 

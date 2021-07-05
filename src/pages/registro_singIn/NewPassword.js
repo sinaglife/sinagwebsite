@@ -5,7 +5,6 @@ import {InputRow, FormComponent} from "../../components/form/FormComponent"
 import Modal from "../../components/Modal"
 import Loading from "../../components/Loading"
 import { getData} from "../../utils/functions"
-import { useSelector, useDispatch} from "react-redux"
 import uri from "../../utils/uri.utils"
 
 import classes from "./RegistroSingIn.module.scss"
@@ -19,17 +18,15 @@ const UpdatePassword = () => {
         text: ""
     })
     const [isLoading, setIsLoading] = useState(false)
-    const user = useSelector(state => state.user.user)
-    const dispatch = useDispatch()
     let history = useHistory()
     const params = useParams()
 
-    console.log(params.token)
+    console.log(params?.token)
 
     const initialState = {
       email: "",
       password: "",
-      newPassword: "",
+      confirmPassword: "",
   }
 
   const formik = useFormik({
@@ -38,16 +35,28 @@ const UpdatePassword = () => {
 
       try {
 
+        if(!params.token){ 
+
+          setIsLoading(false)
+          setIsModalOpen(true)
+          setModalText({
+            title: "Error",
+            text: "Error al recibir los datos"
+        })
+          formik.resetForm();
+   
+      }else{
+
         setIsLoading(true)
 
         const response = await getData(
-          `${uri.basePath}${uri.updatePass}`,
-          "post",
+          `${uri.basePath}${uri.createPass}`,
+          "put",
           null,
           {
             email: values.email,
-            password: values.password,
-            newPassword: values.newPassword
+            newPassword: values.password,
+            token: params.token
           }
         )
 
@@ -64,10 +73,11 @@ const UpdatePassword = () => {
           setIsModalOpen(true)
           setModalText({
             title: "Cambio de contraseña",
-            text: "Contraseña incorrecta"
+            text: "Lo sentimos, algo ha ido mal"
         })
           formik.resetForm();
         }
+      } 
         
       } catch (error) {
         setIsLoading(false)
@@ -92,17 +102,20 @@ const UpdatePassword = () => {
 
       if(!values.password){
         errors.password = "Campo obligatorio"
-      }else if(values.password.length < 9  ){
+      }
+       if(values.password.length < 9  ){
           errors.password = "Contraseña minimo 8 caracteres"
       }
 
-      if(!values.newPassword){
+      if(!values.confirmPassword){
         errors.newPassword = "Campo obligatorio"
       }
-      if(values.newPassword.length < 9 ){
-        errors.newPassword = "Contraseña minimo 8 caracteres"
-      }else if(values.password === values.newPassword){
-      errors.newPassword = "Las contraseñas no pueden coincidir"
+      if(values.confirmPassword.length < 9 ){
+        errors.confirmPassword = "Contraseña minimo 8 caracteres"
+
+      }
+       if(values.password !== values.confirmPassword){
+      errors.confirmPassword = "Las contraseñas deben coincidir"
       }
 
     return errors;
@@ -110,7 +123,7 @@ const UpdatePassword = () => {
   });
 
   const handleClose = () => {
-    if(modalTex.title === "Cambio exitoso"){
+    if(modalTex.text === "Cambio exitoso"){
       setIsModalOpen(false)
       history.push("/")
     }else {
@@ -136,12 +149,12 @@ const UpdatePassword = () => {
         label: "Contraseña"
     },
     {
-        error: formik.errors.newPassword,
+        error: formik.errors.confirmPassword,
         type:"password", 
         onChange: formik.handleChange,
-        name:"newPassword", 
-        value: formik.values.newPassword,
-        label: "Contraseña nueva"
+        name:"confirmPassword", 
+        value: formik.values.confirmPassword,
+        label: "Confirmar Contraseña"
     }
   ]
     return (
@@ -156,7 +169,7 @@ const UpdatePassword = () => {
     {
       isLoading ? <Loading/> :
       <FormComponent
-       title="Cambio de contraseña"
+       title="Nueva contraseña"
        onSubmit={formik.handleSubmit}
        isSubmitting={formik.isSubmitting}
        >

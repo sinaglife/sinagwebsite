@@ -10,8 +10,7 @@ import Pulseras from '../../../assets/images/Tienda/Pulseras.jpg'
 import Colgantes from '../../../assets/images/Tienda/Colgantes.jpg'
 import Pendientes from '../../../assets/images/Tienda/Pendientes.jpg'
 import anillos from '../../../assets/images/Tienda/anillos-sinag.jpg'
-
-
+import ErrorBoundary from "../../../components/errorBoundary/ErrorBoundary"
 import classes from './tienda.module.scss'
 
 
@@ -101,7 +100,7 @@ function Tienda  ({isMenu}) {
   
 
   return(
-
+  <ErrorBoundary>
     <div className={classes.tienda__container}>
       <div className={classes.tienda__content}>
         {
@@ -124,6 +123,7 @@ function Tienda  ({isMenu}) {
       </div>
       
     </div>
+  </ErrorBoundary>
   )
 }
 

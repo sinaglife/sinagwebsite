@@ -221,7 +221,7 @@
                 padding: $xtiny 0;
                 display: flex;
                 p{
-                    font-size: $pRegular;
+                    font-size: 1.2rem;
                     font-weight: 500;
                 }
                 span{
@@ -357,10 +357,7 @@
         }
         
     }
-
 }
-
-
 
 @media  (min-width: 801px)  and (max-width: 1300px){
     .product__main{

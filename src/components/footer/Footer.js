@@ -66,7 +66,7 @@ const Footer = () => {
             </nav>
           </a>
           <a style={{ textDecoration: "none" }} 
-          href="mailto:sinaglife@gmail.com?Subject=Interesado%20en%20sus%20artes"
+          href="mailto:info@sinaglife.com"
           >
             <nav className={classes.icon}>
               <Button
@@ -75,7 +75,7 @@ const Footer = () => {
                 size="medium"
                 padding="noPadding"
               />
-              sinaglife@gmail.com
+              info@sinaglife.com
             </nav>
           </a>
             <a style={{ textDecoration: "none" }}

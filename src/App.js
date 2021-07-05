@@ -14,6 +14,7 @@ import {getData} from "./utils/functions"
 import Loading from "./components/Loading"
 import uri from "./utils/uri.utils"
 import './App.css';
+import ErrorBoundary from "./components/errorBoundary/ErrorBoundary"
 
 const MainBasket = lazy(()=>import("./pages/basket/MainBasket"))
 const Blog = lazy(()=> import("./pages/blog/Blog"))
@@ -28,9 +29,13 @@ const Home = lazy(()=> import("./pages/home/Home"))
 const Register = lazy(()=> import("./pages/registro_singIn/Register"))
 const SingIn = lazy(()=> import("./pages/registro_singIn/SingIn"))
 const ForgotPassword = lazy(()=> import("./pages/registro_singIn/ForgotPassword"))
+const NewPassword = lazy(()=> import("./pages/registro_singIn/NewPassword"))
 const UpdatePassword = lazy(()=> import("./pages/registro_singIn/UpdatePassword"))
+const DropOut = lazy(()=> import("./pages/registro_singIn/DropOut"))
 const StripeContainer = lazy(()=> import("./pages/checkout/payment/StripeContainer"))
 const SideDrawer = lazy(()=> import('./components/SideDrawer'))
+const ErrorPage = lazy(()=> import("./pages/404/ErrorPage"))
+
 
 const App = ()=> {
 
@@ -96,55 +101,67 @@ const App = ()=> {
         </div>
           {sideDrawer}
           {backdrop}
-          <div className="app__body" >
-            <Switch>
-              {
-                mosaicData && sliderData && 
-                <Home 
-                dataToMosaic={mosaicData.length > 0 && mosaicData} 
-                datoToSlider={sliderData.length > 0 && sliderData}  
-                exact path="/"
-                />
-              }
-               
-              <Route exact path="/blog/:slug">
-                <BlogPost/>
-              </Route>
-              <Route exact  path="/blog" >
-                <Blog/>
-              </Route>
-              <Route exact path="/conocenos">
-                <Conocenos/>
-              </Route>
-             
-              <Route exact path="/tallas">
-                <GuiaTallas />
-              </Route>
-              <Route exact path="/nuevo-usuario">
-                <Register/>
-              </Route>
-              <Route exact path="/entrar">
-                <SingIn />
-              </Route>
-              <Route exact path="/cambiar-contrasena">
-                <UpdatePassword />
-              </Route>
-              <Route exact path="/olvido-contrasena">
-                <ForgotPassword />
-              </Route>
-              <Route exact path="/pago">
-                <StripeContainer/>
-              </Route>
-              <Route exact  path="/cesta">
-                <MainBasket  />
-              </Route>
-              <Route exact path="/checkout">
-                <Checkout />
-              </Route>  
-            </Switch>
-            <InfoRoutesContainer/>
-            <StoreRoutesContainer isMenu={isMenu}/>
-          </div>
+          <ErrorBoundary>
+            <div className="app__body" >
+              <Switch>
+                {
+                  mosaicData && sliderData && 
+                  <Home 
+                  dataToMosaic={mosaicData.length > 0 && mosaicData} 
+                  datoToSlider={sliderData.length > 0 && sliderData}  
+                  exact path="/"
+                  />
+                }
+                
+                <Route exact path="/blog/:slug">
+                  <BlogPost/>
+                </Route>
+                <Route exact  path="/blog" >
+                  <Blog/>
+                </Route>
+                <Route exact path="/conocenos">
+                  <Conocenos/>
+                </Route>
+              
+                <Route exact path="/tallas">
+                  <GuiaTallas />
+                </Route>
+                <Route exact path="/nuevo-usuario">
+                  <Register/>
+                </Route>
+                <Route exact path="/entrar">
+                  <SingIn />
+                </Route>
+                <Route exact path="/cambiar-contrasena/:token">
+                  <UpdatePassword />
+                </Route>
+                <Route exact path="/olvido-contrasena">
+                  <ForgotPassword />
+                </Route>
+                <Route exact path="/nueva-contrasena/:token">
+                  <NewPassword />
+                </Route>
+                <Route exact path="/darme-de-baja">
+                  <DropOut />
+                </Route>
+                <Route exact path="/pago">
+                  <StripeContainer/>
+                </Route>
+                <Route exact  path="/cesta">
+                  <MainBasket  />
+                </Route>
+                <Route exact path="/checkout">
+                  <Checkout />
+                </Route>  
+                <Route exact to="/404">
+                  <ErrorPage/>
+                </Route>
+              </Switch>
+              <InfoRoutesContainer/>
+              <StoreRoutesContainer isMenu={isMenu}/>
+            
+            </div>
+          </ErrorBoundary>
         <div className="app__footer">
         <Footer/>
         </div>

@@ -3,8 +3,8 @@ import Product from "./Product"
 import classes from "./Store.module.scss";
 
 function ProductGalery({data}) {
+  console.log("galeria", data)
     return (
-        <>
           <div className={classes.product__gallery__container} >
             {
               data.length > 0 ?
@@ -18,7 +18,6 @@ function ProductGalery({data}) {
             }
             
           </div>
-        </>
     )
 }
 
