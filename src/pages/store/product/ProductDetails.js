@@ -143,9 +143,9 @@ const Product = () => {
                         </div>
                         <div className={classes.product__right__bottom}>
                             <div className={classes.product__payment}>
-                                <img  alt="star" src={visa}/>
-                                <img alt="star" src={mastercard}/>
-                                <img alt="star" src={paypal}/>
+                                <img  alt="visa" src={visa}/>
+                                <img alt="mastercard" src={mastercard}/>
+                                <img alt="paypal" src={paypal}/>
                             </div>
                             <div className={classes.product__share}>
                                 <div>
