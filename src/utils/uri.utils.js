@@ -1,8 +1,8 @@
 
 
 const uri =  {
-  //basePath: "https://sinag-api-2021.herokuapp.com",
-  basePath: "http://localhost:8080",
+  basePath: "https://sinag-api-2021.herokuapp.com",
+  //basePath: "http://localhost:8080",
   slider: "/api/products/slider",
   products: "/api/products",
   mosaic: "/api/products/mosaic",
