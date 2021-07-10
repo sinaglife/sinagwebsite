@@ -56,7 +56,7 @@ const Home = ({ datoToSlider, dataToMosaic})=> {
                 </div>
             </div>
             <div className={classes.home__taller}>
-                <Link to="">
+                <Link to="/taller">
                     <img src={tallerImg} alt="" />
                 </Link>
                <Link to="/tienda/espiritualidad">

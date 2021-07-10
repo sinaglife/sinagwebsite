@@ -1,0 +1,111 @@
+
+._const__buttons{
+  width: 80%;
+  padding: 0.3rem;
+  margin: 0 auto;
+  text-transform: uppercase;
+  border: none;
+  background-color: #CDA34A;
+  color: rgb(255, 255, 255);
+}
+
+.userModal__container{
+  position: absolute;
+  top: 26%;
+  right: 0;
+  z-index: 9;
+  border: 0.5px solid rgb(204, 204, 204);
+  background-color: rgb(255, 254, 254);
+  padding: 1rem  0.5rem;
+  width: 200px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.5rem;
+}
+
+
+.userModal__button{
+  @extend ._const__buttons;
+}
+.userModal__button p{
+  @extend ._const__buttons;
+}
+
+.userModal__paragraph{
+  font-size: 0.5rem;
+  margin: 0.5rem auto;
+  color: rgb(182, 182, 182);
+}
+
+.userModal__unsubscribe p{
+  font-size: 0.5rem;
+  margin: 0.5rem auto;
+  color: rgb(182, 182, 182);
+}
+
+.userModal__change__password p{
+  font-size: 1rem;
+  margin: 0.5rem auto;
+  color: #CDA34A;
+}
+
+.userModal__dropOut{
+  margin-top: 1rem;
+}
+
+@media (max-width: 500px) {
+  .userModal__container{
+    top: 19%;
+}
+}
+
+
+@media (min-width: 550.99px) and (max-width: 991.98px) {
+
+  .userModal__container{
+      width: 250px;
+      top: 14%;
+  }
+  
+  .userModal__button{
+      padding: 0.5rem;
+  }
+  
+  .userModal__paragraph{
+      font-size: 1.5rem;
+  }
+  
+  .userModal__unsubscribe p{
+      font-size: 1rem;
+  }
+  
+  .userModal__change__password p{
+      font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 1300px) {
+
+  
+  .userModal__container{
+      width: 320px;
+      top: 11%;
+  }
+  
+  .userModal__button{
+      padding: 0.5rem;
+  }
+  
+  .userModal__paragraph{
+      font-size: 1.5rem;
+  }
+  
+  .userModal__unsubscribe p{
+      font-size: 1.2rem;
+  }
+  
+  .userModal__change__password p{
+      font-size: 1.5rem;
+  }
+
+}

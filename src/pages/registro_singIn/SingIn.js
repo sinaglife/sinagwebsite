@@ -1,5 +1,5 @@
 import React, {useEffect, useState}  from 'react'
-import googleIcon from "../../assets/images/google.svg"
+//import googleIcon from "../../assets/images/google.svg"
 import { useFormik } from 'formik';
 import { useHistory, Link } from "react-router-dom";
 import {
@@ -13,18 +13,18 @@ import {
 } from "../../redux/user/user.actions"
 import { getData} from "../../utils/functions"
 import { useDispatch} from "react-redux"
-import Modal from "../../components/Modal"
 import uri from "../../utils/uri.utils"
+import SnackbarComponent from "../../components/SnackbarComponent"
 
 import classes from "./SingIn.module.scss"
 
 
 const SingIn = ({user}) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalText, setModalText] = useState({
-        title: "",
-        text: ""
+    const [showSnackbar, setShowSnackbar] = useState({
+        open: false,
+        error: false,
+        text: "Lo sentimos, algo ha ido mal"
     })
     let history = useHistory()
     const dispatch = useDispatch()
@@ -36,10 +36,10 @@ const SingIn = ({user}) => {
         }
     }, [user, history])
 
-    const handleClose = () => {
-        setIsModalOpen(false)
-    }
-
+    const handleClose = () => setShowSnackbar({
+        open: false
+    })
+    
     const initialState = {
         email: "",
         password: ""
@@ -61,28 +61,27 @@ const SingIn = ({user}) => {
                         password:values.password
                     }
                 )
-
                 if(response.success){
                     dispatch(singInSuccess(response.data))
                     history.push("/")
-                    formik.resetForm();
                 }else {
                     dispatch(singInFailure(response.message))
-                    setIsModalOpen(true)
-                    setModalText({
-                        title: "Inicio de sesion",
-                        text: "Contraseña o email incorrectos"
+                    setShowSnackbar({
+                        open: true,
+                        error: true,
+                        text: "Lo sentimos, algo ha ido mal"
                     })
                     formik.resetForm();
                 }
                 
             } catch (error) {
                 dispatch(singInFailure(error))
-                setIsModalOpen(true)
-                setModalText({
-                    title: "Inicio de sesion",
-                    text: "Lo sentimos algo ha ido mal"
-                })
+                    setShowSnackbar({
+                        open: true,
+                        error: true,
+                        text: error
+                    })
+                    formik.resetForm();
             }
            
             formik.resetForm();
@@ -106,13 +105,13 @@ const SingIn = ({user}) => {
     });
     return (
         <>
-            <Modal 
-            open={isModalOpen} 
-            close={handleClose}
-            title={modalText.title}
-            >
-            {modalText.text}
-            </Modal>
+            <SnackbarComponent
+             open={showSnackbar.open}
+             success={showSnackbar.error}
+             text={showSnackbar.text}
+             close={handleClose}
+             autoHide={4000}
+             />
             <FormComponent
             title="Entrar"
             onSubmit={formik.handleSubmit}

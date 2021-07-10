@@ -4,7 +4,7 @@
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
-  margin-top: 7.5rem;
+  margin-top: 120px;
   flex: 1;
 }
 
@@ -28,12 +28,6 @@ button:focus, button:active {
 .store__titulo{
   width: 400px;
   height: 200px;
-}
-
-@media  (max-width: 500px){
-  .app{
-    margin-top: 6rem;
-  }
 }
 
 @media (max-width: 767.98px){

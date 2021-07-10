@@ -1,12 +1,7 @@
 import React from "react"
 import ErrorPage from "../../pages/404/ErrorPage"
 
-const errorStyles = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center"
-}
+
 
 class ErrorBoundary extends React.Component {
   

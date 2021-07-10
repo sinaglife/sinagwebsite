@@ -9,7 +9,7 @@
 }   
 
 .productCard:hover{
-    filter: brightness(40%);
+    filter: brightness(60%);
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
@@ -17,7 +17,6 @@
     transition: all 1s ease;
     color: rgb(255, 255, 255);
     button{ 
-    
         color: rgb(255, 255, 255);
     }
 }
@@ -42,12 +41,14 @@
 
 .productCard__content{
     justify-content: space-between;
+    
     h3{
         font-size: 0.9rem;
         margin-top: 0.4rem;
         font-family: "Playfair Display", serif;
     }
     p{
+        
         font-size: 0.9rem;
         font-weight: bold;
         text-align: center;
@@ -60,7 +61,7 @@
     bottom: 0;
     left: 0;
     opacity: 0.8;
-    padding: 0.5rem;
+    padding: 0.2rem 0;
     width: 100%;
     font-size: 0.6rem;
     text-transform: uppercase;
@@ -99,10 +100,6 @@
             font-size: 0.8rem;
         }
     }
-
-    .productCard__info button{
-        padding: 0.5rem 0;
-    }
   }
 
   @media  (min-width: 501px)  and (max-width: 800px){
@@ -131,9 +128,6 @@
         }
     }
 
-    .productCard__info button{
-        padding: 0.5rem 0;
-    }
   }
 
   @media  (min-width: 801px)  and (max-width: 1300px){

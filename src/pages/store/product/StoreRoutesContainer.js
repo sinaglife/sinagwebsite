@@ -12,8 +12,10 @@ import {
 import ErrorBoundary from "../../../components/errorBoundary/ErrorBoundary"
 
 
-  const StoreRoutesContainer = ({isMenu, products, loading, getProducts}) => {
-
+  const StoreRoutesContainer = ({ products, loading, getProducts}) => {
+   
+    const isMenu = true;
+    
     useEffect(()=> {
         getProducts() 
        

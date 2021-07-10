@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch} from "react-redux"
 import { useHistory, Link } from "react-router-dom";
 import {InputRow, FormComponent} from "../../components/form/FormComponent"
-import Modal from "../../components/Modal"
+import SnackbarComponent from "../../components/SnackbarComponent"
 import Loading from "../../components/Loading"
 import {  
     registerUserStart,
@@ -20,10 +20,10 @@ import classes from "./RegistroSingIn.module.scss"
 
 const Register = () => {
     
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalText, setModalText] = useState({
-        title: "",
-        text: ""
+    const [showSnackbar, setShowSnackbar] = useState({
+        open: false,
+        error: false,
+        text: "Lo sentimos, algo ha ido mal"
     })
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
@@ -65,29 +65,29 @@ const Register = () => {
                 )
                 if(response.success){
                     dispatch(registerUserSuccess(response.data))
-                    setIsModalOpen(true)
-                    setModalText({
-                        title:"Registro exitoso",
-                        text: "revise su correo electronico"
+                    setShowSnackbar({
+                        open: true,
+                        text: "Registro exitoso, revise su bandeja de entrada"
                     })
                     formik.resetForm();
                 }else{
                     dispatch(registerUserFailure(response.message))
-                    setIsModalOpen(true)
-                    setModalText({
-                        title:"Registro Fallido",
-                        text: "Ya existe un usuario con este email"
+                    setShowSnackbar({
+                        open: true,
+                        error: true,
+                        text: "Lo sentimos, algo ha ido mal"
                     })
                     formik.resetForm();
                 }
                
             } catch (error) {
                 dispatch(registerUserFailure(error))
-                setIsModalOpen(true)
-                    setModalText({
-                        title:"Registro Fallido",
-                        text: "Lo sentimos, algo ha ido mal"
-                    })
+                setShowSnackbar({
+                    open: true,
+                    error: true,
+                    text: error
+                })
+                formik.resetForm();
             }
         },
         validate: values => {
@@ -95,7 +95,7 @@ const Register = () => {
 
             if(!values.email){
                 errors.email = "Email requerido"
-            }else if(values.email.length <= 8){
+            }else if(values.email.length <= 14){
                 errors.email = "Minimo 8 caracteres"
             }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
                 errors.email = "Email invalid"
@@ -103,7 +103,7 @@ const Register = () => {
 
             if(!values.password){
                 errors.password = "Password Required"
-            }else if(values.password.length < 6 ){
+            }else if(values.password.length < 8 ){
                 errors.password = "Contraseña minimo 8 caracteres"
             }
 
@@ -118,8 +118,10 @@ const Register = () => {
     });
 
     const handleClose = () => {
-        setIsModalOpen(false)
-        history.push("/")
+        setShowSnackbar({
+            open:false
+        })
+
     }
 
     const formData = [
@@ -184,13 +186,13 @@ const Register = () => {
         onSubmit={formik.handleSubmit}
         isSubmitting={formik.isSubmitting}
         >
-            <Modal 
-            open={isModalOpen} 
-            close={handleClose}
-            title={modalText.title}
-            >
-                {modalText.text}
-            </Modal>
+            <SnackbarComponent
+             open={showSnackbar.open}
+             success={showSnackbar.error}
+             text={showSnackbar.text}
+             close={handleClose}
+             autoHide={4000}
+             />
             {
                 formData.map((item, index)=> (
                     <InputRow

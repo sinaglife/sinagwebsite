@@ -34,8 +34,7 @@ const UpdatePassword = lazy(()=> import("./pages/registro_singIn/UpdatePassword"
 const DropOut = lazy(()=> import("./pages/registro_singIn/DropOut"))
 const StripeContainer = lazy(()=> import("./pages/checkout/payment/StripeContainer"))
 const SideDrawer = lazy(()=> import('./components/SideDrawer'))
-const ErrorPage = lazy(()=> import("./pages/404/ErrorPage"))
-
+const Workshop = lazy(() => import("./pages/workshop/Workshop"))
 
 const App = ()=> {
 
@@ -44,7 +43,7 @@ const App = ()=> {
   const [sliderData, setSliderData] = useState([])
   const [mosaicData, setMosaicData] = useState([])
 
-  const isMenu = true;
+
 
   useEffect(()=>{
     getData(
@@ -70,9 +69,11 @@ const App = ()=> {
     
 }, [])
 
+
   const sideDrawerOpenHandler = () =>{
     setSideDrawerOpen(true)
     setShowBackdrop(true)
+    
   };
 
   const sideDrawerCloseHandler = () =>{
@@ -126,6 +127,9 @@ const App = ()=> {
                 <Route exact path="/tallas">
                   <GuiaTallas />
                 </Route>
+                <Route exact path="/taller">
+                  <Workshop />
+                </Route>
                 <Route exact path="/nuevo-usuario">
                   <Register/>
                 </Route>
@@ -153,12 +157,9 @@ const App = ()=> {
                 <Route exact path="/checkout">
                   <Checkout />
                 </Route>  
-                <Route exact to="/404">
-                  <ErrorPage/>
-                </Route>
               </Switch>
               <InfoRoutesContainer/>
-              <StoreRoutesContainer isMenu={isMenu}/>
+              <StoreRoutesContainer />
             
             </div>
           </ErrorBoundary>

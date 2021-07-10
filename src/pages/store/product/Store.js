@@ -23,7 +23,7 @@ const Store = ({
        )))
 
        if(filterValue !== "")
-        setProductList(productList?.filter(item => (
+       setProductList(prevState => prevState.filter(item => (
         item?.name.toLowerCase().trim().includes(filterValue)
         )))
 

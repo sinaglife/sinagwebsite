@@ -7,7 +7,7 @@ import UserTooltip from "./components/UserTooltip"
 import { connect } from 'react-redux'
 import {getBasketLength} from "../../utils/basket.utils"
 import {singOutSuccess} from "../../redux/user/user.actions"
-import Modal from "../Modal"
+import UserModal from "../userModal/UserModal"
 
 const LogoHeader = () => {
   const [isShrunk, setShrunk] = useState(false);
@@ -47,20 +47,26 @@ const LogoHeader = () => {
 };
 
 const Toolbar = ({basket, user, singOut, ...props}) =>{
-  const [isTooltip, setIsTooltip] = useState(false)
+
   const [basketLength, setBasketLength] = useState()
+  const [isUserModal, setIsUserModal] = useState(false)
+
 
   useEffect(() => { 
       setBasketLength(getBasketLength(basket.basketItems))
   }, [basket.basketItems])
-
-  const isOpenToolTip = (e)=> setIsTooltip(true)
-
-  const isCloseToolTip = (e)=>  setIsTooltip(false)
    
+  const closeUserModal = () => setIsUserModal(false)
 
 
 return (
+  <>
+  <UserModal 
+  open={isUserModal}
+  close={closeUserModal}
+  user={user}
+  singOut={singOut}
+  />
       <div className={classes.toolbar} >
         <div className={classes.toolbar__mainButton} onClick={props.open}>
           <Button
@@ -73,7 +79,7 @@ return (
         <LogoHeader/>
         <div className={classes.toolbar__rightContainer}>
           <div className={classes.toolbar__right__user}    
-          onClick={()=> setIsTooltip(!isTooltip)}
+          onClick={()=> setIsUserModal(true)}
           >
               {
                 window.innerWidth >= 1000 &&
@@ -98,16 +104,9 @@ return (
               />
             </Link>
           </div>
-          {
-            isTooltip &&
-            <UserTooltip
-            isCloseToolTip={isCloseToolTip}
-            user={user}
-            singOut={singOut}
-            /> 
-          }
         </div>
       </div>
+    </>
   );
 }
 

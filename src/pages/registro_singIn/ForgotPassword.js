@@ -6,21 +6,20 @@ import {
 } from "../../components/form/FormComponent"
 import { getData} from "../../utils/functions"
 import uri from "../../utils/uri.utils"
-import Modal from "../../components/Modal"
-import { useHistory } from "react-router-dom";
+import SnackbarComponent from "../../components/SnackbarComponent"
+//import { useHistory } from "react-router-dom";
 import classes from "./RegistroSingIn.module.scss"
 
 const ForgotPassword = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalText, setModalText] = useState({
-        title: "",
-        text: ""
+    const [showSnackbar, setShowSnackbar] = useState({
+        open: false,
+        error: false,
+        text: "Lo sentimos, algo ha ido mal"
     })
     const initialState = {
         email: "",
     }
-    const history = useHistory()
 
     const formik = useFormik({
         initialValues: initialState,
@@ -37,28 +36,27 @@ const ForgotPassword = () => {
                 )
 
                 if(response.success){
-                    setIsModalOpen(true)
-                    setModalText({
-                        title:"Operacion exitosa",
-                        text: "Revise su correo electronico"
+                    setShowSnackbar({
+                        open: true,
+                        text: "Operacion exitosa, revisa tu bandeja de entrada"
                     })
                     formik.resetForm();
                 }else{
-                    setIsModalOpen(true)
-                    setModalText({
-                        title:"Error",
-                        text: "Algo ha ido mal, para cualquier duda pongase en contacto con soporte."
+                    setShowSnackbar({
+                        open: true,
+                        error: true,
+                        text: "Lo sentimos, algo ha ido mal"
                     })
                     formik.resetForm();
                 }
                 
             } catch (error) {
-                setIsModalOpen(true)
-                    setModalText({
-                        title:"Error",
-                        text: "Algo ha ido mal, para cualquier duda pongase en contacto con soporte."
-                    })
-                    formik.resetForm();
+                setShowSnackbar({
+                    open: true,
+                    error: true,
+                    text: "Lo sentimos, algo ha ido mal"
+                })
+                formik.resetForm();
             }
           
             formik.resetForm();
@@ -78,8 +76,9 @@ const ForgotPassword = () => {
     });
 
     const handleClose = () => {
-        setIsModalOpen(false)
-        history.push("/")
+        setShowSnackbar({
+            open:false
+        })
     }
 
     return (
@@ -88,13 +87,13 @@ const ForgotPassword = () => {
         onSubmit={formik.handleSubmit}
         isSubmitting={formik.isSubmitting}
         >
-            <Modal 
-            open={isModalOpen} 
-            close={handleClose}
-            title={modalText.title}
-            >
-                {modalText.text}
-            </Modal>
+             <SnackbarComponent
+             open={showSnackbar.open}
+             success={showSnackbar.error}
+             text={showSnackbar.text}
+             close={handleClose}
+             autoHide={4000}
+             />
             <InputRow 
                error={formik.errors.email}
                name="email" label="Email"

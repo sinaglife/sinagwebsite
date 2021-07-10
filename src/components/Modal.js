@@ -17,13 +17,19 @@ export default function SimpleModal({
       <Modal
         open={open}
         onClose={close}
+        disableEnforceFocus
+        disableAutoFocus
       >
         <div  className={classes.modal__container}>
-          <img  src={cometa} alt="" />
-          <h2  >{title}</h2>
-          <p>
-          {children}
-          </p>
+          <div className={classes.modal__content}>
+            <img  src={cometa} alt="cometa-sinaglife-accesorios" />
+            <h2>{title}</h2>
+            <div className={classes.modal__paragraph}>
+              <p>
+              {children}
+              </p>
+            </div>
+          </div>
         </div>
       </Modal>
     </div>

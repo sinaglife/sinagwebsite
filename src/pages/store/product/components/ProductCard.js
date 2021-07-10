@@ -12,13 +12,16 @@ const ProductCard = ({data, selectedImg, addProductToBasket}) => {
  
   const x = 1;
     return (
-        <div className={classes.productCard} >       
+        <div  className={classes.productCard} >       
             <div className={classes.productCard__container}>
-                <div className={classes.productCard__header}>
+                <div 
+                className={classes.productCard__header}
+                onClick={selectedImg}
+                >
                     <img 
-                      src={src}
-                      alt={alt} 
-                     />   
+                    src={src}
+                    alt={alt} 
+                    />   
                 </div>
                 <div className={classes.productCard__content}>
                     <h3>{title}</h3>
